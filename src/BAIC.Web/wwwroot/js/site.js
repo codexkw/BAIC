@@ -26,12 +26,20 @@ document.querySelectorAll('.mega-tab').forEach(tab => {
     });
 });
 
-// Cookie banner hide
-document.querySelectorAll('.ck-btn').forEach(btn => {
-    btn.addEventListener('click', function () {
-        this.closest('.cookie-banner').classList.add('hidden');
+// Cookie banner - show only once across all pages
+(function () {
+    const banner = document.getElementById('cookieBanner');
+    if (!banner) return;
+    if (localStorage.getItem('cookieConsent')) {
+        banner.classList.add('hidden');
+    }
+    banner.querySelectorAll('.ck-btn').forEach(btn => {
+        btn.addEventListener('click', function () {
+            banner.classList.add('hidden');
+            localStorage.setItem('cookieConsent', '1');
+        });
     });
-});
+})();
 
 // Scroll reveal for fade-in elements
 const fadeObserver = new IntersectionObserver((entries) => {
