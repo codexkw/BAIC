@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:rgba(0,0,0,.92)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
+.logo span{font-size:22px;font-weight:700;letter-spacing:5px}
+.nav-menu{display:flex}.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;transition:color .3s}
+.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}
+.nav-menu>li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}
+.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:4px}
+
+/* HERO */
+.cu-hero{position:relative;width:100%;height:380px;overflow:hidden;margin-top:64px}
+.cu-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cu-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.cu-hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;text-align:center;padding:0 40px}
+.cu-hero h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:24px}
+.cu-hero p{font-size:14px;line-height:2;color:rgba(255,255,255,.6);max-width:650px}
+
+/* FORM */
+.cu-form{max-width:700px;margin:0 auto;padding:60px 40px 80px}
+.cu-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px}
+.cu-field{display:flex;flex-direction:column}
+.cu-field.full{grid-column:1/-1}
+.cu-field label{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:8px;letter-spacing:1px}
+.cu-field input,.cu-field textarea,.cu-field select{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.15);padding:10px 0;font-size:14px;color:#fff;font-family:inherit;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none;width:100%}
+.cu-field select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.3)' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center;padding-right:24px}
+.cu-field select option{background:#111;color:#fff}
+.cu-field input:focus,.cu-field textarea:focus,.cu-field select:focus{border-bottom-color:rgba(255,255,255,.5)}
+.cu-field input::placeholder{color:rgba(255,255,255,.15);font-size:13px}
+.cu-field textarea{resize:vertical;min-height:80px}
+
+/* Phone row with code + number */
+.cu-phone-row{display:flex;gap:12px;align-items:flex-end}
+.cu-phone-code{flex:0 0 100px}
+.cu-phone-code select{font-size:13px}
+.cu-phone-num{flex:1}
+
+/* Relocate link */
+.cu-relocate{font-size:11px;color:rgba(255,255,255,.25);margin-top:4px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:color .3s}
+.cu-relocate:hover{color:rgba(255,255,255,.5)}
+.cu-relocate svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
+
+.cu-note{font-size:12px;color:rgba(255,255,255,.3);margin-top:24px;line-height:1.7;text-align:center}
+.cu-note a{color:rgba(255,255,255,.6);text-decoration:underline;transition:color .3s}
+.cu-note a:hover{color:#fff}
+
+.cu-submit{display:block;width:100%;margin-top:30px;padding:16px;font-size:14px;font-weight:500;letter-spacing:6px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;font-family:inherit;transition:all .3s;text-transform:uppercase}
+.cu-submit:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.45)}
+
+/* FOOTER */
+.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
+.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}
+.footer-col a:hover{color:#fff}
+.footer-brands{display:flex;align-items:center;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brands a{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.5)}
+.footer-more{margin-bottom:20px}
+.footer-more select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:12px;padding:8px 14px;font-family:inherit;cursor:pointer}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
+.cookie-banner.hidden{display:none}
+.cookie-text{flex:1}.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-accept{background:#fff;color:#000}
+
+@media(max-width:600px){
+  .cu-row{grid-template-columns:1fr}
+  .footer-cols{grid-template-columns:1fr 1fr}
+  .cookie-banner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header"><div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li><a href="#">Models</a><div class="dropdown"><a href="#">All</a></div></li>
+    <li><a href="#">Innovation</a><div class="dropdown"><a href="#">Capital Beauty</a><a href="#">Concept Car</a><a href="#">Off Road</a><a href="#">Power</a></div></li>
+    <li><a href="#">About</a><div class="dropdown"><a href="#">About Us</a><a href="#">History</a><a href="#">ESG</a><a href="#">After-sales Service</a></div></li>
+    <li><a href="#">Newsroom</a><div class="dropdown"><a href="#">News Release</a><a href="#">Subscribe</a><a href="#">Media Contact</a></div></li>
+    <li><a href="#">Connect</a><div class="dropdown"><a href="#">Contact Us</a><a href="#">Distributor Center</a><a href="#">Download Center</a></div></li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div></header>
+
+<!-- HERO -->
+<section class="cu-hero">
+  <img src="https://www.baicglobal.com/_nuxt/banner.Bzzl8AWw.avif" alt="Contact Us">
+  <div class="cu-hero-overlay"></div>
+  <div class="cu-hero-content">
+    <h1>Contact Us</h1>
+    <p>Thank you for your support to BAIC, &nbsp; <br>Please leave your contact information and questions, we will arrange professionals to contact you</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="cu-form">
+
+  <!-- Gender -->
+  <div class="cu-row">
+    <div class="cu-field full">
+      <label>Gender</label>
+      <select>
+        <option value="" disabled selected></option>
+        <option>Mr</option>
+        <option>Miss</option>
+        <option>Ms</option>
+        <option>Dr</option>
+        <option>others</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Full Name -->
+  <div class="cu-row">
+    <div class="cu-field full">
+      <label>Full Name</label>
+      <input type="text">
+    </div>
+  </div>
+
+  <!-- Nationality -->
+  <div class="cu-row">
+    <div class="cu-field full">
+      <label>Nationality</label>
+      <select id="countrySelect">
+        <option value="" disabled selected>Please enter your country</option>
+        <option>Afghanistan</option><option>Albania</option><option>Algeria</option><option>American Samoa</option><option>Andorra</option><option>Angola</option><option>Anguilla</option><option>Antarctica</option><option>Antigua and Barbuda</option><option>Argentina</option><option>Armenia</option><option>Aruba</option><option>Australia</option><option>Austria</option><option>Azerbaijan</option><option>Bahamas (the)</option><option>Bahrain</option><option>Bangladesh</option><option>Barbados</option><option>Belarus</option><option>Belgium</option><option>Belize</option><option>Benin</option><option>Bermuda</option><option>Bhutan</option><option>Bolivia (Plurinational State of)</option><option>Bonaire, Sint Eustatius and Saba</option><option>Bosnia and Herzegovina</option><option>Botswana</option><option>Bouvet Island</option><option>Brazil</option><option>British Indian Ocean Territory (the)</option><option>Brunei Darussalam</option><option>Bulgaria</option><option>Burkina Faso</option><option>Burundi</option><option>Cabo Verde</option><option>Cambodia</option><option>Cameroon</option><option>Canada</option><option>Cayman Islands (the)</option><option>Central African Republic (the)</option><option>Chad</option><option>Chile</option><option>China</option><option>Christmas Island</option><option>Cocos (Keeling) Islands (the)</option><option>Colombia</option><option>Comoros (the)</option><option>Congo (the Democratic Republic of the)</option><option>Congo (the)</option><option>Cook Islands (the)</option><option>Costa Rica</option><option>Croatia</option><option>Cuba</option><option>Curaçao</option><option>Cyprus</option><option>Czechia</option><option>Côte d'Ivoire</option><option>Denmark</option><option>Djibouti</option><option>Dominica</option><option>Dominican Republic (the)</option><option>Ecuador</option><option>Egypt</option><option>El Salvador</option><option>Equatorial Guinea</option><option>Eritrea</option><option>Estonia</option><option>Eswatini</option><option>Ethiopia</option><option>Falkland Islands (the) [Malvinas]</option><option>Faroe Islands (the)</option><option>Fiji</option><option>Finland</option><option>France</option><option>French Guiana</option><option>French Polynesia</option><option>French Southern Territories (the)</option><option>Gabon</option><option>Gambia (the)</option><option>Georgia</option><option>Germany</option><option>Ghana</option><option>Gibraltar</option><option>Greece</option><option>Greenland</option><option>Grenada</option><option>Guadeloupe</option><option>Guam</option><option>Guatemala</option><option>Guernsey</option><option>Guinea</option><option>Guinea-Bissau</option><option>Guyana</option><option>Haiti</option><option>Heard Island and McDonald Islands</option><option>Holy See (the)</option><option>Honduras</option><option>Hong Kong</option><option>Hungary</option><option>Iceland</option><option>India</option><option>Indonesia</option><option>Iran (Islamic Republic of)</option><option>Iraq</option><option>Ireland</option><option>Isle of Man</option><option>Israel</option><option>Italy</option><option>Jamaica</option><option>Japan</option><option>Jersey</option><option>Jordan</option><option>Kazakhstan</option><option>Kenya</option><option>Kiribati</option><option>Korea (the Democratic People's Republic of)</option><option>Korea (the Republic of)</option><option>Kuwait</option><option>Kyrgyzstan</option><option>Lao People's Democratic Republic (the)</option><option>Latvia</option><option>Lebanon</option><option>Lesotho</option><option>Liberia</option><option>Libya</option><option>Liechtenstein</option><option>Lithuania</option><option>Luxembourg</option><option>Macao</option><option>Madagascar</option><option>Malawi</option><option>Malaysia</option><option>Maldives</option><option>Mali</option><option>Malta</option><option>Marshall Islands (the)</option><option>Martinique</option><option>Mauritania</option><option>Mauritius</option><option>Mayotte</option><option>Mexico</option><option>Micronesia (Federated States of)</option><option>Moldova (the Republic of)</option><option>Monaco</option><option>Mongolia</option><option>Montenegro</option><option>Montserrat</option><option>Morocco</option><option>Mozambique</option><option>Myanmar</option><option>Namibia</option><option>Nauru</option><option>Nepal</option><option>Netherlands (Kingdom of the)</option><option>New Caledonia</option><option>New Zealand</option><option>Nicaragua</option><option>Niger (the)</option><option>Nigeria</option><option>Niue</option><option>Norfolk Island</option><option>North Macedonia</option><option>Northern Mariana Islands (the)</option><option>Norway</option><option>Oman</option><option>Pakistan</option><option>Palau</option><option>Palestine, State of</option><option>Panama</option><option>Papua New Guinea</option><option>Paraguay</option><option>Peru</option><option>Philippines (the)</option><option>Pitcairn</option><option>Poland</option><option>Portugal</option><option>Puerto Rico</option><option>Qatar</option><option>Romania</option><option>Russian Federation (the)</option><option>Rwanda</option><option>Réunion</option><option>Saint Barthélemy</option><option>Saint Helena, Ascension and Tristan da Cunha</option><option>Saint Kitts and Nevis</option><option>Saint Lucia</option><option>Saint Martin (French part)</option><option>Saint Pierre and Miquelon</option><option>Saint Vincent and the Grenadines</option><option>Samoa</option><option>San Marino</option><option>Sao Tome and Principe</option><option>Saudi Arabia</option><option>Senegal</option><option>Serbia</option><option>Seychelles</option><option>Sierra Leone</option><option>Singapore</option><option>Sint Maarten (Dutch part)</option><option>Slovakia</option><option>Slovenia</option><option>Solomon Islands</option><option>Somalia</option><option>South Africa</option><option>South Georgia and the South Sandwich Islands</option><option>South Sudan</option><option>Spain</option><option>Sri Lanka</option><option>Sudan (the)</option><option>Suriname</option><option>Svalbard and Jan Mayen</option><option>Sweden</option><option>Switzerland</option><option>Syrian Arab Republic (the)</option><option>Taiwan (Province of China)</option><option>Tajikistan</option><option>Tanzania, the United Republic of</option><option>Thailand</option><option>Timor-Leste</option><option>Togo</option><option>Tokelau</option><option>Tonga</option><option>Trinidad and Tobago</option><option>Tunisia</option><option>Turkmenistan</option><option>Turks and Caicos Islands (the)</option><option>Tuvalu</option><option>Türkiye</option><option>Uganda</option><option>Ukraine</option><option>United Arab Emirates (the)</option><option>United Kingdom of Great Britain and Northern Ireland (the)</option><option>United States Minor Outlying Islands (the)</option><option>United States of America (the)</option><option>Uruguay</option><option>Uzbekistan</option><option>Vanuatu</option><option>Venezuela (Bolivarian Republic of)</option><option>Viet Nam</option><option>Virgin Islands (British)</option><option>Virgin Islands (U.S.)</option><option>Wallis and Futuna</option><option>Western Sahara*</option><option>Yemen</option><option>Zambia</option><option>Zimbabwe</option><option>Åland Islands</option>
+      </select>
+      <span class="cu-relocate"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg> Click here to relocate</span>
+    </div>
+  </div>
+
+  <!-- Phone -->
+  <div class="cu-row">
+    <div class="cu-field full">
+      <label>Phone</label>
+      <div class="cu-phone-row">
+        <div class="cu-phone-code">
+          <select>
+            <option value="+86">+86</option><option value="+93">+93</option><option value="+355">+355</option><option value="+213">+213</option><option value="+1684">+1684</option><option value="+376">+376</option><option value="+244">+244</option><option value="+1264">+1264</option><option value="+1268">+1268</option><option value="+54">+54</option><option value="+374">+374</option><option value="+297">+297</option><option value="+61">+61</option><option value="+43">+43</option><option value="+994">+994</option><option value="+1242">+1242</option><option value="+973">+973</option><option value="+880">+880</option><option value="+1246">+1246</option><option value="+375">+375</option><option value="+32">+32</option><option value="+501">+501</option><option value="+229">+229</option><option value="+1441">+1441</option><option value="+975">+975</option><option value="+591">+591</option><option value="+387">+387</option><option value="+267">+267</option><option value="+55">+55</option><option value="+246">+246</option><option value="+1284">+1284</option><option value="+673">+673</option><option value="+359">+359</option><option value="+226">+226</option><option value="+257">+257</option><option value="+855">+855</option><option value="+237">+237</option><option value="+1">+1</option><option value="+238">+238</option><option value="+599">+599</option><option value="+1345">+1345</option><option value="+236">+236</option><option value="+235">+235</option><option value="+56">+56</option><option value="+57">+57</option><option value="+269">+269</option><option value="+243">+243</option><option value="+242">+242</option><option value="+682">+682</option><option value="+506">+506</option><option value="+225">+225</option><option value="+385">+385</option><option value="+53">+53</option><option value="+357">+357</option><option value="+420">+420</option><option value="+45">+45</option><option value="+253">+253</option><option value="+1767">+1767</option><option value="+593">+593</option><option value="+20">+20</option><option value="+503">+503</option><option value="+240">+240</option><option value="+291">+291</option><option value="+372">+372</option><option value="+251">+251</option><option value="+500">+500</option><option value="+298">+298</option><option value="+679">+679</option><option value="+358">+358</option><option value="+33">+33</option><option value="+594">+594</option><option value="+689">+689</option><option value="+241">+241</option><option value="+220">+220</option><option value="+995">+995</option><option value="+49">+49</option><option value="+233">+233</option><option value="+350">+350</option><option value="+30">+30</option><option value="+299">+299</option><option value="+1473">+1473</option><option value="+590">+590</option><option value="+1671">+1671</option><option value="+502">+502</option><option value="+44">+44</option><option value="+224">+224</option><option value="+245">+245</option><option value="+592">+592</option><option value="+509">+509</option><option value="+504">+504</option><option value="+852">+852</option><option value="+36">+36</option><option value="+354">+354</option><option value="+91">+91</option><option value="+62">+62</option><option value="+98">+98</option><option value="+964">+964</option><option value="+353">+353</option><option value="+972">+972</option><option value="+39">+39</option><option value="+1876">+1876</option><option value="+81">+81</option><option value="+962">+962</option><option value="+7">+7</option><option value="+254">+254</option><option value="+686">+686</option><option value="+383">+383</option><option value="+965">+965</option><option value="+996">+996</option><option value="+856">+856</option><option value="+371">+371</option><option value="+961">+961</option><option value="+266">+266</option><option value="+231">+231</option><option value="+218">+218</option><option value="+423">+423</option><option value="+370">+370</option><option value="+352">+352</option><option value="+853">+853</option><option value="+389">+389</option><option value="+261">+261</option><option value="+265">+265</option><option value="+60">+60</option><option value="+960">+960</option><option value="+223">+223</option><option value="+356">+356</option><option value="+692">+692</option><option value="+596">+596</option><option value="+222">+222</option><option value="+230">+230</option><option value="+262">+262</option><option value="+52">+52</option><option value="+691">+691</option><option value="+373">+373</option><option value="+377">+377</option><option value="+976">+976</option><option value="+382">+382</option><option value="+1664">+1664</option><option value="+212">+212</option><option value="+258">+258</option><option value="+95">+95</option><option value="+264">+264</option><option value="+674">+674</option><option value="+977">+977</option><option value="+31">+31</option><option value="+687">+687</option><option value="+64">+64</option><option value="+505">+505</option><option value="+227">+227</option><option value="+234">+234</option><option value="+683">+683</option><option value="+672">+672</option><option value="+850">+850</option><option value="+1670">+1670</option><option value="+47">+47</option><option value="+968">+968</option><option value="+92">+92</option><option value="+680">+680</option><option value="+970">+970</option><option value="+507">+507</option><option value="+675">+675</option><option value="+595">+595</option><option value="+51">+51</option><option value="+63">+63</option><option value="+48">+48</option><option value="+351">+351</option><option value="+974">+974</option><option value="+40">+40</option><option value="+250">+250</option><option value="+290">+290</option><option value="+1869">+1869</option><option value="+1758">+1758</option><option value="+508">+508</option><option value="+1784">+1784</option><option value="+685">+685</option><option value="+378">+378</option><option value="+239">+239</option><option value="+966">+966</option><option value="+221">+221</option><option value="+381">+381</option><option value="+248">+248</option><option value="+232">+232</option><option value="+65">+65</option><option value="+1721">+1721</option><option value="+421">+421</option><option value="+386">+386</option><option value="+677">+677</option><option value="+252">+252</option><option value="+27">+27</option><option value="+82">+82</option><option value="+211">+211</option><option value="+34">+34</option><option value="+94">+94</option><option value="+249">+249</option><option value="+597">+597</option><option value="+268">+268</option><option value="+46">+46</option><option value="+41">+41</option><option value="+963">+963</option><option value="+886">+886</option><option value="+992">+992</option><option value="+255">+255</option><option value="+66">+66</option><option value="+670">+670</option><option value="+228">+228</option><option value="+690">+690</option><option value="+676">+676</option><option value="+1868">+1868</option><option value="+216">+216</option><option value="+90">+90</option><option value="+993">+993</option><option value="+1649">+1649</option><option value="+688">+688</option><option value="+1340">+1340</option><option value="+256">+256</option><option value="+380">+380</option><option value="+971">+971</option><option value="+598">+598</option><option value="+998">+998</option><option value="+678">+678</option><option value="+58">+58</option><option value="+84">+84</option><option value="+681">+681</option><option value="+967">+967</option><option value="+260">+260</option><option value="+263">+263</option>
+          </select>
+        </div>
+        <div class="cu-phone-num">
+          <input type="tel" placeholder="">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- E-mail -->
+  <div class="cu-row">
+    <div class="cu-field full">
+      <label>E-mail</label>
+      <input type="email">
+    </div>
+  </div>
+
+  <!-- Problem Type -->
+  <div class="cu-row">
+    <div class="cu-field full">
+      <label>Problem Type</label>
+      <select>
+        <option value="" disabled selected>Please select problem type</option>
+        <option>Other</option>
+        <option>Product</option>
+        <option>After Sales</option>
+        <option>Sales</option>
+        <option>Business Cooperation</option>
+        <option>used-car sales</option>
+      </select>
+    </div>
+  </div>
+
+  <!-- Questions -->
+  <div class="cu-field full">
+    <label>Questions</label>
+    <textarea></textarea>
+  </div>
+
+  <p class="cu-note">If you have more information, please send to <a href="mailto:contact@baicintl.com">contact@baicintl.com</a></p>
+
+  <button class="cu-submit">SUBMIT</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ80</a></li><li><a href="#">BJ60</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Join Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands"><a href="/">BAIC</a><a href="https://www.arcfox.com.cn/" target="_blank">ARCFOX</a></div>
+  <div class="footer-more"><select><option>More BAlC Websites</option><option>ARCFOX</option><option>BAIC CHINA</option><option>BAIC GROUP</option></select></div>
+  <div class="footer-bottom"><div><a href="#">Privacy Statement</a> &nbsp;|&nbsp; <a href="#">Cookie Settings</a></div><span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span></div>
+</div></footer>
+
+<!-- COOKIE -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text"><h4>Your Privacy</h4><p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies. Please click on the different category headings to find out more about or modify our default settings. However, please be aware that disabling certain cookies may affect your browsing experience on our website and limit the services we can provide.</p></div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings" onclick="this.closest('.cookie-banner').classList.add('hidden')">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+</script>
+</body>
+</html>

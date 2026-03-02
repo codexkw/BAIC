@@ -1,0 +1,60 @@
+<header class="header" id="header">
+<div class="header-inner">
+  <a asp-controller="Home" asp-action="Index" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li class="has-mega"><a href="#">Models</a>
+      <div class="mega-menu"><div class="mega-inner">
+        <div class="mega-tabs">
+          <button class="mega-tab active" data-filter="all">All</button><button class="mega-tab" data-filter="offroad">Off-road</button><button class="mega-tab" data-filter="suv">SUV</button><button class="mega-tab" data-filter="sedan">Sedan</button><button class="mega-tab" data-filter="ev">EV</button>
+        </div>
+        <div class="mega-models">
+          <a asp-controller="Models" asp-action="BJ30" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="BJ30"><span>BJ30</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="BJ80"><span>BJ80</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="BJ60"><span>BJ60</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS"><span>BJ40 PLUS</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/07/10/bj40-plus3333_20240827160110A019_20250710154540A057.avif" alt="BJ40 PRO"><span>BJ40 PRO</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="BJ40 SE"><span>BJ40 SE</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="F40"><span>F40</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="X35"><span>X35</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="X55 II"><span>X55 II</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="ALL NEW X7"><span>ALL NEW X7</span></a>
+          <a href="#" class="mega-model-item" data-cat="sedan"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="U5 PLUS"><span>U5 PLUS</span></a>
+          <a href="#" class="mega-model-item" data-cat="ev"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="EU5"><span>EU5</span></a>
+        </div>
+      </div></div>
+    </li>
+    <li><a href="#">Innovation</a>
+      <div class="dropdown">
+        <a asp-controller="Innovation" asp-action="CapitalBeauty">Capital Beauty</a>
+        <a asp-controller="Innovation" asp-action="ConceptCar">Concept Car</a>
+        <a asp-controller="Innovation" asp-action="OffRoad">Off Road</a>
+        <a asp-controller="Innovation" asp-action="Power">Power</a>
+      </div>
+    </li>
+    <li><a href="#">About</a>
+      <div class="dropdown">
+        <a asp-controller="About" asp-action="Index">About Us</a>
+        <a asp-controller="About" asp-action="History">History</a>
+        <a asp-controller="About" asp-action="ESG">ESG</a>
+        <a asp-controller="About" asp-action="AfterSale">After-sales Service</a>
+      </div>
+    </li>
+    <li><a href="#">Newsroom</a>
+      <div class="dropdown">
+        <a asp-controller="News" asp-action="NewsRelease">News Release</a>
+        <a asp-controller="News" asp-action="Subscribe">Subscribe</a>
+        <a asp-controller="News" asp-action="MediaContact">Media Contact</a>
+      </div>
+    </li>
+    <li><a href="#">Connect</a>
+      <div class="dropdown">
+        <a asp-controller="Connect" asp-action="ContactUs">Contact Us</a>
+        <a href="#">Distributor Center</a>
+        <a asp-controller="News" asp-action="DownloadCenter">Download Center</a>
+      </div>
+    </li>
+    <li><a asp-controller="Worldwide" asp-action="Index">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div>
+</header>

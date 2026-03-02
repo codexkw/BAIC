@@ -1,0 +1,48 @@
+/* ========== DOWNLOAD CENTER ========== */
+/* This page has a UNIQUE white background theme with dark text */
+
+/* Body/page overrides for white theme */
+body{background:#fff;color:#222}
+
+/* Header overrides for dark header on white page */
+.header{background:rgba(0,0,0,.85)}
+.header.scrolled{background:rgba(0,0,0,.95)}
+.logo img{height:30px}
+
+/* Footer override for white-page context */
+.footer{color:#fff;margin-top:80px}
+
+/* Cookie banner override for white-page context */
+.cookie-banner{color:#fff}
+
+/* PAGE */
+.dl-page{max-width:1300px;margin:0 auto;padding:120px 50px 60px}
+
+/* TITLE */
+.dl-title{font-size:32px;font-weight:700;color:#1a1a1a;margin-bottom:50px;letter-spacing:1px}
+
+/* TAB - centered with red underline */
+.dl-tab-wrap{text-align:center;margin-bottom:60px}
+.dl-tab{display:inline-block;font-size:20px;color:#222;letter-spacing:2px;padding-bottom:12px;border-bottom:3px solid #c00;font-weight:400}
+
+/* GRID - 4 columns */
+.dl-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:50px 28px}
+.dl-card{cursor:pointer;transition:transform .3s}
+.dl-card:hover{transform:translateY(-3px)}
+.dl-card-img{width:100%;aspect-ratio:4/3;overflow:hidden;margin-bottom:14px;background:#f2f2f2;position:relative}
+.dl-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .3s}
+.dl-card:hover .dl-card-img img{transform:scale(1.03)}
+.dl-card-date{font-size:14px;color:#999;margin-bottom:6px}
+.dl-card h3{font-size:18px;font-weight:700;color:#1a1a1a;letter-spacing:.5px}
+
+/* PAGINATION */
+.dl-pagination{display:flex;align-items:center;justify-content:center;gap:6px;padding:60px 0 0}
+.dl-pagination span{display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;font-size:13px;color:#fff;background:#1a1a1a;border-radius:4px}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .dl-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:500px){
+  .dl-grid{grid-template-columns:1fr}
+}

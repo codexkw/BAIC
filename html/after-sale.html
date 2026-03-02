@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>After-sales Service - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:rgba(0,0,0,.92)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
+.logo span{font-size:22px;font-weight:700;letter-spacing:5px}
+.nav-menu{display:flex}.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;transition:color .3s}
+.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}
+.nav-menu>li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}
+.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:4px}
+
+/* ========== HERO ========== */
+.as-hero{position:relative;width:100%;height:70vh;min-height:450px;overflow:hidden;margin-top:64px}
+.as-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.as-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.as-hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;text-align:center;padding:0 40px}
+.as-hero h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:24px}
+.as-hero p{font-size:14px;line-height:2;color:rgba(255,255,255,.65);max-width:650px}
+
+/* ========== 4 VALUE CARDS ========== */
+.as-values{padding:80px 40px;background:#000}
+.as-values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto}
+.as-card{position:relative;overflow:hidden;border-radius:6px;cursor:pointer;group:true}
+.as-card img{width:100%;height:280px;object-fit:cover;transition:transform .5s ease}
+.as-card:hover img{transform:scale(1.06)}
+.as-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.15) 50%,transparent 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:24px 16px;transition:background .3s}
+.as-card:hover .as-card-overlay{background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.25) 60%,transparent 100%)}
+.as-card h3{font-size:16px;font-weight:600;letter-spacing:3px;margin-bottom:8px;text-transform:uppercase}
+.as-card p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.5);text-align:center}
+
+/* ========== MAP SECTION ========== */
+.as-map{padding:70px 40px;text-align:center;background:#0a0a0a}
+.as-map h3{font-size:22px;font-weight:300;letter-spacing:4px;margin-bottom:10px;color:rgba(255,255,255,.85)}
+.as-map .sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:40px}
+.as-map img{max-width:1000px;width:100%;margin:0 auto}
+
+/* ========== QUESTIONNAIRE SECTION ========== */
+.as-form{padding:70px 40px;text-align:center;background:#000}
+.as-form h3{font-size:22px;font-weight:300;letter-spacing:4px;margin-bottom:10px;color:rgba(255,255,255,.85)}
+.as-form .sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:40px}
+.as-form .submit-btn{display:inline-block;padding:14px 60px;font-size:14px;font-weight:500;letter-spacing:4px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.3);cursor:pointer;font-family:inherit;transition:all .3s;text-transform:uppercase}
+.as-form .submit-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+
+/* FOOTER */
+.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
+.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}
+.footer-col a:hover{color:#fff}
+.footer-brands{display:flex;align-items:center;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brands a{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.5)}
+.footer-more{margin-bottom:20px}
+.footer-more select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:12px;padding:8px 14px;font-family:inherit;cursor:pointer}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
+.cookie-banner.hidden{display:none}
+.cookie-text{flex:1}.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-accept{background:#fff;color:#000}
+
+.fade-in{opacity:0;transform:translateY(25px);transition:opacity .7s ease,transform .7s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .as-values-grid{grid-template-columns:1fr 1fr}
+  .as-hero h1{font-size:24px}
+  .footer-cols{grid-template-columns:1fr 1fr}
+  .cookie-banner{flex-direction:column}
+}
+@media(max-width:600px){
+  .as-values-grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header"><div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li><a href="#">Models</a><div class="dropdown"><a href="#">All</a></div></li>
+    <li><a href="#">Innovation</a><div class="dropdown"><a href="#">Capital Beauty</a><a href="#">Concept Car</a><a href="#">Off Road</a><a href="#">Power</a></div></li>
+    <li><a href="#">About</a><div class="dropdown"><a href="#">About Us</a><a href="#">History</a><a href="#">ESG</a><a href="#">After-sales Service</a></div></li>
+    <li><a href="#">Newsroom</a><div class="dropdown"><a href="#">News Release</a><a href="#">Subscribe</a><a href="#">Media Contact</a></div></li>
+    <li><a href="#">Connect</a><div class="dropdown"><a href="#">Contact Us</a><a href="#">Distributor Center</a><a href="#">Download Center</a></div></li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div></header>
+
+<!-- HERO -->
+<section class="as-hero">
+  <img src="https://www.baicglobal.com/_nuxt/after-sale-banner.et4n-X45.jpg" alt="After-Sales Service">
+  <div class="as-hero-overlay"></div>
+  <div class="as-hero-content">
+    <h1>After-Sales Service</h1>
+    <p>With our rigorous observation of consumer behavior and our meticulous care for every detail,<br>we strive to understand and satisfy the ever increasing demands of our clients.</p>
+  </div>
+</section>
+
+<!-- 4 VALUE CARDS -->
+<section class="as-values fade-in">
+  <div class="as-values-grid">
+
+    <div class="as-card">
+      <img src="https://www.baicglobal.com/file/common/image/2022/08/12/1_20220812153444A052.jpg" alt="INTEGRITY">
+      <div class="as-card-overlay">
+        <h3>INTEGRITY</h3>
+        <p>Original spare parts and transparent and reasonable price</p>
+      </div>
+    </div>
+
+    <div class="as-card">
+      <img src="https://www.baicglobal.com/file/common/image/2022/08/12/888888888_20220812171220A082.jpg" alt="WARM">
+      <div class="as-card-overlay">
+        <h3>WARM</h3>
+        <p>Convenient service service dealers and quick repair and maintenance</p>
+      </div>
+    </div>
+
+    <div class="as-card">
+      <img src="https://www.baicglobal.com/file/common/image/2022/08/12/3_20220812155730A072.png" alt="CARE">
+      <div class="as-card-overlay">
+        <h3>CARE</h3>
+        <p>Focus on customer needs and dedicated after-sales service</p>
+      </div>
+    </div>
+
+    <div class="as-card">
+      <img src="https://www.baicglobal.com/file/common/image/2022/08/12/123456_20220812171326A084.jpg" alt="PROFESSIONAL">
+      <div class="as-card-overlay">
+        <h3>PROFESSIONAL</h3>
+        <p>Advanced facilities and professional service team</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MAP SECTION -->
+<section class="as-map fade-in">
+  <h3>Multiple After-Sales Service Points Around The World</h3>
+  <p class="sub">45 after-sales service channels and 189 service dealers</p>
+  <img src="https://www.baicglobal.com/_nuxt/map.DU9VEqCU.png" alt="BAIC After-Sales Service Map">
+</section>
+
+<!-- QUESTIONNAIRE SECTION -->
+<section class="as-form fade-in">
+  <h3>Please Click Yo Fill In The Questionnaire</h3>
+  <p class="sub">45 after-sales service channels and 189 service dealers</p>
+  <button class="submit-btn">SUBMIT</button>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ60</a></li><li><a href="#">BJ80</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands"><a href="/">BAIC</a><a href="https://www.arcfox.com.cn/" target="_blank">ARCFOX</a></div>
+  <div class="footer-more"><select><option>More BAlC Websites</option><option>ARCFOX</option><option>BAIC CHINA</option><option>BAIC GROUP</option></select></div>
+  <div class="footer-bottom"><div><a href="#">Privacy Statement</a> &nbsp;|&nbsp; <a href="#">Cookie Settings</a></div><span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span></div>
+</div></footer>
+
+<!-- COOKIE -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text"><h4>Your Privacy</h4><p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies. Please click on the different category headings to find out more about or modify our default settings. However, please be aware that disabling certain cookies may affect your browsing experience on our website and limit the services we can provide.</p></div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings" onclick="this.closest('.cookie-banner').classList.add('hidden')">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+const obs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:0.15});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

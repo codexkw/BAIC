@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Subscribe - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:rgba(0,0,0,.92)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
+.logo span{font-size:22px;font-weight:700;letter-spacing:5px}
+.nav-menu{display:flex}.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;transition:color .3s}
+.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}
+.nav-menu>li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}
+.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:4px}
+
+/* HERO */
+.sub-hero{position:relative;width:100%;height:380px;overflow:hidden;margin-top:64px}
+.sub-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sub-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.sub-hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;text-align:center;padding:0 40px}
+.sub-hero h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:24px}
+.sub-hero p{font-size:14px;line-height:2;color:rgba(255,255,255,.6);max-width:650px}
+
+/* FORM SECTION */
+.sub-form-section{max-width:700px;margin:0 auto;padding:60px 40px 80px}
+.sub-form-section h2{font-size:26px;font-weight:300;letter-spacing:3px;margin-bottom:40px;text-align:center}
+.sub-form-section h2 span{color:rgba(255,255,255,.4);font-weight:300}
+
+.sub-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.sub-field{display:flex;flex-direction:column}
+.sub-field.full{grid-column:1/-1}
+.sub-field label{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:8px;letter-spacing:1px}
+.sub-field input,.sub-field textarea{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.15);padding:10px 0;font-size:14px;color:#fff;font-family:inherit;outline:none;transition:border-color .3s}
+.sub-field input:focus,.sub-field textarea:focus{border-bottom-color:rgba(255,255,255,.5)}
+.sub-field input::placeholder,.sub-field textarea::placeholder{color:rgba(255,255,255,.15)}
+.sub-field textarea{resize:vertical;min-height:80px}
+
+.sub-submit{display:block;width:100%;margin-top:40px;padding:16px;font-size:14px;font-weight:500;letter-spacing:6px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;font-family:inherit;transition:all .3s;text-transform:uppercase}
+.sub-submit:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.45)}
+
+/* FOOTER */
+.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
+.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}
+.footer-col a:hover{color:#fff}
+.footer-brands{display:flex;align-items:center;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brands a{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.5)}
+.footer-more{margin-bottom:20px}
+.footer-more select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:12px;padding:8px 14px;font-family:inherit;cursor:pointer}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
+.cookie-banner.hidden{display:none}
+.cookie-text{flex:1}.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-accept{background:#fff;color:#000}
+
+@media(max-width:600px){
+  .sub-row{grid-template-columns:1fr}
+  .footer-cols{grid-template-columns:1fr 1fr}
+  .cookie-banner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header"><div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li><a href="#">Models</a><div class="dropdown"><a href="#">All</a></div></li>
+    <li><a href="#">Innovation</a><div class="dropdown"><a href="#">Capital Beauty</a><a href="#">Concept Car</a><a href="#">Off Road</a><a href="#">Power</a></div></li>
+    <li><a href="#">About</a><div class="dropdown"><a href="#">About Us</a><a href="#">History</a><a href="#">ESG</a><a href="#">After-sales Service</a></div></li>
+    <li><a href="#">Newsroom</a><div class="dropdown"><a href="#">News Release</a><a href="#">Subscribe</a><a href="#">Media Contact</a></div></li>
+    <li><a href="#">Connect</a><div class="dropdown"><a href="#">Contact Us</a><a href="#">Distributor Center</a><a href="#">Download Center</a></div></li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div></header>
+
+<!-- HERO -->
+<section class="sub-hero">
+  <img src="https://www.baicglobal.com/_nuxt/banner.CiZCqB0x.avif" alt="Subscribe">
+  <div class="sub-hero-overlay"></div>
+  <div class="sub-hero-content">
+    <h1>Subscribe</h1>
+    <p>Welcome to the News Subscription Center. If you are interested in our news, please keep abreast of us.<br>Your information will be kept strictly confidential and limited to our sending you press releases.</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="sub-form-section">
+  <h2>BAIC<span>，</span>Always Be With You</h2>
+
+  <div class="sub-row">
+    <div class="sub-field">
+      <label>First Name</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="sub-field">
+      <label>Last Name</label>
+      <input type="text" placeholder="">
+    </div>
+  </div>
+
+  <div class="sub-row">
+    <div class="sub-field">
+      <label>Media Name</label>
+      <input type="text" placeholder="">
+    </div>
+    <div class="sub-field">
+      <label>E-mail</label>
+      <input type="email" placeholder="">
+    </div>
+  </div>
+
+  <div class="sub-field full" style="margin-bottom:0">
+    <label>Media Introduction</label>
+    <textarea placeholder=""></textarea>
+  </div>
+
+  <button class="sub-submit">SUBSCRIBE</button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ60</a></li><li><a href="#">BJ80</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands"><a href="/">BAIC</a><a href="https://www.arcfox.com.cn/" target="_blank">ARCFOX</a></div>
+  <div class="footer-more"><select><option>More BAlC Websites</option><option>ARCFOX</option><option>BAIC CHINA</option><option>BAIC GROUP</option></select></div>
+  <div class="footer-bottom"><div><a href="#">Privacy Statement</a> &nbsp;|&nbsp; <a href="#">Cookie Settings</a></div><span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span></div>
+</div></footer>
+
+<!-- COOKIE -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text"><h4>Your Privacy</h4><p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies. Please click on the different category headings to find out more about or modify our default settings. However, please be aware that disabling certain cookies may affect your browsing experience on our website and limit the services we can provide.</p></div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings" onclick="this.closest('.cookie-banner').classList.add('hidden')">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+</script>
+</body>
+</html>

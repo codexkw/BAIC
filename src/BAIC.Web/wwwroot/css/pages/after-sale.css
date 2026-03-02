@@ -1,0 +1,40 @@
+/* ========== HERO ========== */
+.as-hero{position:relative;width:100%;height:70vh;min-height:450px;overflow:hidden;margin-top:64px}
+.as-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.as-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.as-hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;text-align:center;padding:0 40px}
+.as-hero h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:24px}
+.as-hero p{font-size:14px;line-height:2;color:rgba(255,255,255,.65);max-width:650px}
+
+/* ========== 4 VALUE CARDS ========== */
+.as-values{padding:80px 40px;background:#000}
+.as-values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1200px;margin:0 auto}
+.as-card{position:relative;overflow:hidden;border-radius:6px;cursor:pointer;group:true}
+.as-card img{width:100%;height:280px;object-fit:cover;transition:transform .5s ease}
+.as-card:hover img{transform:scale(1.06)}
+.as-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.15) 50%,transparent 100%);display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding:24px 16px;transition:background .3s}
+.as-card:hover .as-card-overlay{background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.25) 60%,transparent 100%)}
+.as-card h3{font-size:16px;font-weight:600;letter-spacing:3px;margin-bottom:8px;text-transform:uppercase}
+.as-card p{font-size:12px;line-height:1.7;color:rgba(255,255,255,.5);text-align:center}
+
+/* ========== MAP SECTION ========== */
+.as-map{padding:70px 40px;text-align:center;background:#0a0a0a}
+.as-map h3{font-size:22px;font-weight:300;letter-spacing:4px;margin-bottom:10px;color:rgba(255,255,255,.85)}
+.as-map .sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:40px}
+.as-map img{max-width:1000px;width:100%;margin:0 auto}
+
+/* ========== QUESTIONNAIRE SECTION ========== */
+.as-form{padding:70px 40px;text-align:center;background:#000}
+.as-form h3{font-size:22px;font-weight:300;letter-spacing:4px;margin-bottom:10px;color:rgba(255,255,255,.85)}
+.as-form .sub{font-size:13px;color:rgba(255,255,255,.4);margin-bottom:40px}
+.as-form .submit-btn{display:inline-block;padding:14px 60px;font-size:14px;font-weight:500;letter-spacing:4px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.3);cursor:pointer;font-family:inherit;transition:all .3s;text-transform:uppercase}
+.as-form .submit-btn:hover{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.5)}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:900px){
+  .as-values-grid{grid-template-columns:1fr 1fr}
+  .as-hero h1{font-size:24px}
+}
+@media(max-width:600px){
+  .as-values-grid{grid-template-columns:1fr}
+}

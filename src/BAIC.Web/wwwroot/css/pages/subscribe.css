@@ -1,0 +1,31 @@
+/* ========== SUBSCRIBE ========== */
+
+/* HERO */
+.sub-hero{position:relative;width:100%;height:380px;overflow:hidden;margin-top:64px}
+.sub-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sub-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.sub-hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;text-align:center;padding:0 40px}
+.sub-hero h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:24px}
+.sub-hero p{font-size:14px;line-height:2;color:rgba(255,255,255,.6);max-width:650px}
+
+/* FORM SECTION */
+.sub-form-section{max-width:700px;margin:0 auto;padding:60px 40px 80px}
+.sub-form-section h2{font-size:26px;font-weight:300;letter-spacing:3px;margin-bottom:40px;text-align:center}
+.sub-form-section h2 span{color:rgba(255,255,255,.4);font-weight:300}
+
+.sub-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:20px}
+.sub-field{display:flex;flex-direction:column}
+.sub-field.full{grid-column:1/-1}
+.sub-field label{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:8px;letter-spacing:1px}
+.sub-field input,.sub-field textarea{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.15);padding:10px 0;font-size:14px;color:#fff;font-family:inherit;outline:none;transition:border-color .3s}
+.sub-field input:focus,.sub-field textarea:focus{border-bottom-color:rgba(255,255,255,.5)}
+.sub-field input::placeholder,.sub-field textarea::placeholder{color:rgba(255,255,255,.15)}
+.sub-field textarea{resize:vertical;min-height:80px}
+
+.sub-submit{display:block;width:100%;margin-top:40px;padding:16px;font-size:14px;font-weight:500;letter-spacing:6px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;font-family:inherit;transition:all .3s;text-transform:uppercase}
+.sub-submit:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.45)}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .sub-row{grid-template-columns:1fr}
+}

@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>History - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#ccc9c4;color:#333;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:rgba(255,255,255,.98);box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:56px}
+.logo span{font-size:22px;font-weight:700;letter-spacing:5px;color:#c00}
+.nav-menu{display:flex}.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:18px 20px;font-size:14px;color:#333;font-weight:500;transition:color .3s}
+.nav-menu>li>a:hover{color:#c00}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:#fff;min-width:200px;padding:10px 0;display:none;border-top:2px solid #c00;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.nav-menu>li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:#666;transition:all .3s}
+.dropdown a:hover{color:#c00;background:rgba(200,0,0,.03)}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{background:none;border:none;color:#333;font-size:14px;cursor:pointer;font-family:inherit;font-weight:500}
+.lang-select::after{content:"▾";margin-left:3px;font-size:10px}
+
+/* ========== HERO ========== */
+.hi-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden}
+.hi-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hi-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,rgba(0,0,0,.1) 40%,transparent 70%)}
+.hi-hero h1{position:absolute;bottom:80px;left:0;right:0;text-align:center;z-index:2;font-size:20px;font-weight:300;letter-spacing:6px;color:rgba(255,255,255,.75)}
+
+/* ========== INTRO ========== */
+.hi-intro{position:relative;overflow:hidden;min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#ccc9c4}
+.hi-intro-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.15}
+.hi-intro-content{position:relative;z-index:2;text-align:center;padding:60px 40px}
+.hi-intro h2{font-size:18px;font-weight:400;letter-spacing:10px;margin-bottom:60px;color:rgba(0,0,0,.2);text-transform:uppercase}
+.hi-intro-logo{width:120px;margin:0 auto 50px;opacity:.2}
+.hi-intro-car{width:450px;max-width:80%;margin:0 auto}
+
+/* ========== TIMELINE ========== */
+.hi-timeline{position:relative;background:#ccc9c4;padding:80px 0 0;overflow:hidden}
+
+/* Central red road - offset right ~53% */
+.hi-road{position:absolute;left:53%;top:0;width:10px;background:#c00;transform:translateX(-50%);z-index:1;border-radius:5px 5px 0 0;height:100%}
+
+/* Red car (top-down) */
+.hi-car{position:fixed;left:53%;top:50%;width:34px;height:62px;transform:translate(-50%,-50%);z-index:10;pointer-events:none;opacity:0;transition:opacity .4s}
+.hi-car.visible{opacity:1}
+
+.hi-tl-items{position:relative;max-width:1300px;margin:0 auto;padding:0 30px;z-index:2}
+
+/* Each timeline item */
+.hi-tl-item{position:relative;margin-bottom:40px;min-height:320px;opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.hi-tl-item.visible{opacity:1;transform:translateY(0)}
+
+/* Photo card */
+.hi-tl-card{position:absolute;background:#fff;padding:10px;box-shadow:0 3px 15px rgba(0,0,0,.12);border-radius:6px;width:380px;z-index:3}
+.hi-tl-card img{width:100%;display:block;border-radius:3px}
+.hi-tl-card-text{margin-top:14px;text-align:center;font-size:13px;line-height:1.7;color:#555;padding:0 4px 4px}
+.hi-tl-card-text .icon_dian{display:inline-block;width:5px;height:5px;background:#999;border-radius:50%;vertical-align:middle;margin-right:6px}
+
+/* Year label */
+.hi-tl-year{position:absolute;font-size:52px;font-weight:700;color:rgba(0,0,0,.12);letter-spacing:3px;z-index:5;line-height:1}
+
+/* Dot on timeline */
+.hi-tl-dot{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.85);box-shadow:0 0 8px rgba(255,255,255,.6),0 0 16px rgba(200,200,200,.3);z-index:5}
+
+/* Dashed line (gray) */
+.hi-tl-dash{position:absolute;border-top:2px dashed rgba(0,0,0,.1);z-index:3}
+
+/* Red solid L-connector */
+.hi-tl-redline-h{position:absolute;height:4px;background:#c00;z-index:4;border-radius:2px}
+.hi-tl-redline-v{position:absolute;width:4px;background:#c00;z-index:4;border-radius:2px}
+
+/* === ITEM POSITIONS (manually placed to match screenshot) === */
+/* Road is at left:53% of container */
+/* RIGHT cards: 1958, 1966_2, 1996, 2003, 2013, 2017, 2019 */
+/* LEFT cards: 1966, 1983, 2002, 2009, 2016, 2018, 2024 */
+
+/* Road bottom / actual road */
+.hi-road-section{position:relative;height:400px;background:#ccc9c4;overflow:hidden}
+.hi-road-actual{position:absolute;left:53%;bottom:0;width:140px;height:100%;transform:translateX(-50%);background:#aaa8a4;border-radius:6px 6px 0 0}
+.hi-road-actual::before{content:"";position:absolute;left:50%;top:20px;bottom:0;width:3px;transform:translateX(-50%);background:repeating-linear-gradient(to bottom,#fff 0,#fff 18px,transparent 18px,transparent 36px)}
+.hi-road-actual .lane{position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,.25)}
+.hi-road-actual .lane.l{left:18px}
+.hi-road-actual .lane.r{right:18px}
+/* Tunnel shape */
+.hi-tunnel{position:absolute;left:53%;bottom:100px;width:200px;height:160px;transform:translateX(-50%);overflow:hidden}
+.hi-tunnel-inner{width:100%;height:100%;border-radius:80px 80px 0 0;background:#b8b5b0;border:6px solid #a5a29d;border-bottom:none}
+
+/* ========== CLOSING ========== */
+.hi-closing{text-align:center;padding:60px 40px 80px;background:#ccc9c4}
+.hi-closing h2{font-size:18px;font-weight:300;letter-spacing:8px;color:rgba(0,0,0,.15);line-height:2.5}
+
+/* FOOTER */
+.footer{background:#222;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px;color:#fff}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
+.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}
+.footer-col a:hover{color:#fff}
+.footer-brands{display:flex;align-items:center;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brands a{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.5)}
+.footer-more{margin-bottom:20px}
+.footer-more select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:12px;padding:8px 14px;font-family:inherit;cursor:pointer}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06);color:#fff}
+.cookie-banner.hidden{display:none}
+.cookie-text{flex:1}.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-accept{background:#fff;color:#000}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header"><div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li><a href="#">Models</a><div class="dropdown"><a href="#">All</a></div></li>
+    <li><a href="#">Innovation</a><div class="dropdown"><a href="#">Capital Beauty</a><a href="#">Concept Car</a><a href="#">Off Road</a><a href="#">Power</a></div></li>
+    <li><a href="#">About</a><div class="dropdown"><a href="#">About Us</a><a href="#">History</a><a href="#">ESG</a><a href="#">After-sales Service</a></div></li>
+    <li><a href="#">Newsroom</a><div class="dropdown"><a href="#">News Release</a><a href="#">Subscribe</a><a href="#">Media Contact</a></div></li>
+    <li><a href="#">Connect</a><div class="dropdown"><a href="#">Contact Us</a><a href="#">Distributor Center</a><a href="#">Download Center</a></div></li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div></header>
+
+<!-- HERO -->
+<section class="hi-hero">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/banner.webp" alt="History">
+  <div class="hi-hero-overlay"></div>
+  <h1>History is still being written...</h1>
+</section>
+
+<!-- INTRO -->
+<section class="hi-intro">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/bg_2.webp" alt="" class="hi-intro-bg">
+  <div class="hi-intro-content">
+    <h2>THE WHEEL OF HISTORY TURNS</h2>
+    <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/bg_logo.webp" alt="BAIC" class="hi-intro-logo">
+    <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/car.webp" alt="BAIC" class="hi-intro-car">
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="hi-timeline" id="timeline">
+  <div class="hi-road" id="hiRoad"></div>
+
+  <!-- Red Car SVG (top-down view) -->
+  <div class="hi-car" id="hiCar">
+    <svg viewBox="0 0 34 62" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="5" width="26" height="52" rx="8" fill="#cc0000"/>
+      <rect x="6" y="1" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="19" y="1" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="6" y="54" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="19" y="54" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="8" y="10" width="18" height="14" rx="3" fill="rgba(0,0,0,.3)"/>
+      <rect x="8" y="38" width="18" height="12" rx="3" fill="rgba(0,0,0,.3)"/>
+      <rect x="8" y="26" width="18" height="10" rx="1" fill="rgba(0,0,0,.12)"/>
+    </svg>
+  </div>
+
+  <div class="hi-tl-items" id="tlItems"></div>
+
+  <!-- Road bottom -->
+  <div class="hi-road-section">
+    <div class="hi-road-actual">
+      <div class="lane l"></div>
+      <div class="lane r"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="hi-closing">
+  <h2>HISTORY IS STILL BEING WRITTEN &nbsp; <br> ...</h2>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ60</a></li><li><a href="#">BJ80</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands"><a href="/">BAIC</a><a href="https://www.arcfox.com.cn/" target="_blank">ARCFOX</a></div>
+  <div class="footer-more"><select><option>More BAlC Websites</option><option>ARCFOX</option><option>BAIC CHINA</option><option>BAIC GROUP</option></select></div>
+  <div class="footer-bottom"><div><a href="#">Privacy Statement</a> &nbsp;|&nbsp; <a href="#">Cookie Settings</a></div><span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span></div>
+</div></footer>
+
+<!-- COOKIE -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text"><h4>Your Privacy</h4><p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies. Please click on the different category headings to find out more about or modify our default settings. However, please be aware that disabling certain cookies may affect your browsing experience on our website and limit the services we can provide.</p></div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings" onclick="this.closest('.cookie-banner').classList.add('hidden')">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+</div>
+
+<script>
+// Timeline data
+const BASE='https://www.baicglobal.com/file/public/static/aboutUs/history/';
+const items=[
+  {year:'1958',img:'1958.webp',desc:'BAIC independently develops China\'s first sedan "Jinggangshan"',side:'right'},
+  {year:'1966',img:'1966.webp',desc:'The BJ212 China\'s first off-road vehicle is officially placed into production',side:'left'},
+  {year:'1966',img:'1966_2.webp',desc:'The BJ130 successfully passes the trial production',side:'right'},
+  {year:'1983',img:'1983.webp',desc:'Beijing Jeep Corporation is established, China\'s first automotive JV',side:'left'},
+  {year:'1996',img:'1996.webp',desc:'Foton Motor Co., Ltd. is established',side:'right'},
+  {year:'2002',img:'2002.webp',desc:'Beijing Hyundai Motor Co., Ltd. is officially established With Hyundai Motor',side:'left'},
+  {year:'2003',img:'2005.webp',desc:'Beijing Benz AutomotiveCo., Ltd. is officially established with DaimlerChrysler',side:'right'},
+  {year:'2009',img:'2009.webp',desc:'Acquires Saab intellectual property rights and the annual sales revenue exceeds 100 billion yuan',side:'left'},
+  {year:'2013',img:'2013.webp',desc:'<span class="icon_dian"></span>BAIC INTL is officially established<br><span class="icon_dian"></span>BAIC GROUP is listed on the Fortune Global 500',side:'right'},
+  {year:'2016',img:'2016.webp',desc:'BAIC Motor officially acquires 35% shares of Fujian Benz',side:'left'},
+  {year:'2017',img:'2017.webp',desc:'BJ80 off-road vehicle serves as the parade inspection car for the Chinese president',side:'right'},
+  {year:'2018',img:'2018.webp',desc:'<span class="icon_dian"></span>Establish a joint venture with MAGNA and build up<br> a high-end BEV R&D and manufacturing base<br><span class="icon_dian"></span>Ranked 124th in the Fortune Global 500',side:'left'},
+  {year:'2019',img:'2019.webp',desc:'The high-end new energy brand ARCFOX of BAIC makes a stunning debut at the Geneva Motor Show',side:'right'},
+  {year:'2024',img:'2024.webp',desc:'Listed in Fortune Global 500 for twelve years consecutively',side:'left'}
+];
+
+const container=document.getElementById('tlItems');
+const roadX=53; // road at 53% from left
+
+items.forEach((item,i)=>{
+  const el=document.createElement('div');
+  el.className='hi-tl-item';
+  el.style.position='relative';
+  el.style.minHeight='360px';
+  el.style.marginBottom='20px';
+
+  // Card position
+  const cardW=380;
+  let cardStyle,yearStyle,dotStyle,dashStyle,redHStyle,redVStyle;
+
+  if(item.side==='right'){
+    // Card on the right side of road
+    cardStyle=`right:30px;top:20px;`;
+    // Dot on the road
+    dotStyle=`left:${roadX}%;top:50px;transform:translateX(-50%);`;
+    // Year between dot and card, to right of dot
+    yearStyle=`left:${roadX+2}%;top:30px;`;
+    // Dashed line from dot rightward
+    dashStyle=`left:${roadX}%;top:56px;width:${100-roadX-2}%;max-width:calc(100% - ${roadX}% - 30px - ${cardW}px + 50px);`;
+    // Red L-connector: horizontal from dot to right, then possible vertical
+    redHStyle=`left:${roadX}%;top:54px;width:calc(100% - ${roadX}% - 30px - ${cardW/2}px);`;
+  } else {
+    // Card on the left side of road
+    cardStyle=`left:30px;top:20px;`;
+    dotStyle=`left:${roadX}%;top:50px;transform:translateX(-50%);`;
+    yearStyle=`right:${100-roadX+2}%;top:30px;text-align:right;`;
+    dashStyle=`right:${100-roadX}%;top:56px;width:${roadX-2}%;`;
+    redHStyle=`right:${100-roadX}%;top:54px;width:calc(${roadX}% - 30px - ${cardW/2}px);`;
+  }
+
+  el.innerHTML=`
+    <div class="hi-tl-card" style="${cardStyle}">
+      <img src="${BASE}${item.img}" alt="${item.year}">
+      <div class="hi-tl-card-text">${item.desc}</div>
+    </div>
+    <div class="hi-tl-dot" style="${dotStyle}"></div>
+    <div class="hi-tl-year" style="${yearStyle}">${item.year}</div>
+    <div class="hi-tl-dash" style="${dashStyle}"></div>
+    <div class="hi-tl-redline-h" style="${redHStyle}"></div>
+  `;
+
+  container.appendChild(el);
+});
+
+// Header scroll
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+
+// Car + reveal
+const car=document.getElementById('hiCar');
+const timeline=document.getElementById('timeline');
+const tlObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.15});
+document.querySelectorAll('.hi-tl-item').forEach(el=>tlObs.observe(el));
+
+window.addEventListener('scroll',()=>{
+  if(!timeline||!car) return;
+  const rect=timeline.getBoundingClientRect();
+  const inTL=rect.top<window.innerHeight*.6 && rect.bottom>window.innerHeight*.4;
+  car.classList.toggle('visible',inTL);
+});
+</script>
+</body>
+</html>

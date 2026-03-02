@@ -1,0 +1,86 @@
+/* ========== HISTORY PAGE - LIGHT/WARM THEME ========== */
+/* This page has a unique light theme that overrides the default dark header/body styles */
+
+/* Body override - warm beige background, dark text */
+body{background:#ccc9c4;color:#333}
+
+/* ========== HEADER OVERRIDES (light theme) ========== */
+.header{background:rgba(255,255,255,.95)}
+.header.scrolled{background:rgba(255,255,255,.98);box-shadow:0 1px 6px rgba(0,0,0,.05)}
+.header-inner{height:56px}
+.logo span{color:#c00}
+.nav-menu>li>a{padding:18px 20px;color:#333;font-weight:500}
+.nav-menu>li>a:hover{color:#c00}
+.nav-menu>li .dropdown{background:#fff;border-top:2px solid #c00;box-shadow:0 4px 16px rgba(0,0,0,.1)}
+.dropdown a{color:#666}
+.dropdown a:hover{color:#c00;background:rgba(200,0,0,.03)}
+.lang-select{color:#333;font-weight:500}
+.lang-select::after{content:"\25BE";margin-left:3px;font-size:10px;display:inline;width:auto;height:auto;border:none;border-left:0;border-right:0;border-top:0}
+
+/* ========== HERO ========== */
+.hi-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden}
+.hi-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.hi-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,rgba(0,0,0,.1) 40%,transparent 70%)}
+.hi-hero h1{position:absolute;bottom:80px;left:0;right:0;text-align:center;z-index:2;font-size:20px;font-weight:300;letter-spacing:6px;color:rgba(255,255,255,.75)}
+
+/* ========== INTRO ========== */
+.hi-intro{position:relative;overflow:hidden;min-height:80vh;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#ccc9c4}
+.hi-intro-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.15}
+.hi-intro-content{position:relative;z-index:2;text-align:center;padding:60px 40px}
+.hi-intro h2{font-size:18px;font-weight:400;letter-spacing:10px;margin-bottom:60px;color:rgba(0,0,0,.2);text-transform:uppercase}
+.hi-intro-logo{width:120px;margin:0 auto 50px;opacity:.2}
+.hi-intro-car{width:450px;max-width:80%;margin:0 auto}
+
+/* ========== TIMELINE ========== */
+.hi-timeline{position:relative;background:#ccc9c4;padding:80px 0 0;overflow:hidden}
+
+/* Central red road - offset right ~53% */
+.hi-road{position:absolute;left:53%;top:0;width:10px;background:#c00;transform:translateX(-50%);z-index:1;border-radius:5px 5px 0 0;height:100%}
+
+/* Red car (top-down) */
+.hi-car{position:fixed;left:53%;top:50%;width:34px;height:62px;transform:translate(-50%,-50%);z-index:10;pointer-events:none;opacity:0;transition:opacity .4s}
+.hi-car.visible{opacity:1}
+
+.hi-tl-items{position:relative;max-width:1300px;margin:0 auto;padding:0 30px;z-index:2}
+
+/* Each timeline item */
+.hi-tl-item{position:relative;margin-bottom:40px;min-height:320px;opacity:0;transform:translateY(30px);transition:opacity .7s ease,transform .7s ease}
+.hi-tl-item.visible{opacity:1;transform:translateY(0)}
+
+/* Photo card */
+.hi-tl-card{position:absolute;background:#fff;padding:10px;box-shadow:0 3px 15px rgba(0,0,0,.12);border-radius:6px;width:380px;z-index:3}
+.hi-tl-card img{width:100%;display:block;border-radius:3px}
+.hi-tl-card-text{margin-top:14px;text-align:center;font-size:13px;line-height:1.7;color:#555;padding:0 4px 4px}
+.hi-tl-card-text .icon_dian{display:inline-block;width:5px;height:5px;background:#999;border-radius:50%;vertical-align:middle;margin-right:6px}
+
+/* Year label */
+.hi-tl-year{position:absolute;font-size:52px;font-weight:700;color:rgba(0,0,0,.12);letter-spacing:3px;z-index:5;line-height:1}
+
+/* Dot on timeline */
+.hi-tl-dot{position:absolute;width:14px;height:14px;border-radius:50%;background:rgba(255,255,255,.85);box-shadow:0 0 8px rgba(255,255,255,.6),0 0 16px rgba(200,200,200,.3);z-index:5}
+
+/* Dashed line (gray) */
+.hi-tl-dash{position:absolute;border-top:2px dashed rgba(0,0,0,.1);z-index:3}
+
+/* Red solid L-connector */
+.hi-tl-redline-h{position:absolute;height:4px;background:#c00;z-index:4;border-radius:2px}
+.hi-tl-redline-v{position:absolute;width:4px;background:#c00;z-index:4;border-radius:2px}
+
+/* Road bottom / actual road */
+.hi-road-section{position:relative;height:400px;background:#ccc9c4;overflow:hidden}
+.hi-road-actual{position:absolute;left:53%;bottom:0;width:140px;height:100%;transform:translateX(-50%);background:#aaa8a4;border-radius:6px 6px 0 0}
+.hi-road-actual::before{content:"";position:absolute;left:50%;top:20px;bottom:0;width:3px;transform:translateX(-50%);background:repeating-linear-gradient(to bottom,#fff 0,#fff 18px,transparent 18px,transparent 36px)}
+.hi-road-actual .lane{position:absolute;top:0;bottom:0;width:2px;background:rgba(255,255,255,.25)}
+.hi-road-actual .lane.l{left:18px}
+.hi-road-actual .lane.r{right:18px}
+
+/* Tunnel shape */
+.hi-tunnel{position:absolute;left:53%;bottom:100px;width:200px;height:160px;transform:translateX(-50%);overflow:hidden}
+.hi-tunnel-inner{width:100%;height:100%;border-radius:80px 80px 0 0;background:#b8b5b0;border:6px solid #a5a29d;border-bottom:none}
+
+/* ========== CLOSING ========== */
+.hi-closing{text-align:center;padding:60px 40px 80px;background:#ccc9c4}
+.hi-closing h2{font-size:18px;font-weight:300;letter-spacing:8px;color:rgba(0,0,0,.15);line-height:2.5}
+
+/* ========== FOOTER OVERRIDE (dark footer on light page) ========== */
+.footer{background:#222;color:#fff}

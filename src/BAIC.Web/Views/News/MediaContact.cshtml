@@ -1,0 +1,69 @@
+@{
+    ViewData["Title"] = "Media Contact";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/media-contact.css" />
+}
+
+<!-- HERO -->
+<section class="mc-hero">
+  <img src="https://www.baicglobal.com/_nuxt/banner.XLCYn2I7.avif" alt="Media Contact">
+  <div class="mc-hero-overlay"></div>
+  <div class="mc-hero-content">
+    <h1>Media Contact</h1>
+    <p>Thank you for your support to BAIC, &nbsp; <br>Please leave your contact information and questions, we will arrange professionals to contact you</p>
+  </div>
+</section>
+
+<!-- FORM -->
+<div class="mc-form">
+
+  <div class="mc-row">
+    <div class="mc-field full">
+      <label>Gender</label>
+      <select>
+        <option value="" disabled selected></option>
+        <option>Mr</option>
+        <option>Miss</option>
+        <option>Ms</option>
+        <option>Dr</option>
+        <option>others</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="mc-row">
+    <div class="mc-field">
+      <label>First Name</label>
+      <input type="text">
+    </div>
+    <div class="mc-field">
+      <label>Last Name</label>
+      <input type="text">
+    </div>
+  </div>
+
+  <div class="mc-row">
+    <div class="mc-field">
+      <label>Media Name</label>
+      <input type="text">
+    </div>
+    <div class="mc-field">
+      <label>E-mail</label>
+      <input type="email">
+    </div>
+  </div>
+
+  <div class="mc-field full">
+    <label>Message</label>
+    <textarea></textarea>
+  </div>
+
+  <p class="mc-note">After we receive your information, the person in charge of brand public relations will contact you as soon as possible.</p>
+
+  <button class="mc-submit">SEND</button>
+</div>
+
+@section Scripts {
+}

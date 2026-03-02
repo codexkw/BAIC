@@ -1,0 +1,108 @@
+/* ========== CONCEPT CAR ========== */
+
+/* 1. HERO */
+.cc-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden}
+.cc-hero img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.cc-hero-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.5) 0%,rgba(0,0,0,.1) 40%)}
+
+/* 2. KEYWORDS INTRO */
+.cc-keywords{padding:80px 40px;max-width:900px;margin:0 auto;text-align:center;background:#000}
+.cc-keywords h3{font-size:13px;font-weight:500;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:30px}
+.cc-keywords p{font-size:14px;line-height:2;color:rgba(255,255,255,.45);letter-spacing:.3px}
+
+/* 3. LOGO */
+.cc-logo{text-align:center;padding:40px;background:#000}
+.cc-logo img{max-width:180px;margin:0 auto}
+
+/* 4. CAR BG full-width */
+.cc-fullimg{position:relative;overflow:hidden}
+.cc-fullimg img{width:100%;display:block}
+
+/* 5. ELEMENTS DESCRIPTION */
+.cc-elements{padding:60px 40px;max-width:900px;margin:0 auto;text-align:center;background:#000}
+.cc-elements p{font-size:14px;line-height:2;color:rgba(255,255,255,.45);letter-spacing:.3px;margin-bottom:30px}
+
+/* 6. BALANCED NUMBER FIVE */
+.cc-five{padding:40px;text-align:center;background:#000}
+.cc-five h4{font-size:16px;font-weight:400;letter-spacing:2px;color:rgba(255,255,255,.6);margin-bottom:24px}
+.cc-five-icons{display:flex;justify-content:center;gap:16px;margin-top:10px}
+.cc-five-icons img{width:48px;height:auto}
+
+/* 7. JOYFUL CARDS (3 cards: Off-road, Outdoor, Stylish) */
+.cc-joyful{display:grid;grid-template-columns:repeat(3,1fr);gap:0;background:#000}
+.cc-joy-card{position:relative;overflow:hidden;min-height:500px;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:40px 30px}
+.cc-joy-label{padding-top:30px;padding-bottom:20px}
+.cc-joy-label span{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.35);display:block;margin-bottom:4px}
+.cc-joy-label h4{font-size:15px;font-weight:500;letter-spacing:1.5px;color:rgba(255,255,255,.8)}
+.cc-joy-car{position:relative;width:100%;flex:1;display:flex;align-items:center;justify-content:center}
+.cc-joy-car .shadow-car{width:85%;max-width:360px;position:relative;z-index:2}
+.cc-joy-car .car-light{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:95%;max-width:420px;opacity:.35;z-index:1}
+
+/* 8. FIVE-HOLE ELEMENT TEXT */
+.cc-fivehole{padding:60px 40px;max-width:900px;margin:0 auto;text-align:center;background:#000}
+.cc-fivehole p{font-size:13px;line-height:2;color:rgba(255,255,255,.4);letter-spacing:.3px}
+
+/* 9. DIMENSIONS / CAR LINE */
+.cc-dims{position:relative;padding:40px;background:#000;text-align:center}
+.cc-dims-img{max-width:900px;margin:0 auto 20px;position:relative}
+.cc-dims-img img{width:100%}
+.cc-dims-arrows{display:flex;justify-content:center;gap:20px;margin-bottom:20px}
+.cc-dims-arrows img{width:28px;cursor:pointer;opacity:.5;transition:opacity .3s}
+.cc-dims-arrows img:hover{opacity:1}
+.cc-dims p{font-size:13px;line-height:2;color:rgba(255,255,255,.4);max-width:800px;margin:0 auto;letter-spacing:.3px}
+
+/* 10. SURFACE / SHADOW DOOR */
+.cc-surface{padding:60px 40px;background:#000;text-align:center}
+.cc-surface-imgs{max-width:900px;margin:0 auto 30px;position:relative}
+.cc-surface-imgs img{width:100%;margin-bottom:4px}
+.cc-surface p{font-size:13px;line-height:2;color:rgba(255,255,255,.4);max-width:800px;margin:0 auto;letter-spacing:.3px}
+
+/* 11. ORIENTAL & STYLISH */
+.cc-oriental{display:flex;min-height:500px;background:#0a0a0a}
+.cc-oriental-text{flex:0 0 40%;display:flex;flex-direction:column;justify-content:center;padding:60px}
+.cc-oriental-text h3{font-size:28px;font-weight:200;letter-spacing:5px;text-transform:capitalize;margin-bottom:12px;line-height:1.4;color:rgba(255,255,255,.8)}
+.cc-oriental-text p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.8}
+.cc-oriental-img{flex:1;position:relative;overflow:hidden}
+.cc-oriental-img img{width:100%;height:100%;object-fit:cover}
+
+/* 12. INTERIOR TEXT + GIF */
+.cc-interior{display:flex;min-height:450px;background:#000}
+.cc-interior-text{flex:0 0 40%;display:flex;align-items:center;padding:60px}
+.cc-interior-text p{font-size:14px;color:rgba(255,255,255,.45);line-height:1.9}
+.cc-interior-img{flex:1;position:relative;overflow:hidden}
+.cc-interior-img img{width:100%;height:100%;object-fit:cover}
+
+/* 13. TWO BJ */
+.cc-twobj{position:relative;overflow:hidden}
+.cc-twobj img{width:100%;display:block}
+.cc-twobj-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.cc-twobj-overlay h3{font-size:22px;font-weight:400;letter-spacing:3px;color:rgba(255,255,255,.85)}
+
+/* 14. INTERIOR DETAILS GRID */
+.cc-details{background:#000;padding:40px}
+.cc-details-top{display:flex;gap:4px;max-width:1200px;margin:0 auto 4px}
+.cc-details-top .dt-main{flex:0 0 55%;position:relative;overflow:hidden}
+.cc-details-top .dt-main img{width:100%;height:100%;object-fit:cover}
+.cc-details-top .dt-text{flex:1;display:flex;align-items:center;padding:40px;background:#0a0a0a}
+.cc-details-top .dt-text p{font-size:13px;color:rgba(255,255,255,.4);line-height:1.9}
+.cc-details-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:4px;max-width:1200px;margin:0 auto 4px}
+.cc-detail-card{position:relative;overflow:hidden}
+.cc-detail-card img{width:100%;display:block;transition:transform .5s}
+.cc-detail-card:hover img{transform:scale(1.03)}
+.cc-detail-card span{position:absolute;bottom:16px;left:16px;font-size:11px;letter-spacing:1px;color:rgba(255,255,255,.7)}
+
+/* 15. FINAL CLOSING */
+.cc-closing{display:flex;min-height:500px;background:#000}
+.cc-closing-img{flex:0 0 55%;position:relative;overflow:hidden}
+.cc-closing-img img{width:100%;height:100%;object-fit:cover}
+.cc-closing-text{flex:1;display:flex;align-items:center;padding:60px}
+.cc-closing-text p{font-size:18px;line-height:1.8;color:rgba(255,255,255,.45);letter-spacing:.3px;max-width:280px}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:900px){
+  .cc-joyful{grid-template-columns:1fr}
+  .cc-oriental,.cc-interior,.cc-closing{flex-direction:column}
+  .cc-oriental-text,.cc-interior-text,.cc-closing-text{flex:none;padding:40px 24px}
+  .cc-details-top{flex-direction:column}
+  .cc-details-grid{grid-template-columns:1fr}
+}

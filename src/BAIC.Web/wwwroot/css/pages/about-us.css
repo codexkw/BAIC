@@ -1,0 +1,101 @@
+/* ========== HERO ========== */
+.au-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.au-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.au-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.au-hero-content{position:relative;z-index:2;text-align:center}
+.au-hero-logo{width:120px;margin:0 auto 30px}
+.au-hero-content h1{font-size:28px;font-weight:300;letter-spacing:8px;text-transform:uppercase}
+
+/* ========== WHO WE ARE ========== */
+.au-who{padding:80px 40px;background:#000;text-align:center}
+.au-who h2{font-size:24px;font-weight:300;letter-spacing:6px;margin-bottom:60px;color:rgba(255,255,255,.7)}
+.au-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 20px;max-width:1100px;margin:0 auto}
+.au-stat{text-align:center;padding:20px 10px}
+.au-stat-label{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:12px}
+.au-stat-val{font-size:48px;font-weight:200;color:#fff;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.au-stat-val .unit{font-size:16px;font-weight:300;color:rgba(255,255,255,.5);margin-left:4px}
+.au-stat-sub{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase}
+
+/* WHO WE ARE BG */
+.au-who-bg{position:relative;overflow:hidden}
+.au-who-bg img.bg{width:100%;display:block}
+.au-who-bg .icon{position:absolute;bottom:30px;right:40px;width:60px;height:60px}
+
+/* ========== AWARDS ========== */
+.au-awards{padding:80px 40px;background:#0a0a0a}
+.au-awards-inner{max-width:1100px;margin:0 auto}
+.au-awards h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:24px}
+.au-awards-desc{font-size:13px;line-height:2;color:rgba(255,255,255,.4);max-width:800px;margin-bottom:40px}
+.au-awards-feature{display:flex;gap:40px;margin-bottom:50px;align-items:flex-start}
+.au-awards-feature-text{flex:1}
+.au-awards-feature-text h3{font-size:14px;font-weight:600;letter-spacing:2px;margin-bottom:12px;color:rgba(255,255,255,.7)}
+.au-awards-feature-text p{font-size:13px;line-height:2;color:rgba(255,255,255,.4)}
+.au-awards-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.au-awards-logos img{width:100%;border-radius:4px;opacity:.85;transition:opacity .3s}
+.au-awards-logos img:hover{opacity:1}
+
+/* ========== PRODUCTION BASE ========== */
+.au-prod{padding:80px 40px;background:#000}
+.au-prod-inner{max-width:1200px;margin:0 auto}
+.au-prod h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:40px;text-align:center}
+.au-prod-carousel{position:relative;overflow:hidden}
+.au-prod-track{display:flex;transition:transform .5s ease}
+.au-prod-card{flex:0 0 100%;display:flex;gap:0;background:#0a0a0a;border-radius:4px;overflow:hidden;min-height:400px}
+.au-prod-card-img{flex:0 0 55%;overflow:hidden}
+.au-prod-card-img img{width:100%;height:100%;object-fit:cover}
+.au-prod-card-info{flex:1;padding:40px;display:flex;flex-direction:column;justify-content:center}
+.au-prod-card-info h3{font-size:18px;font-weight:600;letter-spacing:3px;margin-bottom:24px}
+.au-prod-detail{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px}
+.au-prod-detail-item label{font-size:10px;letter-spacing:1px;color:rgba(255,255,255,.35);text-transform:uppercase;display:block;margin-bottom:6px}
+.au-prod-detail-item span{font-size:15px;font-weight:500;color:rgba(255,255,255,.8)}
+.au-prod-nav{display:flex;justify-content:center;gap:12px;margin-top:24px}
+.au-prod-btn{width:40px;height:40px;border:1px solid rgba(255,255,255,.2);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.au-prod-btn:hover{border-color:#fff}
+.au-prod-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
+.au-prod-dots{display:flex;gap:8px;align-items:center;margin:0 16px}
+.au-prod-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);cursor:pointer;transition:all .3s}
+.au-prod-dot.active{background:#fff}
+
+/* ========== PRODUCTION TECHNOLOGY ========== */
+.au-tech{padding:80px 40px;background:#0a0a0a;text-align:center}
+.au-tech h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:40px}
+.au-tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.au-tech-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:30px 20px;text-align:center}
+.au-tech-item h4{font-size:13px;font-weight:600;letter-spacing:2px;margin-bottom:10px;color:rgba(255,255,255,.7)}
+.au-tech-item p{font-size:12px;line-height:1.8;color:rgba(255,255,255,.35)}
+
+/* ========== CSR ========== */
+.au-csr{padding:80px 40px;background:#000}
+.au-csr-inner{max-width:1100px;margin:0 auto}
+.au-csr h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:40px;text-align:center}
+.au-csr-top{display:flex;gap:40px;margin-bottom:40px;align-items:center}
+.au-csr-plan{flex:0 0 45%}
+.au-csr-plan img{width:100%;border-radius:4px}
+.au-csr-text{flex:1}
+.au-csr-text p{font-size:13px;line-height:2;color:rgba(255,255,255,.4)}
+.au-csr-imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.au-csr-imgs img{width:100%;border-radius:4px}
+
+/* ========== VIDEO GRID ========== */
+.au-videos{padding:80px 40px;background:#0a0a0a}
+.au-videos-inner{max-width:1200px;margin:0 auto}
+.au-videos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.au-video-item{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:16/9;background:#111;cursor:pointer}
+.au-video-item video{width:100%;height:100%;object-fit:cover}
+.au-video-item::after{content:"\25B6";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:rgba(255,255,255,.6);background:rgba(0,0,0,.3);transition:all .3s;pointer-events:none}
+.au-video-item:hover::after{background:rgba(0,0,0,.15);color:#fff}
+
+/* ========== CLOSING LOGO ========== */
+.au-closing{padding:80px 40px;text-align:center;background:#000}
+.au-closing img{width:120px;margin:0 auto;opacity:.5}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:900px){
+  .au-stats{grid-template-columns:repeat(2,1fr)}
+  .au-awards-logos{grid-template-columns:repeat(2,1fr)}
+  .au-prod-card{flex-direction:column}
+  .au-prod-card-img{flex:none;height:250px}
+  .au-csr-top{flex-direction:column}
+  .au-tech-grid{grid-template-columns:1fr}
+  .au-videos-grid{grid-template-columns:repeat(2,1fr)}
+}

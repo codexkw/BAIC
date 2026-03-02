@@ -1,0 +1,211 @@
+@{
+    ViewData["Title"] = "ESG";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/esg.css" />
+}
+
+<!-- PAGE BACKGROUND -->
+<img class="page-bg" src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page_bg.jpg" alt="">
+
+<div class="esg-sections">
+
+  <!-- S1: HERO - kv1 + kv1_title -->
+  <section class="s-hero" style="padding-top:64px">
+    <img class="kv1" src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/kv1.png" alt="BAIC BLUE PLAN">
+    <img class="kv1-title" src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/kv1_title.png" alt="Green Manufacturing Carbon Quest for the Future">
+  </section>
+
+  <!-- Particles -->
+  <div class="s-particles">
+    <div class="particle" style="background:rgba(100,200,255,.3);border-radius:50%;width:6px;height:6px;left:25%;top:20px"></div>
+    <div class="particle" style="background:rgba(100,200,255,.2);border-radius:50%;width:8px;height:8px;left:50%;top:40px;animation-delay:1.5s"></div>
+    <div class="particle" style="background:rgba(100,200,255,.25);border-radius:50%;width:5px;height:5px;left:70%;top:25px;animation-delay:3s"></div>
+  </div>
+
+  <!-- S2: INTRO - kv2 bg + light overlay + content -->
+  <section class="s-intro">
+    <div class="kv2-wrap">
+      <img class="kv2" src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/kv2.png" alt="">
+      <img class="light-overlay" src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page2_light.png" alt="">
+    </div>
+    <div class="s-intro-content">
+      <img class="s-intro-logo" src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/kv2_logo.png" alt="BAIC">
+      <h2>BEIJING AUTOMOTIVE GROUP CO., LTD.</h2>
+      <p class="sub">referred to as "BAIC Group"</p>
+      <p class="desc">BAIC Group is a pillar enterprise in China's automotive industry. Founded in 1958, it has evolved into a large-scale enterprise group with a comprehensive industrial chain covering vehicle and component R&D and manufacturing, automotive service and trade, integrated mobility services, finance and investment, generating annual revenue exceeding RMB 480 billion.</p>
+    </div>
+  </section>
+
+  <!-- S3: VIDEO kv3 -->
+  <section class="s-video" id="vidSec3" onclick="toggleVid(this,'vid3')">
+    <video id="vid3" muted loop playsinline preload="metadata">
+      <source src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/video/kv3.mp4" type="video/mp4">
+    </video>
+    <div class="play-overlay"><div class="play-circle"></div></div>
+  </section>
+
+  <!-- S4: CORE BUSINESS -->
+  <section class="s-core fade-in">
+    <h2>CORE BUSINESS</h2>
+    <div class="s-core-grid">
+      <div class="s-core-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/baic.png" alt="BAIC">
+        <p>BAIC off-road series sold 180,000 units throughout the year, &nbsp; <br> representing a 22% year-over-year increase.</p>
+      </div>
+      <div class="s-core-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/arcfox.png" alt="ARCFOX">
+        <p>ARCFOX delivered 81,017 units, up 169.91% from the previous year.</p>
+      </div>
+      <div class="s-core-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/fukuda.png" alt="Foton">
+        <p>BAIC Foton achieved total sales of 614,000 units with a market share of 15.8%.</p>
+      </div>
+      <div class="s-core-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/benz.png" alt="Beijing Benz">
+        <p>Beijing Benz reached a cumulative production milestone of 5,000,000 units.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- S5: TECHNOLOGICAL INNOVATION -->
+  <section class="s-tech fade-in">
+    <h2>TECHNOLOGICAL INNOVATION</h2>
+    <div class="s-tech-grid">
+      <div class="s-tech-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page4_research_01.png" alt="">
+        <div class="label">Patents granted:</div>
+        <div class="value">1,110</div>
+      </div>
+      <div class="s-tech-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page4_research_02.png" alt="">
+        <div class="label">Patent applications:</div>
+        <div class="value">1,472</div>
+      </div>
+      <div class="s-tech-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page4_research_03.png" alt="">
+        <div class="label">R&amp;D investment:</div>
+        <div class="value">RMB 13.21 billion</div>
+      </div>
+      <div class="s-tech-item">
+        <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page4_research_04.png" alt="">
+        <div class="label">R&amp;D team:</div>
+        <div class="value">Over 8,000 professionals</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- S6: RESPONDING TO DUAL CARBON -->
+  <section class="s-carbon fade-in">
+    <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/kv5.png" alt="Dual Carbon Goals">
+    <div class="s-carbon-content">
+      <h2>RESPONDING TO THE "DUAL CARBON" GOALS</h2>
+      <p>The "BLUE Plan" commits to achieving carbon peak by 2025 and full product decarbonization with carbon-neutral operations by 2050.</p>
+      <p style="margin-top:8px">Developing a green supply chain construction strategy, focusing on green supplier certification<br>systems and green raw material applications to rapidly establish a strategic green supply chain framework.</p>
+    </div>
+  </section>
+
+  <!-- S7: GREEN MANUFACTURING TITLE (marquee) -->
+  <section class="s-green-banner fade-in">
+    <h2>Green Manufacturing Carbon Quest for the Future</h2>
+    <div class="s-marquee"><span>BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+  </section>
+
+  <!-- S7b: GREEN R&D + GREEN MANUFACTURING -->
+  <section class="s-green-cols">
+    <div class="s-green-col fade-in">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page6_img1.png" alt="GREEN R&D">
+      <h3>GREEN R&amp;D</h3>
+      <p>ARCFOX α S5 wins two prestigious awards:<br>"2024 China Top Ten Car Body" and "Best Low-Carbon Award"</p>
+      <p>BAIC off-road upgrades its 1.5L hybrid engine and range extender technology for vehicle applications, achieving a 10% reduction in fuel consumption from current baseline</p>
+      <p>BAIC Foton constructs advanced digital workshops and establishes a "grid-based, precise, and digitalized" energy management system</p>
+    </div>
+    <div class="s-green-col fade-in">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page6_img2.png" alt="GREEN MANUFACTURING">
+      <h3>GREEN MANUFACTURING</h3>
+      <p>23 national-level "Green Factories"</p>
+      <p>5 national-level "Green Supply Chain Management Companies"</p>
+      <p>27,902 tons of CO₂ emissions reduced through manufacturing operations</p>
+      <p>50 MW of new photovoltaic capacity added, bringing total installed photovoltaic capacity to 201 MW</p>
+      <p>BAIC's participation in the "Beijing Clean Production Audit Technology Innovation Research and Application Project" was awarded First Prize for Scientific and Technological Progress by the All-China Environment Federation</p>
+    </div>
+  </section>
+
+  <!-- S8: ENERGY-EFFICIENT LOGISTICS + LOW-CARBON LIVING -->
+  <section class="s-logistics">
+    <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/kv7.png" alt="Logistics">
+    <div class="s-logistics-content">
+      <div class="s-logistics-half">
+        <h3>ENERGY-EFFICIENT LOGISTICS</h3>
+        <p>Actively exploring hydrogen fuel vehicle applications, with 50 hydrogen fuel vehicles already deployed in operational scenarios.</p>
+        <br>
+        <p>Deepening supplier-logistics integration to build a carbon asset reduction platform for transportation, achieving end-to-end visibility and control while reducing costs and increasing efficiency.</p>
+      </div>
+      <div class="s-logistics-half">
+        <h3>LOW-CARBON LIVING</h3>
+        <p>Established the Waste Classification Management System to cultivate employee awareness and habits for waste sorting.</p>
+        <br>
+        <p>43,000 participants in environmental protection training.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- S9: VIDEO kv9 -->
+  <section class="s-vid2" id="vidSec9" onclick="toggleVid(this,'vid9')">
+    <video id="vid9" muted loop playsinline preload="metadata">
+      <source src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/video/kv9.mp4" type="video/mp4">
+    </video>
+    <div class="play-overlay"><div class="play-circle"></div></div>
+  </section>
+
+  <!-- S10: SOCIAL RESPONSIBILITY -->
+  <section class="s-social fade-in">
+    <h2>SOCIAL RESPONSIBILITY</h2>
+    <div class="s-social-imgs">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page9_rainwater.png" alt="">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page9_ocean.png" alt="">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/ecp/page9_hill.png" alt="">
+    </div>
+    <p>Since 2016, BAIC has always implemented the people-oriented concept. while operating, it has always focused on fulfilling corporate social responsibilities and actively carried out social welfare activities.</p>
+    <p>In Uganda, Mexico, South Africa, Central and Western Asia and other places, the volunteer spirit of "dedication, friendship, mutual assistance, and progress" has been practiced by donating to schools, earthquake relief, poverty alleviation, and environmental protection.</p>
+  </section>
+
+  <!-- S11: CHARITABLE ACTIVITIES TITLE (marquee) -->
+  <section class="s-charity-banner fade-in">
+    <h2>Charitable Activities Walking with Love</h2>
+    <div class="s-marquee"><span>BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;BAIC BLUE PLAN&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span></div>
+  </section>
+
+  <!-- S12: CLOSING STATEMENTS -->
+  <section class="s-closing fade-in">
+    <p>Driving harmonious development of people, vehicles, and nature through technological innovation</p>
+    <p>BAIC is committed to sustainable development management</p>
+    <p>Working hand in hand with internal and external stakeholders</p>
+    <p>Maximizing comprehensive value for society, economy, and environment</p>
+    <p>Dedicated to becoming a model of sustainable development through technology and environmental stewardship</p>
+  </section>
+
+</div>
+
+@section Scripts {
+<script>
+// Video toggle play
+function toggleVid(section,vidId){
+  const v=document.getElementById(vidId);
+  if(v.paused){v.play();section.classList.add('playing')}
+  else{v.pause();section.classList.remove('playing')}
+}
+
+// Auto-play videos when scrolled into view
+const vidObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    const v=e.target.querySelector('video');
+    if(!v) return;
+    if(e.isIntersecting){v.play();e.target.classList.add('playing')}
+    else{v.pause();e.target.classList.remove('playing')}
+  });
+},{threshold:0.4});
+document.querySelectorAll('.s-video,.s-vid2').forEach(el=>vidObs.observe(el));
+</script>
+}

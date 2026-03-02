@@ -1,0 +1,343 @@
+@{
+    ViewData["Title"] = "BJ30";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/bj30.css" asp-append-version="true" />
+}
+
+<!-- HERO KV -->
+<section class="hero-kv">
+  <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/kv.jpg" alt="BAIC BJ30">
+  <div class="hero-kv-overlay"></div>
+</section>
+
+<!-- VIDEO SECTION -->
+<section class="video-section">
+  <img src="https://www.baicglobal.com/file/public/static/bj30/images/视频.jpg" alt="BJ30 Video">
+  <div class="play-btn"></div>
+</section>
+
+<!-- COLOR PICKER -->
+<section class="color-section">
+  <div class="color-car">
+    <img id="colorCarImg" src="https://www.baicglobal.com/file/public/static/bj30/images/color/%E7%BB%BF.png" alt="BJ30 Colors">
+  </div>
+  <div class="color-dots" id="colorDots">
+    <div class="color-dot active" style="background:#5a7a4a" data-color="绿" title="Green"></div>
+    <div class="color-dot" style="background:#e8e6e0" data-color="白" title="White"></div>
+    <div class="color-dot" style="background:#7a7a78" data-color="灰" title="Grey"></div>
+    <div class="color-dot" style="background:#6b8fa3" data-color="天青蓝" title="Sky Blue"></div>
+    <div class="color-dot" style="background:#1a1a1a" data-color="黑" title="Black"></div>
+    <div class="color-dot" style="background:#b8b0a8" data-color="泡泡灰" title="Bubble Grey"></div>
+    <div class="color-dot" style="background:#8a8580" data-color="铂金灰" title="Platinum Grey"></div>
+  </div>
+</section>
+
+<!-- SPECS STRIP -->
+<section class="specs-strip">
+  <div style="text-align:center;margin-bottom:24px">
+    <span class="spec-badge">Fuel HYBRID</span>
+  </div>
+  <div class="specs-strip-inner">
+    <div class="spec-item">
+      <div class="spec-value">138 <span>KW</span></div>
+      <div class="spec-label">POWER</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-value">305 <span>N·M</span></div>
+      <div class="spec-label">TORQUE</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-value">2.0 <span>T</span></div>
+      <div class="spec-label">ENGINE</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-value">7 <span>DCT</span></div>
+      <div class="spec-label">TRANSMISSION</div>
+    </div>
+    <div class="spec-item">
+      <div class="spec-value">39.2 <span>%</span></div>
+      <div class="spec-label">MAX THERMAL EFFICIENCY</div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: HEADLIGHT -->
+<section class="feature">
+  <div class="feature-full" style="min-height:80vh">
+    <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/大灯.jpg" alt="Headlight">
+    <div class="feature-overlay">
+      <h3>Headlight</h3>
+      <p>The five-hole daytime running light belt boasts both technological appeal and practical utility.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: FRONT FACE / REAR (Split) -->
+<section class="feature">
+  <div class="feature-split">
+    <div class="feature-split-img" id="splitImg1">
+      <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/前脸.jpg" alt="Family face design" id="splitImgSrc1">
+      <div class="feature-split-tabs">
+        <div class="feature-split-tab active" data-img="https://www.baicglobal.com/file/public/static/bj30/images/pc/前脸.jpg" data-title="Family face design" data-desc="The hardcore reinforcement strip highlights BJ30's rugged style. The front bumper highlights an off-road style.">Family face design</div>
+        <div class="feature-split-tab" data-img="https://www.baicglobal.com/file/public/static/bj30/images/pc/车尾.jpg" data-title="Rugged rear design" data-desc="The rugged rear design emphasizes the BJ30's strong character with bold lines.">Rugged rear design</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:60px;background:#0a0a0a">
+      <h3 id="splitTitle1" style="font-size:20px;font-weight:600;margin-bottom:14px">Family face design</h3>
+      <p id="splitDesc1" style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.8">The hardcore reinforcement strip highlights BJ30's rugged style. The front bumper highlights an off-road style.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: AMBIENT LIGHT -->
+<section class="feature">
+  <div class="feature-full" style="min-height:80vh">
+    <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/氛围灯.jpg" alt="Ambient light">
+    <div class="feature-overlay">
+      <h3>Ambient light</h3>
+      <p>Explore the beauty of dynamic light and shadow interplay. The 64-color ambient light moves to the rhythm of the melody, filling each trip with technological charm.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: GEAR SELECTOR (Side) -->
+<section class="feature">
+  <div class="feature-side">
+    <div class="feature-side-img">
+      <img src="https://www.baicglobal.com/file/public/static/bj30/images/档把-背景.jpg" alt="Electronic gear selector">
+    </div>
+    <div class="feature-side-content">
+      <h3>Electronic gear selector</h3>
+      <p>The electronic gear selector adopts a design of fighter jet thruster, making it more technologically advanced.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: INSTRUMENT / SEATS (Split) -->
+<section class="feature">
+  <div class="feature-split">
+    <div class="feature-split-img" id="splitImg2">
+      <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/组合仪表.jpg" alt="Instrument panel" id="splitImgSrc2">
+      <div class="feature-split-tabs">
+        <div class="feature-split-tab active" data-img="https://www.baicglobal.com/file/public/static/bj30/images/pc/组合仪表.jpg" data-title="Integrated instrument panel" data-desc="10.25 inch + 14.6 inch double-screen combination.">Integrated instrument panel</div>
+        <div class="feature-split-tab" data-img="https://www.baicglobal.com/file/public/static/bj30/images/pc/座椅.jpg" data-title="Flexible combination space" data-desc="The flexible seat layout provides versatile cargo and passenger configurations.">Flexible combination space</div>
+      </div>
+    </div>
+    <div style="display:flex;flex-direction:column;justify-content:center;padding:60px;background:#0a0a0a">
+      <h3 id="splitTitle2" style="font-size:20px;font-weight:600;margin-bottom:14px">Integrated instrument panel</h3>
+      <p id="splitDesc2" style="font-size:13px;color:rgba(255,255,255,.55);line-height:1.8">10.25 inch + 14.6 inch double-screen combination.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURE: OFF-ROAD -->
+<section class="feature">
+  <div class="feature-full" style="min-height:85vh">
+    <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/越野.jpg" alt="Off-road">
+    <div class="feature-overlay">
+      <h3>Excellent off-road performance</h3>
+      <p>The solid chassis endows the vehicle an excellent off-road capability. It has undergone rigorous testing and verification, ensuring reliable performance of the vehicle even under complex road conditions.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SAFETY SECTION -->
+<section class="safety">
+  <div class="safety-inner">
+    <div class="safety-image">
+      <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/车身.jpg" alt="Safety body">
+    </div>
+    <div class="safety-stats">
+      <div class="safety-stat">
+        <div class="val">78.4 <span>%</span></div>
+        <div class="lbl">HIGH-STRENGTH STEEL</div>
+      </div>
+      <div class="safety-stat">
+        <div class="val">30000 <span>N·M</span></div>
+        <div class="lbl">MAXIMUM TORSIONAL STIFFNESS</div>
+      </div>
+      <div class="safety-stat">
+        <div class="val">8 <span>POSITIONS</span></div>
+        <div class="lbl">THERMAL FORMED STEEL</div>
+      </div>
+    </div>
+    <div class="safety-desc">
+      <h3>Hardcore safety body</h3>
+      <p>The optimization of the body structure and the application of safety design technologies guarantee the vehicle body to remain undistorted and deformation-free. The frontal three-stage energy-absorbing structure guarantees the passenger compartment to remain sturdy and reliable even in the event of a collision.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ATS -->
+<section class="feature">
+  <div class="feature-full" style="min-height:80vh">
+    <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/kv.jpg" alt="ATS">
+    <div class="feature-overlay">
+      <h3>All-terrain control system (ATS)</h3>
+      <p>The all-terrain control system can automatically optimize various control systems of the vehicle so that the vehicle can adapt to different terrains.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SIDE HIGHLIGHTS -->
+<section class="side-highlights">
+  <div class="side-hl-img">
+    <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/车侧.jpg" alt="BJ30 Side">
+    <div class="hl-dot" style="top:15%;left:30%"><span>High load bearing roof</span></div>
+    <div class="hl-dot" style="top:22%;left:55%"><span>L-type suspended hard top</span></div>
+    <div class="hl-dot" style="top:35%;left:75%"><span>Personality mark Reserved place</span></div>
+    <div class="hl-dot" style="top:50%;left:20%"><span>Personality ritual feeling round eyebrow lamp</span></div>
+    <div class="hl-dot" style="top:65%;left:60%"><span>Scratch-proof design</span></div>
+  </div>
+</section>
+
+<!-- APPROACH / DEPARTURE ANGLES -->
+<section class="angles">
+  <div class="angle-item">
+    <div class="angle-img">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <line x1="10" y1="70" x2="70" y2="70" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <line x1="10" y1="70" x2="40" y2="30" stroke="#fff" stroke-width="2"/>
+        <text x="20" y="55" fill="#fff" font-size="16" font-weight="700">25°</text>
+      </svg>
+    </div>
+    <div class="angle-label">Approach Angle</div>
+  </div>
+  <div class="angle-item">
+    <div class="angle-img">
+      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
+        <line x1="10" y1="70" x2="70" y2="70" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
+        <line x1="70" y1="70" x2="40" y2="30" stroke="#fff" stroke-width="2"/>
+        <text x="30" y="55" fill="#fff" font-size="16" font-weight="700">30°</text>
+      </svg>
+    </div>
+    <div class="angle-label">Departure Angle</div>
+  </div>
+</section>
+
+<!-- PARAMETERS -->
+<section class="params">
+  <div class="params-inner">
+    <h3><strong>BJ30</strong> <span>PARAMETER</span></h3>
+    <div class="params-subtitle">configuration</div>
+    <div class="param-grid">
+      <div class="param-cell">
+        <div class="p-label">POWER</div>
+        <div class="p-val">138 <span>KW</span></div>
+      </div>
+      <div class="param-cell">
+        <div class="p-label">TORQUE</div>
+        <div class="p-val">305 <span>N·M</span></div>
+      </div>
+      <div class="param-cell">
+        <div class="p-label">ENGINE</div>
+        <div class="p-val">2.0 <span>T</span></div>
+      </div>
+      <div class="param-cell">
+        <div class="p-label">NEDC</div>
+        <div class="p-val">7.39 <span>L</span></div>
+      </div>
+      <div class="param-cell">
+        <div class="p-label">WHEELBASE</div>
+        <div class="p-val">2820 <span>MM</span></div>
+      </div>
+      <div class="param-cell">
+        <div class="p-label">TRANSMISSION</div>
+        <div class="p-val">7 <span>DCT</span></div>
+      </div>
+    </div>
+    <a href="#" class="param-link">DETAILED PARAMETERS ↓</a>
+    <p class="params-note">Note: All information content is for advertising display purposes only and is for reference. The actual vehicle shall prevail. BAIC reserves the right to modify the described vehicle models and is not obligated to provide prior notice for the purposes of marketing or product promotion at any time.</p>
+  </div>
+</section>
+
+<!-- TEST DRIVE FORM -->
+<section class="testdrive">
+  <div class="testdrive-bg">
+    <img src="https://www.baicglobal.com/file/public/static/bj30/images/pc/越野.jpg" alt="">
+  </div>
+  <div class="testdrive-inner">
+    <h3>APPOINTMENT FOR A TEST DRIVE</h3>
+    <p>Book your test drive experience</p>
+    <div class="form-row">
+      <select class="form-input">
+        <option value="">Please select Gender</option>
+        <option>Mr</option>
+        <option>Miss</option>
+        <option>Ms</option>
+        <option>Dr</option>
+      </select>
+      <input class="form-input" type="text" placeholder="First Name">
+      <input class="form-input" type="text" placeholder="Last Name">
+    </div>
+    <div class="form-row">
+      <select class="form-input" style="flex:0 0 100px">
+        <option>+86</option>
+        <option>+966</option>
+        <option>+971</option>
+        <option>+965</option>
+        <option>+1</option>
+        <option>+44</option>
+      </select>
+      <input class="form-input" type="tel" placeholder="Phone Number">
+    </div>
+    <div class="form-row">
+      <input class="form-input" type="email" placeholder="Email">
+    </div>
+    <button class="form-submit">SUBMIT</button>
+  </div>
+</section>
+
+@section Scripts {
+<script>
+// Color picker
+document.querySelectorAll('.color-dot').forEach(dot=>{
+  dot.addEventListener('click',()=>{
+    document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active'));
+    dot.classList.add('active');
+    const colorName = dot.dataset.color;
+    const img = document.getElementById('colorCarImg');
+    img.style.opacity='0.3';
+    const newSrc = `https://www.baicglobal.com/file/public/static/bj30/images/color/${encodeURIComponent(colorName)}.png`;
+    const testImg = new Image();
+    testImg.onload = () => { img.src = newSrc; img.style.opacity='1'; };
+    testImg.onerror = () => { img.style.opacity='1'; };
+    testImg.src = newSrc;
+  });
+});
+
+// Split feature tabs
+document.querySelectorAll('.feature-split-tabs').forEach(tabGroup => {
+  const parent = tabGroup.closest('.feature-split');
+  const imgEl = parent.querySelector('img');
+  const titleEl = parent.nextElementSibling?.querySelector('h3') || parent.parentElement.querySelector('[id^=splitTitle]');
+  const descEl = parent.nextElementSibling?.querySelector('p') || parent.parentElement.querySelector('[id^=splitDesc]');
+
+  tabGroup.querySelectorAll('.feature-split-tab').forEach(tab => {
+    tab.addEventListener('click', () => {
+      tabGroup.querySelectorAll('.feature-split-tab').forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      if (imgEl) {
+        imgEl.style.opacity = '0';
+        setTimeout(() => {
+          imgEl.src = tab.dataset.img;
+          imgEl.style.opacity = '1';
+        }, 200);
+      }
+      // Update text from sibling content panel
+      const splitParent = tabGroup.closest('.feature-split');
+      const contentPanel = splitParent.querySelector('div[style*="flex-direction"]');
+      if (contentPanel) {
+        const h3 = contentPanel.querySelector('h3');
+        const p = contentPanel.querySelector('p');
+        if (h3) h3.textContent = tab.dataset.title;
+        if (p) p.textContent = tab.dataset.desc;
+      }
+    });
+  });
+});
+</script>
+}

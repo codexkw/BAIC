@@ -1,0 +1,968 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Home - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:rgba(0,0,0,.92)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
+.logo{display:flex;align-items:center}
+.logo span{font-size:22px;font-weight:700;letter-spacing:5px}
+.nav-menu{display:flex;gap:0}
+.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;letter-spacing:.3px;transition:color .3s}
+.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}
+.nav-menu>li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}
+.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit;display:flex;align-items:center;gap:4px}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:2px}
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:8px}
+.hamburger span{width:22px;height:2px;background:#fff}
+
+/* HERO */
+.hero{position:relative;width:100%;height:100vh;overflow:hidden}
+.hero-slide{position:absolute;inset:0;opacity:0;transition:opacity 1s ease;pointer-events:none}
+.hero-slide.active{opacity:1;pointer-events:auto}
+.hero-slide-img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.hero-slide-content{position:absolute;bottom:0;left:0;right:0;top:0;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:120px;background:linear-gradient(to top,rgba(0,0,0,.55) 0%,transparent 50%)}
+.hero-model-text{font-size:44px;font-weight:700;letter-spacing:4px;margin-bottom:28px;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.hero-btns{display:flex;gap:16px}
+.hero-btn{display:inline-block;padding:12px 36px;font-size:13px;font-weight:500;letter-spacing:1px;border:1px solid rgba(255,255,255,.5);color:#fff;transition:all .3s}
+.hero-btn:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.hero-dots{position:absolute;bottom:36px;left:50%;transform:translateX(-50%);display:flex;gap:10px;z-index:10}
+.hero-dot{width:36px;height:3px;background:rgba(255,255,255,.3);cursor:pointer;transition:all .4s}
+.hero-dot.active{background:#fff;width:50px}
+.hero-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:10;width:48px;height:48px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:rgba(255,255,255,.5);font-size:28px;transition:color .3s;background:none;border:none}
+.hero-arrow:hover{color:#fff}
+.hero-arrow.left{left:24px}
+.hero-arrow.right{right:24px}
+
+/* EXPLORE YOUR BAIC */
+.explore{padding:80px 0;background:#000}
+.section-title{text-align:center;font-size:18px;font-weight:600;letter-spacing:2px;margin-bottom:36px}
+.cat-tabs{display:flex;justify-content:center;gap:0;margin-bottom:36px;border-bottom:1px solid rgba(255,255,255,.08)}
+.cat-tab{padding:12px 28px;font-size:14px;color:rgba(255,255,255,.4);cursor:pointer;transition:all .3s;border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
+.cat-tab:hover,.cat-tab.active{color:#fff;border-bottom-color:#fff}
+.car-thumbs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:1200px;margin:0 auto 30px;padding:0 20px}
+.car-thumb{width:140px;text-align:center;cursor:pointer;padding:10px;transition:all .3s;opacity:.4}
+.car-thumb:hover,.car-thumb.active{opacity:1}
+.car-thumb img{width:100%;margin-bottom:6px}
+.car-thumb span{font-size:11px;letter-spacing:1px;font-weight:500;white-space:nowrap}
+.car-360{position:relative;max-width:850px;margin:0 auto;text-align:center;padding:0 20px}
+.car-360 img{width:100%;max-width:780px;margin:0 auto}
+.car-360-btns{display:flex;justify-content:center;gap:16px;margin-top:24px}
+.car-360-btn{display:inline-block;padding:10px 32px;font-size:12px;font-weight:600;letter-spacing:1.5px;border:1px solid rgba(255,255,255,.4);color:#fff;transition:all .3s}
+.car-360-btn:hover{background:rgba(255,255,255,.1);border-color:#fff}
+
+/* CONTENT GRID */
+.content-grid{max-width:1400px;margin:0 auto;padding:0 16px 80px}
+.cgrid{display:grid;gap:8px;margin-bottom:8px}
+.cgrid-2{grid-template-columns:1fr 1fr}
+.cgrid-3{grid-template-columns:1fr 1fr 1fr}
+.cgrid-full{grid-template-columns:1fr}
+.cg-item{position:relative;overflow:hidden;cursor:pointer;display:block}
+.cg-item.tall{min-height:480px}
+.cg-item.med{min-height:280px}
+.cg-item img.cg-bg{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .7s ease}
+.cg-item:hover img.cg-bg{transform:scale(1.04)}
+.cg-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.05) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px 32px}
+.cg-overlay h3{font-size:17px;font-weight:600;letter-spacing:.8px;line-height:1.4}
+.cg-overlay p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;margin-top:6px}
+.cg-overlay .vm{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
+
+/* WORLD SECTION */
+.world{padding:80px 0;background:#000;text-align:center}
+.world h3{font-size:18px;font-weight:600;letter-spacing:2px;margin-bottom:6px}
+.world p{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:30px}
+.world-map{max-width:950px;margin:0 auto;padding:0 30px;position:relative}
+.world-map svg{width:100%}
+
+/* NEWS */
+.news{padding:80px 0;background:#111}
+.news-scroll-wrap{max-width:1400px;margin:0 auto;position:relative;padding:0 40px}
+.news-scroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
+.news-scroll::-webkit-scrollbar{display:none}
+.news-card{flex:0 0 calc(25% - 12px);min-width:260px;scroll-snap-align:start;background:#1a1a1a;overflow:hidden;transition:transform .3s;display:block}
+.news-card:hover{transform:translateY(-3px)}
+.news-card-img{width:100%;aspect-ratio:16/10;overflow:hidden}
+.news-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.news-card:hover .news-card-img img{transform:scale(1.04)}
+.news-card-body{padding:16px 14px}
+.news-card-body h4{font-size:12px;font-weight:500;line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;color:rgba(255,255,255,.85)}
+.show-more{display:block;text-align:center;margin-top:28px;font-size:12px;letter-spacing:2px;color:rgba(255,255,255,.5);cursor:pointer;text-transform:uppercase}
+.show-more:hover{color:#fff}
+/* Scroll arrows for news */
+.news-arrow{position:absolute;top:50%;transform:translateY(-80%);width:36px;height:36px;background:rgba(0,0,0,.7);border:1px solid rgba(255,255,255,.15);display:flex;align-items:center;justify-content:center;cursor:pointer;color:#fff;font-size:18px;z-index:5;transition:all .3s}
+.news-arrow:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.3)}
+.news-arrow.left{left:10px}
+.news-arrow.right{right:10px}
+
+/* SIDEBAR */
+.sidebar{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;background:rgba(0,0,0,.82);border-radius:4px 0 0 4px;overflow:hidden}
+.sidebar a,.sidebar button{display:flex;align-items:center;justify-content:center;width:44px;height:44px;color:#fff;transition:background .3s;background:none;border:none;cursor:pointer}
+.sidebar a:hover,.sidebar button:hover{background:rgba(255,255,255,.08)}
+.sidebar svg{width:18px;height:18px;fill:#fff}
+.sidebar .sep{width:100%;height:1px;background:rgba(255,255,255,.08)}
+
+/* FOOTER */
+.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
+.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}
+.footer-col a:hover{color:#fff}
+.footer-brands{display:flex;align-items:center;gap:20px;margin-bottom:24px;padding-bottom:18px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brands span{font-weight:700;letter-spacing:3px;opacity:.5;font-size:16px}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25);transition:color .3s}
+.footer-bottom a:hover{color:rgba(255,255,255,.5)}
+.footer-links{display:flex;gap:16px;align-items:center}
+.more-sites{position:relative;display:inline-block}
+.more-sites>span{cursor:pointer;display:flex;align-items:center;gap:4px}
+.more-sites .dd{display:none;position:absolute;bottom:100%;left:0;background:#222;padding:6px 0;min-width:170px;margin-bottom:6px}
+.more-sites:hover .dd{display:block}
+.more-sites .dd a{display:block;padding:6px 14px;font-size:11px;color:rgba(255,255,255,.5)}
+.more-sites .dd a:hover{color:#fff;background:rgba(255,255,255,.04)}
+
+/* COOKIE BANNER */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
+.cookie-banner.hidden{display:none}
+.cookie-text{flex:1}
+.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0;padding-top:2px}
+.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.ck-accept{background:#fff;color:#000}.ck-accept:hover{background:#ddd}
+.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}.ck-necessary:hover{border-color:#fff}
+.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}.ck-settings:hover{border-color:#fff}
+.cookie-privacy{font-size:10px;color:rgba(255,255,255,.25);margin-top:6px}
+.cookie-privacy a{text-decoration:underline}
+
+@media(max-width:1024px){
+  .cgrid-2,.cgrid-3{grid-template-columns:1fr 1fr}
+  .footer-cols{grid-template-columns:repeat(3,1fr)}
+}
+@media(max-width:768px){
+  .nav-menu{display:none}
+  .hamburger{display:flex}
+  .header-inner{padding:0 16px}
+  .cgrid-2,.cgrid-3{grid-template-columns:1fr}
+  .footer-cols{grid-template-columns:1fr 1fr}
+  .hero-model-text{font-size:28px}
+  .car-thumbs{gap:4px}
+  .car-thumb{width:100px}
+  .cookie-banner{flex-direction:column}
+  .news-card{flex:0 0 240px;min-width:220px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+<div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li class="has-mega" id="navModels">
+      <a href="#">Models</a>
+      <div class="mega-menu" id="megaModels">
+        <div class="mega-inner">
+          <div class="mega-tabs">
+            <button class="mega-tab active" data-filter="all">All</button>
+            <button class="mega-tab" data-filter="offroad">Off-road</button>
+            <button class="mega-tab" data-filter="suv">SUV</button>
+            <button class="mega-tab" data-filter="sedan">Sedan</button>
+            <button class="mega-tab" data-filter="ev">EV</button>
+          </div>
+          <div class="mega-models" id="megaModelGrid">
+            <a href="#" class="mega-model-item" data-cat="offroad">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="BJ30">
+              <span>BJ30</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="offroad">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="BJ80">
+              <span>BJ80</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="offroad">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="BJ60">
+              <span>BJ60</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="offroad">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS">
+              <span>BJ40 PLUS</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="offroad">
+              <img src="https://www.baicglobal.com/file/common/image/2025/07/10/bj40-plus3333_20240827160110A019_20250710154540A057.avif" alt="BJ40 PRO">
+              <span>BJ40 PRO</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="offroad">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="BJ40 SE">
+              <span>BJ40 SE</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="offroad">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="F40">
+              <span>F40</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="suv">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="X35">
+              <span>X35</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="suv">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="X55 II">
+              <span>X55 II</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="suv">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="ALL NEW X7">
+              <span>ALL NEW X7</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="sedan">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="U5 PLUS">
+              <span>U5 PLUS</span>
+            </a>
+            <a href="#" class="mega-model-item" data-cat="ev">
+              <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="EU5">
+              <span>EU5</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li>
+      <a href="#">Innovation</a>
+      <div class="dropdown">
+        <a href="#">Capital Beauty</a>
+        <a href="#">Concept Car</a>
+        <a href="#">Off Road</a>
+        <a href="#">Power</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">About</a>
+      <div class="dropdown">
+        <a href="#">About Us</a>
+        <a href="#">History</a>
+        <a href="#">ESG</a>
+        <a href="#">After-sales Service</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">Newsroom</a>
+      <div class="dropdown">
+        <a href="#">News Release</a>
+        <a href="#">Subscribe</a>
+        <a href="#">Media Contact</a>
+      </div>
+    </li>
+    <li>
+      <a href="#">Connect</a>
+      <div class="dropdown">
+        <a href="#">Contact Us</a>
+        <a href="#">Distributor Center</a>
+        <a href="#">Download Center</a>
+      </div>
+    </li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right">
+    <button class="lang-select">EN</button>
+    <button class="hamburger"><span></span><span></span><span></span></button>
+  </div>
+</div>
+</header>
+
+<style>
+/* Mega Menu for Models */
+.mega-menu{position:fixed;top:64px;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);display:none;border-top:1px solid rgba(255,255,255,.06);z-index:99;animation:megaFadeIn .25s ease}
+.has-mega:hover .mega-menu{display:block}
+@keyframes megaFadeIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.mega-inner{max-width:1200px;margin:0 auto;padding:28px 40px 36px}
+
+/* Mega tabs (All, Off-road, SUV, Sedan, EV) */
+.mega-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mega-tab{padding:10px 24px;font-size:13px;color:rgba(255,255,255,.4);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .25s;letter-spacing:.5px}
+.mega-tab:hover,.mega-tab.active{color:#fff;border-bottom-color:#fff}
+
+/* Model grid */
+.mega-models{display:flex;gap:6px;flex-wrap:wrap}
+.mega-model-item{display:flex;flex-direction:column;align-items:center;width:120px;padding:12px 8px;border-radius:4px;transition:all .25s;opacity:.7}
+.mega-model-item:hover{opacity:1;background:rgba(255,255,255,.06)}
+.mega-model-item img{width:100px;height:auto;margin-bottom:8px;transition:transform .3s}
+.mega-model-item:hover img{transform:scale(1.08)}
+.mega-model-item span{font-size:11px;font-weight:500;letter-spacing:.8px;color:rgba(255,255,255,.7);white-space:nowrap;text-align:center}
+.mega-model-item:hover span{color:#fff}
+.mega-model-item.hidden{display:none}
+</style>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-slide active" data-i="0">
+    <img class="hero-slide-img" src="https://www.baicglobal.com/file/common/image/2025/07/09/20250609124156A121_20250709165951A004.avif" alt="BJ40 PRO">
+    <div class="hero-slide-content">
+      <div class="hero-model-text">BJ40 PRO</div>
+      <div class="hero-btns"><a href="#" class="hero-btn">Test Drive</a><a href="#" class="hero-btn">View VR</a></div>
+    </div>
+  </div>
+  <div class="hero-slide" data-i="1">
+    <img class="hero-slide-img" src="https://www.baicglobal.com/file/common/image/2025/07/18/111 (1)_20250718095304A139.webp" alt="X55 II">
+    <div class="hero-slide-content">
+      <div class="hero-model-text">X55 II</div>
+      <div class="hero-btns"><a href="#" class="hero-btn">Test Drive</a><a href="#" class="hero-btn">View VR</a></div>
+    </div>
+  </div>
+  <div class="hero-slide" data-i="2">
+    <img class="hero-slide-img" src="https://www.baicglobal.com/file/common/image/2025/07/09/20250603112844A054_20250709170031A007.avif" alt="BJ30">
+    <div class="hero-slide-content">
+      <div class="hero-model-text">BJ30</div>
+      <div class="hero-btns"><a href="#" class="hero-btn">Test Drive</a><a href="#" class="hero-btn">View VR</a></div>
+    </div>
+  </div>
+  <div class="hero-slide" data-i="3">
+    <img class="hero-slide-img" src="https://www.baicglobal.com/file/common/image/2025/07/18/222_20250718094809A133.webp" alt="BJ60">
+    <div class="hero-slide-content">
+      <div class="hero-model-text">BJ60</div>
+      <div class="hero-btns"><a href="#" class="hero-btn">Test Drive</a><a href="#" class="hero-btn">View VR</a></div>
+    </div>
+  </div>
+  <div class="hero-slide" data-i="4">
+    <img class="hero-slide-img" src="https://www.baicglobal.com/file/common/image/2025/07/09/x7_20250218154801A963_20250709170103A010.avif" alt="X7">
+    <div class="hero-slide-content">
+      <div class="hero-model-text">X7</div>
+      <div class="hero-btns"><a href="#" class="hero-btn">Test Drive</a><a href="#" class="hero-btn">View VR</a></div>
+    </div>
+  </div>
+  <button class="hero-arrow left" onclick="heroNav(-1)">&#10094;</button>
+  <button class="hero-arrow right" onclick="heroNav(1)">&#10095;</button>
+  <div class="hero-dots" id="heroDots">
+    <div class="hero-dot active" data-i="0"></div>
+    <div class="hero-dot" data-i="1"></div>
+    <div class="hero-dot" data-i="2"></div>
+    <div class="hero-dot" data-i="3"></div>
+    <div class="hero-dot" data-i="4"></div>
+  </div>
+</section>
+
+<!-- EXPLORE YOUR BAIC -->
+<section class="explore">
+  <h4 class="section-title">EXPLORE YOUR BAIC</h4>
+  <div class="cat-tabs">
+    <button class="cat-tab active" data-cat="offroad">Off-road</button>
+    <button class="cat-tab" data-cat="suv">SUV</button>
+    <button class="cat-tab" data-cat="sedan">Sedan</button>
+    <button class="cat-tab" data-cat="ev">EV</button>
+  </div>
+  <div class="car-thumbs" id="carThumbs">
+    <div class="car-thumb active" data-model="BJ30" data-vr="https://www.baicglobal.com/vrbj30/" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="BJ30"><span>BJ30</span>
+    </div>
+    <div class="car-thumb" data-model="BJ80" data-vr="https://www.baicglobal.com/vrbj80/" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="BJ80"><span>BJ80</span>
+    </div>
+    <div class="car-thumb" data-model="BJ60" data-vr="https://www.baicglobal.com/vrbj60/" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="BJ60"><span>BJ60</span>
+    </div>
+    <div class="car-thumb" data-model="BJ40 PLUS" data-vr="https://www.baicglobal.com/vrbj40/" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS"><span>BJ40 PLUS</span>
+    </div>
+    <div class="car-thumb" data-model="BJ40 PRO" data-vr="https://www.baicglobal.com/vrbj40/" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/07/10/bj40-plus3333_20240827160110A019_20250710154540A057.avif" alt="BJ40 PRO"><span>BJ40 PRO</span>
+    </div>
+    <div class="car-thumb" data-model="BJ40 SE" data-vr="https://www.baicglobal.com/vrbj40/" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="BJ40 SE"><span>BJ40 SE</span>
+    </div>
+    <div class="car-thumb" data-model="F40" data-vr="#" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="F40"><span>F40</span>
+    </div>
+  </div>
+
+  <!-- 360 Car View Area -->
+  <div class="car-360-wrapper" id="car360Wrapper">
+    <!-- Loading spinner overlay -->
+    <div class="car-360-loader" id="car360Loader">
+      <div class="loader-spinner"></div>
+    </div>
+    <!-- 360 image container -->
+    <div class="car-360-stage" id="car360Stage">
+      <img src="https://www.baicglobal.com/file/home360/BJ30/color0/0.avif" alt="360 View" id="car360Img" draggable="false">
+      <!-- 360 icon overlays -->
+      <div class="car-360-icon" id="icon360">
+        <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="20" cy="20" r="19" stroke="rgba(255,255,255,.5)" stroke-width="1"/>
+          <text x="20" y="24" text-anchor="middle" fill="white" font-size="11" font-weight="600">360°</text>
+        </svg>
+      </div>
+    </div>
+    <!-- Model name display -->
+    <div class="car-360-model-name" id="car360Name">BJ30</div>
+    <!-- Buttons -->
+    <div class="car-360-btns">
+      <a href="#" class="car-360-btn" id="btnTestDrive">TEST DRIVE</a>
+      <a href="https://www.baicglobal.com/vrbj30/" class="car-360-btn" id="btnViewVR" target="_blank">VIEW VR</a>
+    </div>
+  </div>
+</section>
+
+<style>
+/* Enhanced 360 car view styles */
+.car-360-wrapper{position:relative;max-width:900px;margin:0 auto;text-align:center;padding:0 20px}
+.car-360-stage{position:relative;cursor:grab;user-select:none;-webkit-user-select:none;overflow:hidden;min-height:300px;display:flex;align-items:center;justify-content:center}
+.car-360-stage:active{cursor:grabbing}
+.car-360-stage img{width:100%;max-width:800px;margin:0 auto;transition:opacity .4s ease,transform .3s ease;pointer-events:none}
+.car-360-stage img.loading{opacity:.3;transform:scale(.96)}
+.car-360-stage img.loaded{opacity:1;transform:scale(1)}
+
+/* 360 icon */
+.car-360-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:.6;transition:opacity .3s}
+.car-360-stage:hover .car-360-icon{opacity:0}
+
+/* Loading spinner */
+.car-360-loader{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:5;pointer-events:none;opacity:0;transition:opacity .3s}
+.car-360-loader.visible{opacity:1}
+.loader-spinner{width:36px;height:36px;border:3px solid rgba(255,255,255,.1);border-top-color:#fff;border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* Model name */
+.car-360-model-name{font-size:14px;letter-spacing:3px;font-weight:600;color:rgba(255,255,255,.6);margin:8px 0 20px;text-transform:uppercase;transition:opacity .3s}
+
+/* Thumb active state enhancement */
+.car-thumb{position:relative;transition:all .35s ease}
+.car-thumb::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:#fff;transition:width .3s ease}
+.car-thumb.active::after{width:60%}
+</style>
+
+<!-- CONTENT GRID -->
+<section class="content-grid">
+  <!-- Capital Beauty - full width large -->
+  <div class="cgrid cgrid-full">
+    <a href="#" class="cg-item tall">
+      <img class="cg-bg" src="https://www.baicglobal.com/file/common/image/2025/07/10/wx_20240614165242_20240614170812A026_20250710175551A104.avif" alt="Capital Beauty">
+      <div class="cg-overlay">
+        <h3>CAPITAL BEAUTY REDEFINED</h3>
+        <p>CREATING A JOYFUL LIFESTYLE FOR USERS<br>IT IS BAIC'S PERSISTENT PURSUIT</p>
+      </div>
+    </a>
+  </div>
+  <!-- BAIC IN X + R&D -->
+  <div class="cgrid cgrid-2">
+    <a href="#" class="cg-item med">
+      <img class="cg-bg" src="https://www.baicglobal.com/file/common/image/2025/07/10/baic914-915_20240506135116A153_20250710175618A105.avif" alt="BAIC IN X">
+      <div class="cg-overlay"><h3>BAIC IN X</h3></div>
+    </a>
+    <a href="#" class="cg-item med">
+      <img class="cg-bg" src="https://www.baicglobal.com/file/common/image/2025/07/10/wx_20240422193726_20240422193849A069_20250710175644A106.avif" alt="R&D">
+      <div class="cg-overlay"><h3>RESEARCH & DEVELOPMENT</h3></div>
+    </a>
+  </div>
+  <!-- Learn + Off-Road + History -->
+  <div class="cgrid cgrid-3">
+    <a href="#" class="cg-item med">
+      <img class="cg-bg" src="https://www.baicglobal.com/file/common/image/2025/07/10/more_20240411162958A010_20241202134101A479_20250710175653A107.avif" alt="Learn">
+      <div class="cg-overlay">
+        <h3>LEARN EVERYTHING ABOUT BAIC HERE</h3>
+        <span class="vm">VIEW MORE</span>
+      </div>
+    </a>
+    <a href="#" class="cg-item med">
+      <img class="cg-bg" src="https://www.baicglobal.com/file/common/image/2025/07/10/wx_20240614165242_20240614170812A026_20250710175551A104.avif" alt="Off-Road">
+      <div class="cg-overlay"><h3>OFF-ROAD VEHICLE</h3></div>
+    </a>
+    <a href="#" class="cg-item med">
+      <img class="cg-bg" src="https://www.baicglobal.com/file/common/image/2025/07/10/1-1_20240527175812A001_20250710175702A108.avif" alt="History">
+      <div class="cg-overlay"><h3>BAIC HISTORY</h3></div>
+    </a>
+  </div>
+</section>
+
+<!-- BAIC IN THE WORLD -->
+<section class="world">
+  <h3>BAIC IN THE WORLD</h3>
+  <p>Find Your BAIC In Your Country</p>
+  <div class="world-map" id="worldMap">
+    <canvas id="mapCanvas" width="1200" height="620"></canvas>
+  </div>
+</section>
+
+<style>
+.world-map{max-width:1000px;margin:0 auto;padding:0 20px}
+.world-map canvas{width:100%;height:auto;display:block}
+</style>
+
+<script>
+// Generate dot-matrix world map matching the original BAIC site style
+(function(){
+const canvas = document.getElementById('mapCanvas');
+const ctx = canvas.getContext('2d');
+const W = 1200, H = 620;
+canvas.width = W; canvas.height = H;
+
+// Simplified world continent coordinate data as polygon outlines
+// Each continent is an array of [x%, y%] points scaled to canvas
+const continents = {
+  northAmerica: [
+    // Main body
+    [[12,12],[15,10],[18,9],[21,10],[24,11],[26,13],[25,16],[23,18],[22,21],[24,22],[26,23],[25,26],[23,28],[21,30],[19,32],[18,34],[16,34],[15,32],[14,30],[12,28],[10,25],[9,22],[10,18],[11,15]],
+    // Greenland
+    [[28,6],[30,5],[33,6],[34,8],[33,10],[31,11],[29,10],[28,8]],
+  ],
+  southAmerica: [
+    [[22,38],[24,36],[26,37],[28,38],[29,41],[30,44],[30,48],[29,52],[28,56],[27,60],[26,64],[25,68],[24,72],[22,74],[21,72],[20,68],[19,64],[19,60],[19,56],[20,50],[20,46],[21,42]],
+  ],
+  europe: [
+    [[42,10],[44,8],[46,8],[48,9],[50,10],[51,12],[50,14],[49,16],[47,18],[45,18],[44,17],[43,15],[42,13]],
+    // Scandinavia
+    [[44,5],[46,4],[48,5],[47,8],[45,8],[44,7]],
+    // UK
+    [[40,10],[41,9],[42,10],[41,12],[40,11]],
+  ],
+  africa: [
+    [[42,22],[44,20],[47,20],[50,21],[52,23],[53,26],[54,30],[54,34],[53,38],[52,42],[50,46],[48,48],[46,50],[44,48],[42,46],[40,42],[39,38],[38,34],[38,30],[39,26],[40,23]],
+  ],
+  asia: [
+    // Main body
+    [[52,8],[55,6],[58,5],[62,5],[66,6],[70,7],[74,8],[78,10],[80,12],[82,14],[84,16],[85,18],[84,20],[82,22],[80,23],[78,24],[76,26],[73,27],[70,28],[68,28],[66,27],[64,26],[62,24],[60,22],[58,20],[56,18],[54,16],[52,14],[51,12],[52,10]],
+    // India
+    [[62,24],[64,26],[66,28],[67,32],[66,36],[64,38],[62,36],[60,34],[60,30],[61,26]],
+    // SE Asia
+    [[72,28],[74,30],[76,32],[78,34],[76,36],[74,34],[72,32],[71,30]],
+  ],
+  middleEast: [
+    [[50,20],[52,18],[55,18],[57,20],[56,24],[54,26],[52,25],[50,23]],
+  ],
+  australia: [
+    [[78,42],[80,40],[83,40],[86,41],[88,43],[88,46],[87,49],[85,50],[82,50],[80,49],[78,47],[77,44]],
+    // NZ
+    [[90,50],[91,48],[92,50],[91,52],[90,51]],
+  ],
+  japan: [
+    [[82,12],[83,14],[84,16],[83,18],[82,16],[81,14]],
+  ],
+  indonesia: [
+    [[74,36],[76,35],[78,36],[80,37],[82,38],[80,39],[78,38],[76,37]],
+  ],
+};
+
+// Convert percentage coords to canvas pixels
+function toCanvas(points) {
+  return points.map(p => [p[0] * W / 100, p[1] * H / 100]);
+}
+
+// Check if point is inside polygon (ray casting)
+function pointInPoly(x, y, poly) {
+  let inside = false;
+  for (let i = 0, j = poly.length - 1; i < poly.length; j = i++) {
+    const xi = poly[i][0], yi = poly[i][1];
+    const xj = poly[j][0], yj = poly[j][1];
+    if ((yi > y) !== (yj > y) && x < (xj - xi) * (y - yi) / (yj - yi) + xi) {
+      inside = !inside;
+    }
+  }
+  return inside;
+}
+
+// Draw dots
+const dotSize = 2.2;
+const spacing = 8;
+
+// Collect all polygon arrays
+const allPolys = [];
+Object.values(continents).forEach(polyGroup => {
+  polyGroup.forEach(poly => allPolys.push(toCanvas(poly)));
+});
+
+// Draw background dots grid (very faint)
+ctx.fillStyle = 'rgba(255,255,255,0.03)';
+for (let x = 0; x < W; x += spacing) {
+  for (let y = 0; y < H; y += spacing) {
+    ctx.beginPath();
+    ctx.arc(x, y, 1, 0, Math.PI * 2);
+    ctx.fill();
+  }
+}
+
+// Draw continent dots
+for (let x = 0; x < W; x += spacing) {
+  for (let y = 0; y < H; y += spacing) {
+    let inContinent = false;
+    for (const poly of allPolys) {
+      if (pointInPoly(x, y, poly)) {
+        inContinent = true;
+        break;
+      }
+    }
+    if (inContinent) {
+      ctx.fillStyle = 'rgba(255,255,255,0.2)';
+      ctx.beginPath();
+      ctx.arc(x, y, dotSize, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+}
+
+// BAIC presence locations [x%, y%, label, isMain]
+const locations = [
+  // Middle East (main market)
+  [54, 23, 'Saudi Arabia', true],
+  [56, 22, 'UAE', true],
+  [52, 21, 'Iraq', false],
+  [50, 22, 'Egypt', false],
+  // Africa
+  [44, 30, 'Nigeria', false],
+  [48, 34, 'Kenya', false],
+  [44, 44, 'South Africa', false],
+  [42, 26, 'Morocco', false],
+  // Asia
+  [76, 12, 'China', true],
+  [68, 20, 'Pakistan', false],
+  [72, 30, 'Thailand', false],
+  [76, 34, 'Malaysia', false],
+  [80, 36, 'Indonesia', false],
+  [74, 18, 'Kazakhstan', false],
+  // South America
+  [24, 48, 'Brazil', false],
+  [22, 56, 'Chile', false],
+  [26, 44, 'Colombia', false],
+  [20, 42, 'Ecuador', false],
+  // Central America / Caribbean
+  [18, 32, 'Mexico', false],
+  [22, 34, 'Dominican Rep.', false],
+  // Europe
+  [46, 12, 'Russia', false],
+  // Australia
+  [84, 46, 'Australia', false],
+];
+
+locations.forEach(loc => {
+  const cx = loc[0] * W / 100;
+  const cy = loc[1] * H / 100;
+  const isMain = loc[3];
+  
+  // Glow
+  if (isMain) {
+    const grd = ctx.createRadialGradient(cx, cy, 0, cx, cy, 18);
+    grd.addColorStop(0, 'rgba(59,130,246,0.25)');
+    grd.addColorStop(1, 'rgba(59,130,246,0)');
+    ctx.fillStyle = grd;
+    ctx.beginPath();
+    ctx.arc(cx, cy, 18, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  
+  // Outer ring
+  ctx.strokeStyle = isMain ? 'rgba(59,130,246,0.5)' : 'rgba(59,130,246,0.3)';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(cx, cy, isMain ? 8 : 6, 0, Math.PI * 2);
+  ctx.stroke();
+  
+  // Inner dot
+  ctx.fillStyle = isMain ? 'rgba(59,130,246,0.9)' : 'rgba(59,130,246,0.7)';
+  ctx.beginPath();
+  ctx.arc(cx, cy, isMain ? 3.5 : 2.5, 0, Math.PI * 2);
+  ctx.fill();
+});
+
+})();
+</script>
+
+<!-- NEWS FEEDS -->
+<section class="news">
+  <h4 class="section-title">NEWS FEEDS</h4>
+  <div class="news-scroll-wrap">
+    <div class="news-arrow left" onclick="document.getElementById('newsScroll').scrollBy({left:-300,behavior:'smooth'})">&#10094;</div>
+    <div class="news-arrow right" onclick="document.getElementById('newsScroll').scrollBy({left:300,behavior:'smooth'})">&#10095;</div>
+    <div class="news-scroll" id="newsScroll">
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2026/02/10/m_20260210102346A088.avif" alt=""></div><div class="news-card-body"><h4>BAIC ARCFOX 77° Concept Car Wins 2025 Red Dot Design Award</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/12/19/微信图片_20251219100817_4813_28_20251219101602A111.jpg" alt=""></div><div class="news-card-body"><h4>SAFETY AS FOUNDATION, INNOVATION AS DIRECTION: BAIC'S JOURNEY IN BUILDING A COMPREHENSIVE SAFETY ASSURANCE SYSTEM FOR INTELLIGENT CONNECTED VEHICLES</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/11/29/画板 2_20251129205842A082.png" alt=""></div><div class="news-card-body"><h4>BAIC GLOBAL DISTRIBUTORS BUSINESS CONFERENCE OPENS, THREE MAJOR BRANDS JOINTLY EMBARK ON A NEW STAGE OF GLOBAL DEVELOPMENT</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/11/07/2_20251107113508A055.avif" alt=""></div><div class="news-card-body"><h4>No. 1! STELATO S9 Earns Authoritative Certification, Showcasing Technical Prowess</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/11/07/1_20251107113453A052.avif" alt=""></div><div class="news-card-body"><h4>BAIC Selected as One of Beijing's Top Ten ESG Cases Among Municipal State-Owned Enterprises</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/07/09/mb_20250619154103A378_20250709171327A042.avif" alt=""></div><div class="news-card-body"><h4>2025 International Automotive & Supply Chain Expo (Hong Kong) Kicks Off: BAIC Group Showcases New Heights of Chinese Intelligent Manufacturing</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/07/09/mb1_20250626160446A071_20250709171130A036.avif" alt=""></div><div class="news-card-body"><h4>Big BAIC Figures: Meet BAIC Design Team</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/05/06/750_20250506163710A029.jpg" alt=""></div><div class="news-card-body"><h4>ARCFOX ALPHA T5 WINS 2025 iF DESIGN AWARD</h4></div></a>
+    <a href="#" class="news-card"><div class="news-card-img"><img src="https://www.baicglobal.com/file/common/image/2025/07/09/mob_20250428120738A008_20250709171613A048.avif" alt=""></div><div class="news-card-body"><h4>BAIC Group Unveils Seven New Models and Showcases Intelligent Innovation at Auto Shanghai 2025</h4></div></a>
+  </div>
+  </div>
+  <a href="#" class="show-more">SHOW MORE</a>
+</section>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+  <a href="https://www.instagram.com/baicglobal" target="_blank"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+  <a href="https://youtube.com/@BAICglobal" target="_blank"><svg viewBox="0 0 24 24"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg></a>
+  <a href="https://twitter.com/baicglobal" target="_blank"><svg viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg></a>
+  <a href="https://www.tiktok.com/@baicglobal" target="_blank"><svg viewBox="0 0 24 24"><path d="M16.6 5.82s.51.5 0 0A4.278 4.278 0 015.54 3h-3.09v12.4a2.592 2.592 0 01-2.59 2.5c-1.42 0-2.6-1.16-2.6-2.6 0-1.72 1.66-3.01 3.37-2.48V9.66c-3.45-.46-6.47 2.22-6.47 5.64 0 3.33 2.76 5.7 5.69 5.7 3.14 0 5.69-2.55 5.69-5.7V9.01a7.35 7.35 0 004.3 1.38V7.3s-1.88.09-3.24-1.48z"/></svg></a>
+  <a href="https://www.facebook.com/baicglobal" target="_blank"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+  <div class="sep"></div>
+  <a href="#" title="Contact Us"><svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg></a>
+  <a href="#" title="Test Drive"><svg viewBox="0 0 24 24"><path d="M18.92 6.01C18.72 5.42 18.16 5 17.5 5h-11c-.66 0-1.21.42-1.42 1.01L3 12v8c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-1h12v1c0 .55.45 1 1 1h1c.55 0 1-.45 1-1v-8l-2.08-5.99zM6.5 16c-.83 0-1.5-.67-1.5-1.5S5.67 13 6.5 13s1.5.67 1.5 1.5S7.33 16 6.5 16zm11 0c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zM5 11l1.5-4.5h11L19 11H5z"/></svg></a>
+  <div class="sep"></div>
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})"><svg viewBox="0 0 24 24"><path d="M7 14l5-5 5 5z"/></svg></button>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ60</a></li><li><a href="#">BJ80</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands">
+    <span>BAIC</span>
+    <span style="font-size:13px">ARCFOX</span>
+    <span style="font-size:13px">STELATO</span>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-links">
+      <a href="#">Privacy Statement</a>
+      <a href="#" style="cursor:pointer">Cookie Settings</a>
+      <div class="more-sites">
+        <span>More BAIC Websites ▸</span>
+        <div class="dd">
+          <a href="https://www.arcfox.com.cn/home_en.html" target="_blank">ARCFOX</a>
+          <a href="https://www.beijingauto.com.cn/" target="_blank">BAIC CHINA</a>
+          <a href="https://www.baicgroup.com.cn/en" target="_blank">BAIC GROUP</a>
+        </div>
+      </div>
+    </div>
+    <span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span>
+  </div>
+</div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text">
+    <h4>Your Privacy</h4>
+    <p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies. Please click on the different category headings to find out more about or modify our default settings. However, please be aware that disabling certain cookies may affect your browsing experience on our website and limit the services we can provide.</p>
+  </div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+  <div class="cookie-privacy"><a href="#">Privacy Statement</a></div>
+</div>
+
+<script>
+// Header scroll
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+
+// Hero
+let cur=0;const slides=document.querySelectorAll('.hero-slide'),dots=document.querySelectorAll('.hero-dot');
+function goHero(i){slides[cur].classList.remove('active');dots[cur].classList.remove('active');cur=((i%slides.length)+slides.length)%slides.length;slides[cur].classList.add('active');dots[cur].classList.add('active')}
+function heroNav(d){goHero(cur+d)}
+dots.forEach(d=>d.addEventListener('click',()=>goHero(+d.dataset.i)));
+setInterval(()=>heroNav(1),5000);
+
+// ========== EXPLORE YOUR BAIC - Interactive 360 Model Loader ==========
+const car360Img = document.getElementById('car360Img');
+const car360Loader = document.getElementById('car360Loader');
+const car360Name = document.getElementById('car360Name');
+const btnViewVR = document.getElementById('btnViewVR');
+const car360Stage = document.getElementById('car360Stage');
+
+// Map model names to their 360 image base paths
+const modelPaths = {
+  'BJ30':     'https://www.baicglobal.com/file/home360/BJ30/color0/',
+  'BJ80':     'https://www.baicglobal.com/file/home360/BJ80/color0/',
+  'BJ60':     'https://www.baicglobal.com/file/home360/BJ60/color0/',
+  'BJ40 PLUS':'https://www.baicglobal.com/file/home360/BJ40PLUS/color0/',
+  'BJ40 PRO': 'https://www.baicglobal.com/file/home360/BJ40PRO/color0/',
+  'BJ40 SE':  'https://www.baicglobal.com/file/home360/BJ40SE/color0/',
+  'F40':      'https://www.baicglobal.com/file/home360/F40/color0/',
+};
+
+let currentModel = 'BJ30';
+let currentFrame = 0;
+const totalFrames = 36; // 360 images have 36 frames (10° each)
+let frameImages = {}; // cache per model
+let isDragging = false;
+let dragStartX = 0;
+
+// Preload a few frames for current model
+function preloadFrames(model, count) {
+  if (!frameImages[model]) frameImages[model] = {};
+  const base = modelPaths[model] || modelPaths['BJ30'];
+  for (let i = 0; i < count; i++) {
+    if (!frameImages[model][i]) {
+      const img = new Image();
+      img.src = base + i + '.avif';
+      frameImages[model][i] = img;
+    }
+  }
+}
+
+// Switch model with loading animation
+function switchModel(modelName, vrUrl) {
+  if (modelName === currentModel) return;
+  
+  currentModel = modelName;
+  currentFrame = 0;
+  
+  // Show loader, fade out current image
+  car360Loader.classList.add('visible');
+  car360Img.classList.remove('loaded');
+  car360Img.classList.add('loading');
+  car360Name.style.opacity = '0.3';
+  
+  // Build the image URL
+  const base = modelPaths[modelName] || modelPaths['BJ30'];
+  const newSrc = base + '0.avif';
+  
+  // Load new image
+  const testImg = new Image();
+  testImg.onload = function() {
+    car360Img.src = newSrc;
+    // Small delay for smooth transition
+    setTimeout(() => {
+      car360Img.classList.remove('loading');
+      car360Img.classList.add('loaded');
+      car360Loader.classList.remove('visible');
+      car360Name.textContent = modelName;
+      car360Name.style.opacity = '1';
+    }, 300);
+    // Preload rest of frames in background
+    preloadFrames(modelName, Math.min(totalFrames, 12));
+  };
+  testImg.onerror = function() {
+    // If 360 images aren't available, just show model name
+    car360Img.classList.remove('loading');
+    car360Img.classList.add('loaded');
+    car360Loader.classList.remove('visible');
+    car360Name.textContent = modelName;
+    car360Name.style.opacity = '1';
+  };
+  testImg.src = newSrc;
+  
+  // Update VR link
+  if (btnViewVR) btnViewVR.href = vrUrl || '#';
+}
+
+// Car thumbnail click handlers
+document.querySelectorAll('.car-thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    // Update active state
+    document.querySelectorAll('.car-thumb').forEach(x => x.classList.remove('active'));
+    thumb.classList.add('active');
+    
+    // Switch model
+    const model = thumb.dataset.model;
+    const vr = thumb.dataset.vr;
+    switchModel(model, vr);
+  });
+});
+
+// 360 Drag Rotation
+car360Stage.addEventListener('mousedown', (e) => {
+  isDragging = true;
+  dragStartX = e.clientX;
+  e.preventDefault();
+});
+
+car360Stage.addEventListener('touchstart', (e) => {
+  isDragging = true;
+  dragStartX = e.touches[0].clientX;
+}, { passive: true });
+
+function handleDragMove(clientX) {
+  if (!isDragging) return;
+  const diff = clientX - dragStartX;
+  const threshold = 30; // pixels per frame
+  
+  if (Math.abs(diff) > threshold) {
+    const direction = diff > 0 ? 1 : -1;
+    currentFrame = ((currentFrame + direction) % totalFrames + totalFrames) % totalFrames;
+    
+    const base = modelPaths[currentModel] || modelPaths['BJ30'];
+    const frameSrc = base + currentFrame + '.avif';
+    
+    // Check if cached
+    if (frameImages[currentModel] && frameImages[currentModel][currentFrame]) {
+      car360Img.src = frameSrc;
+    } else {
+      car360Img.src = frameSrc;
+      // Cache it
+      if (!frameImages[currentModel]) frameImages[currentModel] = {};
+      const img = new Image();
+      img.src = frameSrc;
+      frameImages[currentModel][currentFrame] = img;
+    }
+    
+    dragStartX = clientX;
+  }
+}
+
+document.addEventListener('mousemove', (e) => handleDragMove(e.clientX));
+document.addEventListener('touchmove', (e) => handleDragMove(e.touches[0].clientX), { passive: true });
+document.addEventListener('mouseup', () => { isDragging = false; });
+document.addEventListener('touchend', () => { isDragging = false; });
+
+// Category tabs - filter thumbnails
+document.querySelectorAll('.cat-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.cat-tab').forEach(x => x.classList.remove('active'));
+    tab.classList.add('active');
+    
+    const cat = tab.dataset.cat;
+    const thumbs = document.querySelectorAll('.car-thumb');
+    
+    thumbs.forEach(t => {
+      if (cat === 'offroad' || t.dataset.cat === cat) {
+        t.style.display = '';
+      } else {
+        t.style.display = 'none';
+      }
+    });
+  });
+});
+
+// Initial preload
+preloadFrames('BJ30', 6);
+car360Img.classList.add('loaded');
+
+// ========== MEGA MENU - Models Tab Filtering ==========
+document.querySelectorAll('.mega-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    // Update active tab
+    document.querySelectorAll('.mega-tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
+    
+    const filter = tab.dataset.filter;
+    const items = document.querySelectorAll('.mega-model-item');
+    
+    items.forEach(item => {
+      if (filter === 'all' || item.dataset.cat === filter) {
+        item.classList.remove('hidden');
+        // Staggered fade-in
+        item.style.opacity = '0';
+        item.style.transform = 'translateY(8px)';
+        setTimeout(() => {
+          item.style.transition = 'all .3s ease';
+          item.style.opacity = '';
+          item.style.transform = '';
+        }, Array.from(items).indexOf(item) * 30);
+      } else {
+        item.classList.add('hidden');
+      }
+    });
+  });
+});
+</script>
+</body>
+</html>

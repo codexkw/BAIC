@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About Us - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:rgba(0,0,0,.92)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
+.logo span{font-size:22px;font-weight:700;letter-spacing:5px}
+.nav-menu{display:flex}.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;transition:color .3s}
+.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}
+.nav-menu>li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}
+.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:4px}
+.mega-menu{position:fixed;top:64px;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(16px);display:none;border-top:1px solid rgba(255,255,255,.06);z-index:99;animation:megaIn .25s ease}
+.has-mega:hover .mega-menu{display:block}
+@keyframes megaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.mega-inner{max-width:1200px;margin:0 auto;padding:28px 40px 36px}
+.mega-tabs{display:flex;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mega-tab{padding:10px 24px;font-size:13px;color:rgba(255,255,255,.4);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .25s;letter-spacing:.5px}
+.mega-tab:hover,.mega-tab.active{color:#fff;border-bottom-color:#fff}
+.mega-models{display:flex;gap:6px;flex-wrap:wrap}
+.mega-model-item{display:flex;flex-direction:column;align-items:center;width:120px;padding:12px 8px;border-radius:4px;transition:all .25s;opacity:.7}
+.mega-model-item:hover{opacity:1;background:rgba(255,255,255,.06)}
+.mega-model-item img{width:100px;height:auto;margin-bottom:8px;transition:transform .3s}
+.mega-model-item:hover img{transform:scale(1.08)}
+.mega-model-item span{font-size:11px;font-weight:500;letter-spacing:.8px;color:rgba(255,255,255,.7);white-space:nowrap}
+.mega-model-item.hidden{display:none}
+
+/* ========== HERO ========== */
+.au-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.au-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.au-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
+.au-hero-content{position:relative;z-index:2;text-align:center}
+.au-hero-logo{width:120px;margin:0 auto 30px}
+.au-hero-content h1{font-size:28px;font-weight:300;letter-spacing:8px;text-transform:uppercase}
+
+/* ========== WHO WE ARE ========== */
+.au-who{padding:80px 40px;background:#000;text-align:center}
+.au-who h2{font-size:24px;font-weight:300;letter-spacing:6px;margin-bottom:60px;color:rgba(255,255,255,.7)}
+.au-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:30px 20px;max-width:1100px;margin:0 auto}
+.au-stat{text-align:center;padding:20px 10px}
+.au-stat-label{font-size:11px;letter-spacing:2px;color:rgba(255,255,255,.35);text-transform:uppercase;margin-bottom:12px}
+.au-stat-val{font-size:48px;font-weight:200;color:#fff;margin-bottom:6px;font-variant-numeric:tabular-nums}
+.au-stat-val .unit{font-size:16px;font-weight:300;color:rgba(255,255,255,.5);margin-left:4px}
+.au-stat-sub{font-size:11px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase}
+
+/* WHO WE ARE BG */
+.au-who-bg{position:relative;overflow:hidden}
+.au-who-bg img.bg{width:100%;display:block}
+.au-who-bg .icon{position:absolute;bottom:30px;right:40px;width:60px;height:60px}
+
+/* ========== AWARDS ========== */
+.au-awards{padding:80px 40px;background:#0a0a0a}
+.au-awards-inner{max-width:1100px;margin:0 auto}
+.au-awards h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:24px}
+.au-awards-desc{font-size:13px;line-height:2;color:rgba(255,255,255,.4);max-width:800px;margin-bottom:40px}
+.au-awards-feature{display:flex;gap:40px;margin-bottom:50px;align-items:flex-start}
+.au-awards-feature-text{flex:1}
+.au-awards-feature-text h3{font-size:14px;font-weight:600;letter-spacing:2px;margin-bottom:12px;color:rgba(255,255,255,.7)}
+.au-awards-feature-text p{font-size:13px;line-height:2;color:rgba(255,255,255,.4)}
+.au-awards-logos{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.au-awards-logos img{width:100%;border-radius:4px;opacity:.85;transition:opacity .3s}
+.au-awards-logos img:hover{opacity:1}
+
+/* ========== PRODUCTION BASE ========== */
+.au-prod{padding:80px 40px;background:#000}
+.au-prod-inner{max-width:1200px;margin:0 auto}
+.au-prod h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:40px;text-align:center}
+.au-prod-carousel{position:relative;overflow:hidden}
+.au-prod-track{display:flex;transition:transform .5s ease}
+.au-prod-card{flex:0 0 100%;display:flex;gap:0;background:#0a0a0a;border-radius:4px;overflow:hidden;min-height:400px}
+.au-prod-card-img{flex:0 0 55%;overflow:hidden}
+.au-prod-card-img img{width:100%;height:100%;object-fit:cover}
+.au-prod-card-info{flex:1;padding:40px;display:flex;flex-direction:column;justify-content:center}
+.au-prod-card-info h3{font-size:18px;font-weight:600;letter-spacing:3px;margin-bottom:24px}
+.au-prod-detail{display:grid;grid-template-columns:1fr 1fr;gap:20px 30px}
+.au-prod-detail-item label{font-size:10px;letter-spacing:1px;color:rgba(255,255,255,.35);text-transform:uppercase;display:block;margin-bottom:6px}
+.au-prod-detail-item span{font-size:15px;font-weight:500;color:rgba(255,255,255,.8)}
+.au-prod-nav{display:flex;justify-content:center;gap:12px;margin-top:24px}
+.au-prod-btn{width:40px;height:40px;border:1px solid rgba(255,255,255,.2);background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s}
+.au-prod-btn:hover{border-color:#fff}
+.au-prod-btn svg{width:16px;height:16px;stroke:#fff;fill:none;stroke-width:2}
+.au-prod-dots{display:flex;gap:8px;align-items:center;margin:0 16px}
+.au-prod-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.15);cursor:pointer;transition:all .3s}
+.au-prod-dot.active{background:#fff}
+
+/* ========== PRODUCTION TECHNOLOGY ========== */
+.au-tech{padding:80px 40px;background:#0a0a0a;text-align:center}
+.au-tech h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:40px}
+.au-tech-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;max-width:1100px;margin:0 auto}
+.au-tech-item{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:4px;padding:30px 20px;text-align:center}
+.au-tech-item h4{font-size:13px;font-weight:600;letter-spacing:2px;margin-bottom:10px;color:rgba(255,255,255,.7)}
+.au-tech-item p{font-size:12px;line-height:1.8;color:rgba(255,255,255,.35)}
+
+/* ========== CSR ========== */
+.au-csr{padding:80px 40px;background:#000}
+.au-csr-inner{max-width:1100px;margin:0 auto}
+.au-csr h2{font-size:20px;font-weight:600;letter-spacing:4px;margin-bottom:40px;text-align:center}
+.au-csr-top{display:flex;gap:40px;margin-bottom:40px;align-items:center}
+.au-csr-plan{flex:0 0 45%}
+.au-csr-plan img{width:100%;border-radius:4px}
+.au-csr-text{flex:1}
+.au-csr-text p{font-size:13px;line-height:2;color:rgba(255,255,255,.4)}
+.au-csr-imgs{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.au-csr-imgs img{width:100%;border-radius:4px}
+
+/* ========== VIDEO GRID ========== */
+.au-videos{padding:80px 40px;background:#0a0a0a}
+.au-videos-inner{max-width:1200px;margin:0 auto}
+.au-videos-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.au-video-item{position:relative;border-radius:4px;overflow:hidden;aspect-ratio:16/9;background:#111;cursor:pointer}
+.au-video-item video{width:100%;height:100%;object-fit:cover}
+.au-video-item::after{content:"▶";position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:24px;color:rgba(255,255,255,.6);background:rgba(0,0,0,.3);transition:all .3s;pointer-events:none}
+.au-video-item:hover::after{background:rgba(0,0,0,.15);color:#fff}
+
+/* ========== CLOSING LOGO ========== */
+.au-closing{padding:80px 40px;text-align:center;background:#000}
+.au-closing img{width:120px;margin:0 auto;opacity:.5}
+
+/* FOOTER */
+.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
+.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}
+.footer-col a:hover{color:#fff}
+.footer-brands{display:flex;align-items:center;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brands a{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.5)}
+.footer-more{margin-bottom:20px}
+.footer-more select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:12px;padding:8px 14px;font-family:inherit;cursor:pointer}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
+.cookie-banner.hidden{display:none}
+.cookie-text{flex:1}.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-accept{background:#fff;color:#000}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .au-stats{grid-template-columns:repeat(2,1fr)}
+  .au-awards-logos{grid-template-columns:repeat(2,1fr)}
+  .au-prod-card{flex-direction:column}
+  .au-prod-card-img{flex:none;height:250px}
+  .au-csr-top{flex-direction:column}
+  .au-tech-grid{grid-template-columns:1fr}
+  .au-videos-grid{grid-template-columns:repeat(2,1fr)}
+  .footer-cols{grid-template-columns:1fr 1fr}
+  .cookie-banner{flex-direction:column}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+<div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li class="has-mega"><a href="#">Models</a>
+      <div class="mega-menu"><div class="mega-inner">
+        <div class="mega-tabs">
+          <button class="mega-tab active" data-filter="all">All</button><button class="mega-tab" data-filter="offroad">Off-road</button><button class="mega-tab" data-filter="suv">SUV</button><button class="mega-tab" data-filter="sedan">Sedan</button><button class="mega-tab" data-filter="ev">EV</button>
+        </div>
+        <div class="mega-models">
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="BJ30"><span>BJ30</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="BJ80"><span>BJ80</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="BJ60"><span>BJ60</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS"><span>BJ40 PLUS</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/07/10/bj40-plus3333_20240827160110A019_20250710154540A057.avif" alt="BJ40 PRO"><span>BJ40 PRO</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="BJ40 SE"><span>BJ40 SE</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="F40"><span>F40</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="X35"><span>X35</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="X55 II"><span>X55 II</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="ALL NEW X7"><span>ALL NEW X7</span></a>
+          <a href="#" class="mega-model-item" data-cat="sedan"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="U5 PLUS"><span>U5 PLUS</span></a>
+          <a href="#" class="mega-model-item" data-cat="ev"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="EU5"><span>EU5</span></a>
+        </div>
+      </div></div>
+    </li>
+    <li><a href="#">Innovation</a><div class="dropdown"><a href="#">Capital Beauty</a><a href="#">Concept Car</a><a href="#">Off Road</a><a href="#">Power</a></div></li>
+    <li><a href="#">About</a><div class="dropdown"><a href="#">About Us</a><a href="#">History</a><a href="#">ESG</a><a href="#">After-sales Service</a></div></li>
+    <li><a href="#">Newsroom</a><div class="dropdown"><a href="#">News Release</a><a href="#">Subscribe</a><a href="#">Media Contact</a></div></li>
+    <li><a href="#">Connect</a><div class="dropdown"><a href="#">Contact Us</a><a href="#">Distributor Center</a><a href="#">Download Center</a></div></li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div>
+</header>
+
+<!-- 1. HERO -->
+<section class="au-hero">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/bg.webp" alt="About Us Banner">
+  <div class="au-hero-overlay"></div>
+  <div class="au-hero-content">
+    <img src="https://www.baicglobal.com/file/public/static/aboutUs/logo.webp" alt="BAIC Logo" class="au-hero-logo">
+    <h1>MAKE BEAUTIFUL LIFE WITHIN REACH</h1>
+  </div>
+</section>
+
+<!-- 2. WHO WE ARE -->
+<section class="au-who fade-in">
+  <h2>WHO WE ARE</h2>
+  <div class="au-stats">
+    <div class="au-stat">
+      <div class="au-stat-label">FOUNDED IN</div>
+      <div class="au-stat-val" data-target="1958" data-type="year">0</div>
+    </div>
+    <div class="au-stat">
+      <div class="au-stat-label">AUTOMOTIVE GROUPS IN CHINA</div>
+      <div class="au-stat-val">TOP <span data-target="5" data-type="int">0</span></div>
+    </div>
+    <div class="au-stat">
+      <div class="au-stat-label">SALES</div>
+      <div class="au-stat-val"><span data-target="1.7" data-type="float">0</span><span class="unit">M</span></div>
+    </div>
+    <div class="au-stat">
+      <div class="au-stat-label">OPERATING REVENUE</div>
+      <div class="au-stat-val"><span data-target="28.5" data-type="float">0</span><span class="unit">B</span></div>
+    </div>
+    <div class="au-stat">
+      <div class="au-stat-label">WORLD BRAND LAB</div>
+      <div class="au-stat-val"><span data-target="18.06" data-type="float">0</span><span class="unit">B</span></div>
+    </div>
+    <div class="au-stat">
+      <div class="au-stat-label">FORTUNE GLOBAL 500</div>
+      <div class="au-stat-val" data-target="162" data-type="int">0</div>
+    </div>
+    <div class="au-stat">
+      <div class="au-stat-label">SHARES IN DAIMLER AG</div>
+      <div class="au-stat-val"><span data-target="9.98" data-type="float">0</span><span class="unit">%</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- 3. WHO WE ARE BG IMAGE -->
+<section class="au-who-bg fade-in">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/who_we_are-bg.webp" alt="BAIC" class="bg">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/who_we_are-icon.webp" alt="" class="icon">
+</section>
+
+<!-- 4. AWARDS -->
+<section class="au-awards fade-in">
+  <div class="au-awards-inner">
+    <h2>AWARDS</h2>
+    <p class="au-awards-desc">Through over 60 years of development, BAIC has accumulated extensive experience in automotive R&D, and achieved many awards in areas like technology patents, powertrain, chassis, body structure, intelligent driving, cabin control, health and safety, engineering materials, quality and reputation, receiving unanimous praise from authoritative institutions.</p>
+    <div class="au-awards-feature">
+      <div class="au-awards-feature-text">
+        <h3>TOP GEAR</h3>
+        <p>BAIC X55 has once again been awarded the '2023 Readers' Choice Award' by Top Gear, marking the second time in a year that the BAIC X55 has taken the top podium in the South African automotive industry.</p>
+      </div>
+    </div>
+    <div class="au-awards-logos">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/TGSA.webp" alt="Top Gear South Africa">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/JDPower.webp" alt="JD Power">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/IDA.webp" alt="IDA">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/BDC.webp" alt="BDC">
+    </div>
+  </div>
+</section>
+
+<!-- 5. PRODUCTION BASE -->
+<section class="au-prod fade-in">
+  <div class="au-prod-inner">
+    <h2>PRODUCTION BASE</h2>
+    <div class="au-prod-carousel">
+      <div class="au-prod-track" id="prodTrack">
+        <!-- GUANGZHOU -->
+        <div class="au-prod-card">
+          <div class="au-prod-card-img"><img src="https://www.baicglobal.com/file/public/static/aboutUs/GUANGZHOU.webp" alt="Guangzhou Factory"></div>
+          <div class="au-prod-card-info">
+            <h3>GUANGZHOU FACTORY</h3>
+            <div class="au-prod-detail">
+              <div class="au-prod-detail-item"><label>Production start time</label><span>2014</span></div>
+              <div class="au-prod-detail-item"><label>Land area</label><span>800,000 sqm</span></div>
+              <div class="au-prod-detail-item"><label>Planned capacity</label><span>100,000 units / year</span></div>
+              <div class="au-prod-detail-item"><label>Models in production</label><span>U7 / EU7 / X7</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- ZHUZHOU -->
+        <div class="au-prod-card">
+          <div class="au-prod-card-img"><img src="https://www.baicglobal.com/file/public/static/aboutUs/ZHUZHOU.webp" alt="Zhuzhou Factory"></div>
+          <div class="au-prod-card-info">
+            <h3>ZHUZHOU FACTORY</h3>
+            <div class="au-prod-detail">
+              <div class="au-prod-detail-item"><label>Production start time</label><span>2010</span></div>
+              <div class="au-prod-detail-item"><label>Land area</label><span>1.7 million sqm</span></div>
+              <div class="au-prod-detail-item"><label>Planned capacity</label><span>190,000 units / year</span></div>
+              <div class="au-prod-detail-item"><label>Models in production</label><span>ARCFOX / EU5 / X55 II / X35 / U5</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- BEIJING -->
+        <div class="au-prod-card">
+          <div class="au-prod-card-img"><img src="https://www.baicglobal.com/file/public/static/aboutUs/BEIJING.webp" alt="Beijing Factory"></div>
+          <div class="au-prod-card-info">
+            <h3>BEIJING FACTORY</h3>
+            <div class="au-prod-detail">
+              <div class="au-prod-detail-item"><label>Production start time</label><span>2015</span></div>
+              <div class="au-prod-detail-item"><label>Land area</label><span>540,000 sqm</span></div>
+              <div class="au-prod-detail-item"><label>Planned capacity</label><span>100,000 units / year</span></div>
+              <div class="au-prod-detail-item"><label>Models in production</label><span>BJ40 / F40 / BJ60 / BJ80</span></div>
+            </div>
+          </div>
+        </div>
+        <!-- ZHENJIANG -->
+        <div class="au-prod-card">
+          <div class="au-prod-card-img"><img src="https://www.baicglobal.com/file/public/static/aboutUs/ZHENJIANG.webp" alt="Zhenjiang Factory"></div>
+          <div class="au-prod-card-info">
+            <h3>ZHENJIANG FACTORY</h3>
+            <div class="au-prod-detail">
+              <div class="au-prod-detail-item"><label>Production start time</label><span>2019</span></div>
+              <div class="au-prod-detail-item"><label>Land area</label><span>1.37 million sqm</span></div>
+              <div class="au-prod-detail-item"><label>Planned capacity</label><span>300,000 units / year</span></div>
+              <div class="au-prod-detail-item"><label>Models in production</label><span>ARCFOX / αT / αS</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="au-prod-nav">
+      <button class="au-prod-btn" id="prodPrev"><svg viewBox="0 0 24 24"><polyline points="15 18 9 12 15 6"/></svg></button>
+      <div class="au-prod-dots">
+        <div class="au-prod-dot active" data-idx="0"></div>
+        <div class="au-prod-dot" data-idx="1"></div>
+        <div class="au-prod-dot" data-idx="2"></div>
+        <div class="au-prod-dot" data-idx="3"></div>
+      </div>
+      <button class="au-prod-btn" id="prodNext"><svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- 6. PRODUCTION TECHNOLOGY -->
+<section class="au-tech fade-in">
+  <h2>PRODUCTION TECHNOLOGY</h2>
+  <div class="au-tech-grid">
+    <div class="au-tech-item"><h4>STAMPING</h4><p>High-precision stamping lines with servo press technology for complex body panel forming</p></div>
+    <div class="au-tech-item"><h4>WELDING</h4><p>Automated robotic welding with laser quality inspection ensuring structural integrity</p></div>
+    <div class="au-tech-item"><h4>PAINTING</h4><p>Advanced eco-friendly waterborne paint systems with multi-layer coating processes</p></div>
+    <div class="au-tech-item"><h4>ASSEMBLY</h4><p>Flexible modular assembly lines with intelligent torque monitoring and traceability</p></div>
+    <div class="au-tech-item"><h4>QUALITY</h4><p>End-of-line comprehensive testing including dynamic road simulation and water leak detection</p></div>
+    <div class="au-tech-item"><h4>LOGISTICS</h4><p>Automated guided vehicles and intelligent warehouse management for just-in-time production</p></div>
+  </div>
+</section>
+
+<!-- 7. CORPORATE SOCIAL RESPONSIBILITY -->
+<section class="au-csr fade-in">
+  <div class="au-csr-inner">
+    <h2>CORPORATE SOCIAL RESPONSIBILITY</h2>
+    <div class="au-csr-top">
+      <div class="au-csr-plan"><img src="https://www.baicglobal.com/file/public/static/aboutUs/blue_plan_en.webp" alt="Blue Plan"></div>
+      <div class="au-csr-text">
+        <p>Aid activities for 9 consecutive years.<br>In 2023 donate 185 ethnic minority primary and secondary students.</p>
+      </div>
+    </div>
+    <div class="au-csr-imgs">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/responsibility_img1.webp" alt="CSR">
+      <img src="https://www.baicglobal.com/file/public/static/aboutUs/responsibility_img2.webp" alt="CSR">
+    </div>
+  </div>
+</section>
+
+<!-- 8. VIDEO GRID -->
+<section class="au-videos fade-in">
+  <div class="au-videos-inner">
+    <div class="au-videos-grid">
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part001.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part001.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part002.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part002.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part003_0625_01.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part003_0625_01.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part004.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part004.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part005_0625_01.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part005_0625_01.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part006.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part006.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part007.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part007.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part008.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part008.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part009.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part009.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part010_0625_01.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part010_0625_01.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part011.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part011.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part012.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part012.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part013.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part013.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part014_0625_01.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part014_0625_01.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part015.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part015.mp4" type="video/mp4"></video></div>
+      <div class="au-video-item" data-src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part016_0625_01.mp4"><video muted loop preload="metadata"><source src="https://www.baicglobal.com/file/public/static/aboutUs/videos/part016_0625_01.mp4" type="video/mp4"></video></div>
+    </div>
+  </div>
+</section>
+
+<!-- 9. CLOSING LOGO -->
+<section class="au-closing fade-in">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/logo.webp" alt="BAIC">
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ60</a></li><li><a href="#">BJ80</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands"><a href="/">BAIC</a><a href="https://www.arcfox.com.cn/" target="_blank">ARCFOX</a></div>
+  <div class="footer-more"><select><option>More BAIC Websites</option><option>ARCFOX</option><option>BAIC CHINA</option><option>BAIC GROUP</option></select></div>
+  <div class="footer-bottom"><div><a href="#">Privacy Statement</a> &nbsp;|&nbsp; <a href="#">Cookie Settings</a></div><span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span></div>
+</div>
+</footer>
+
+<!-- COOKIE -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text"><h4>Your Privacy</h4><p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies. However, please be aware that disabling certain cookies may affect your browsing experience on our website and limit the services we can provide.</p></div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings" onclick="this.closest('.cookie-banner').classList.add('hidden')">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+</div>
+
+<script>
+// Header scroll
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+
+// Mega menu tabs
+document.querySelectorAll('.mega-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.mega-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');const f=tab.dataset.filter;document.querySelectorAll('.mega-model-item').forEach((item,i)=>{if(f==='all'||item.dataset.cat===f){item.classList.remove('hidden');item.style.opacity='0';item.style.transform='translateY(8px)';setTimeout(()=>{item.style.transition='all .3s ease';item.style.opacity='';item.style.transform=''},i*30)}else{item.classList.add('hidden')}})})});
+
+// Animated counter
+function animateCounter(el, target, type, duration=1500){
+  const start=performance.now();
+  function update(now){
+    const p=Math.min((now-start)/duration,1);
+    const ease=1-Math.pow(1-p,3);
+    let val;
+    if(type==='year') val=Math.round(1900+ease*(target-1900));
+    else if(type==='float') val=(ease*target).toFixed(2);
+    else val=Math.round(ease*target);
+    el.textContent=val;
+    if(p<1) requestAnimationFrame(update);
+    else{
+      if(type==='float') el.textContent=target.toFixed(2);
+      else el.textContent=target;
+    }
+  }
+  requestAnimationFrame(update);
+}
+
+// Trigger counters on scroll
+const counterObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.querySelectorAll('[data-target]').forEach(el=>{
+        animateCounter(el,parseFloat(el.dataset.target),el.dataset.type);
+      });
+      counterObs.unobserve(e.target);
+    }
+  });
+},{threshold:0.3});
+document.querySelectorAll('.au-who').forEach(el=>counterObs.observe(el));
+
+// Production carousel
+let prodIdx=0;
+const prodTrack=document.getElementById('prodTrack');
+const prodDots=document.querySelectorAll('.au-prod-dot');
+function goToProd(idx){
+  prodIdx=Math.max(0,Math.min(idx,3));
+  prodTrack.style.transform=`translateX(-${prodIdx*100}%)`;
+  prodDots.forEach((d,i)=>d.classList.toggle('active',i===prodIdx));
+}
+document.getElementById('prodPrev').addEventListener('click',()=>goToProd(prodIdx-1));
+document.getElementById('prodNext').addEventListener('click',()=>goToProd(prodIdx+1));
+prodDots.forEach(d=>d.addEventListener('click',()=>goToProd(parseInt(d.dataset.idx))));
+
+// Video hover play
+document.querySelectorAll('.au-video-item').forEach(item=>{
+  const vid=item.querySelector('video');
+  item.addEventListener('mouseenter',()=>{if(vid)vid.play()});
+  item.addEventListener('mouseleave',()=>{if(vid){vid.pause();vid.currentTime=0}});
+});
+
+// Scroll reveal
+const obs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1});
+document.querySelectorAll('.fade-in').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

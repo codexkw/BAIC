@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Off Road - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
+.header.scrolled{background:rgba(0,0,0,.92)}
+.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
+.logo span{font-size:22px;font-weight:700;letter-spacing:5px}
+.nav-menu{display:flex}.nav-menu>li{position:relative}
+.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;transition:color .3s}
+.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}
+.nav-menu>li:hover .dropdown{display:block}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}
+.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.header-right{display:flex;align-items:center;gap:16px}
+.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:4px}
+.mega-menu{position:fixed;top:64px;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(16px);display:none;border-top:1px solid rgba(255,255,255,.06);z-index:99;animation:megaIn .25s ease}
+.has-mega:hover .mega-menu{display:block}
+@keyframes megaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
+.mega-inner{max-width:1200px;margin:0 auto;padding:28px 40px 36px}
+.mega-tabs{display:flex;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
+.mega-tab{padding:10px 24px;font-size:13px;color:rgba(255,255,255,.4);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .25s;letter-spacing:.5px}
+.mega-tab:hover,.mega-tab.active{color:#fff;border-bottom-color:#fff}
+.mega-models{display:flex;gap:6px;flex-wrap:wrap}
+.mega-model-item{display:flex;flex-direction:column;align-items:center;width:120px;padding:12px 8px;border-radius:4px;transition:all .25s;opacity:.7}
+.mega-model-item:hover{opacity:1;background:rgba(255,255,255,.06)}
+.mega-model-item img{width:100px;height:auto;margin-bottom:8px;transition:transform .3s}
+.mega-model-item:hover img{transform:scale(1.08)}
+.mega-model-item span{font-size:11px;font-weight:500;letter-spacing:.8px;color:rgba(255,255,255,.7);white-space:nowrap}
+.mega-model-item.hidden{display:none}
+
+/* =================== PAGE =================== */
+
+/* HERO */
+.or-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden;display:flex;align-items:center;justify-content:center}
+.or-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.or-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.25)}
+.or-hero h1{position:relative;z-index:2;font-size:52px;font-weight:700;letter-spacing:12px;text-transform:uppercase}
+
+/* FULL-WIDTH IMAGE */
+.or-full{overflow:hidden}.or-full img{width:100%;display:block}
+
+/* TWO-COLUMN SIDE-BY-SIDE */
+.or-duo{display:flex;gap:0}
+.or-duo img{flex:1;width:50%;object-fit:cover}
+
+/* BULLET SECTION (with icon) */
+.or-bullet-section{padding:60px 40px;background:#000}
+.or-bullet-wrap{max-width:1000px;margin:0 auto}
+.or-bullet-row{display:flex;align-items:flex-start;gap:16px;margin-bottom:28px}
+.or-bullet-icon{flex-shrink:0;width:24px;height:24px;margin-top:2px}
+.or-bullet-icon img{width:100%;height:100%;object-fit:contain}
+.or-bullet-row p{font-size:13px;line-height:1.9;color:rgba(255,255,255,.45)}
+
+/* SPLIT SECTION */
+.or-split{display:flex;min-height:450px;background:#0a0a0a}
+.or-split.reverse{flex-direction:row-reverse}
+.or-split-img{flex:0 0 55%;overflow:hidden;position:relative}
+.or-split-img img{width:100%;height:100%;object-fit:cover}
+.or-split-text{flex:1;display:flex;flex-direction:column;justify-content:center;padding:50px 60px}
+.or-split-text h3{font-size:20px;font-weight:600;letter-spacing:2px;margin-bottom:18px;color:rgba(255,255,255,.85)}
+.or-split-text p{font-size:13px;line-height:2;color:rgba(255,255,255,.4);letter-spacing:.3px;margin-bottom:12px}
+
+/* ENGINEERING VERIFICATION - title + quote badge */
+.or-eng-hero{position:relative;overflow:hidden}
+.or-eng-hero img{width:100%;display:block}
+.or-eng-hero h3{position:absolute;bottom:40px;left:50px;font-size:22px;font-weight:600;letter-spacing:3px;color:#fff}
+.or-eng-quote{position:absolute;top:20px;right:20px;width:50px;height:50px;display:flex;align-items:center;justify-content:center;font-size:36px;color:rgba(255,255,255,.15);font-weight:200}
+
+/* DUAL-IMAGE ROW */
+.or-dual{display:flex;gap:0}
+.or-dual img{width:50%;object-fit:cover}
+
+/* TIMELINE */
+.or-timeline{padding:80px 0 60px;background:#0a0a0a;overflow:hidden}
+.tl-wrap{max-width:1200px;margin:0 auto;padding:0 40px}
+
+/* Year tabs (top row) */
+.tl-years{display:flex;justify-content:center;gap:0;margin-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);overflow-x:auto;scrollbar-width:none}
+.tl-years::-webkit-scrollbar{display:none}
+.tl-year-btn{padding:12px 18px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.3);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.tl-year-btn:hover,.tl-year-btn.active{color:#fff;border-bottom-color:#fff}
+
+/* Timeline cards row */
+.tl-cards{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.tl-cards::-webkit-scrollbar{display:none}
+.tl-card{flex:0 0 280px;scroll-snap-align:start;padding:0 8px;display:flex;flex-direction:column;align-items:center;opacity:.5;transition:opacity .4s}
+.tl-card.active{opacity:1}
+.tl-card-img{width:260px;height:170px;overflow:hidden;border-radius:4px;margin-bottom:16px;background:#111}
+.tl-card-img img{width:100%;height:100%;object-fit:cover}
+.tl-card-year{font-size:14px;font-weight:600;letter-spacing:1px;margin-bottom:10px;color:rgba(255,255,255,.6)}
+.tl-card.active .tl-card-year{color:#fff}
+
+/* Dot + line */
+.tl-dots{display:flex;justify-content:center;gap:0;position:relative;margin:20px 0 30px;padding:0 40px}
+.tl-dots::before{content:"";position:absolute;top:50%;left:40px;right:40px;height:1px;background:rgba(255,255,255,.08)}
+.tl-dot-item{flex:0 0 280px;display:flex;justify-content:center;position:relative;z-index:2}
+.tl-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,.2);transition:all .3s}
+.tl-dot-item.active .tl-dot{background:#fff;box-shadow:0 0 10px rgba(255,255,255,.4)}
+
+/* Description text */
+.tl-desc{max-width:800px;margin:0 auto;text-align:center;min-height:120px;transition:opacity .3s}
+.tl-desc p{font-size:13px;line-height:2;color:rgba(255,255,255,.4);letter-spacing:.3px}
+
+/* FOOTER */
+.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
+.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
+.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
+.footer-col li{margin-bottom:9px}
+.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}
+.footer-col a:hover{color:#fff}
+.footer-brands{display:flex;align-items:center;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06)}
+.footer-brands a{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.5)}
+.footer-more{margin-bottom:20px}
+.footer-more select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:12px;padding:8px 14px;font-family:inherit;cursor:pointer}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}
+.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+
+/* COOKIE */
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
+.cookie-banner.hidden{display:none}
+.cookie-text{flex:1}.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
+.cookie-btns{display:flex;gap:8px;flex-shrink:0}
+.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
+.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}
+.ck-accept{background:#fff;color:#000}
+
+.fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
+.fade-in.visible{opacity:1;transform:translateY(0)}
+
+@media(max-width:900px){
+  .or-split,.or-split.reverse{flex-direction:column}
+  .or-split-img{flex:none}
+  .or-dual{flex-direction:column}
+  .or-dual img{width:100%}
+  .or-duo{flex-direction:column}
+  .or-duo img{width:100%}
+  .footer-cols{grid-template-columns:1fr 1fr}
+  .cookie-banner{flex-direction:column}
+  .or-hero h1{font-size:32px;letter-spacing:6px}
+  .tl-card{flex:0 0 240px}
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+<div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li class="has-mega"><a href="#">Models</a>
+      <div class="mega-menu"><div class="mega-inner">
+        <div class="mega-tabs">
+          <button class="mega-tab active" data-filter="all">All</button><button class="mega-tab" data-filter="offroad">Off-road</button><button class="mega-tab" data-filter="suv">SUV</button><button class="mega-tab" data-filter="sedan">Sedan</button><button class="mega-tab" data-filter="ev">EV</button>
+        </div>
+        <div class="mega-models">
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="BJ30"><span>BJ30</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="BJ80"><span>BJ80</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="BJ60"><span>BJ60</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS"><span>BJ40 PLUS</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/07/10/bj40-plus3333_20240827160110A019_20250710154540A057.avif" alt="BJ40 PRO"><span>BJ40 PRO</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="BJ40 SE"><span>BJ40 SE</span></a>
+          <a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="F40"><span>F40</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="X35"><span>X35</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="X55 II"><span>X55 II</span></a>
+          <a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="ALL NEW X7"><span>ALL NEW X7</span></a>
+          <a href="#" class="mega-model-item" data-cat="sedan"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="U5 PLUS"><span>U5 PLUS</span></a>
+          <a href="#" class="mega-model-item" data-cat="ev"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="EU5"><span>EU5</span></a>
+        </div>
+      </div></div>
+    </li>
+    <li><a href="#">Innovation</a><div class="dropdown"><a href="#">Capital Beauty</a><a href="#">Concept Car</a><a href="#">Off Road</a><a href="#">Power</a></div></li>
+    <li><a href="#">About</a><div class="dropdown"><a href="#">About Us</a><a href="#">History</a><a href="#">ESG</a><a href="#">After-sales Service</a></div></li>
+    <li><a href="#">Newsroom</a><div class="dropdown"><a href="#">News Release</a><a href="#">Subscribe</a><a href="#">Media Contact</a></div></li>
+    <li><a href="#">Connect</a><div class="dropdown"><a href="#">Contact Us</a><a href="#">Distributor Center</a><a href="#">Download Center</a></div></li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div>
+</header>
+
+<!-- 1. HERO: kv.jpg -->
+<section class="or-hero">
+  <img src="https://www.baicglobal.com/_nuxt/kv.Baz1PMoz.jpg" alt="BAIC Off Road">
+  <div class="or-hero-overlay"></div>
+  <h1>OFF ROAD</h1>
+</section>
+
+<!-- 2. Full-width images: 001, 002, 003 stacked -->
+<section class="or-full fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/001.CRNebkBa.png" alt="Off Road">
+</section>
+<section class="or-full fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/002.UedxcHu2.png" alt="Off Road">
+</section>
+<section class="or-full fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/003.Cc2PLlew.png" alt="Off Road">
+</section>
+
+<!-- 3. Dual image: 004 + 006 side by side -->
+<section class="or-duo fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/004.BbmKtSCA.png" alt="Off Road">
+  <img src="https://www.baicglobal.com/_nuxt/006.DyN-EBSd.png" alt="Off Road">
+</section>
+
+<!-- 4. Bullet points: text then 005.png icon after each (matching original) -->
+<section class="or-bullet-section fade-in">
+  <div class="or-bullet-wrap">
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:12px">Comprehensive application of computer-aided development methods;</p>
+    <div style="margin-bottom:20px"><img src="https://www.baicglobal.com/_nuxt/005.KsEu9dks.png" alt="" style="max-width:24px"></div>
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:12px">ln-depth integration of simulation analysis with design and experimental verification;</p>
+    <div style="margin-bottom:20px"><img src="https://www.baicglobal.com/_nuxt/005.KsEu9dks.png" alt="" style="max-width:24px"></div>
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:12px">The integration of the system such as component level, system level, and vehiclelevel is a comprehensive integration of virtual and reality.</p>
+    <div style="margin-bottom:20px"><img src="https://www.baicglobal.com/_nuxt/005.KsEu9dks.png" alt="" style="max-width:24px"></div>
+  </div>
+</section>
+
+<!-- 5. Engineering Verification Hero (007.png) with title -->
+<section class="or-eng-hero fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/007.BCpIdD6u.png" alt="Engineering Verification">
+  <h3>Engineering Verification Ability</h3>
+</section>
+
+<!-- 6. Quote badge image (015.png) -->
+<section class="or-full fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/015.DYTMujap.png" alt="Quote">
+</section>
+
+<!-- 7. Dual image: 008 + 009 -->
+<section class="or-dual fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/008.Bwps3Tud.png" alt="Off Road">
+  <img src="https://www.baicglobal.com/_nuxt/009.CPZTIOHp.png" alt="Off Road">
+</section>
+
+<!-- 8. Engineering text description -->
+<section class="or-bullet-section fade-in">
+  <div class="or-bullet-wrap">
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4);margin-bottom:16px">Able to test and verify the functions, performance, reliability, durability and environmental adaptability of components, systems and complete vehicles, and have obtained CNAS certification.</p>
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4);margin-bottom:16px">Professional trial production workshop, with complete trial production verification process, can produce 500 trial production, special production and modified prototypecars per vear, and the trial production capacity is leading in China.</p>
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4)">The big data intelligent analysis platform has realized the rapid and accurate extraction of valuable information from massive data, and successfully applied it to various processes of vehicle reearch and development.</p>
+  </div>
+</section>
+
+<!-- 9. Dual image: 010 + 012 -->
+<section class="or-dual fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/010.Xg6qSDDC.png" alt="Vehicle Production">
+  <img src="https://www.baicglobal.com/_nuxt/012.DKA-UU0q.png" alt="Vehicle Production">
+</section>
+
+<!-- 10. Vehicle Production text (standalone) -->
+<section class="or-bullet-section fade-in">
+  <div class="or-bullet-wrap">
+    <h3 style="font-size:20px;font-weight:600;letter-spacing:2px;margin-bottom:18px;color:rgba(255,255,255,.85)">Vehicle Production Ability</h3>
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4)">The off-road vehicle factory has an overall construction area of 240,000 square meters and an annual production capacity of 100,000 vehicles, and won the"National Green Factory", "China's Best Factory Diqita Competition Excellence Award"</p>
+  </div>
+</section>
+
+<!-- 10b. Full-width 011.png -->
+<section class="or-full fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/011.LXOGrKhQ.png" alt="Factory">
+</section>
+
+<!-- 11. High Designed Reliability text (standalone) -->
+<section class="or-bullet-section fade-in">
+  <div class="or-bullet-wrap">
+    <h3 style="font-size:20px;font-weight:600;letter-spacing:2px;margin-bottom:18px;color:rgba(255,255,255,.85)">High Designed Reliability</h3>
+    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4);margin-bottom:12px">It has also created 28 limit and typical working condition load spectrum analysis and extraction methods combining dvnamic and static loads, invented 35 high-reliability structures such as opening and closing parts structure, whole vehicle locking system, established virtual and physical tests combined with the multi-level test platform and method, realized the positive design of high reliability of off-road vehicles. The average mileage between failures of BAlC of-road vehicle base test has been increasd from 1,200km to 7,536km, well above the international level of similar products.</p>
+  </div>
+</section>
+
+<!-- 12. Dual image: 011 + 013 -->
+<section class="or-dual fade-in">
+  <img src="https://www.baicglobal.com/_nuxt/011.LXOGrKhQ.png" alt="">
+  <img src="https://www.baicglobal.com/_nuxt/013.BWUKvLjX.jpg" alt="">
+</section>
+
+<!-- 13. HISTORY TIMELINE -->
+<section class="or-timeline fade-in">
+  <div class="tl-wrap">
+    <!-- Year tabs -->
+    <div class="tl-years">
+      <button class="tl-year-btn active" data-idx="0">1960-1963</button>
+      <button class="tl-year-btn" data-idx="1">1966</button>
+      <button class="tl-year-btn" data-idx="2">1974</button>
+      <button class="tl-year-btn" data-idx="3">1999</button>
+      <button class="tl-year-btn" data-idx="4">2002</button>
+      <button class="tl-year-btn" data-idx="5">2008</button>
+      <button class="tl-year-btn" data-idx="6">2009</button>
+      <button class="tl-year-btn" data-idx="7">2013</button>
+      <button class="tl-year-btn" data-idx="8">2015</button>
+      <button class="tl-year-btn" data-idx="9">Today</button>
+    </div>
+
+    <!-- Duplicate year row (matching original structure) -->
+    <div class="tl-years" style="border:none;margin-bottom:10px">
+      <button class="tl-year-btn active" data-idx="0">1960-1963</button>
+      <button class="tl-year-btn" data-idx="1">1966</button>
+      <button class="tl-year-btn" data-idx="2">1974</button>
+      <button class="tl-year-btn" data-idx="3">1999</button>
+      <button class="tl-year-btn" data-idx="4">2002</button>
+      <button class="tl-year-btn" data-idx="5">2008</button>
+      <button class="tl-year-btn" data-idx="6">2009</button>
+      <button class="tl-year-btn" data-idx="7">2013</button>
+      <button class="tl-year-btn" data-idx="8">2015</button>
+      <button class="tl-year-btn" data-idx="9">Today</button>
+    </div>
+
+    <!-- Cards row with images -->
+    <div class="tl-cards" id="tlCards">
+      <div class="tl-card active" data-idx="0"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/01.jpg" alt="1960"></div><div class="tl-card-year">1960-1963</div></div>
+      <div class="tl-card" data-idx="1"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/02.jpg" alt="1966"></div><div class="tl-card-year">1966</div></div>
+      <div class="tl-card" data-idx="2"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/03.jpg" alt="1974"></div><div class="tl-card-year">1974</div></div>
+      <div class="tl-card" data-idx="3"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/04.jpg" alt="1999"></div><div class="tl-card-year">1999</div></div>
+      <div class="tl-card" data-idx="4"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/05.jpg" alt="2002"></div><div class="tl-card-year">2002</div></div>
+      <div class="tl-card" data-idx="5"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/06.jpg" alt="2008"></div><div class="tl-card-year">2008</div></div>
+      <div class="tl-card" data-idx="6"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/07.jpg" alt="2009"></div><div class="tl-card-year">2009</div></div>
+      <div class="tl-card" data-idx="7"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/08.jpg" alt="2013"></div><div class="tl-card-year">2013</div></div>
+      <div class="tl-card" data-idx="8"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/09.jpg" alt="2015"></div><div class="tl-card-year">2015</div></div>
+      <div class="tl-card" data-idx="9"><div class="tl-card-img"><img src="https://www.baicglobal.com/file/public/static/offRoad/assets/pc/010.jpg" alt="Today"></div><div class="tl-card-year">Today</div></div>
+    </div>
+
+    <!-- Description -->
+    <div class="tl-desc" id="tlDesc">
+      <p>In December 1960, the Headquarters of the General Staff reported to the State Council, proposing the production of the off-road vehicle (ORV) at the BAW. From 1961, BAW successively developed off-road vehicle models such as BJ210, BJ211, and BJ212. In March 1963, the BJ210C light off-road vehicle passed the technical appraisal organized by the First Ministry of Machine Industry of the PRC and was named the "Beijing" brand.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ60</a></li><li><a href="#">BJ80</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands"><a href="/">BAIC</a><a href="https://www.arcfox.com.cn/" target="_blank">ARCFOX</a></div>
+  <div class="footer-more"><select><option>More BAIC Websites</option><option>ARCFOX</option><option>BAIC CHINA</option><option>BAIC GROUP</option></select></div>
+  <div class="footer-bottom"><div><a href="#">Privacy Statement</a> &nbsp;|&nbsp; <a href="#">Cookie Settings</a></div><span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span></div>
+</div>
+</footer>
+
+<!-- COOKIE -->
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text"><h4>Your Privacy</h4><p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies. However, please be aware that disabling certain cookies may affect your browsing experience on our website and limit the services we can provide.</p></div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings" onclick="this.closest('.cookie-banner').classList.add('hidden')">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+</div>
+
+<script>
+// Header scroll
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+
+// Mega menu tabs
+document.querySelectorAll('.mega-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.mega-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');const f=tab.dataset.filter;document.querySelectorAll('.mega-model-item').forEach((item,i)=>{if(f==='all'||item.dataset.cat===f){item.classList.remove('hidden');item.style.opacity='0';item.style.transform='translateY(8px)';setTimeout(()=>{item.style.transition='all .3s ease';item.style.opacity='';item.style.transform=''},i*30)}else{item.classList.add('hidden')}})})});
+
+// Timeline data
+const tlTexts = [
+  `In December 1960, the Headquarters of the General Staff reported to the State Council, proposing the production of the off-road vehicle (ORV) at the BAW. From 1961, BAW successively developed off-road vehicle models such as BJ210, BJ211, and BJ212. In March 1963, the BJ210C light off-road vehicle passed the technical appraisal organized by the First Ministry of Machine Industry of the PRC and was named the "Beijing" brand.`,
+  `In 1966, Chairman Mao inspected the masses at Tian'anmen Square riding in a BJ212. The BJ212 light off-road vehicle officially entered production and service in the same year. The globally renowned BJ212 series, spanning half a century, achieved an industry myth with an accumulated production of over 1.2 million vehicles (including BJ2020).`,
+  `The BJ212 produced in 1974 became the first donated collection at the Beijing Auto Museum. The Beijing Jeep BJ212 also carries memories of the 1980s.`,
+  `On October 1, 1999, during the 50th National Day Parade, the "BJ2020S" off-road vehicle took the lead and underwent inspection.`,
+  `In September 2002, the Central Military Commission issued the development task for the second generation 0.5-ton off-road vehicle, named "Warrior."`,
+  `In 2008, BAIC Group initiated the development of the BJ40, its first civilian off-road vehicle.`,
+  `On October 1, 2009, during the 60th National Day Parade, "Beijing Warrior" served as the leading and cannon-towing vehicle, undergoing inspection. In the same year, "Warrior" won the first prize in the Chinese automotive industry's technological progress; the development of the Beijing Warrior Improved Model BJ80 began.`,
+  `In 2013, the modern BAIC off-road vehicle production base was established, and the professional BAIC off-road vehicle R&D team was officially formed. The first civilian off-road vehicle, "BJ40," was launched at the Water Cube.`,
+  `In September 2015, during the "Parade in Commemoration of the 70th Anniversary of the Victory of the Chinese People's War of Resistance Against Japanese Aggression and World Anti-Fascist War," BJ40 was selected as the exclusive designated vehicle for the parade's cannon towing. At the end of the year, after completing 581 cumulative reliability tests covering the entire region (with a total mileage of 2.77 million kilometers), all weather conditions, and all road conditions, the improved Warrior BJ80 was officially put into production and successfully deployed.`,
+  `Originating from the battlefield, and reaching into daily life, Beijing Off-Road maintains the original intention and glory passed down from BJ212, adhering to the ultimate ORV quality. With high-reliability standards designed for challenging conditions on the test field, the average failure interval mileage is 4500 kilometers. The high-reliability indicators help users improve efficiency and reduce costs.`
+];
+
+function setActiveTimeline(idx) {
+  // Update year buttons (both rows)
+  document.querySelectorAll('.tl-year-btn').forEach(b => {
+    b.classList.toggle('active', parseInt(b.dataset.idx) === idx);
+  });
+  // Update cards
+  document.querySelectorAll('.tl-card').forEach(c => {
+    c.classList.toggle('active', parseInt(c.dataset.idx) === idx);
+  });
+  // Update text
+  document.getElementById('tlDesc').innerHTML = `<p>${tlTexts[idx]}</p>`;
+  // Scroll card into view
+  const card = document.querySelector(`.tl-card[data-idx="${idx}"]`);
+  if (card) card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+document.querySelectorAll('.tl-year-btn').forEach(btn => {
+  btn.addEventListener('click', () => setActiveTimeline(parseInt(btn.dataset.idx)));
+});
+document.querySelectorAll('.tl-card').forEach(card => {
+  card.addEventListener('click', () => setActiveTimeline(parseInt(card.dataset.idx)));
+});
+
+// Scroll reveal
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>

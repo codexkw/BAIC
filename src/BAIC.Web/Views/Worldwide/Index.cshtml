@@ -1,0 +1,120 @@
+@{
+    ViewData["Title"] = "Worldwide";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/worldwide.css" />
+}
+
+<!-- WORLDWIDE -->
+<section class="ww-section">
+  <h3>BAIC IN THE WORLD</h3>
+  <h1>Find Your BAIC In Your Country</h1>
+</section>
+
+<div class="map-outer">
+  <div class="map-wrap" id="mapWrap">
+    <img class="map-bg" src="https://www.baicglobal.com/_nuxt/map.DU9VEqCU.png" alt="baic global">
+  </div>
+</div>
+
+@section Scripts {
+<script>
+// Pin SVG template (white location pin icon matching screenshot)
+const pinSVG = `<svg viewBox="0 0 24 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M12 0C5.37 0 0 5.37 0 12c0 9 12 20 12 20s12-11 12-20C24 5.37 18.63 0 12 0z" fill="rgba(255,255,255,0.9)"/>
+  <circle cx="12" cy="11" r="4.5" fill="#2a3444"/>
+</svg>`;
+
+// Country data: [left%, top%, name] — positioned on Asia-Pacific centered map
+// Map is centered on Asia-Pacific (matching screenshots)
+const countries = [
+  // Europe
+  [22.5, 17, 'Spain'],
+  [24.5, 14, 'France'],
+  [25, 11, 'UK'],
+  [26, 14, 'Germany'],
+  [27.5, 13, 'Poland'],
+  [28.5, 15, 'Czech Republic'],
+  [27, 16, 'Italy'],
+  [29, 12, 'Lithuania'],
+  [30.5, 14, 'Ukraine'],
+  [30, 17, 'Romania'],
+  [28.5, 18, 'Greece'],
+
+  // Middle East
+  [30, 24, 'Egypt'],
+  [32, 22, 'Lebanon'],
+  [32.5, 24, 'Jordan'],
+  [33, 21, 'Iraq'],
+  [34, 24, 'Kuwait'],
+  [34.5, 26, 'Saudi Arabia'],
+  [35.5, 25.5, 'Bahrain'],
+  [36, 26.5, 'Qatar'],
+  [36.5, 25, 'UAE'],
+  [37.5, 26, 'Oman'],
+
+  // Africa
+  [23, 30, 'Morocco'],
+  [20, 42, 'Nigeria'],
+  [24, 47, 'South Africa'],
+  [30, 40, 'Kenya'],
+
+  // Central Asia
+  [37, 16, 'Kazakhstan'],
+  [36, 19, 'Uzbekistan'],
+  [38, 19, 'Kyrgyzstan'],
+  [37, 20.5, 'Tajikistan'],
+
+  // South Asia
+  [39, 24, 'Pakistan'],
+  [41, 28, 'Nepal'],
+  [42, 30, 'Bangladesh'],
+  [40, 36, 'Sri Lanka'],
+  [42, 32, 'Myanmar'],
+
+  // East Asia
+  [45, 14, 'Mongolia'],
+  [48, 22, 'China'],
+
+  // Southeast Asia
+  [44, 28, 'Laos'],
+  [44, 31, 'Thailand'],
+  [46, 29, 'Vietnam'],
+  [46, 32, 'Cambodia'],
+  [46, 36, 'Malaysia'],
+  [45, 34, 'Brunei'],
+  [47, 40, 'Indonesia'],
+  [49, 30, 'Philippines'],
+
+  // Oceania
+  [51, 42, 'Papua New Guinea'],
+  [55, 48, 'Vanuatu'],
+  [54, 52, 'New Caledonia'],
+  [58, 44, 'Fiji'],
+  [60, 42, 'French Polynesia'],
+
+  // Americas (on right side — Pacific-centered map)
+  [78, 24, 'Mexico'],
+  [80, 28, 'Dominican Rep.'],
+  [79, 32, 'Costa Rica'],
+  [80, 38, 'Ecuador'],
+  [80, 42, 'Peru'],
+  [81, 46, 'Bolivia'],
+  [82, 52, 'Chile'],
+  [83, 50, 'Paraguay'],
+  [82, 56, 'Argentina'],
+];
+
+const mapWrap = document.getElementById('mapWrap');
+
+countries.forEach(c => {
+  const pin = document.createElement('div');
+  pin.className = 'pin';
+  pin.style.left = c[0] + '%';
+  pin.style.top = c[1] + '%';
+  pin.innerHTML = pinSVG + `<span class="tooltip">${c[2]}</span>`;
+  mapWrap.appendChild(pin);
+});
+</script>
+}

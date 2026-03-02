@@ -1,0 +1,120 @@
+/* ========== ESG PAGE ========== */
+.esg-page{position:relative}
+
+/* Page background - fixed behind everything */
+.page-bg{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+
+/* All sections sit on top */
+.esg-sections{position:relative;z-index:1}
+
+/* S1: HERO KV1 */
+.s-hero{position:relative;width:100%;font-size:0;line-height:0}
+.s-hero .kv1{width:100%;display:block}
+.s-hero .kv1-title{position:absolute;bottom:10%;left:50%;transform:translateX(-50%);z-index:2;width:55%;max-width:650px}
+
+/* Particles between hero and intro */
+.s-particles{position:relative;height:80px;overflow:hidden}
+.s-particles .particle{position:absolute;width:43px;height:23px;opacity:.4;animation:particleFloat 6s ease-in-out infinite}
+.s-particles .particle:nth-child(1){left:20%;top:10px;animation-delay:0s}
+.s-particles .particle:nth-child(2){left:50%;top:30px;animation-delay:2s}
+.s-particles .particle:nth-child(3){left:75%;top:15px;animation-delay:4s}
+@keyframes particleFloat{0%,100%{transform:translateY(0) scale(1);opacity:.4}50%{transform:translateY(-10px) scale(1.1);opacity:.7}}
+
+/* S2: INTRO - kv2 bg */
+.s-intro{position:relative;font-size:0;line-height:0;overflow:hidden}
+.s-intro .kv2-wrap{position:relative;width:100%}
+.s-intro .kv2{width:100%;display:block}
+.s-intro .light-overlay{position:absolute;top:0;right:0;width:100%;height:100%;object-fit:cover;z-index:1;pointer-events:none}
+.s-intro-content{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;font-size:14px;line-height:1.5;padding:40px}
+.s-intro-logo{width:160px;margin-bottom:30px}
+.s-intro h2{font-size:20px;font-weight:300;letter-spacing:4px;text-align:center;margin-bottom:8px;color:rgba(255,255,255,.9)}
+.s-intro .sub{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:30px;letter-spacing:2px;text-align:center}
+.s-intro p.desc{font-size:13px;line-height:2;color:rgba(255,255,255,.55);max-width:750px;text-align:center}
+
+/* S3: VIDEO */
+.s-video{position:relative;width:100%;font-size:0;line-height:0;cursor:pointer}
+.s-video video{width:100%;display:block}
+.s-video .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;background:rgba(0,0,0,.15);transition:background .3s}
+.s-video:hover .play-overlay{background:rgba(0,0,0,.3)}
+.s-video .play-circle{width:64px;height:64px;border-radius:50%;border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);backdrop-filter:blur(4px);transition:all .3s}
+.s-video:hover .play-circle{transform:scale(1.1);border-color:rgba(255,255,255,.8)}
+.s-video .play-circle::after{content:"";width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:18px solid #fff;margin-left:3px}
+.s-video.playing .play-overlay{opacity:0;pointer-events:none}
+
+/* S4: CORE BUSINESS */
+.s-core{padding:70px 40px 60px;text-align:center;font-size:14px;line-height:1.5}
+.s-core h2{font-size:20px;font-weight:300;letter-spacing:6px;margin-bottom:45px;color:rgba(255,255,255,.8);text-transform:uppercase}
+.s-core-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto}
+.s-core-item{text-align:center}
+.s-core-item img{width:100%;margin-bottom:14px}
+.s-core-item p{font-size:12px;line-height:1.9;color:rgba(255,255,255,.5)}
+
+/* S5: TECHNOLOGICAL INNOVATION */
+.s-tech{padding:60px 40px 70px;text-align:center;font-size:14px;line-height:1.5}
+.s-tech h2{font-size:20px;font-weight:300;letter-spacing:6px;margin-bottom:45px;color:rgba(255,255,255,.8);text-transform:uppercase}
+.s-tech-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;max-width:1000px;margin:0 auto}
+.s-tech-item{text-align:center;padding:16px}
+.s-tech-item img{width:70px;height:70px;object-fit:contain;margin:0 auto 14px}
+.s-tech-item .label{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:4px}
+.s-tech-item .value{font-size:22px;font-weight:600;color:#4db8ff}
+
+/* S6: DUAL CARBON - kv5 */
+.s-carbon{position:relative;font-size:0;line-height:0;overflow:hidden}
+.s-carbon>img{width:100%;display:block}
+.s-carbon-content{position:absolute;bottom:0;left:0;right:0;padding:50px 60px;background:linear-gradient(to top,rgba(0,0,0,.65) 0%,transparent 100%);z-index:2;font-size:14px;line-height:1.5}
+.s-carbon h2{font-size:16px;font-weight:300;letter-spacing:3px;margin-bottom:16px;color:rgba(255,255,255,.85);text-transform:uppercase}
+.s-carbon p{font-size:12px;line-height:2;color:rgba(255,255,255,.45);max-width:650px}
+
+/* S7: GREEN TITLE - marquee */
+.s-green-banner{overflow:hidden;padding:40px 0;text-align:center;font-size:14px;line-height:1.5}
+.s-green-banner h2{font-size:26px;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:8px}
+.s-marquee{overflow:hidden;white-space:nowrap;position:relative;height:24px}
+.s-marquee span{display:inline-block;animation:marqueeScroll 12s linear infinite;font-size:14px;color:rgba(255,255,255,.3);letter-spacing:6px;font-weight:300}
+@keyframes marqueeScroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* S7b: GREEN R&D + MANUFACTURING columns */
+.s-green-cols{display:grid;grid-template-columns:1fr 1fr;gap:0;font-size:14px;line-height:1.5}
+.s-green-col{padding:40px 36px}
+.s-green-col img{width:100%;border-radius:6px;margin-bottom:20px}
+.s-green-col h3{font-size:15px;font-weight:600;letter-spacing:2px;margin-bottom:16px;color:#4ae68a}
+.s-green-col p{font-size:12px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:8px}
+
+/* S8: LOGISTICS + LOW-CARBON (kv7 bg) */
+.s-logistics{position:relative;font-size:0;line-height:0;overflow:hidden}
+.s-logistics>img{width:100%;display:block}
+.s-logistics-content{position:absolute;inset:0;display:flex;z-index:2;font-size:14px;line-height:1.5}
+.s-logistics-half{flex:1;padding:50px 45px;display:flex;flex-direction:column;justify-content:center}
+.s-logistics-half h3{font-size:15px;font-weight:600;letter-spacing:2px;margin-bottom:16px;color:rgba(255,255,255,.85);text-transform:uppercase}
+.s-logistics-half p{font-size:12px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:12px}
+
+/* S9: VIDEO kv9 */
+.s-vid2{width:100%;font-size:0;line-height:0;position:relative;cursor:pointer}
+.s-vid2 video{width:100%;display:block}
+.s-vid2 .play-overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;z-index:2;background:rgba(0,0,0,.15);transition:background .3s}
+.s-vid2:hover .play-overlay{background:rgba(0,0,0,.3)}
+.s-vid2 .play-circle{width:64px;height:64px;border-radius:50%;border:2px solid rgba(255,255,255,.5);display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,.25);backdrop-filter:blur(4px)}
+.s-vid2 .play-circle::after{content:"";width:0;height:0;border-top:11px solid transparent;border-bottom:11px solid transparent;border-left:18px solid #fff;margin-left:3px}
+.s-vid2.playing .play-overlay{opacity:0;pointer-events:none}
+
+/* S10: SOCIAL RESPONSIBILITY */
+.s-social{padding:60px 40px;text-align:center;font-size:14px;line-height:1.5}
+.s-social h2{font-size:20px;font-weight:300;letter-spacing:6px;margin-bottom:40px;color:rgba(255,255,255,.8);text-transform:uppercase}
+.s-social-imgs{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;max-width:1000px;margin:0 auto 35px}
+.s-social-imgs img{width:100%;border-radius:4px}
+.s-social p{font-size:12px;line-height:2;color:rgba(255,255,255,.45);max-width:750px;margin:0 auto 10px}
+
+/* S11: CHARITABLE TITLE - marquee */
+.s-charity-banner{overflow:hidden;padding:40px 0;text-align:center;font-size:14px;line-height:1.5}
+.s-charity-banner h2{font-size:26px;font-weight:700;letter-spacing:2px;color:#fff;margin-bottom:8px}
+
+/* S12: CLOSING */
+.s-closing{padding:70px 40px 80px;text-align:center;font-size:14px;line-height:1.5}
+.s-closing p{font-size:13px;line-height:2.8;color:rgba(255,255,255,.35);letter-spacing:1px}
+
+/* ========== RESPONSIVE ========== */
+@media(max-width:900px){
+  .s-core-grid,.s-tech-grid{grid-template-columns:1fr 1fr}
+  .s-green-cols{grid-template-columns:1fr}
+  .s-social-imgs{grid-template-columns:1fr}
+  .s-logistics-content{flex-direction:column}
+}

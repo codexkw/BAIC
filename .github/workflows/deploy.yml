@@ -1,0 +1,35 @@
+name: Build and Deploy to IIS
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup .NET 9
+      uses: actions/setup-dotnet@v4
+      with:
+        dotnet-version: '9.0.x'
+
+    - name: Restore dependencies
+      run: dotnet restore src/BAIC.Web/BAIC.Web.csproj
+
+    - name: Build
+      run: dotnet build src/BAIC.Web/BAIC.Web.csproj --configuration Release --no-restore
+
+    - name: Publish
+      run: dotnet publish src/BAIC.Web/BAIC.Web.csproj --configuration Release --no-build --output ./publish
+
+    - name: Deploy to IIS
+      run: |
+        & "C:\Program Files\IIS\Microsoft Web Deploy V3\msdeploy.exe" `
+          -verb:sync `
+          -source:contentPath="${{ github.workspace }}\publish" `
+          -dest:contentPath="${{ secrets.IIS_SITE_NAME }}",computerName="${{ secrets.MSDEPLOY_URL }}",username="${{ secrets.MSDEPLOY_USERNAME }}",password="${{ secrets.MSDEPLOY_PASSWORD }}",authType="Basic" `
+          -allowUntrusted `
+          -enableRule:AppOffline

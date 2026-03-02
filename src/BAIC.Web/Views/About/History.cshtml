@@ -1,0 +1,144 @@
+@{
+    ViewData["Title"] = "History";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/history.css" />
+}
+
+<!-- HERO -->
+<section class="hi-hero">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/banner.webp" alt="History">
+  <div class="hi-hero-overlay"></div>
+  <h1>History is still being written...</h1>
+</section>
+
+<!-- INTRO -->
+<section class="hi-intro">
+  <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/bg_2.webp" alt="" class="hi-intro-bg">
+  <div class="hi-intro-content">
+    <h2>THE WHEEL OF HISTORY TURNS</h2>
+    <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/bg_logo.webp" alt="BAIC" class="hi-intro-logo">
+    <img src="https://www.baicglobal.com/file/public/static/aboutUs/history/car.webp" alt="BAIC" class="hi-intro-car">
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="hi-timeline" id="timeline">
+  <div class="hi-road" id="hiRoad"></div>
+
+  <!-- Red Car SVG (top-down view) -->
+  <div class="hi-car" id="hiCar">
+    <svg viewBox="0 0 34 62" xmlns="http://www.w3.org/2000/svg">
+      <rect x="4" y="5" width="26" height="52" rx="8" fill="#cc0000"/>
+      <rect x="6" y="1" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="19" y="1" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="6" y="54" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="19" y="54" width="9" height="7" rx="2.5" fill="#990000"/>
+      <rect x="8" y="10" width="18" height="14" rx="3" fill="rgba(0,0,0,.3)"/>
+      <rect x="8" y="38" width="18" height="12" rx="3" fill="rgba(0,0,0,.3)"/>
+      <rect x="8" y="26" width="18" height="10" rx="1" fill="rgba(0,0,0,.12)"/>
+    </svg>
+  </div>
+
+  <div class="hi-tl-items" id="tlItems"></div>
+
+  <!-- Road bottom -->
+  <div class="hi-road-section">
+    <div class="hi-road-actual">
+      <div class="lane l"></div>
+      <div class="lane r"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSING -->
+<section class="hi-closing">
+  <h2>HISTORY IS STILL BEING WRITTEN &nbsp; <br> ...</h2>
+</section>
+
+@section Scripts {
+<script>
+// Timeline data
+const BASE='https://www.baicglobal.com/file/public/static/aboutUs/history/';
+const items=[
+  {year:'1958',img:'1958.webp',desc:'BAIC independently develops China\'s first sedan "Jinggangshan"',side:'right'},
+  {year:'1966',img:'1966.webp',desc:'The BJ212 China\'s first off-road vehicle is officially placed into production',side:'left'},
+  {year:'1966',img:'1966_2.webp',desc:'The BJ130 successfully passes the trial production',side:'right'},
+  {year:'1983',img:'1983.webp',desc:'Beijing Jeep Corporation is established, China\'s first automotive JV',side:'left'},
+  {year:'1996',img:'1996.webp',desc:'Foton Motor Co., Ltd. is established',side:'right'},
+  {year:'2002',img:'2002.webp',desc:'Beijing Hyundai Motor Co., Ltd. is officially established With Hyundai Motor',side:'left'},
+  {year:'2003',img:'2005.webp',desc:'Beijing Benz AutomotiveCo., Ltd. is officially established with DaimlerChrysler',side:'right'},
+  {year:'2009',img:'2009.webp',desc:'Acquires Saab intellectual property rights and the annual sales revenue exceeds 100 billion yuan',side:'left'},
+  {year:'2013',img:'2013.webp',desc:'<span class="icon_dian"></span>BAIC INTL is officially established<br><span class="icon_dian"></span>BAIC GROUP is listed on the Fortune Global 500',side:'right'},
+  {year:'2016',img:'2016.webp',desc:'BAIC Motor officially acquires 35% shares of Fujian Benz',side:'left'},
+  {year:'2017',img:'2017.webp',desc:'BJ80 off-road vehicle serves as the parade inspection car for the Chinese president',side:'right'},
+  {year:'2018',img:'2018.webp',desc:'<span class="icon_dian"></span>Establish a joint venture with MAGNA and build up<br> a high-end BEV R&D and manufacturing base<br><span class="icon_dian"></span>Ranked 124th in the Fortune Global 500',side:'left'},
+  {year:'2019',img:'2019.webp',desc:'The high-end new energy brand ARCFOX of BAIC makes a stunning debut at the Geneva Motor Show',side:'right'},
+  {year:'2024',img:'2024.webp',desc:'Listed in Fortune Global 500 for twelve years consecutively',side:'left'}
+];
+
+const container=document.getElementById('tlItems');
+const roadX=53; // road at 53% from left
+
+items.forEach((item,i)=>{
+  const el=document.createElement('div');
+  el.className='hi-tl-item';
+  el.style.position='relative';
+  el.style.minHeight='360px';
+  el.style.marginBottom='20px';
+
+  // Card position
+  const cardW=380;
+  let cardStyle,yearStyle,dotStyle,dashStyle,redHStyle,redVStyle;
+
+  if(item.side==='right'){
+    // Card on the right side of road
+    cardStyle=`right:30px;top:20px;`;
+    // Dot on the road
+    dotStyle=`left:${roadX}%;top:50px;transform:translateX(-50%);`;
+    // Year between dot and card, to right of dot
+    yearStyle=`left:${roadX+2}%;top:30px;`;
+    // Dashed line from dot rightward
+    dashStyle=`left:${roadX}%;top:56px;width:${100-roadX-2}%;max-width:calc(100% - ${roadX}% - 30px - ${cardW}px + 50px);`;
+    // Red L-connector: horizontal from dot to right, then possible vertical
+    redHStyle=`left:${roadX}%;top:54px;width:calc(100% - ${roadX}% - 30px - ${cardW/2}px);`;
+  } else {
+    // Card on the left side of road
+    cardStyle=`left:30px;top:20px;`;
+    dotStyle=`left:${roadX}%;top:50px;transform:translateX(-50%);`;
+    yearStyle=`right:${100-roadX+2}%;top:30px;text-align:right;`;
+    dashStyle=`right:${100-roadX}%;top:56px;width:${roadX-2}%;`;
+    redHStyle=`right:${100-roadX}%;top:54px;width:calc(${roadX}% - 30px - ${cardW/2}px);`;
+  }
+
+  el.innerHTML=`
+    <div class="hi-tl-card" style="${cardStyle}">
+      <img src="${BASE}${item.img}" alt="${item.year}">
+      <div class="hi-tl-card-text">${item.desc}</div>
+    </div>
+    <div class="hi-tl-dot" style="${dotStyle}"></div>
+    <div class="hi-tl-year" style="${yearStyle}">${item.year}</div>
+    <div class="hi-tl-dash" style="${dashStyle}"></div>
+    <div class="hi-tl-redline-h" style="${redHStyle}"></div>
+  `;
+
+  container.appendChild(el);
+});
+
+// Car + reveal
+const car=document.getElementById('hiCar');
+const timeline=document.getElementById('timeline');
+const tlObs=new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')});
+},{threshold:0.15});
+document.querySelectorAll('.hi-tl-item').forEach(el=>tlObs.observe(el));
+
+window.addEventListener('scroll',()=>{
+  if(!timeline||!car) return;
+  const rect=timeline.getBoundingClientRect();
+  const inTL=rect.top<window.innerHeight*.6 && rect.bottom>window.innerHeight*.4;
+  car.classList.toggle('visible',inTL);
+});
+</script>
+}
