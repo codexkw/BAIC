@@ -1,47 +1,47 @@
 /* ========== RESET & BASE ========== */
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#fff;color:#000;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 ul{list-style:none}
 img{max-width:100%;display:block}
 
 /* ========== HEADER ========== */
-.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s}
-.header.scrolled{background:rgba(0,0,0,.92)}
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:background .3s,box-shadow .3s}
+.header.scrolled{background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.08)}
 .header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}
 .logo{display:flex;align-items:center}
 .logo span{font-size:22px;font-weight:700;letter-spacing:5px}
 .nav-menu{display:flex;gap:0}
 .nav-menu>li{position:relative}
-.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;letter-spacing:.3px;transition:color .3s}
-.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}
-.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}
+.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#252525;font-weight:400;letter-spacing:.3px;transition:color .3s}
+.nav-menu>li>a:hover{color:#d1291a}
+.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(255,255,255,.97);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(0,0,0,.06);box-shadow:0 4px 12px rgba(0,0,0,.08)}
 .nav-menu>li:hover .dropdown{display:block}
-.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}
-.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}
+.dropdown a{display:block;padding:8px 20px;font-size:13px;color:#666;transition:all .3s}
+.dropdown a:hover{color:#d1291a;background:rgba(0,0,0,.02)}
 .header-right{display:flex;align-items:center;gap:16px}
-.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit}
-.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #fff;margin-left:4px}
+.lang-select{background:none;border:none;color:#252525;font-size:14px;cursor:pointer;font-family:inherit}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #252525;margin-left:4px}
 
 /* Mega Menu */
-.mega-menu{position:fixed;top:64px;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(16px);display:none;border-top:1px solid rgba(255,255,255,.06);z-index:99;animation:megaIn .25s ease}
+.mega-menu{position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);display:none;border-top:1px solid rgba(0,0,0,.06);box-shadow:0 4px 16px rgba(0,0,0,.08);z-index:99;animation:megaIn .25s ease}
 .has-mega:hover .mega-menu{display:block}
 @keyframes megaIn{from{opacity:0;transform:translateY(-6px)}to{opacity:1;transform:translateY(0)}}
 .mega-inner{max-width:1200px;margin:0 auto;padding:28px 40px 36px}
-.mega-tabs{display:flex;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}
-.mega-tab{padding:10px 24px;font-size:13px;color:rgba(255,255,255,.4);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .25s;letter-spacing:.5px}
-.mega-tab:hover,.mega-tab.active{color:#fff;border-bottom-color:#fff}
+.mega-tabs{display:flex;margin-bottom:24px;border-bottom:1px solid rgba(0,0,0,.08)}
+.mega-tab{padding:10px 24px;font-size:13px;color:#ababab;cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .25s;letter-spacing:.5px}
+.mega-tab:hover,.mega-tab.active{color:#505051;border-bottom-color:#d1291a}
 .mega-models{display:flex;gap:6px;flex-wrap:wrap}
 .mega-model-item{display:flex;flex-direction:column;align-items:center;width:120px;padding:12px 8px;border-radius:4px;transition:all .25s;opacity:.7}
-.mega-model-item:hover{opacity:1;background:rgba(255,255,255,.06)}
+.mega-model-item:hover{opacity:1;background:rgba(0,0,0,.03)}
 .mega-model-item img{width:100px;height:auto;margin-bottom:8px;transition:transform .3s}
 .mega-model-item:hover img{transform:scale(1.08)}
-.mega-model-item span{font-size:11px;font-weight:500;letter-spacing:.8px;color:rgba(255,255,255,.7);white-space:nowrap}
+.mega-model-item span{font-size:11px;font-weight:500;letter-spacing:.8px;color:#666;white-space:nowrap}
 .mega-model-item.hidden{display:none}
 
 /* ========== FOOTER ========== */
-.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}
+.footer{background:#25292e;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px;color:#fff}
 .footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}
 .footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}
 .footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}
@@ -59,7 +59,7 @@ img{max-width:100%;display:block}
 .cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}
 .cookie-banner.hidden{display:none}
 .cookie-text{flex:1}
-.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}
+.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px;color:#fff}
 .cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}
 .cookie-btns{display:flex;gap:8px;flex-shrink:0}
 .ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}
