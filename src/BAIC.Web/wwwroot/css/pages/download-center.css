@@ -4,16 +4,8 @@
 /* Body/page overrides for white theme */
 body{background:#fff;color:#222}
 
-/* Header overrides for dark header on white page */
-.header{background:rgba(0,0,0,.85)}
-.header.scrolled{background:rgba(0,0,0,.95)}
-.logo img{height:30px}
-
-/* Footer override for white-page context */
-.footer{color:#fff;margin-top:80px}
-
-/* Cookie banner override for white-page context */
-.cookie-banner{color:#fff}
+/* Footer spacing */
+.footer{margin-top:80px}
 
 /* PAGE */
 .dl-page{max-width:1300px;margin:0 auto;padding:120px 50px 60px}

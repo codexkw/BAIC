@@ -1,11 +1,12 @@
 /* ========== CONTACT US ========== */
+body{background:#000;color:#fff}
 
 /* HERO */
 .cu-hero{position:relative;width:100%;height:380px;overflow:hidden;margin-top:64px}
 .cu-hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .cu-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.35)}
 .cu-hero-content{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;z-index:2;text-align:center;padding:0 40px}
-.cu-hero h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:24px;color:#fff}
+.cu-hero h1{font-size:36px;font-weight:300;letter-spacing:6px;margin-bottom:24px}
 .cu-hero p{font-size:14px;line-height:2;color:rgba(255,255,255,.6);max-width:650px}
 
 /* FORM */
@@ -13,12 +14,12 @@
 .cu-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:22px}
 .cu-field{display:flex;flex-direction:column}
 .cu-field.full{grid-column:1/-1}
-.cu-field label{font-size:12px;color:#000;margin-bottom:8px;letter-spacing:1px;font-weight:500}
-.cu-field input,.cu-field textarea,.cu-field select{background:#f8f8f8;border:none;border-bottom:1px solid #e5e7eb;padding:12px 10px;font-size:14px;color:#000;font-family:inherit;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none;width:100%}
-.cu-field select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23999' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 10px center;padding-right:28px;background-color:#f8f8f8}
-.cu-field select option{background:#fff;color:#000}
-.cu-field input:focus,.cu-field textarea:focus,.cu-field select:focus{border-bottom-color:#d1291a}
-.cu-field input::placeholder{color:#c0c4cc;font-size:13px}
+.cu-field label{font-size:12px;color:rgba(255,255,255,.35);margin-bottom:8px;letter-spacing:1px}
+.cu-field input,.cu-field textarea,.cu-field select{background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,.15);padding:10px 0;font-size:14px;color:#fff;font-family:inherit;outline:none;transition:border-color .3s;-webkit-appearance:none;appearance:none;width:100%}
+.cu-field select{cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='rgba(255,255,255,0.3)' fill='none' stroke-width='1.5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 4px center;padding-right:24px}
+.cu-field select option{background:#111;color:#fff}
+.cu-field input:focus,.cu-field textarea:focus,.cu-field select:focus{border-bottom-color:rgba(255,255,255,.5)}
+.cu-field input::placeholder{color:rgba(255,255,255,.15);font-size:13px}
 .cu-field textarea{resize:vertical;min-height:80px}
 
 /* Phone row with code + number */
@@ -28,16 +29,16 @@
 .cu-phone-num{flex:1}
 
 /* Relocate link */
-.cu-relocate{font-size:11px;color:#929292;margin-top:4px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:color .3s}
-.cu-relocate:hover{color:#d1291a}
+.cu-relocate{font-size:11px;color:rgba(255,255,255,.25);margin-top:4px;cursor:pointer;display:inline-flex;align-items:center;gap:4px;transition:color .3s}
+.cu-relocate:hover{color:rgba(255,255,255,.5)}
 .cu-relocate svg{width:12px;height:12px;fill:none;stroke:currentColor;stroke-width:2}
 
-.cu-note{font-size:12px;color:#929292;margin-top:24px;line-height:1.7;text-align:center}
-.cu-note a{color:#d1291a;text-decoration:underline;transition:color .3s}
-.cu-note a:hover{color:#a01e13}
+.cu-note{font-size:12px;color:rgba(255,255,255,.3);margin-top:24px;line-height:1.7;text-align:center}
+.cu-note a{color:rgba(255,255,255,.6);text-decoration:underline;transition:color .3s}
+.cu-note a:hover{color:#fff}
 
-.cu-submit{display:block;width:100%;margin-top:30px;padding:16px;font-size:14px;font-weight:500;letter-spacing:6px;color:#fff;background:#d1291a;border:none;border-radius:50px;cursor:pointer;font-family:inherit;transition:all .3s;text-transform:uppercase}
-.cu-submit:hover{background:transparent;border:1px solid #000;color:#000}
+.cu-submit{display:block;width:100%;margin-top:30px;padding:16px;font-size:14px;font-weight:500;letter-spacing:6px;color:#fff;background:transparent;border:1px solid rgba(255,255,255,.25);cursor:pointer;font-family:inherit;transition:all .3s;text-transform:uppercase}
+.cu-submit:hover{background:rgba(255,255,255,.06);border-color:rgba(255,255,255,.45)}
 
 /* RESPONSIVE */
 @media(max-width:600px){
