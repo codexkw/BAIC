@@ -80,6 +80,8 @@ img{max-width:100%;display:block}
 
 /* ========== RESPONSIVE ========== */
 @media(max-width:900px){
+  .header{backdrop-filter:none;-webkit-backdrop-filter:none;background:#fff}
+  .header.scrolled{backdrop-filter:none;-webkit-backdrop-filter:none}
   .header-inner{padding:0 20px}
   .menu-toggle{display:flex}
   .nav-menu{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;padding:20px 0;overflow-y:auto;transform:translateX(100%);transition:transform .3s ease;z-index:98}
