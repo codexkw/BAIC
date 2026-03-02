@@ -41,6 +41,43 @@ document.querySelectorAll('.mega-tab').forEach(tab => {
     });
 })();
 
+// Mobile menu toggle
+(function () {
+    const toggle = document.getElementById('menuToggle');
+    const nav = document.querySelector('.nav-menu');
+    if (!toggle || !nav) return;
+
+    toggle.addEventListener('click', function () {
+        toggle.classList.toggle('active');
+        nav.classList.toggle('open');
+        document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    });
+
+    // Tap a nav item with dropdown to expand on mobile
+    nav.querySelectorAll(':scope > li > a').forEach(function (link) {
+        link.addEventListener('click', function (e) {
+            if (window.innerWidth > 900) return;
+            var li = link.parentElement;
+            var sub = li.querySelector('.dropdown, .mega-menu');
+            if (!sub) return;
+            e.preventDefault();
+            var wasOpen = li.classList.contains('open');
+            nav.querySelectorAll(':scope > li').forEach(function (l) { l.classList.remove('open'); });
+            if (!wasOpen) li.classList.add('open');
+        });
+    });
+
+    // Close menu on window resize to desktop
+    window.addEventListener('resize', function () {
+        if (window.innerWidth > 900) {
+            toggle.classList.remove('active');
+            nav.classList.remove('open');
+            document.body.style.overflow = '';
+            nav.querySelectorAll(':scope > li').forEach(function (l) { l.classList.remove('open'); });
+        }
+    });
+})();
+
 // Scroll reveal for fade-in elements
 const fadeObserver = new IntersectionObserver((entries) => {
     entries.forEach(e => {

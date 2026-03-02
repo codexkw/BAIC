@@ -103,11 +103,35 @@
 /* ========== RESPONSIVE ========== */
 @media(max-width:1024px){
   .cgrid-2,.cgrid-3{grid-template-columns:1fr 1fr}
+  .car-thumbs{gap:4px}
+  .car-thumb{width:110px}
 }
 @media(max-width:768px){
   .cgrid-2,.cgrid-3{grid-template-columns:1fr}
-  .hero-model-text{font-size:28px}
-  .car-thumbs{gap:4px}
-  .car-thumb{width:100px}
+  .hero-model-text{font-size:28px;letter-spacing:2px}
+  .hero-btns{flex-direction:column;gap:10px;align-items:center}
+  .hero-btn{padding:10px 28px;font-size:12px}
+  .hero-arrow{width:36px;height:36px;font-size:20px}
+  .hero-arrow.left{left:10px}
+  .hero-arrow.right{right:10px}
+  .car-thumbs{gap:2px;padding:0 10px}
+  .car-thumb{width:80px;padding:6px}
+  .car-thumb span{font-size:9px}
+  .car-360-btn{padding:8px 20px;font-size:11px}
+  .section-title{font-size:16px;letter-spacing:1px}
+  .content-grid{padding:0 10px 40px}
+  .cg-item.tall{min-height:320px}
+  .cg-item.med{min-height:200px}
+  .cg-overlay{padding:20px}
+  .cg-overlay h3{font-size:14px}
+  .world{padding:50px 0}
+  .world h3{font-size:16px}
+  .world-map{padding:0 10px}
+  .news{padding:50px 0}
+  .news-scroll-wrap{padding:0 20px}
   .news-card{flex:0 0 240px;min-width:220px}
+  .news-arrow{width:30px;height:30px;font-size:14px}
+  .sidebar{display:none}
+  .explore{padding:50px 0}
+  .cat-tab{padding:10px 16px;font-size:13px}
 }

@@ -162,7 +162,7 @@
   <h3>BAIC IN THE WORLD</h3>
   <p>Find Your BAIC In Your Country</p>
   <div class="world-map" id="worldMap">
-    <canvas id="mapCanvas" width="1200" height="620"></canvas>
+    <canvas id="mapCanvas" style="width:100%;height:auto"></canvas>
   </div>
 </section>
 
@@ -380,8 +380,13 @@ car360Img.classList.add('loaded');
 (function(){
 const canvas = document.getElementById('mapCanvas');
 const ctx = canvas.getContext('2d');
-const W = 1200, H = 620;
-canvas.width = W; canvas.height = H;
+const dpr = window.devicePixelRatio || 1;
+const containerW = canvas.parentElement.offsetWidth;
+const W = Math.min(1200, containerW);
+const H = Math.round(W * 620 / 1200);
+canvas.width = W * dpr; canvas.height = H * dpr;
+canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+ctx.scale(dpr, dpr);
 
 // Simplified world continent coordinate data as polygon outlines
 // Each continent is an array of [x%, y%] points scaled to canvas

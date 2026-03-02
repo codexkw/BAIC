@@ -71,8 +71,37 @@ img{max-width:100%;display:block}
 .fade-in{opacity:0;transform:translateY(30px);transition:opacity .8s ease,transform .8s ease}
 .fade-in.visible{opacity:1;transform:translateY(0)}
 
+/* ========== MOBILE MENU TOGGLE ========== */
+.menu-toggle{display:none;flex-direction:column;justify-content:center;gap:5px;background:none;border:none;cursor:pointer;padding:8px;z-index:102}
+.menu-toggle span{display:block;width:22px;height:2px;background:#252525;transition:all .3s}
+.menu-toggle.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.menu-toggle.active span:nth-child(2){opacity:0}
+.menu-toggle.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
 /* ========== RESPONSIVE ========== */
 @media(max-width:900px){
+  .header-inner{padding:0 20px}
+  .menu-toggle{display:flex}
+  .nav-menu{position:fixed;top:64px;left:0;right:0;bottom:0;background:#fff;flex-direction:column;padding:20px 0;overflow-y:auto;transform:translateX(100%);transition:transform .3s ease;z-index:98}
+  .nav-menu.open{transform:translateX(0)}
+  .nav-menu>li>a{padding:16px 24px;font-size:16px;border-bottom:1px solid rgba(0,0,0,.05)}
+  .nav-menu>li .dropdown{position:static;background:none;box-shadow:none;border:none;padding:0;display:none;backdrop-filter:none}
+  .nav-menu>li.open .dropdown{display:block}
+  .dropdown a{padding:12px 40px;font-size:14px}
+  .mega-menu{position:static;background:#fff;box-shadow:none;border:none;display:none!important;animation:none;backdrop-filter:none}
+  .nav-menu>li.open .mega-menu{display:block!important}
+  .mega-inner{padding:10px 24px 20px}
+  .mega-models{gap:4px}
+  .mega-model-item{width:80px;padding:8px 4px}
+  .mega-model-item img{width:70px}
+  .header-right{display:none}
   .footer-cols{grid-template-columns:1fr 1fr}
-  .cookie-banner{flex-direction:column}
+  .footer-inner{padding:0 20px}
+  .footer-bottom{flex-direction:column;align-items:flex-start}
+  .cookie-banner{flex-direction:column;padding:16px 20px}
+}
+@media(max-width:480px){
+  .footer-cols{grid-template-columns:1fr}
+  .mega-tabs{flex-wrap:wrap;gap:0}
+  .mega-tab{padding:8px 14px;font-size:12px}
 }
