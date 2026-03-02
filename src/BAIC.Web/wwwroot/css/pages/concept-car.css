@@ -1,4 +1,5 @@
 /* ========== CONCEPT CAR ========== */
+body{background:#000;color:#fff}
 
 /* 1. HERO */
 .cc-hero{position:relative;width:100%;height:100vh;min-height:600px;overflow:hidden}
