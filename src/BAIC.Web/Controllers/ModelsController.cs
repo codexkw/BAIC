@@ -13,4 +13,5 @@ public class ModelsController : Controller
     public IActionResult X55II() => View();
     public IActionResult X55IIRHD() => View();
     public IActionResult X35() => View();
+    public IActionResult U5Plus() => View();
 }
