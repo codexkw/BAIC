@@ -251,68 +251,118 @@ const car360Colors = document.getElementById('car360Colors');
 
 // 360 CDN base URL
 const cdn360 = 'https://www.baicglobal.com/file/home360/';
+const cdnStatic = 'https://www.baicglobal.com';
 
-// Model 360 data: CDN folder name + available colors [hex, label]
+// Model data from original site - each color has: rgb (hex or two-tone), path (CDN color folder) or imgUrl (static)
 const modelData = {
   'BJ30': {
     folder: 'BJ30',
     colors: [
-      ['#1a1a1a','Black'],['#c0c0c0','Silver'],['#2e5090','Blue'],
-      ['#8b1a1a','Red'],['#f5f5dc','Ivory'],['#4a6741','Green'],['#e8e4d9','Champagne']
+      {rgb:'#96B8A6',path:'color0'},{rgb:'#225F78',path:'color1'},{rgb:'#808080',path:'color2'},
+      {rgb:'#6b7176',path:'color3'},{rgb:'#3c3c3c',path:'color4'},{rgb:'#000000',path:'color5'},
+      {rgb:'#FFFFFF',path:'color6'}
     ]
   },
   'BJ60': {
     folder: 'BJ60',
     colors: [
-      ['#1a1a1a','Black'],['#c0c0c0','Silver'],['#f5f5f5','White'],
-      ['#4a6741','Green'],['#2e5090','Blue'],['#6b4c3b','Brown']
+      {rgb:'#8195A6',path:'color0'},{rgb:'#FFFFFF',path:'color1'},{rgb:'#414E5B',path:'color2'},
+      {rgb:'#000000',path:'color3'},{rgb:'#365163',path:'color4'},{rgb:'#566656',path:'color5'}
     ]
   },
   'BJ40 PLUS': {
     folder: 'BJ40 PLUS',
-    colors: [['#1a1a1a','Black']]
+    colors: [
+      {rgb:'#BC1D04',path:'color0'},
+      {rgb:'#404544',imgUrl:'/file/public/static/image/home/model/colors/bj40 plus-灰.webp'},
+      {rgb:'#F5F5F5',imgUrl:'/file/public/static/image/home/model/colors/bj40 plus-白.webp'},
+      {rgb:'#080808',path:'color3'},{rgb:'#BACBE2',path:'color4'},
+      {rgb:'#193346',path:'color5'},{rgb:'#313D2A',path:'color6'},
+      {rgb:'#5D6043',imgUrl:'/file/public/static/image/home/model/colors/bj40 plus-绿.webp'}
+    ]
   },
   'BJ40 PLUS RHD': {
     folder: 'BJ40 PLUS',
-    colors: [['#1a1a1a','Black']]
+    colors: [{rgb:'#BC1D04',path:'color0'}]
   },
   'BJ40 PRO': {
     folder: 'BJ40 PRO',
     colors: [
-      ['#1a1a1a','Black'],['#c0c0c0','Silver'],['#f5f5f5','White'],
-      ['#8b1a1a','Red'],['#2e5090','Blue'],['#4a6741','Green'],['#6b4c3b','Brown']
+      {rgb:'#eb5a11',path:'color6'},{rgb:'#000',path:'color0'},{rgb:'#566656',path:'color2'},
+      {rgb:'#676b76',path:'color3'},{rgb:'#FFFFFF',path:'color5'}
     ]
   },
-  'EU5': {
-    folder: 'EU5',
+  'BJ40 SE': {
     colors: [
-      ['#f5f5f5','White'],['#1a1a1a','Black'],['#c0c0c0','Silver'],['#2e5090','Blue']
+      {rgb:'#C40F0F',imgUrl:'/file/public/static/image/home/model/colors/bj40-se-红.webp'},
+      {rgb:'#030303',imgUrl:'/file/public/static/image/home/model/colors/bj40-se-黑.webp'},
+      {rgb:'#F8F8F8',imgUrl:'/file/public/static/image/home/model/colors/bj40-se-白.webp'},
+      {rgb:'#404E45',imgUrl:'/file/public/static/image/home/model/colors/bj40-se-绿.webp'},
+      {rgb:'#B9C9E2',imgUrl:'/file/public/static/image/home/model/colors/bj40-se-蓝.webp'},
+      {rgb:'#193346',imgUrl:'/file/public/static/image/home/model/colors/bj40-se-拉普兰.webp'}
     ]
   },
-  'X35': {
-    folder: 'X35',
+  'BJ80': {
     colors: [
-      ['#f5f5f5','White'],['#1a1a1a','Black'],['#8b1a1a','Red'],['#c0c0c0','Silver']
+      {rgb:'#060606',imgUrl:'/file/public/static/image/home/model/colors/bj80-黑.webp'},
+      {rgb:'#FBFAFA',imgUrl:'/file/public/static/image/home/model/colors/bj80-白.webp'},
+      {rgb:'#6C6C6C',imgUrl:'/file/public/static/image/home/model/colors/bj80-灰.webp'},
+      {rgb:'#A11616/#000000',imgUrl:'/file/public/static/image/home/model/colors/bj80-红.webp'},
+      {rgb:'#14475F/#FBFAFA',imgUrl:'/file/public/static/image/home/model/colors/bj80-蓝.webp'}
+    ]
+  },
+  'F40': {
+    colors: [
+      {rgb:'#BF0808',imgUrl:'/file/public/static/image/home/model/colors/F40-红.webp'},
+      {rgb:'#F8F8F8',imgUrl:'/file/public/static/image/home/model/colors/F40-白.webp'},
+      {rgb:'#BACBE2',imgUrl:'/file/public/static/image/home/model/colors/F40-蓝.webp'},
+      {rgb:'#101011',imgUrl:'/file/public/static/image/home/model/colors/F40-黑.webp'},
+      {rgb:'#193346',imgUrl:'/file/public/static/image/home/model/colors/F40-拉普兰.webp'},
+      {rgb:'#55674A',imgUrl:'/file/public/static/image/home/model/colors/F40-绿.webp'}
     ]
   },
   'ALL NEW X7': {
     folder: 'ALL NEW X7',
     colors: [
-      ['#1a1a1a','Black'],['#f5f5f5','White'],['#c0c0c0','Silver'],
-      ['#2e5090','Blue'],['#8b1a1a','Red'],['#4a6741','Green'],['#6b4c3b','Brown']
+      {rgb:'#6A6A6A',path:'color0'},{rgb:'#0E0E0F',path:'color1'},{rgb:'#F6F3F3',path:'color2'},
+      {rgb:'#9AA2A8',path:'color3'},{rgb:'#070707/#FFFFFF',path:'color4'},
+      {rgb:'#010101/#939191',path:'color5'},{rgb:'#000000/#E0DEDE',path:'color6'}
+    ]
+  },
+  'X35': {
+    folder: 'X35',
+    colors: [
+      {rgb:'#C91D1D',path:'color0'},{rgb:'#FEF9F9',path:'color1'},
+      {rgb:'#1C61D0',path:'color2'},{rgb:'#480808',path:'color3'}
     ]
   },
   'X55 II': {
     folder: 'X55 II',
     colors: [
-      ['#1a1a1a','Black'],['#f5f5f5','White'],['#c0c0c0','Silver'],
-      ['#d4a017','Gold'],['#2e5090','Blue'],['#8b1a1a','Red']
+      {rgb:'#F6F30A',path:'color0'},{rgb:'#D21313',path:'color1'},{rgb:'#29B7A4',path:'color2'},
+      {rgb:'#424344',path:'color3'},{rgb:'#B1B3B4',path:'color4'},{rgb:'#F2F5F7',path:'color5'}
     ]
   },
   'U5 PLUS': {
     folder: 'U5 PLUS',
     colors: [
-      ['#f5f5f5','White'],['#1a1a1a','Black'],['#c0c0c0','Silver'],['#2e5090','Blue']
+      {rgb:'#CBCBCB',path:'color0'},{rgb:'#F0F2F5',path:'color1'},
+      {rgb:'#060606',path:'color2'},{rgb:'#BB1A1A',path:'color3'}
+    ]
+  },
+  'EU5': {
+    folder: 'EU5',
+    colors: [
+      {rgb:'#DC1717',path:'color0'},{rgb:'#F9F5F5',path:'color1'},{rgb:'#060606',path:'color2'},
+      {rgb:'#5F6163',imgUrl:'/file/public/static/image/home/model/colors/eu5-灰.webp'},
+      {rgb:'#1E41A9',imgUrl:'/file/public/static/image/home/model/colors/eu5-蓝.webp'},
+      {rgb:'#D0D6DD',path:'color5'}
+    ]
+  },
+  'EU5 PLUS': {
+    colors: [
+      {rgb:'#CBCBCB',imgUrl:'/file/public/static/image/home/model/colors/eu5 plus-灰.webp'},
+      {rgb:'#F0F2F5',imgUrl:'/file/public/static/image/home/model/colors/eu5 plus-白.webp'}
     ]
   },
 };
@@ -333,18 +383,26 @@ let isDragging = false;
 let dragStartX = 0;
 let currentModelHas360 = true;
 
-// Get 360 base path for model + color
-function get360Base(modelName, colorIdx) {
+// Get current color object for a model
+function getColorObj(modelName, colorIdx) {
   const data = modelData[modelName];
-  if (!data) return null;
-  return cdn360 + encodeURIComponent(data.folder) + '/color' + colorIdx + '/';
+  if (!data || !data.colors[colorIdx]) return null;
+  return data.colors[colorIdx];
+}
+
+// Get 360 base path for a color that has a CDN path
+function get360Base(modelName, colorObj) {
+  const data = modelData[modelName];
+  if (!data || !data.folder || !colorObj || !colorObj.path) return null;
+  return cdn360 + encodeURIComponent(data.folder) + '/' + colorObj.path + '/';
 }
 
 // Preload a few frames for current model + color
 function preloadFrames(model, colorIdx, count) {
-  const base = get360Base(model, colorIdx);
+  const colorObj = getColorObj(model, colorIdx);
+  const base = get360Base(model, colorObj);
   if (!base) return;
-  const key = model + '_c' + colorIdx;
+  const key = model + '_' + colorObj.path;
   if (!frameImages[key]) frameImages[key] = {};
   for (let i = 0; i < count; i++) {
     if (!frameImages[key][i]) {
@@ -353,6 +411,13 @@ function preloadFrames(model, colorIdx, count) {
       frameImages[key][i] = img;
     }
   }
+}
+
+// Check if a hex is light/white
+function isLightColor(hex) {
+  return ['#f5f5f5','#f5f5dc','#e8e4d9','#fff','#ffffff','#f8f8f8','#fbfafa',
+          '#f6f3f3','#fef9f9','#f9f5f5','#f2f5f7','#f0f2f5','#cbcbcb','#d0d6dd',
+          '#b1b3b4','#9aa2a8','#bacbe2','#b9c9e2'].includes(hex.toLowerCase());
 }
 
 // Render color swatches for a model
@@ -367,10 +432,15 @@ function renderColorSwatches(modelName) {
   data.colors.forEach((c, i) => {
     const swatch = document.createElement('button');
     swatch.className = 'color-swatch' + (i === currentColorIndex ? ' active' : '');
-    swatch.style.background = c[0];
-    swatch.title = c[1];
-    // Add light border for white/light swatches
-    if (['#f5f5f5','#f5f5dc','#e8e4d9','#fff','#ffffff'].includes(c[0].toLowerCase())) {
+    // Handle two-tone colors (e.g. "#070707/#FFFFFF")
+    const parts = c.rgb.split('/');
+    if (parts.length === 2) {
+      swatch.style.background = 'linear-gradient(135deg, ' + parts[0] + ' 50%, ' + parts[1] + ' 50%)';
+      swatch.classList.add('two-tone');
+    } else {
+      swatch.style.background = c.rgb;
+    }
+    if (isLightColor(parts[0]) || (parts[1] && isLightColor(parts[1]))) {
       swatch.classList.add('light');
     }
     swatch.addEventListener('click', () => switchColor(i));
@@ -389,29 +459,59 @@ function switchColor(colorIdx) {
     s.classList.toggle('active', i === colorIdx);
   });
 
-  // Load new color's frame 0
+  const colorObj = getColorObj(currentModel, colorIdx);
+  if (!colorObj) return;
+
+  // Show loader
   car360Loader.classList.add('visible');
   car360Img.classList.remove('loaded');
   car360Img.classList.add('loading');
 
-  const base = get360Base(currentModel, colorIdx);
-  const newSrc = base + '0.avif';
-  const testImg = new Image();
-  testImg.onload = function() {
-    car360Img.src = newSrc;
-    setTimeout(() => {
+  const icon360 = document.getElementById('icon360');
+
+  if (colorObj.path) {
+    // 360 color - load from CDN
+    currentModelHas360 = true;
+    if (icon360) icon360.style.display = '';
+    const base = get360Base(currentModel, colorObj);
+    const newSrc = base + '0.avif';
+    const testImg = new Image();
+    testImg.onload = function() {
+      car360Img.src = newSrc;
+      setTimeout(() => {
+        car360Img.classList.remove('loading');
+        car360Img.classList.add('loaded');
+        car360Loader.classList.remove('visible');
+      }, 300);
+      preloadFrames(currentModel, colorIdx, Math.min(totalFrames, 12));
+    };
+    testImg.onerror = function() {
       car360Img.classList.remove('loading');
       car360Img.classList.add('loaded');
       car360Loader.classList.remove('visible');
-    }, 300);
-    preloadFrames(currentModel, colorIdx, Math.min(totalFrames, 12));
-  };
-  testImg.onerror = function() {
-    car360Img.classList.remove('loading');
-    car360Img.classList.add('loaded');
-    car360Loader.classList.remove('visible');
-  };
-  testImg.src = newSrc;
+    };
+    testImg.src = newSrc;
+  } else if (colorObj.imgUrl) {
+    // Static color image
+    currentModelHas360 = false;
+    if (icon360) icon360.style.display = 'none';
+    const imgSrc = cdnStatic + colorObj.imgUrl;
+    const testImg = new Image();
+    testImg.onload = function() {
+      car360Img.src = imgSrc;
+      setTimeout(() => {
+        car360Img.classList.remove('loading');
+        car360Img.classList.add('loaded');
+        car360Loader.classList.remove('visible');
+      }, 300);
+    };
+    testImg.onerror = function() {
+      car360Img.classList.remove('loading');
+      car360Img.classList.add('loaded');
+      car360Loader.classList.remove('visible');
+    };
+    testImg.src = imgSrc;
+  }
 }
 
 // Switch model with loading animation
@@ -421,11 +521,15 @@ function switchModel(modelName, vrUrl) {
   currentModel = modelName;
   currentFrame = 0;
   currentColorIndex = 0;
-  currentModelHas360 = !!modelData[modelName];
+
+  const data = modelData[modelName];
+  const firstColor = data ? data.colors[0] : null;
+  const has360 = !!(firstColor && firstColor.path && data.folder);
+  currentModelHas360 = has360;
 
   // Show/hide 360 icon based on support
   const icon360 = document.getElementById('icon360');
-  if (icon360) icon360.style.display = currentModelHas360 ? '' : 'none';
+  if (icon360) icon360.style.display = has360 ? '' : 'none';
 
   // Render color swatches
   renderColorSwatches(modelName);
@@ -436,8 +540,8 @@ function switchModel(modelName, vrUrl) {
   car360Img.classList.add('loading');
   car360Name.style.opacity = '0.3';
 
-  if (currentModelHas360) {
-    const base = get360Base(modelName, 0);
+  if (has360) {
+    const base = get360Base(modelName, firstColor);
     const newSrc = base + '0.avif';
 
     const testImg = new Image();
@@ -456,6 +560,24 @@ function switchModel(modelName, vrUrl) {
       showStaticImage(modelName);
     };
     testImg.src = newSrc;
+  } else if (firstColor && firstColor.imgUrl) {
+    // Static color image model
+    const imgSrc = cdnStatic + firstColor.imgUrl;
+    const testImg = new Image();
+    testImg.onload = function() {
+      car360Img.src = imgSrc;
+      setTimeout(() => {
+        car360Img.classList.remove('loading');
+        car360Img.classList.add('loaded');
+        car360Loader.classList.remove('visible');
+        car360Name.textContent = modelName;
+        car360Name.style.opacity = '1';
+      }, 300);
+    };
+    testImg.onerror = function() {
+      showStaticImage(modelName);
+    };
+    testImg.src = imgSrc;
   } else {
     showStaticImage(modelName);
   }
@@ -515,12 +637,13 @@ function handleDragMove(clientX) {
     const direction = diff > 0 ? 1 : -1;
     currentFrame = ((currentFrame + direction) % totalFrames + totalFrames) % totalFrames;
 
-    const base = get360Base(currentModel, currentColorIndex);
+    const colorObj = getColorObj(currentModel, currentColorIndex);
+    const base = get360Base(currentModel, colorObj);
     if (!base) return;
     const frameSrc = base + currentFrame + '.avif';
 
     car360Img.src = frameSrc;
-    const key = currentModel + '_c' + currentColorIndex;
+    const key = currentModel + '_' + colorObj.path;
     if (!frameImages[key]) frameImages[key] = {};
     if (!frameImages[key][currentFrame]) {
       const img = new Image();
