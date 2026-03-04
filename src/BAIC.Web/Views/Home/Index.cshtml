@@ -133,6 +133,8 @@
         </svg>
       </div>
     </div>
+    <!-- Color swatches -->
+    <div class="car-360-colors" id="car360Colors"></div>
     <!-- Model name display -->
     <div class="car-360-model-name" id="car360Name">BJ30</div>
     <!-- Buttons -->
@@ -245,19 +247,74 @@ const car360Loader = document.getElementById('car360Loader');
 const car360Name = document.getElementById('car360Name');
 const btnViewVR = document.getElementById('btnViewVR');
 const car360Stage = document.getElementById('car360Stage');
+const car360Colors = document.getElementById('car360Colors');
 
-// Map model names to their 360 image base paths (only models with 360 images)
-const modelPaths = {
-  'BJ30':          'https://www.baicglobal.com/file/home360/BJ30/color0/',
-  'BJ80':          'https://www.baicglobal.com/file/home360/BJ80/color0/',
-  'BJ60':          'https://www.baicglobal.com/file/home360/BJ60/color0/',
-  'BJ40 PLUS':     'https://www.baicglobal.com/file/home360/BJ40PLUS/color0/',
-  'BJ40 PLUS RHD': 'https://www.baicglobal.com/file/home360/BJ40PLUS/color0/',
-  'BJ40 PRO':      'https://www.baicglobal.com/file/home360/BJ40PRO/color0/',
-  'BJ40 SE':       'https://www.baicglobal.com/file/home360/BJ40SE/color0/',
-  'F40':           'https://www.baicglobal.com/file/home360/F40/color0/',
-  'EU5':           'https://www.baicglobal.com/file/home360/EU5/color0/',
-  'X35':           'https://www.baicglobal.com/file/home360/X35/color0/',
+// 360 CDN base URL
+const cdn360 = 'https://www.baicglobal.com/file/home360/';
+
+// Model 360 data: CDN folder name + available colors [hex, label]
+const modelData = {
+  'BJ30': {
+    folder: 'BJ30',
+    colors: [
+      ['#1a1a1a','Black'],['#c0c0c0','Silver'],['#2e5090','Blue'],
+      ['#8b1a1a','Red'],['#f5f5dc','Ivory'],['#4a6741','Green'],['#e8e4d9','Champagne']
+    ]
+  },
+  'BJ60': {
+    folder: 'BJ60',
+    colors: [
+      ['#1a1a1a','Black'],['#c0c0c0','Silver'],['#f5f5f5','White'],
+      ['#4a6741','Green'],['#2e5090','Blue'],['#6b4c3b','Brown']
+    ]
+  },
+  'BJ40 PLUS': {
+    folder: 'BJ40 PLUS',
+    colors: [['#1a1a1a','Black']]
+  },
+  'BJ40 PLUS RHD': {
+    folder: 'BJ40 PLUS',
+    colors: [['#1a1a1a','Black']]
+  },
+  'BJ40 PRO': {
+    folder: 'BJ40 PRO',
+    colors: [
+      ['#1a1a1a','Black'],['#c0c0c0','Silver'],['#f5f5f5','White'],
+      ['#8b1a1a','Red'],['#2e5090','Blue'],['#4a6741','Green'],['#6b4c3b','Brown']
+    ]
+  },
+  'EU5': {
+    folder: 'EU5',
+    colors: [
+      ['#f5f5f5','White'],['#1a1a1a','Black'],['#c0c0c0','Silver'],['#2e5090','Blue']
+    ]
+  },
+  'X35': {
+    folder: 'X35',
+    colors: [
+      ['#f5f5f5','White'],['#1a1a1a','Black'],['#8b1a1a','Red'],['#c0c0c0','Silver']
+    ]
+  },
+  'ALL NEW X7': {
+    folder: 'ALL NEW X7',
+    colors: [
+      ['#1a1a1a','Black'],['#f5f5f5','White'],['#c0c0c0','Silver'],
+      ['#2e5090','Blue'],['#8b1a1a','Red'],['#4a6741','Green'],['#6b4c3b','Brown']
+    ]
+  },
+  'X55 II': {
+    folder: 'X55 II',
+    colors: [
+      ['#1a1a1a','Black'],['#f5f5f5','White'],['#c0c0c0','Silver'],
+      ['#d4a017','Gold'],['#2e5090','Blue'],['#8b1a1a','Red']
+    ]
+  },
+  'U5 PLUS': {
+    folder: 'U5 PLUS',
+    colors: [
+      ['#f5f5f5','White'],['#1a1a1a','Black'],['#c0c0c0','Silver'],['#2e5090','Blue']
+    ]
+  },
 };
 
 // Static fallback images for models without 360 support
@@ -269,24 +326,92 @@ document.querySelectorAll('.car-thumb').forEach(t => {
 
 let currentModel = 'BJ30';
 let currentFrame = 0;
+let currentColorIndex = 0;
 const totalFrames = 36;
 let frameImages = {};
 let isDragging = false;
 let dragStartX = 0;
 let currentModelHas360 = true;
 
-// Preload a few frames for current model
-function preloadFrames(model, count) {
-  if (!modelPaths[model]) return;
-  if (!frameImages[model]) frameImages[model] = {};
-  const base = modelPaths[model];
+// Get 360 base path for model + color
+function get360Base(modelName, colorIdx) {
+  const data = modelData[modelName];
+  if (!data) return null;
+  return cdn360 + encodeURIComponent(data.folder) + '/color' + colorIdx + '/';
+}
+
+// Preload a few frames for current model + color
+function preloadFrames(model, colorIdx, count) {
+  const base = get360Base(model, colorIdx);
+  if (!base) return;
+  const key = model + '_c' + colorIdx;
+  if (!frameImages[key]) frameImages[key] = {};
   for (let i = 0; i < count; i++) {
-    if (!frameImages[model][i]) {
+    if (!frameImages[key][i]) {
       const img = new Image();
       img.src = base + i + '.avif';
-      frameImages[model][i] = img;
+      frameImages[key][i] = img;
     }
   }
+}
+
+// Render color swatches for a model
+function renderColorSwatches(modelName) {
+  car360Colors.innerHTML = '';
+  const data = modelData[modelName];
+  if (!data || data.colors.length <= 1) {
+    car360Colors.style.display = 'none';
+    return;
+  }
+  car360Colors.style.display = 'flex';
+  data.colors.forEach((c, i) => {
+    const swatch = document.createElement('button');
+    swatch.className = 'color-swatch' + (i === currentColorIndex ? ' active' : '');
+    swatch.style.background = c[0];
+    swatch.title = c[1];
+    // Add light border for white/light swatches
+    if (['#f5f5f5','#f5f5dc','#e8e4d9','#fff','#ffffff'].includes(c[0].toLowerCase())) {
+      swatch.classList.add('light');
+    }
+    swatch.addEventListener('click', () => switchColor(i));
+    car360Colors.appendChild(swatch);
+  });
+}
+
+// Switch color for current model
+function switchColor(colorIdx) {
+  if (colorIdx === currentColorIndex) return;
+  currentColorIndex = colorIdx;
+  currentFrame = 0;
+
+  // Update swatch active state
+  car360Colors.querySelectorAll('.color-swatch').forEach((s, i) => {
+    s.classList.toggle('active', i === colorIdx);
+  });
+
+  // Load new color's frame 0
+  car360Loader.classList.add('visible');
+  car360Img.classList.remove('loaded');
+  car360Img.classList.add('loading');
+
+  const base = get360Base(currentModel, colorIdx);
+  const newSrc = base + '0.avif';
+  const testImg = new Image();
+  testImg.onload = function() {
+    car360Img.src = newSrc;
+    setTimeout(() => {
+      car360Img.classList.remove('loading');
+      car360Img.classList.add('loaded');
+      car360Loader.classList.remove('visible');
+    }, 300);
+    preloadFrames(currentModel, colorIdx, Math.min(totalFrames, 12));
+  };
+  testImg.onerror = function() {
+    car360Img.classList.remove('loading');
+    car360Img.classList.add('loaded');
+    car360Loader.classList.remove('visible');
+  };
+  testImg.src = newSrc;
 }
 
 // Switch model with loading animation
@@ -295,11 +420,15 @@ function switchModel(modelName, vrUrl) {
 
   currentModel = modelName;
   currentFrame = 0;
-  currentModelHas360 = !!modelPaths[modelName];
+  currentColorIndex = 0;
+  currentModelHas360 = !!modelData[modelName];
 
   // Show/hide 360 icon based on support
   const icon360 = document.getElementById('icon360');
   if (icon360) icon360.style.display = currentModelHas360 ? '' : 'none';
+
+  // Render color swatches
+  renderColorSwatches(modelName);
 
   // Show loader, fade out current image
   car360Loader.classList.add('visible');
@@ -308,8 +437,7 @@ function switchModel(modelName, vrUrl) {
   car360Name.style.opacity = '0.3';
 
   if (currentModelHas360) {
-    // Load 360 image
-    const base = modelPaths[modelName];
+    const base = get360Base(modelName, 0);
     const newSrc = base + '0.avif';
 
     const testImg = new Image();
@@ -322,15 +450,13 @@ function switchModel(modelName, vrUrl) {
         car360Name.textContent = modelName;
         car360Name.style.opacity = '1';
       }, 300);
-      preloadFrames(modelName, Math.min(totalFrames, 12));
+      preloadFrames(modelName, 0, Math.min(totalFrames, 12));
     };
     testImg.onerror = function() {
-      // Fallback to static image
       showStaticImage(modelName);
     };
     testImg.src = newSrc;
   } else {
-    // No 360 - show static thumbnail image
     showStaticImage(modelName);
   }
 
@@ -353,16 +479,15 @@ function showStaticImage(modelName) {
   }, 300);
   const icon360 = document.getElementById('icon360');
   if (icon360) icon360.style.display = 'none';
+  // Hide color swatches for static models
+  car360Colors.style.display = 'none';
 }
 
 // Car thumbnail click handlers
 document.querySelectorAll('.car-thumb').forEach(thumb => {
   thumb.addEventListener('click', () => {
-    // Update active state
     document.querySelectorAll('.car-thumb').forEach(x => x.classList.remove('active'));
     thumb.classList.add('active');
-
-    // Switch model
     const model = thumb.dataset.model;
     const vr = thumb.dataset.vr;
     switchModel(model, vr);
@@ -390,16 +515,17 @@ function handleDragMove(clientX) {
     const direction = diff > 0 ? 1 : -1;
     currentFrame = ((currentFrame + direction) % totalFrames + totalFrames) % totalFrames;
 
-    const base = modelPaths[currentModel];
+    const base = get360Base(currentModel, currentColorIndex);
     if (!base) return;
     const frameSrc = base + currentFrame + '.avif';
 
     car360Img.src = frameSrc;
-    if (!frameImages[currentModel]) frameImages[currentModel] = {};
-    if (!frameImages[currentModel][currentFrame]) {
+    const key = currentModel + '_c' + currentColorIndex;
+    if (!frameImages[key]) frameImages[key] = {};
+    if (!frameImages[key][currentFrame]) {
       const img = new Image();
       img.src = frameSrc;
-      frameImages[currentModel][currentFrame] = img;
+      frameImages[key][currentFrame] = img;
     }
 
     dragStartX = clientX;
@@ -443,8 +569,9 @@ document.querySelectorAll('.cat-tab').forEach(tab => {
   });
 });
 
-// Initial preload
-preloadFrames('BJ30', 6);
+// Initial setup
+renderColorSwatches('BJ30');
+preloadFrames('BJ30', 0, 6);
 car360Img.classList.add('loaded');
 
 // ========== WORLD MAP - Dot Matrix Canvas ==========
