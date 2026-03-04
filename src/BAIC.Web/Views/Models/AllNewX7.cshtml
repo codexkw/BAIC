@@ -1,0 +1,164 @@
+@{
+    ViewData["Title"] = "ALL NEW X7";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/allnewx7.css" asp-append-version="true" />
+}
+
+<!-- HERO — dual KV -->
+<section class="hero">
+  <div class="hero-slide active" id="heroSlide1"><img src="https://www.baicglobal.com/file/public/static/x7/images/kv1.jpg" alt="ALL NEW X7"></div>
+  <div class="hero-slide" id="heroSlide2"><img src="https://www.baicglobal.com/file/public/static/x7/images/kv2.jpg" alt="ALL NEW X7"></div>
+  <div class="hero-overlay">
+    <img class="hero-text-img" src="https://www.baicglobal.com/file/public/static/x7/images/text.png" alt="BAIC X7">
+    <div class="hero-btns">
+      <a href="#testdrive" class="hero-btn">Test Drive</a>
+      <a href="https://www.baicglobal.com/vrx7/" target="_blank" class="hero-btn hero-btn-vr">View VR</a>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section class="video-section" id="videoTrigger">
+  <img src="https://www.baicglobal.com/file/public/static/x7/images/cover.jpg" alt="ALL NEW X7 Video">
+  <div class="play-btn"></div>
+</section>
+<div class="video-modal" id="videoModal">
+  <button class="video-close" id="videoClose">&#10005;</button>
+  <video id="x7Video" controls><source src="https://www.baicglobal.com/file/public/static/x7/new x7.mp4" type="video/mp4"></video>
+</div>
+
+<!-- COLOR GALLERY — 9 car views -->
+<section class="color-section">
+  <div class="color-bg"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_bg.jpg" alt=""></div>
+  <div class="color-car-wrap"><img id="mainCarImg" src="https://www.baicglobal.com/file/public/static/x7/images/car_02.png" alt="ALL NEW X7"></div>
+  <div class="color-thumbs">
+    <div class="color-thumb active" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_02.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_02.png" alt="Color 1"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_04.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_04.png" alt="Color 2"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_01.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_01.png" alt="Color 3"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_05.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_05.png" alt="Color 4"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_03.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_03.png" alt="Color 5"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_06.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_06.png" alt="Color 6"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_07.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_07.png" alt="Color 7"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_08.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_08.png" alt="Color 8"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/public/static/x7/images/car_09.png"><img src="https://www.baicglobal.com/file/public/static/x7/images/car_09.png" alt="Color 9"></div>
+  </div>
+</section>
+
+<!-- DETAIL GRID — 4 images -->
+<section class="detail-grid">
+  <div class="detail-grid-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/img_01.jpg" alt="ALL NEW X7 Detail 1"></div>
+  <div class="detail-grid-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/img_02.jpg" alt="ALL NEW X7 Detail 2"></div>
+  <div class="detail-grid-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/img_03.jpg" alt="ALL NEW X7 Detail 3"></div>
+  <div class="detail-grid-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/img_04.jpg" alt="ALL NEW X7 Detail 4"></div>
+</section>
+
+<!-- SPECS STRIP — animated counters -->
+<section class="specs-strip">
+  <div class="specs-row">
+    <div class="spec-item"><div class="spec-val" data-target="138"><span>KW</span></div><div class="spec-label">Power</div></div>
+    <div class="spec-item"><div class="spec-val" data-target="275"><span>N&middot;M</span></div><div class="spec-label">Torque</div></div>
+    <div class="spec-item"><div class="spec-val" data-target="9.59" data-decimal="true"><span>S</span></div><div class="spec-label">0-100km/h</div></div>
+    <div class="spec-item"><div class="spec-val" data-target="7.30" data-decimal="true"><span>L</span></div><div class="spec-label">TFC</div></div>
+    <div class="spec-item"><div class="spec-val" data-target="2735"><span>MM</span></div><div class="spec-label">Wheelbase</div></div>
+  </div>
+</section>
+
+<!-- PARAMETER IMAGE -->
+<section class="param-section"><img src="https://www.baicglobal.com/file/public/static/x7/images/parameter.jpg" alt="ALL NEW X7 Parameters"></section>
+
+<!-- TABBED HIGHLIGHTS -->
+<section class="highlights">
+  <div class="hl-group">
+    <div class="hl-tabs">
+      <button class="hl-tab active" data-panel="exterior">Exterior</button>
+      <button class="hl-tab" data-panel="interior">Interior</button>
+      <button class="hl-tab" data-panel="intelligence">Intelligence</button>
+      <button class="hl-tab" data-panel="powertrain">Powertrain</button>
+    </div>
+
+    <!-- EXTERIOR -->
+    <div class="hl-panel active" id="panel-exterior">
+      <div class="hl-items">
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_1_1.jpg" alt="Rim Design"><div class="hl-item-text"><h4>Rim Design</h4><p>The 19-inch wheel hub uses the image of a digital flying wing, with slender and delicate lines and a three dimensional shape of bright black forming a strong personality combination, highlighting technology and fashion.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_1_2.jpg" alt="Capital Beauty"><div class="hl-item-text"><h4>Capital Beauty Design Concept</h4><p>The modeling adheres to the family language of Capital Beauty, refining its unique characteristic lines in the large-scale modeling.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_1_3.jpg" alt="Tail Light"><div class="hl-item-text"><h4>Kylin Wing Tail Light Design</h4><p>The new tail light adheres to the overall design concept, the Digital Matrix is like a flying wing – Kylin Wing.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_1_4.jpg" alt="Exhaust"><div class="hl-item-text"><h4>Bilateral Quadruple Exhaust Design</h4><p>Bilateral and quadruple exhaust design highlights dynamic and power of ALL NEW X7.</p></div></div>
+      </div>
+    </div>
+
+    <!-- INTERIOR -->
+    <div class="hl-panel" id="panel-interior">
+      <div class="hl-item-wide"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_kv_2.jpg" alt="Interior"><div class="hl-item-wide-ov"><h4>Interior</h4><p>The careful design and extreme space utilization of ALL NEW X7 ensure that every inch of the interior is optimized to offer the most functional and convenient storage solutions.</p></div></div>
+      <div class="hl-items">
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_2_1.jpg" alt="Speaker"><div class="hl-item-text"><h4>Technology Floating Speaker</h4><p>With the cool and futuristic design, deliver a gravity-defying musical experience.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_2_4.jpg" alt="Ambient Light"><div class="hl-item-text"><h4>Backlighting Garnish</h4><p>64-color ambient lighting, and welcoming cabin features, the ALL NEW X7 provides an integrated welcoming experience for the passengers.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_2_2.jpg" alt="Air Outlet"><div class="hl-item-text"><h4>Penetrated-type Air Outlet</h4><p>The air outlet design that runs through the entire console provides comprehensive air filtration capabilities, and the air conditioning system offers a range of comfortable options.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_2_6.jpg" alt="Seating"><div class="hl-item-text"><h4>Ergonomic Seating (Incl Premium Passenger Seat)</h4><p>The epitome of luxury, ALL NEW X7 boasts an enchanting rear seating experience.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_2_5.jpg" alt="Panel"><div class="hl-item-text"><h4>Black Textured Panel</h4><p>This distinctive design element creates a modern and bold aesthetic, elevating the overall feel of ALL NEW X7.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_2_3.jpg" alt="Rear Row"><div class="hl-item-text"><h4>Luxurious Rear-row Experience</h4><p>Experience the difference as the ergonomic seating contours to your body, reducing muscle fatigue.</p></div></div>
+      </div>
+    </div>
+
+    <!-- INTELLIGENCE -->
+    <div class="hl-panel" id="panel-intelligence">
+      <div class="hl-item-wide"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_kv_4.jpg" alt="Panoramic Sunroof"><div class="hl-item-wide-ov"><h4>Panoramic Sunroof</h4><p>Measuring the class-leading size of 1320 x 850mm, offers an immersive and cinematic visual experience.</p></div></div>
+      <div class="hl-item-wide" style="margin-top:4px"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_kv_3.jpg" alt="Intelligence"><div class="hl-item-wide-ov"><h4>Intelligence</h4><p>Embark on a journey into the future with our new car's intelligent driving functions. Enjoy the freedom that comes with intelligent driving, where every decision and maneuver is enhanced by cutting-edge technology.</p></div></div>
+      <div class="hl-items" style="margin-top:20px">
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_1.jpg" alt="IACC"><div class="hl-item-text"><h4>Integrated Adaptive Cruiser Control (IACC)</h4><p>It intelligently adapts to the preset speed and automatically switches targets, taking the load off your feet and allowing for a more relaxed driving experience.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_2.jpg" alt="LDW"><div class="hl-item-text"><h4>Lane Departure Warning (LDW)</h4><p>It aims to help drivers minimize the risk of unintended lane departures on highways, expressways, and main roads by both visual and auditory alerts.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_3.jpg" alt="BSD"><div class="hl-item-text"><h4>Blind Spot Detection (BSD)</h4><p>While driving, the blind spot detection system uses millimeter-wave radar to detect blind spots at the rear of the vehicle on both sides, reducing the risk of traffic accidents caused by blind spots.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_4.jpg" alt="FCW"><div class="hl-item-text"><h4>Forward Collision Warning (FCW)</h4><p>lt alerts the driver through auditory and visual warnings when the distance to the preceding vehicle becomes dangerously close, helping the driver maintain a safe distance from the vehicle ahead and prevent rear-end collisions.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_5.jpg" alt="AEB"><div class="hl-item-text"><h4>Autonomous Emergency Braking (AEB)</h4><p>It detects pedestrians or vehicles in front of the car and alarms if there is a risk of collision. Safety control, no more tailgating.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_6.jpg" alt="HHC"><div class="hl-item-text"><h4>Hill Hold Control (HHC)</h4><p>It prevents the vehicle from slipping, thus improving driving safety when starting on an uphill slope.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_7.jpg" alt="HMA"><div class="hl-item-text"><h4>High Beam Assist (HMA)</h4><p>Automatically turning on or off the high and low beams to avoid dazzling other drivers, promoting safer driving conditions.</p></div></div>
+        <div class="hl-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_3_8.jpg" alt="HDC"><div class="hl-item-text"><h4>Hill Descent Control (HDC)</h4><p>It allows for a gradual descent to promote safety and comfort. The speed is automatically controlled to prevent accidents.</p></div></div>
+      </div>
+    </div>
+
+    <!-- POWERTRAIN -->
+    <div class="hl-panel" id="panel-powertrain">
+      <div class="hl-item-wide"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_kv_6.jpg" alt="Powertrain"><div class="hl-item-wide-ov"><h4>Powertrain</h4><p>The golden powertrain of ALL NEW X7 is the result of a groundbreaking collaboration between BAIC and Meta, combining cutting-edge technology with expert engineering to create the perfect balance between power and precision.</p></div></div>
+      <div class="pt-items" style="margin-top:4px">
+        <div class="pt-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_kv_6.jpg" alt="Engine" style="filter:brightness(.6)"><div class="pt-item-ov"><h4>2021"China Heart"Top Ten Engine Award "Magic Core" 1.5T Engine</h4><p>Boasting a remarkable 39.2% thermal efficiency, 21 noise reduction technologies, and a 350bar+ high flow ratio.</p></div></div>
+        <div class="pt-item"><img src="https://www.baicglobal.com/file/public/static/x7/images/high_kv_6.jpg" alt="Turbo" style="filter:brightness(.5)"><div class="pt-item-ov"><h4>High-flow VGT Turbocharger</h4><p>With a 43% improvement in low-speed dynamic response time, lightweight design and efficient energy configuration bring exceptional performance to more than just supercars, providing a thrilling driving experience for all.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEST DRIVE -->
+<section class="testdrive" id="testdrive">
+  <div class="testdrive-bg"><img src="https://www.baicglobal.com/file/public/static/x7/images/kv1.jpg" alt=""></div>
+  <div class="testdrive-inner">
+    <h3>APPOINTMENT FOR A TEST DRIVE</h3><p>Book your test drive experience</p>
+    <div class="form-row"><select class="form-input"><option value="">Please select Gender</option><option>Mr</option><option>Miss</option><option>Ms</option><option>Dr</option></select><input class="form-input" type="text" placeholder="First Name"><input class="form-input" type="text" placeholder="Last Name"></div>
+    <div class="form-row"><select class="form-input" style="flex:0 0 100px"><option>+86</option><option>+966</option><option>+971</option><option>+965</option><option>+1</option><option>+44</option></select><input class="form-input" type="tel" placeholder="Phone Number"></div>
+    <div class="form-row"><input class="form-input" type="email" placeholder="Email"></div>
+    <button class="form-submit">SUBMIT</button>
+  </div>
+</section>
+
+@section Scripts {
+<script>
+// Hero slideshow
+let hSlide=0;const slides=document.querySelectorAll('.hero-slide');
+setInterval(()=>{slides[hSlide].classList.remove('active');hSlide=(hSlide+1)%slides.length;slides[hSlide].classList.add('active')},5000);
+
+// Video modal
+document.getElementById('videoTrigger').addEventListener('click',()=>{document.getElementById('videoModal').classList.add('show');document.getElementById('x7Video').play()});
+document.getElementById('videoClose').addEventListener('click',()=>{document.getElementById('videoModal').classList.remove('show');document.getElementById('x7Video').pause()});
+
+// Color gallery
+document.querySelectorAll('.color-thumb').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.color-thumb').forEach(x=>x.classList.remove('active'));t.classList.add('active');const img=document.getElementById('mainCarImg');img.style.opacity='0.3';setTimeout(()=>{img.src=t.dataset.src;img.style.opacity='1'},200)})});
+
+// Highlight tabs
+document.querySelectorAll('.hl-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.hl-tab').forEach(t=>t.classList.remove('active'));document.querySelectorAll('.hl-panel').forEach(p=>p.classList.remove('active'));tab.classList.add('active');document.getElementById('panel-'+tab.dataset.panel).classList.add('active')})});
+
+// Spec counter animation
+const animateSpecs=()=>{document.querySelectorAll('.spec-val').forEach(el=>{const target=parseFloat(el.dataset.target);const isDecimal=el.dataset.decimal==='true';const unit=el.querySelector('span').outerHTML;let current=0;const step=target/60;const interval=setInterval(()=>{current+=step;if(current>=target){current=target;clearInterval(interval)}el.innerHTML=(isDecimal?current.toFixed(2):Math.floor(current))+unit},20)})};
+const specObs=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){animateSpecs();specObs.disconnect()}})},{threshold:0.3});
+specObs.observe(document.querySelector('.specs-strip'));
+</script>
+}
