@@ -246,7 +246,7 @@ const car360Name = document.getElementById('car360Name');
 const btnViewVR = document.getElementById('btnViewVR');
 const car360Stage = document.getElementById('car360Stage');
 
-// Map model names to their 360 image base paths
+// Map model names to their 360 image base paths (only models with 360 images)
 const modelPaths = {
   'BJ30':          'https://www.baicglobal.com/file/home360/BJ30/color0/',
   'BJ80':          'https://www.baicglobal.com/file/home360/BJ80/color0/',
@@ -260,17 +260,26 @@ const modelPaths = {
   'X35':           'https://www.baicglobal.com/file/home360/X35/color0/',
 };
 
+// Static fallback images for models without 360 support
+const modelStaticImages = {};
+document.querySelectorAll('.car-thumb').forEach(t => {
+  const img = t.querySelector('img');
+  if (img) modelStaticImages[t.dataset.model] = img.src;
+});
+
 let currentModel = 'BJ30';
 let currentFrame = 0;
-const totalFrames = 36; // 360 images have 36 frames (10° each)
-let frameImages = {}; // cache per model
+const totalFrames = 36;
+let frameImages = {};
 let isDragging = false;
 let dragStartX = 0;
+let currentModelHas360 = true;
 
 // Preload a few frames for current model
 function preloadFrames(model, count) {
+  if (!modelPaths[model]) return;
   if (!frameImages[model]) frameImages[model] = {};
-  const base = modelPaths[model] || modelPaths['BJ30'];
+  const base = modelPaths[model];
   for (let i = 0; i < count; i++) {
     if (!frameImages[model][i]) {
       const img = new Image();
@@ -286,6 +295,11 @@ function switchModel(modelName, vrUrl) {
 
   currentModel = modelName;
   currentFrame = 0;
+  currentModelHas360 = !!modelPaths[modelName];
+
+  // Show/hide 360 icon based on support
+  const icon360 = document.getElementById('icon360');
+  if (icon360) icon360.style.display = currentModelHas360 ? '' : 'none';
 
   // Show loader, fade out current image
   car360Loader.classList.add('visible');
@@ -293,37 +307,52 @@ function switchModel(modelName, vrUrl) {
   car360Img.classList.add('loading');
   car360Name.style.opacity = '0.3';
 
-  // Build the image URL
-  const base = modelPaths[modelName] || modelPaths['BJ30'];
-  const newSrc = base + '0.avif';
+  if (currentModelHas360) {
+    // Load 360 image
+    const base = modelPaths[modelName];
+    const newSrc = base + '0.avif';
 
-  // Load new image
-  const testImg = new Image();
-  testImg.onload = function() {
-    car360Img.src = newSrc;
-    // Small delay for smooth transition
-    setTimeout(() => {
-      car360Img.classList.remove('loading');
-      car360Img.classList.add('loaded');
-      car360Loader.classList.remove('visible');
-      car360Name.textContent = modelName;
-      car360Name.style.opacity = '1';
-    }, 300);
-    // Preload rest of frames in background
-    preloadFrames(modelName, Math.min(totalFrames, 12));
-  };
-  testImg.onerror = function() {
-    // If 360 images aren't available, just show model name
+    const testImg = new Image();
+    testImg.onload = function() {
+      car360Img.src = newSrc;
+      setTimeout(() => {
+        car360Img.classList.remove('loading');
+        car360Img.classList.add('loaded');
+        car360Loader.classList.remove('visible');
+        car360Name.textContent = modelName;
+        car360Name.style.opacity = '1';
+      }, 300);
+      preloadFrames(modelName, Math.min(totalFrames, 12));
+    };
+    testImg.onerror = function() {
+      // Fallback to static image
+      showStaticImage(modelName);
+    };
+    testImg.src = newSrc;
+  } else {
+    // No 360 - show static thumbnail image
+    showStaticImage(modelName);
+  }
+
+  // Update VR link
+  if (btnViewVR) btnViewVR.href = vrUrl || '#';
+}
+
+function showStaticImage(modelName) {
+  currentModelHas360 = false;
+  const staticSrc = modelStaticImages[modelName];
+  if (staticSrc) {
+    car360Img.src = staticSrc;
+  }
+  setTimeout(() => {
     car360Img.classList.remove('loading');
     car360Img.classList.add('loaded');
     car360Loader.classList.remove('visible');
     car360Name.textContent = modelName;
     car360Name.style.opacity = '1';
-  };
-  testImg.src = newSrc;
-
-  // Update VR link
-  if (btnViewVR) btnViewVR.href = vrUrl || '#';
+  }, 300);
+  const icon360 = document.getElementById('icon360');
+  if (icon360) icon360.style.display = 'none';
 }
 
 // Car thumbnail click handlers
@@ -353,24 +382,21 @@ car360Stage.addEventListener('touchstart', (e) => {
 }, { passive: true });
 
 function handleDragMove(clientX) {
-  if (!isDragging) return;
+  if (!isDragging || !currentModelHas360) return;
   const diff = clientX - dragStartX;
-  const threshold = 30; // pixels per frame
+  const threshold = 30;
 
   if (Math.abs(diff) > threshold) {
     const direction = diff > 0 ? 1 : -1;
     currentFrame = ((currentFrame + direction) % totalFrames + totalFrames) % totalFrames;
 
-    const base = modelPaths[currentModel] || modelPaths['BJ30'];
+    const base = modelPaths[currentModel];
+    if (!base) return;
     const frameSrc = base + currentFrame + '.avif';
 
-    // Check if cached
-    if (frameImages[currentModel] && frameImages[currentModel][currentFrame]) {
-      car360Img.src = frameSrc;
-    } else {
-      car360Img.src = frameSrc;
-      // Cache it
-      if (!frameImages[currentModel]) frameImages[currentModel] = {};
+    car360Img.src = frameSrc;
+    if (!frameImages[currentModel]) frameImages[currentModel] = {};
+    if (!frameImages[currentModel][currentFrame]) {
       const img = new Image();
       img.src = frameSrc;
       frameImages[currentModel][currentFrame] = img;
