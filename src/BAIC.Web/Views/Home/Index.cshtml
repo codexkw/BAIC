@@ -58,12 +58,14 @@
 <section class="explore">
   <h4 class="section-title">EXPLORE YOUR BAIC</h4>
   <div class="cat-tabs">
-    <button class="cat-tab active" data-cat="offroad">Off-road</button>
+    <button class="cat-tab active" data-cat="all">ALL</button>
+    <button class="cat-tab" data-cat="offroad">Off-road</button>
     <button class="cat-tab" data-cat="suv">SUV</button>
     <button class="cat-tab" data-cat="sedan">Sedan</button>
     <button class="cat-tab" data-cat="ev">EV</button>
   </div>
   <div class="car-thumbs" id="carThumbs">
+    <!-- Off-road -->
     <div class="car-thumb active" data-model="BJ30" data-vr="https://www.baicglobal.com/vrbj30/" data-cat="offroad">
       <img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="BJ30"><span>BJ30</span>
     </div>
@@ -76,14 +78,41 @@
     <div class="car-thumb" data-model="BJ40 PLUS" data-vr="https://www.baicglobal.com/vrbj40/" data-cat="offroad">
       <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS"><span>BJ40 PLUS</span>
     </div>
+    <div class="car-thumb" data-model="BJ40 PLUS RHD" data-vr="https://www.baicglobal.com/vrbj40/" data-cat="offroad">
+      <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS RHD"><span>BJ40 PLUS RHD</span>
+    </div>
     <div class="car-thumb" data-model="BJ40 PRO" data-vr="https://www.baicglobal.com/vrbj40/" data-cat="offroad">
       <img src="https://www.baicglobal.com/file/common/image/2025/07/10/bj40-plus3333_20240827160110A019_20250710154540A057.avif" alt="BJ40 PRO"><span>BJ40 PRO</span>
     </div>
-    <div class="car-thumb" data-model="BJ40 SE" data-vr="https://www.baicglobal.com/vrbj40/" data-cat="offroad">
+    <div class="car-thumb" data-model="BJ40 SE" data-cat="offroad">
       <img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="BJ40 SE"><span>BJ40 SE</span>
     </div>
-    <div class="car-thumb" data-model="F40" data-vr="#" data-cat="offroad">
+    <div class="car-thumb" data-model="F40" data-cat="offroad">
       <img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="F40"><span>F40</span>
+    </div>
+    <!-- SUV -->
+    <div class="car-thumb" data-model="ALL NEW X7" data-cat="suv">
+      <img src="https://www.baicglobal.com/file/common/image/2025/07/09/x7_20250218154801A963_20250709170103A010.avif" alt="ALL NEW X7"><span>ALL NEW X7</span>
+    </div>
+    <div class="car-thumb" data-model="X55 II" data-cat="suv">
+      <img src="https://www.baicglobal.com/file/common/image/2025/06/09/黄_20250609145119A187.png" alt="X55 II"><span>X55 II</span>
+    </div>
+    <div class="car-thumb" data-model="X55 II RHD" data-cat="suv">
+      <img src="https://www.baicglobal.com/file/common/image/2025/06/09/黄_20250609145119A187.png" alt="X55 II RHD"><span>X55 II RHD</span>
+    </div>
+    <div class="car-thumb" data-model="X35" data-cat="suv">
+      <img src="https://www.baicglobal.com/file/common/image/2022/07/14/飞书20220714-160804_20220714161844A071.png" alt="X35"><span>X35</span>
+    </div>
+    <!-- Sedan -->
+    <div class="car-thumb" data-model="U5 PLUS" data-cat="sedan">
+      <img src="https://www.baicglobal.com/file/common/image/2025/06/09/银_20250609144703A168.png" alt="U5 PLUS"><span>U5 PLUS</span>
+    </div>
+    <!-- EV -->
+    <div class="car-thumb" data-model="EU5" data-cat="ev">
+      <img src="https://www.baicglobal.com/file/common/image/2025/06/09/01_20241021110528A084_20250609144454A156.jpg" alt="EU5"><span>EU5</span>
+    </div>
+    <div class="car-thumb" data-model="EU5 PLUS" data-cat="ev">
+      <img src="https://www.baicglobal.com/file/common/image/2025/06/09/01_20241021110528A084_20250609144454A156.jpg" alt="EU5 PLUS"><span>EU5 PLUS</span>
     </div>
   </div>
 
@@ -219,13 +248,16 @@ const car360Stage = document.getElementById('car360Stage');
 
 // Map model names to their 360 image base paths
 const modelPaths = {
-  'BJ30':     'https://www.baicglobal.com/file/home360/BJ30/color0/',
-  'BJ80':     'https://www.baicglobal.com/file/home360/BJ80/color0/',
-  'BJ60':     'https://www.baicglobal.com/file/home360/BJ60/color0/',
-  'BJ40 PLUS':'https://www.baicglobal.com/file/home360/BJ40PLUS/color0/',
-  'BJ40 PRO': 'https://www.baicglobal.com/file/home360/BJ40PRO/color0/',
-  'BJ40 SE':  'https://www.baicglobal.com/file/home360/BJ40SE/color0/',
-  'F40':      'https://www.baicglobal.com/file/home360/F40/color0/',
+  'BJ30':          'https://www.baicglobal.com/file/home360/BJ30/color0/',
+  'BJ80':          'https://www.baicglobal.com/file/home360/BJ80/color0/',
+  'BJ60':          'https://www.baicglobal.com/file/home360/BJ60/color0/',
+  'BJ40 PLUS':     'https://www.baicglobal.com/file/home360/BJ40PLUS/color0/',
+  'BJ40 PLUS RHD': 'https://www.baicglobal.com/file/home360/BJ40PLUS/color0/',
+  'BJ40 PRO':      'https://www.baicglobal.com/file/home360/BJ40PRO/color0/',
+  'BJ40 SE':       'https://www.baicglobal.com/file/home360/BJ40SE/color0/',
+  'F40':           'https://www.baicglobal.com/file/home360/F40/color0/',
+  'EU5':           'https://www.baicglobal.com/file/home360/EU5/color0/',
+  'X35':           'https://www.baicglobal.com/file/home360/X35/color0/',
 };
 
 let currentModel = 'BJ30';
@@ -363,12 +395,22 @@ document.querySelectorAll('.cat-tab').forEach(tab => {
     const thumbs = document.querySelectorAll('.car-thumb');
 
     thumbs.forEach(t => {
-      if (cat === 'offroad' || t.dataset.cat === cat) {
+      if (cat === 'all' || t.dataset.cat === cat) {
         t.style.display = '';
       } else {
         t.style.display = 'none';
       }
     });
+
+    // Select the first visible thumb
+    const firstVisible = document.querySelector('.car-thumb:not([style*="display: none"])');
+    if (firstVisible) {
+      document.querySelectorAll('.car-thumb').forEach(x => x.classList.remove('active'));
+      firstVisible.classList.add('active');
+      const model = firstVisible.dataset.model;
+      const vr = firstVisible.dataset.vr || '#';
+      switchModel(model, vr);
+    }
   });
 });
 
