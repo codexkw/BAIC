@@ -21,8 +21,16 @@ img{max-width:100%;display:block}
 .dropdown a{display:block;padding:8px 20px;font-size:13px;color:#666;transition:all .3s}
 .dropdown a:hover{color:#d1291a;background:rgba(0,0,0,.02)}
 .header-right{display:flex;align-items:center;gap:16px}
-.lang-select{background:none;border:none;color:#252525;font-size:14px;cursor:pointer;font-family:inherit}
-.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #252525;margin-left:4px}
+
+/* Language Dropdown */
+.lang-dropdown{position:relative}
+.lang-select{background:none;border:none;color:#252525;font-size:14px;cursor:pointer;font-family:inherit;padding:6px 8px;display:flex;align-items:center;gap:4px}
+.lang-select::after{content:"";display:inline-block;width:0;height:0;border-left:4px solid transparent;border-right:4px solid transparent;border-top:5px solid #252525;margin-left:4px;transition:transform .2s}
+.lang-menu{position:absolute;top:100%;right:0;background:#fff;border:1px solid rgba(0,0,0,.1);border-radius:4px;box-shadow:0 4px 12px rgba(0,0,0,.1);min-width:120px;padding:4px 0;display:none;z-index:200}
+.lang-menu.open{display:block}
+.lang-option{display:block;width:100%;padding:8px 16px;font-size:13px;color:#666;background:none;border:none;cursor:pointer;text-align:left;font-family:inherit;transition:all .2s}
+.lang-option:hover{background:rgba(0,0,0,.04);color:#252525}
+.lang-option.active{color:#d1291a;font-weight:500}
 
 /* Mega Menu */
 .mega-menu{position:fixed;top:64px;left:0;right:0;background:rgba(255,255,255,.97);backdrop-filter:blur(16px);display:none;border-top:1px solid rgba(0,0,0,.06);box-shadow:0 4px 16px rgba(0,0,0,.08);z-index:99;animation:megaIn .25s ease}
@@ -96,7 +104,10 @@ img{max-width:100%;display:block}
   .mega-models{gap:4px}
   .mega-model-item{width:80px;padding:8px 4px}
   .mega-model-item img{width:70px}
-  .header-right{display:none}
+  /* Language switcher visible on mobile - positioned between hamburger and logo */
+  .header-right{display:flex;order:2}
+  .lang-select{font-size:13px;padding:4px 6px}
+  .lang-menu{right:0;min-width:110px}
   .footer-cols{grid-template-columns:1fr 1fr}
   .footer-inner{padding:0 20px}
   .footer-bottom{flex-direction:column;align-items:flex-start}
@@ -107,3 +118,42 @@ img{max-width:100%;display:block}
   .mega-tabs{flex-wrap:wrap;gap:0}
   .mega-tab{padding:8px 14px;font-size:12px}
 }
+
+/* ========== RTL SUPPORT ========== */
+html[dir="rtl"] body{font-family:"Segoe UI",Tahoma,"Noto Sans Arabic","Noto Kufi Arabic",Arial,sans-serif;direction:rtl;text-align:right}
+
+/* RTL Header */
+html[dir="rtl"] .header-inner{flex-direction:row-reverse}
+html[dir="rtl"] .nav-menu{flex-direction:row-reverse}
+html[dir="rtl"] .nav-menu>li .dropdown{left:auto;right:0}
+html[dir="rtl"] .lang-select::after{margin-left:0;margin-right:4px}
+html[dir="rtl"] .lang-menu{right:auto;left:0}
+html[dir="rtl"] .lang-option{text-align:right}
+
+/* RTL Mega Menu */
+html[dir="rtl"] .mega-tabs{flex-direction:row-reverse}
+html[dir="rtl"] .mega-models{flex-direction:row-reverse}
+
+/* RTL Footer */
+html[dir="rtl"] .footer-bottom{flex-direction:row-reverse}
+html[dir="rtl"] .footer-brands{flex-direction:row-reverse}
+
+/* RTL Cookie Banner */
+html[dir="rtl"] .cookie-banner{flex-direction:row-reverse}
+html[dir="rtl"] .cookie-btns{flex-direction:row-reverse}
+
+/* RTL Mobile */
+@media(max-width:900px){
+  html[dir="rtl"] .nav-menu{transform:translateX(-100%)}
+  html[dir="rtl"] .nav-menu.open{transform:translateX(0)}
+  html[dir="rtl"] .nav-menu>li>a{text-align:right}
+  html[dir="rtl"] .dropdown a{padding:12px 40px 12px 20px}
+  html[dir="rtl"] .header-inner{flex-direction:row-reverse}
+  html[dir="rtl"] .cookie-banner{flex-direction:column}
+}
+
+/* RTL General text alignment */
+html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] h4,html[dir="rtl"] h5,html[dir="rtl"] h6,html[dir="rtl"] p,html[dir="rtl"] li,html[dir="rtl"] label,html[dir="rtl"] span{text-align:right}
+html[dir="rtl"] .section-title{text-align:center}
+html[dir="rtl"] input,html[dir="rtl"] textarea,html[dir="rtl"] select{text-align:right;direction:rtl}
+html[dir="rtl"] input[type="email"],html[dir="rtl"] input[type="tel"],html[dir="rtl"] input[type="number"]{direction:ltr;text-align:left}
