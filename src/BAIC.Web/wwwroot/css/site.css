@@ -123,32 +123,19 @@ img{max-width:100%;display:block}
 html[dir="rtl"] body{font-family:"Segoe UI",Tahoma,"Noto Sans Arabic","Noto Kufi Arabic",Arial,sans-serif;direction:rtl;text-align:right}
 
 /* RTL Header */
-html[dir="rtl"] .header-inner{flex-direction:row-reverse}
-html[dir="rtl"] .nav-menu{flex-direction:row-reverse}
 html[dir="rtl"] .nav-menu>li .dropdown{left:auto;right:0}
 html[dir="rtl"] .lang-select::after{margin-left:0;margin-right:4px}
 html[dir="rtl"] .lang-menu{right:auto;left:0}
 html[dir="rtl"] .lang-option{text-align:right}
 
-/* RTL Mega Menu */
-html[dir="rtl"] .mega-tabs{flex-direction:row-reverse}
-html[dir="rtl"] .mega-models{flex-direction:row-reverse}
-
-/* RTL Footer */
-html[dir="rtl"] .footer-bottom{flex-direction:row-reverse}
-html[dir="rtl"] .footer-brands{flex-direction:row-reverse}
-
-/* RTL Cookie Banner */
-html[dir="rtl"] .cookie-banner{flex-direction:row-reverse}
-html[dir="rtl"] .cookie-btns{flex-direction:row-reverse}
-
 /* RTL Mobile */
 @media(max-width:900px){
-  html[dir="rtl"] .nav-menu{transform:translateX(-100%)}
+  html[dir="rtl"] .header-inner{flex-direction:row}
+  html[dir="rtl"] .nav-menu{transform:translateX(-100%);flex-direction:column}
   html[dir="rtl"] .nav-menu.open{transform:translateX(0)}
   html[dir="rtl"] .nav-menu>li>a{text-align:right}
   html[dir="rtl"] .dropdown a{padding:12px 40px 12px 20px}
-  html[dir="rtl"] .header-inner{flex-direction:row-reverse}
+  html[dir="rtl"] .lang-menu{right:auto;left:0}
   html[dir="rtl"] .cookie-banner{flex-direction:column}
 }
 
