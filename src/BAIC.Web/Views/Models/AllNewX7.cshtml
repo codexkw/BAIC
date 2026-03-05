@@ -13,7 +13,7 @@
   <div class="hero-overlay">
     <img class="hero-text-img" src="https://www.baicglobal.com/file/public/static/x7/images/text.png" alt="BAIC X7">
     <div class="hero-btns">
-      <a href="#testdrive" class="hero-btn">Test Drive</a>
+      <a href="#testdrive" class="hero-btn" data-i18n="model.testDrive">Test Drive</a>
       <a href="https://www.baicglobal.com/vrx7/" target="_blank" class="hero-btn hero-btn-vr">View VR</a>
     </div>
   </div>
@@ -57,11 +57,11 @@
 <!-- SPECS STRIP — animated counters -->
 <section class="specs-strip">
   <div class="specs-row">
-    <div class="spec-item"><div class="spec-val" data-target="138"><span>KW</span></div><div class="spec-label">Power</div></div>
-    <div class="spec-item"><div class="spec-val" data-target="275"><span>N&middot;M</span></div><div class="spec-label">Torque</div></div>
+    <div class="spec-item"><div class="spec-val" data-target="138"><span>KW</span></div><div class="spec-label" data-i18n="model.maxPower">Power</div></div>
+    <div class="spec-item"><div class="spec-val" data-target="275"><span>N&middot;M</span></div><div class="spec-label" data-i18n="model.maxTorque">Torque</div></div>
     <div class="spec-item"><div class="spec-val" data-target="9.59" data-decimal="true"><span>S</span></div><div class="spec-label">0-100km/h</div></div>
     <div class="spec-item"><div class="spec-val" data-target="7.30" data-decimal="true"><span>L</span></div><div class="spec-label">TFC</div></div>
-    <div class="spec-item"><div class="spec-val" data-target="2735"><span>MM</span></div><div class="spec-label">Wheelbase</div></div>
+    <div class="spec-item"><div class="spec-val" data-target="2735"><span>MM</span></div><div class="spec-label" data-i18n="model.wheelbase">Wheelbase</div></div>
   </div>
 </section>
 
@@ -72,10 +72,10 @@
 <section class="highlights">
   <div class="hl-group">
     <div class="hl-tabs">
-      <button class="hl-tab active" data-panel="exterior">Exterior</button>
-      <button class="hl-tab" data-panel="interior">Interior</button>
-      <button class="hl-tab" data-panel="intelligence">Intelligence</button>
-      <button class="hl-tab" data-panel="powertrain">Powertrain</button>
+      <button class="hl-tab active" data-panel="exterior" data-i18n="model.exterior">Exterior</button>
+      <button class="hl-tab" data-panel="interior" data-i18n="model.interior">Interior</button>
+      <button class="hl-tab" data-panel="intelligence" data-i18n="model.intelligence">Intelligence</button>
+      <button class="hl-tab" data-panel="powertrain" data-i18n="model.powertrain">Powertrain</button>
     </div>
 
     <!-- EXTERIOR -->
@@ -132,11 +132,11 @@
 <section class="testdrive" id="testdrive">
   <div class="testdrive-bg"><img src="https://www.baicglobal.com/file/public/static/x7/images/kv1.jpg" alt=""></div>
   <div class="testdrive-inner">
-    <h3>APPOINTMENT FOR A TEST DRIVE</h3><p>Book your test drive experience</p>
-    <div class="form-row"><select class="form-input"><option value="">Please select Gender</option><option>Mr</option><option>Miss</option><option>Ms</option><option>Dr</option></select><input class="form-input" type="text" placeholder="First Name"><input class="form-input" type="text" placeholder="Last Name"></div>
-    <div class="form-row"><select class="form-input" style="flex:0 0 100px"><option>+86</option><option>+966</option><option>+971</option><option>+965</option><option>+1</option><option>+44</option></select><input class="form-input" type="tel" placeholder="Phone Number"></div>
-    <div class="form-row"><input class="form-input" type="email" placeholder="Email"></div>
-    <button class="form-submit">SUBMIT</button>
+    <h3 data-i18n="model.appointmentTestDrive">APPOINTMENT FOR A TEST DRIVE</h3><p data-i18n="model.bookTestDrive">Book your test drive experience</p>
+    <div class="form-row"><select class="form-input"><option value="" data-i18n="model.selectGender">Please select Gender</option><option>Mr</option><option>Miss</option><option>Ms</option><option>Dr</option></select><input class="form-input" type="text" placeholder="First Name" data-i18n="model.firstName"><input class="form-input" type="text" placeholder="Last Name" data-i18n="model.lastName"></div>
+    <div class="form-row"><select class="form-input" style="flex:0 0 100px"><option>+86</option><option>+966</option><option>+971</option><option>+965</option><option>+1</option><option>+44</option></select><input class="form-input" type="tel" placeholder="Phone Number" data-i18n="model.phone"></div>
+    <div class="form-row"><input class="form-input" type="email" placeholder="Email" data-i18n="model.email"></div>
+    <button class="form-submit" data-i18n="model.submit">SUBMIT</button>
   </div>
 </section>
 

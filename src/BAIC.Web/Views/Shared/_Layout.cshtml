@@ -8,6 +8,10 @@
     <link rel="icon" type="image/x-icon" href="~/favicon.ico" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     @await RenderSectionAsync("Styles", required: false)
+    <script>
+        // Apply stored language direction before render to prevent flash
+        (function(){var l=localStorage.getItem('baicLang');if(l==='ar'){document.documentElement.lang='ar';document.documentElement.dir='rtl';}})();
+    </script>
 </head>
 <body>
     @await Html.PartialAsync("_Header")
@@ -17,6 +21,7 @@
     @await Html.PartialAsync("_Footer")
     @await Html.PartialAsync("_CookieBanner")
 
+    <script src="~/js/translations.js" asp-append-version="true"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
