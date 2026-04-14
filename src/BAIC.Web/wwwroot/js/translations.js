@@ -296,7 +296,7 @@
         'contactUs.businessCoop': 'التعاون التجاري',
         'contactUs.usedCarSales': 'مبيعات السيارات المستعملة',
         'contactUs.questions': 'الأسئلة',
-        'contactUs.moreInfo': 'إذا كان لديك مزيد من المعلومات، يرجى الإرسال إلى contact@baicintl.com',
+        'contactUs.moreInfo': 'إذا كان لديك مزيد من المعلومات، يرجى الإرسال إلى info@baickuwait.com',
         'contactUs.relocate': 'انقر هنا لإعادة التحديد',
         'contactUs.submit': 'إرسال',
 
