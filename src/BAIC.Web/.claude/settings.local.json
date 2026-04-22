@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.baicglobal.com)",
+      "Bash(curl -s \"https://www.baicglobal.com\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/BJ40PLUSRHD/color0/0.avif\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/X55II/color0/0.avif\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/EU5/color0/0.avif\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/EU5PLUS/color0/0.avif\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/U5PLUS/color0/0.avif\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/X7/color0/0.avif\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/X35/color0/0.avif\")",
+      "Bash(curl -sI \"https://www.baicglobal.com/file/home360/X55IIRHD/color0/0.avif\")",
+      "Bash(done)",
+      "Bash(curl -s \"https://www.baicglobal.com/models/17\")",
+      "Bash(curl -s \"https://www.baicglobal.com/models/21\")",
+      "Bash(curl -s \"https://www.baicglobal.com/models/26\")",
+      "Bash(curl -s \"https://www.baicglobal.com/models/30\")",
+      "Bash(curl -s \"https://www.baicglobal.com/models/8\")",
+      "Bash(then)",
+      "Bash(echo \"=== FOUND in $js.js ===\")",
+      "Bash(echo \"$content\")",
+      "Bash(fi)",
+      "Bash(ping -n 2 github.com)"
+    ]
+  }
+}

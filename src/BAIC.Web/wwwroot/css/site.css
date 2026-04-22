@@ -21,6 +21,13 @@ img{max-width:100%;display:block}
 .dropdown a{display:block;padding:8px 20px;font-size:13px;color:#666;transition:all .3s}
 .dropdown a:hover{color:#d1291a;background:rgba(0,0,0,.02)}
 .header-right{display:flex;align-items:center;gap:16px}
+.nav-mutawa-logo{display:flex;align-items:center;padding:0 12px}
+.mutawa-logo-mobile{display:none;align-items:center;margin-left:auto;margin-right:12px}
+.mutawa-logo{height:32px;width:auto;display:none}
+html[lang="ar"] .nav-mutawa-logo .mutawa-logo-ar,
+html[lang="ar"] .mutawa-logo-mobile .mutawa-logo-ar{display:block}
+html:not([lang="ar"]) .nav-mutawa-logo .mutawa-logo-en,
+html:not([lang="ar"]) .mutawa-logo-mobile .mutawa-logo-en{display:block}
 
 /* Language Dropdown */
 .lang-dropdown{position:relative}
@@ -108,6 +115,9 @@ img{max-width:100%;display:block}
   .header-right{display:flex;order:2}
   .lang-select{font-size:13px;padding:4px 6px}
   .lang-menu{right:0;min-width:110px}
+  .mutawa-logo-mobile{display:flex}
+  .mutawa-logo-mobile .mutawa-logo{height:26px}
+  .nav-mutawa-logo{display:none}
   .footer-cols{grid-template-columns:1fr 1fr}
   .footer-inner{padding:0 20px}
   .footer-bottom{flex-direction:column;align-items:flex-start}

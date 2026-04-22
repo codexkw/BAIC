@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>U5 PLUS - BAIC Group official website</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth}body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;background:#000;color:#fff;overflow-x:hidden}a{text-decoration:none;color:inherit}ul{list-style:none}img{max-width:100%;display:block}
+.header{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(0,0,0,.65);backdrop-filter:blur(10px);transition:background .3s}.header.scrolled{background:rgba(0,0,0,.92)}.header-inner{max-width:1400px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px}.logo span{font-size:22px;font-weight:700;letter-spacing:5px}.nav-menu{display:flex}.nav-menu>li{position:relative}.nav-menu>li>a{display:block;padding:22px 18px;font-size:14px;color:#fff;font-weight:400;transition:color .3s}.nav-menu>li>a:hover{color:rgba(255,255,255,.7)}.nav-menu>li .dropdown{position:absolute;top:100%;left:0;background:rgba(0,0,0,.92);backdrop-filter:blur(10px);min-width:200px;padding:10px 0;display:none;border-top:1px solid rgba(255,255,255,.08)}.nav-menu>li:hover .dropdown{display:block}.dropdown a{display:block;padding:8px 20px;font-size:13px;color:rgba(255,255,255,.6);transition:all .3s}.dropdown a:hover{color:#fff;background:rgba(255,255,255,.04)}.header-right{display:flex;align-items:center;gap:16px}.lang-select{background:none;border:none;color:#fff;font-size:14px;cursor:pointer;font-family:inherit}
+.mega-menu{position:fixed;top:64px;left:0;right:0;background:rgba(0,0,0,.95);backdrop-filter:blur(16px);display:none;border-top:1px solid rgba(255,255,255,.06);z-index:99}.has-mega:hover .mega-menu{display:block}.mega-inner{max-width:1200px;margin:0 auto;padding:28px 40px 36px}.mega-tabs{display:flex;gap:0;margin-bottom:24px;border-bottom:1px solid rgba(255,255,255,.08)}.mega-tab{padding:10px 24px;font-size:13px;color:rgba(255,255,255,.4);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .25s;letter-spacing:.5px}.mega-tab:hover,.mega-tab.active{color:#fff;border-bottom-color:#fff}.mega-models{display:flex;gap:6px;flex-wrap:wrap}.mega-model-item{display:flex;flex-direction:column;align-items:center;width:120px;padding:12px 8px;border-radius:4px;transition:all .25s;opacity:.7}.mega-model-item:hover{opacity:1;background:rgba(255,255,255,.06)}.mega-model-item img{width:100px;height:auto;margin-bottom:8px}.mega-model-item span{font-size:11px;font-weight:500;letter-spacing:.8px;color:rgba(255,255,255,.7);white-space:nowrap}.mega-model-item.hidden{display:none}
+.hero{position:relative;height:100vh;min-height:700px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:#000}.hero-bg{position:absolute;inset:0}.hero-bg img{width:100%;height:100%;object-fit:cover;opacity:.35}.hero-content{position:relative;z-index:2}.hero-sub{font-size:14px;font-weight:300;letter-spacing:4px;color:rgba(255,255,255,.55);margin-bottom:16px}.hero h1{font-size:56px;font-weight:800;letter-spacing:5px;margin-bottom:16px}.hero-tag{font-size:13px;font-weight:300;letter-spacing:2px;color:rgba(255,255,255,.5);margin-bottom:40px;max-width:500px;line-height:1.6}.hero-btn{display:inline-block;padding:14px 48px;border:1px solid rgba(255,255,255,.4);font-size:13px;letter-spacing:3px;text-transform:uppercase;transition:all .3s}.hero-btn:hover{background:#fff;color:#000;border-color:#fff}
+.color-section{padding:80px 0;background:#0a0a0a;text-align:center}.color-car{max-width:900px;margin:0 auto 30px;padding:0 40px;min-height:300px}.color-car img{width:100%;transition:opacity .4s}.color-thumbs{display:flex;justify-content:center;gap:8px;padding:0 40px;flex-wrap:wrap}.color-thumb{width:80px;height:54px;border:2px solid transparent;cursor:pointer;overflow:hidden;transition:all .3s;opacity:.5}.color-thumb.active{border-color:#fff;opacity:1}.color-thumb:hover{opacity:.8}.color-thumb img{width:100%;height:100%;object-fit:cover}
+.feature-full{position:relative;width:100%;min-height:80vh;overflow:hidden}.feature-full img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}.feature-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:60px;background:linear-gradient(to top,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 50%)}.feature-overlay h3{font-size:22px;font-weight:600;letter-spacing:1px;margin-bottom:10px}.feature-overlay p{font-size:13px;color:rgba(255,255,255,.6);line-height:1.8;max-width:600px}
+.feature-side{display:grid;grid-template-columns:1fr 1fr;min-height:70vh;background:#0a0a0a}.feature-side-img{position:relative;overflow:hidden}.feature-side-img img{width:100%;height:100%;object-fit:cover}.feature-side-content{display:flex;flex-direction:column;justify-content:center;padding:60px}.feature-side-content h3{font-size:20px;font-weight:600;letter-spacing:1px;margin-bottom:14px}.feature-side-content p{font-size:13px;color:rgba(255,255,255,.55);line-height:1.8}
+.feature-duo{display:grid;grid-template-columns:1fr 1fr;min-height:55vh}.feature-duo-item{position:relative;overflow:hidden}.feature-duo-item img{width:100%;height:100%;object-fit:cover;transition:transform .6s}.feature-duo-item:hover img{transform:scale(1.03)}.feature-duo-ov{position:absolute;bottom:0;left:0;right:0;padding:30px;background:linear-gradient(to top,rgba(0,0,0,.7),transparent)}.feature-duo-ov h4{font-size:16px;font-weight:600;margin-bottom:4px}.feature-duo-ov p{font-size:12px;color:rgba(255,255,255,.5);line-height:1.5}
+.specs-section{padding:80px 0;background:#0a0a0a}.specs-inner{max-width:1000px;margin:0 auto;padding:0 40px;overflow-x:auto}.specs-title{text-align:center;font-size:24px;font-weight:600;letter-spacing:2px;margin-bottom:40px}.spec-table{width:100%;border-collapse:collapse;margin-bottom:40px;min-width:700px}.spec-table th,.spec-table td{padding:11px 14px;font-size:11px;border:1px solid rgba(255,255,255,.08);text-align:center;vertical-align:middle}.spec-table th{background:rgba(255,255,255,.06);font-weight:600;color:rgba(255,255,255,.8)}.spec-table td{color:rgba(255,255,255,.5)}.spec-table .cat-header{background:rgba(255,255,255,.03);font-weight:600;color:rgba(255,255,255,.7);text-align:left;letter-spacing:1px;font-size:12px}.spec-table .row-label{text-align:left;color:rgba(255,255,255,.6);white-space:nowrap}.specs-mark{text-align:center;font-size:11px;color:rgba(255,255,255,.3);margin-top:16px;line-height:1.6}.specs-disclaimer{text-align:center;font-size:10px;color:rgba(255,255,255,.2);margin-top:12px;line-height:1.6;max-width:800px;margin-left:auto;margin-right:auto}
+.testdrive{padding:80px 0;background:#111;position:relative;overflow:hidden}.testdrive-bg{position:absolute;inset:0;opacity:.15}.testdrive-bg img{width:100%;height:100%;object-fit:cover}.testdrive-inner{position:relative;z-index:2;max-width:600px;margin:0 auto;padding:0 40px;text-align:center}.testdrive-inner h3{font-size:18px;font-weight:600;letter-spacing:2px;margin-bottom:8px;text-transform:uppercase}.testdrive-inner p{font-size:12px;color:rgba(255,255,255,.4);margin-bottom:30px}.form-row{display:flex;gap:12px;margin-bottom:12px}.form-input{flex:1;padding:14px 16px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:#fff;font-size:13px;font-family:inherit;outline:none}.form-input:focus{border-color:rgba(255,255,255,.3)}.form-input::placeholder{color:rgba(255,255,255,.25)}select.form-input{appearance:none;cursor:pointer}.form-submit{width:100%;padding:14px;background:#fff;color:#000;border:none;font-size:13px;font-weight:600;letter-spacing:2px;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:all .3s;margin-top:8px}.form-submit:hover{background:#ddd}
+.footer{background:#111;border-top:1px solid rgba(255,255,255,.06);padding:56px 0 24px}.footer-inner{max-width:1400px;margin:0 auto;padding:0 40px}.footer-cols{display:grid;grid-template-columns:repeat(5,1fr);gap:24px;margin-bottom:40px}.footer-col h4{font-size:12px;font-weight:600;letter-spacing:1px;margin-bottom:16px;color:rgba(255,255,255,.8)}.footer-col li{margin-bottom:9px}.footer-col a{font-size:12px;color:rgba(255,255,255,.35);transition:color .3s}.footer-col a:hover{color:#fff}.footer-brands{display:flex;align-items:center;gap:24px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid rgba(255,255,255,.06)}.footer-brands a{font-size:12px;font-weight:600;letter-spacing:2px;color:rgba(255,255,255,.5)}.footer-more{margin-bottom:20px}.footer-more select{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.5);font-size:12px;padding:8px 14px;font-family:inherit;cursor:pointer}.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;padding-top:20px;border-top:1px solid rgba(255,255,255,.06)}.footer-bottom a,.footer-bottom span{font-size:11px;color:rgba(255,255,255,.25)}
+.cookie-banner{position:fixed;bottom:0;left:0;right:0;background:rgba(28,28,28,.97);backdrop-filter:blur(12px);padding:18px 30px;z-index:200;display:flex;align-items:flex-start;gap:20px;border-top:1px solid rgba(255,255,255,.06)}.cookie-banner.hidden{display:none}.cookie-text{flex:1}.cookie-text h4{font-size:13px;font-weight:600;margin-bottom:6px}.cookie-text p{font-size:11px;color:rgba(255,255,255,.45);line-height:1.65}.cookie-btns{display:flex;gap:8px;flex-shrink:0}.ck-btn{padding:9px 18px;font-size:11px;font-weight:500;cursor:pointer;border:none;font-family:inherit;transition:all .3s;white-space:nowrap}.ck-necessary{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}.ck-settings{background:transparent;border:1px solid rgba(255,255,255,.25);color:#fff}.ck-accept{background:#fff;color:#000}
+@media(max-width:768px){.hero h1{font-size:36px}.feature-side,.feature-duo{grid-template-columns:1fr}.footer-cols{grid-template-columns:1fr 1fr}.form-row{flex-direction:column}.cookie-banner{flex-direction:column}}
+</style>
+</head>
+<body>
+
+<header class="header" id="header"><div class="header-inner">
+  <a href="/" class="logo"><span>BAIC</span></a>
+  <ul class="nav-menu">
+    <li class="has-mega"><a href="#">Models</a><div class="mega-menu"><div class="mega-inner"><div class="mega-tabs"><button class="mega-tab active" data-filter="all">All</button><button class="mega-tab" data-filter="offroad">Off-road</button><button class="mega-tab" data-filter="suv">SUV</button><button class="mega-tab" data-filter="sedan">Sedan</button><button class="mega-tab" data-filter="ev">EV</button></div><div class="mega-models" id="megaModelGrid"><a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="BJ30"><span>BJ30</span></a><a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="BJ80"><span>BJ80</span></a><a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="BJ60"><span>BJ60</span></a><a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 plus_20250108171659A798.webp" alt="BJ40 PLUS"><span>BJ40 PLUS</span></a><a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/07/10/bj40-plus3333_20240827160110A019_20250710154540A057.avif" alt="BJ40 PRO"><span>BJ40 PRO</span></a><a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="BJ40 SE"><span>BJ40 SE</span></a><a href="#" class="mega-model-item" data-cat="offroad"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="F40"><span>F40</span></a><a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/导航_20240924095856A090_20250108160710A181_20250108171254A795.webp" alt="X35"><span>X35</span></a><a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj60_20250108171651A797.webp" alt="X55 II"><span>X55 II</span></a><a href="#" class="mega-model-item" data-cat="suv"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj80_20250108171627A796.webp" alt="ALL NEW X7"><span>ALL NEW X7</span></a><a href="#" class="mega-model-item" data-cat="sedan"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/f40_20250108171726A801.webp" alt="U5 PLUS"><span>U5 PLUS</span></a><a href="#" class="mega-model-item" data-cat="ev"><img src="https://www.baicglobal.com/file/common/image/2025/01/08/bj40 se_20250108171718A800.webp" alt="EU5"><span>EU5</span></a></div></div></div></li>
+    <li><a href="#">Innovation</a><div class="dropdown"><a href="#">Capital Beauty</a><a href="#">Concept Car</a><a href="#">Off Road</a><a href="#">Power</a></div></li>
+    <li><a href="#">About</a><div class="dropdown"><a href="#">About Us</a><a href="#">History</a><a href="#">ESG</a><a href="#">After-sales Service</a></div></li>
+    <li><a href="#">Newsroom</a><div class="dropdown"><a href="#">News Release</a><a href="#">Subscribe</a><a href="#">Media Contact</a></div></li>
+    <li><a href="#">Connect</a><div class="dropdown"><a href="#">Contact Us</a><a href="#">Distributor Center</a><a href="#">Download Center</a></div></li>
+    <li><a href="#">Worldwide</a></li>
+  </ul>
+  <div class="header-right"><button class="lang-select">EN</button></div>
+</div></header>
+
+<section class="hero">
+  <div class="hero-bg"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/1_20241021110701A092_20250609162243A215.jpg" alt="U5 PLUS"></div>
+  <div class="hero-content">
+    <div class="hero-sub">Cheer For Your Life</div>
+    <h1>U5 PLUS</h1>
+    <div class="hero-tag">Excellent Coefficient of Drag Performance, Library-class Quiet Cabin</div>
+    <a href="#testdrive" class="hero-btn">Test Drive</a>
+  </div>
+</section>
+
+<section class="color-section">
+  <div class="color-car"><img id="mainCarImg" src="https://www.baicglobal.com/file/common/image/2025/06/09/银_20250609144703A168.png" alt="U5 PLUS"></div>
+  <div class="color-thumbs">
+    <div class="color-thumb active" data-src="https://www.baicglobal.com/file/common/image/2025/06/09/银_20250609144703A168.png"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/银_20250609144703A168.png" alt="Silver"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/common/image/2025/06/09/白_20250609144709A169.png"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/白_20250609144709A169.png" alt="White"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/common/image/2025/06/09/黑_20250609144715A170.png"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/黑_20250609144715A170.png" alt="Black"></div>
+    <div class="color-thumb" data-src="https://www.baicglobal.com/file/common/image/2025/06/09/红_20250609144721A171.png"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/红_20250609144721A171.png" alt="Red"></div>
+  </div>
+</section>
+
+<section class="feature-full" style="min-height:85vh"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/1_20241021110701A092_20250609162243A215.jpg" alt="U5 PLUS Exterior"><div class="feature-overlay"><h3>Sleek Sedan Design</h3><p>The U5 PLUS features an excellent coefficient of drag for outstanding aerodynamics. Penetrating LED taillights with flow turn signals and LED daytime running lights on Honor trim create a striking visual presence.</p></div></section>
+
+<section><div class="feature-side"><div class="feature-side-img"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/U5plus 2_20230213164138A125_20250609144743A172.jpg" alt="Interior"></div><div class="feature-side-content"><h3>Library-Class Quiet Cabin</h3><p>12.3-inch center screen paired with 7-inch and 12.3-inch LCD meters. Leather steering wheel with 2-way adjustment and multi-function controls. Manual anti-glare rearview mirror, dual sun visors with vanity mirrors, and front center armrest.</p></div></div></section>
+
+<section class="feature-full" style="min-height:80vh"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/3_20220927145230A050_20250609162335A219.jpg" alt="Dashboard"><div class="feature-overlay"><h3>Dual Powertrain Options</h3><p>1.5L engine with 83kW power and 142N·m torque. Choose between 5MT manual or CVT automatic transmission. Front-wheel drive with MacPherson front and H torsion beam rear suspension. EPB electronic parking brake with Auto Hold standard.</p></div></section>
+
+<section><div class="feature-duo"><div class="feature-duo-item"><img src="https://www.baicglobal.com/file/common/image/2025/06/23/微信图片_20250623144012_20250623144230A405.webp" alt="Detail"><div class="feature-duo-ov"><h4>Smart Safety</h4><p>ESP+TCS, ABS+EBD, EBA, HHC, TPMS standard. 360° panoramic image on Honor trim.</p></div></div><div class="feature-duo-item"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/5_20230616114250A213_20250609162259A216.jpg" alt="Comfort"><div class="feature-duo-ov"><h4>Comfortable Space</h4><p>430L luggage volume with rear seat whole foldable. CN95 filter with pollen filtering A/C.</p></div></div></div></section>
+
+<section><div class="feature-side" style="direction:rtl"><div class="feature-side-img" style="direction:ltr"><img src="https://www.baicglobal.com/file/common/image/2024/02/06/3_20240206100645A027.jpg" alt="Technology"></div><div class="feature-side-content" style="direction:ltr"><h3>Connected Intelligence</h3><p>BSD blind spot monitoring, LDW lane departure warning, and MOD low-speed dynamic object recognition on Honor. Bluetooth, radio, USB charging, and speed-sensing sound auto adjustment across all trims.</p></div></div></section>
+
+<section class="feature-full" style="min-height:70vh"><img src="https://www.baicglobal.com/file/common/image/2022/08/11/7_20220811120353A073.jpg" alt="Rear"><div class="feature-overlay"><h3>Available in Four Colors</h3><p>Silver, Red, White, and Black body colors. Power sunroof standard on Honor, optional on Comfort. 16-inch aluminum alloy wheels with 205/55R16 tires.</p></div></section>
+
+<!-- SPECS TABLE — 4 configs -->
+<section class="specs-section"><div class="specs-inner">
+  <h2 class="specs-title">U5 PLUS Specifiations</h2>
+  <table class="spec-table">
+    <thead>
+      <tr><th rowspan="2">M/C</th><th colspan="2">1.5L +5MT</th><th colspan="2">1.5L +CVT</th></tr>
+      <tr><th>Comfort</th><th>Honor</th><th>Comfort</th><th>Honor</th></tr>
+    </thead>
+    <tbody>
+      <tr><td class="cat-header" colspan="5">Basic Parameters</td></tr>
+      <tr><td class="row-label">Length*width*height (mm)</td><td colspan="4">4660*1820*1480</td></tr>
+      <tr><td class="row-label">Wheelbase (mm)</td><td colspan="4">2670</td></tr>
+      <tr><td class="row-label">Ground clearance (mm)</td><td colspan="4">155</td></tr>
+      <tr><td class="row-label">Curb weight (kg)</td><td>1240</td><td>1240</td><td>1255</td><td>1255</td></tr>
+      <tr><td class="row-label">Gross vehicle weight (kg)</td><td>1615</td><td>1615</td><td>1630</td><td>1630</td></tr>
+      <tr><td class="row-label">Seats</td><td colspan="4">5</td></tr>
+      <tr><td class="row-label">Fuel tank (L)</td><td colspan="4">48</td></tr>
+      <tr><td class="row-label">Luggage volume (L)</td><td colspan="4">430</td></tr>
+      <tr><td class="row-label">Engine mode</td><td colspan="4">151A1</td></tr>
+      <tr><td class="row-label">Displacement (ml)</td><td colspan="4">1499</td></tr>
+      <tr><td class="row-label">Max. power (kw/rpm)</td><td colspan="4">83</td></tr>
+      <tr><td class="row-label">Max. torque (Nm/rpm)</td><td colspan="4">142</td></tr>
+      <tr><td class="row-label">Transmission</td><td colspan="2">5MT</td><td colspan="2">CVT</td></tr>
+      <tr><td class="row-label">Fuel type</td><td colspan="4">Gasoline</td></tr>
+      <tr><td class="row-label">Emission</td><td colspan="4">China VI</td></tr>
+      <tr><td class="row-label">Drive type</td><td colspan="4">FF</td></tr>
+      <tr><td class="row-label">Front/rear suspension</td><td colspan="4">MacPherson type / H torsion beam type</td></tr>
+      <tr><td class="row-label">Front/rear brake</td><td colspan="4">Ventilation disc / Solid disc</td></tr>
+      <tr><td class="row-label">Tyre</td><td colspan="4">205/55R16</td></tr>
+      <tr><td class="row-label">Spare tyre</td><td colspan="4">Non full size T125/80R15</td></tr>
+      <tr><td class="row-label">Wheel type</td><td colspan="4">16 inch aluminium alloy rim</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Manipulation &amp; Safety</td></tr>
+      <tr><td class="row-label">Electric power steering</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">ABS+EBD</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">ESP+TCS</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">EPB</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Auto hold</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Hill hold control (HHC)</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Electric brake assistance (EBA)</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Driver and passenger air bags</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Front side air bag</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">Driver seat belt unfastened remind</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Passenger seat belt unfastened remind</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">One button start</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Keyless entry</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Remote keys (2)</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Rear parking radar</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Reversing camera</td><td>●</td><td>—</td><td>●</td><td>—</td></tr>
+      <tr><td class="row-label">Cruise control</td><td>—</td><td>—</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">TPMS</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Shift warning</td><td>●</td><td>●</td><td>—</td><td>—</td></tr>
+      <tr><td class="row-label">360° panoramic image</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">MOD-Low-speed dynamic object recognition</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">BSD-Blind Spot Monitoring System</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">LDW-Lane Departure Warning System</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Exterior</td></tr>
+      <tr><td class="row-label">Power sunroof</td><td>○</td><td>●</td><td>○</td><td>●</td></tr>
+      <tr><td class="row-label">White glass</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Rear windshield defroster</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Door mirrors - elec. foldable</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Door mirrors - elec. adjustable</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">Four door windows one key down</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">Engine trim cover</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Engine all cover</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Interior</td></tr>
+      <tr><td class="row-label">Door panel decoration (laser engraving + paint)</td><td>●</td><td>—</td><td>●</td><td>—</td></tr>
+      <tr><td class="row-label">Door decoration (INS trim)</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">Leather steering wheel</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Steering wheel 2-way adjustment</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">7 inch LCD meter</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">12.3 inch LCD meter</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Manual anti-glare inner rearview mirror</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Rear USB</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Seat</td></tr>
+      <tr><td class="row-label">Leather-fabric seat</td><td>PVC</td><td>PVC+Microfiber</td><td>PVC</td><td>PVC+Microfiber</td></tr>
+      <tr><td class="row-label">Rear seat headrest</td><td>3</td><td>3</td><td>3</td><td>3</td></tr>
+      <tr><td class="row-label">4-way manual adjustment - driver seat</td><td>●</td><td>—</td><td>●</td><td>—</td></tr>
+      <tr><td class="row-label">6-way manual adjustment - driver seat</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">4-way manual adjustment - passenger seat</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Rear seat whole foldable</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Entertainment</td></tr>
+      <tr><td class="row-label">12V power</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">USB with charge function</td><td>2</td><td>2</td><td>2</td><td>2</td></tr>
+      <tr><td class="row-label">Radio</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">12.3 inch center screen</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Multi-function steering wheel</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Speakers</td><td>2</td><td>6</td><td>6</td><td>6</td></tr>
+      <tr><td class="row-label">Bluetooth</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Lighting</td></tr>
+      <tr><td class="row-label">Halogen headlight</td><td>●</td><td>—</td><td>●</td><td>—</td></tr>
+      <tr><td class="row-label">LED headlight</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">LED daytime running light</td><td>—</td><td>●</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">Penetrating LED taillight</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Taillight flow turn signal</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Headlight height adjustment</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Emergency double-flash brake light</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Front fog light</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Rear fog light</td><td>—</td><td>—</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">Automatic headlight</td><td>—</td><td>—</td><td>—</td><td>●</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Air Conditioner</td></tr>
+      <tr><td class="row-label">Power A/C</td><td>●</td><td>●</td><td>●</td><td>—</td></tr>
+      <tr><td class="row-label">Automatic A/C</td><td>—</td><td>—</td><td>—</td><td>●</td></tr>
+      <tr><td class="row-label">CN95 filter</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+      <tr><td class="row-label">Pollen filtering function A/C</td><td>●</td><td>●</td><td>●</td><td>●</td></tr>
+
+      <tr><td class="cat-header" colspan="5">Body color</td></tr>
+      <tr><td class="row-label">Colors</td><td colspan="4">Silver, Red, White, Black</td></tr>
+    </tbody>
+  </table>
+  <p class="specs-mark">Mark: "●" standard, "—" not available, "○" optional</p>
+  <p class="specs-disclaimer">All information content is for advertising display purposes only and is for reference. The actual vehicle shall prevail. BAIC reserves the right to modify the described vehicle models and is not obligated to provide prior notice for the purposes of marketing or product promotion at any time.</p>
+</div></section>
+
+<section class="testdrive" id="testdrive">
+  <div class="testdrive-bg"><img src="https://www.baicglobal.com/file/common/image/2025/06/09/1_20241021110701A092_20250609162243A215.jpg" alt=""></div>
+  <div class="testdrive-inner">
+    <h3>APPOINTMENT FOR A TEST DRIVE</h3><p>Book your test drive experience</p>
+    <div class="form-row"><select class="form-input"><option value="">Please select Gender</option><option>Mr</option><option>Miss</option><option>Ms</option><option>Dr</option></select><input class="form-input" type="text" placeholder="First Name"><input class="form-input" type="text" placeholder="Last Name"></div>
+    <div class="form-row"><select class="form-input" style="flex:0 0 100px"><option>+86</option><option>+966</option><option>+971</option><option>+965</option><option>+1</option><option>+44</option></select><input class="form-input" type="tel" placeholder="Phone Number"></div>
+    <div class="form-row"><input class="form-input" type="email" placeholder="Email"></div>
+    <button class="form-submit">SUBMIT</button>
+  </div>
+</section>
+
+<footer class="footer"><div class="footer-inner">
+  <div class="footer-cols">
+    <div class="footer-col"><h4>Models</h4><ul><li><a href="#">BJ30</a></li><li><a href="#">BJ40 PLUS</a></li><li><a href="#">BJ40 SE</a></li><li><a href="#">BJ60</a></li><li><a href="#">BJ80</a></li><li><a href="#">F40</a></li><li><a href="#">X35</a></li><li><a href="#">X55 II</a></li><li><a href="#">ALL NEW X7</a></li><li><a href="#">U5 PLUS</a></li><li><a href="#">EU5</a></li></ul></div>
+    <div class="footer-col"><h4>Innovation</h4><ul><li><a href="#">Capital Beauty</a></li><li><a href="#">Concept Car</a></li><li><a href="#">Off Road</a></li><li><a href="#">Power</a></li></ul></div>
+    <div class="footer-col"><h4>About</h4><ul><li><a href="#">About Us</a></li><li><a href="#">History</a></li><li><a href="#">ESG</a></li><li><a href="#">After-sales Service</a></li></ul></div>
+    <div class="footer-col"><h4>Newsroom</h4><ul><li><a href="#">News Release</a></li><li><a href="#">Subscribe</a></li><li><a href="#">Media Contact</a></li></ul></div>
+    <div class="footer-col"><h4>Connect</h4><ul><li><a href="#">Contact Us</a></li><li><a href="#">Distributor Center</a></li><li><a href="#">Download Center</a></li></ul></div>
+  </div>
+  <div class="footer-brands"><a href="/">BAIC</a><a href="https://www.arcfox.com.cn/" target="_blank">ARCFOX</a></div>
+  <div class="footer-more"><select><option>More BAlC Websites</option><option>ARCFOX</option><option>BAIC CHINA</option><option>BAIC GROUP</option></select></div>
+  <div class="footer-bottom"><div><a href="#">Privacy Statement</a> &nbsp;|&nbsp; <a href="#">Cookie Settings</a></div><span>Copyright@2023 Beijing Automotive Group Co., Ltd.</span></div>
+</div></footer>
+
+<div class="cookie-banner" id="cookieBanner">
+  <div class="cookie-text"><h4>Your Privacy</h4><p>When accessing our website, we use cookies to ensure an optimal browsing experience for you. The use of cookies on this website may involve the collection of information pertaining to you, including your preferences and device details. This information typically does not directly identify you, but it can provide you a more tailored and personalized web browsing experience. Because we respect your right to privacy, we provide the option to decline certain types of cookies.</p></div>
+  <div class="cookie-btns">
+    <button class="ck-btn ck-necessary" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept only necessary</button>
+    <button class="ck-btn ck-settings" onclick="this.closest('.cookie-banner').classList.add('hidden')">Settings</button>
+    <button class="ck-btn ck-accept" onclick="this.closest('.cookie-banner').classList.add('hidden')">Accept all</button>
+  </div>
+</div>
+
+<script>
+window.addEventListener('scroll',()=>document.getElementById('header').classList.toggle('scrolled',window.scrollY>50));
+document.querySelectorAll('.color-thumb').forEach(t=>{t.addEventListener('click',()=>{document.querySelectorAll('.color-thumb').forEach(x=>x.classList.remove('active'));t.classList.add('active');const img=document.getElementById('mainCarImg');img.style.opacity='0.3';setTimeout(()=>{img.src=t.dataset.src;img.style.opacity='1'},200)})});
+document.querySelectorAll('.mega-tab').forEach(tab=>{tab.addEventListener('click',()=>{document.querySelectorAll('.mega-tab').forEach(t=>t.classList.remove('active'));tab.classList.add('active');const f=tab.dataset.filter;document.querySelectorAll('.mega-model-item').forEach(item=>{item.classList.toggle('hidden',f!=='all'&&item.dataset.cat!==f)})})});
+</script>
+</body>
+</html>
