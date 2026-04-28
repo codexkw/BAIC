@@ -149,6 +149,10 @@ html[dir="rtl"] .lang-option{text-align:right}
   html[dir="rtl"] .cookie-banner{flex-direction:column}
 }
 
+/* Shared test-drive CTA link (replaces inline form on model pages) */
+a.testdrive-link{display:inline-block;width:auto;min-width:220px;padding:14px 48px;background:#fff;color:#000;border:none;font-size:13px;font-weight:600;letter-spacing:3px;text-transform:uppercase;cursor:pointer;font-family:inherit;transition:all .3s;margin-top:8px;text-align:center;text-decoration:none}
+a.testdrive-link:hover{background:#ddd;color:#000}
+
 /* RTL General text alignment */
 html[dir="rtl"] h1,html[dir="rtl"] h2,html[dir="rtl"] h3,html[dir="rtl"] h4,html[dir="rtl"] h5,html[dir="rtl"] h6,html[dir="rtl"] p,html[dir="rtl"] li,html[dir="rtl"] label,html[dir="rtl"] span{text-align:right}
 html[dir="rtl"] .section-title{text-align:center}

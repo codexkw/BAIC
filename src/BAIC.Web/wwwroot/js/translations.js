@@ -300,6 +300,27 @@
         'contactUs.relocate': 'انقر هنا لإعادة التحديد',
         'contactUs.submit': 'إرسال',
 
+        // ===== TEST DRIVE PAGE =====
+        'testDrive.heroHeading': 'تجربة القيادة',
+        'testDrive.heroText': 'يرجى ترك معلومات الاتصال الخاصة بك، وسوف نتواصل معك',
+        'testDrive.gender': 'الجنس',
+        'testDrive.mr': 'السيد',
+        'testDrive.miss': 'الآنسة',
+        'testDrive.ms': 'السيدة',
+        'testDrive.dr': 'دكتور',
+        'testDrive.others': 'أخرى',
+        'testDrive.firstName': 'الاسم الأول',
+        'testDrive.lastName': 'اسم العائلة',
+        'testDrive.carModel': 'موديل السيارة',
+        'testDrive.selectModel': 'يرجى اختيار الموديل',
+        'testDrive.country': 'الدولة / المنطقة',
+        'testDrive.selectCountry': 'يرجى اختيار دولتك',
+        'testDrive.phone': 'الهاتف',
+        'testDrive.email': 'البريد الإلكتروني',
+        'testDrive.moreInfo': 'إذا كان لديك المزيد من المعلومات، يرجى الإرسال إلى <a href="mailto:info@baickuwait.com">info@baickuwait.com</a>',
+        'testDrive.submit': 'إرسال',
+        'testDrive.bookNow': 'احجز تجربة قيادة',
+
         // ===== WORLDWIDE =====
         'worldwide.title': 'حول العالم',
         'worldwide.heading': 'بايك في العالم',

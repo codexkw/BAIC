@@ -365,32 +365,7 @@
   <div class="testdrive-inner">
     <h3 data-i18n="model.testDrive">APPOINTMENT FOR A TEST DRIVE</h3>
     <p data-i18n="model.bookTestDrive">Book your test drive experience</p>
-    <div class="form-row">
-      <select class="form-input">
-        <option value="" data-i18n="model.selectGender">Please select Gender</option>
-        <option data-i18n="model.mr">Mr</option>
-        <option data-i18n="model.miss">Miss</option>
-        <option data-i18n="model.ms">Ms</option>
-        <option data-i18n="model.dr">Dr</option>
-      </select>
-      <input class="form-input" type="text" placeholder="First Name" data-i18n="model.firstName">
-      <input class="form-input" type="text" placeholder="Last Name" data-i18n="model.lastName">
-    </div>
-    <div class="form-row">
-      <select class="form-input" style="flex:0 0 100px">
-        <option>+86</option>
-        <option>+966</option>
-        <option>+971</option>
-        <option>+965</option>
-        <option>+1</option>
-        <option>+44</option>
-      </select>
-      <input class="form-input" type="tel" placeholder="Phone Number" data-i18n="model.phone">
-    </div>
-    <div class="form-row">
-      <input class="form-input" type="email" placeholder="Email" data-i18n="model.email">
-    </div>
-    <button class="form-submit" data-i18n="model.submit">SUBMIT</button>
+    <a asp-controller="Models" asp-action="TestDrive" asp-route-model="BJ80" class="testdrive-link" data-i18n="testDrive.bookNow">BOOK A TEST DRIVE</a>
   </div>
 </section>
 

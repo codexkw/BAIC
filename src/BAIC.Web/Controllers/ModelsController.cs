@@ -16,4 +16,10 @@ public class ModelsController : Controller
     public IActionResult U5Plus() => View();
     public IActionResult EU5() => View();
     public IActionResult EU5Plus() => View();
+
+    public IActionResult TestDrive(string? model = null)
+    {
+        ViewData["SelectedModel"] = model;
+        return View();
+    }
 }
