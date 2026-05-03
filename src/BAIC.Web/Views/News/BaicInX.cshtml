@@ -1,0 +1,64 @@
+@{
+    ViewData["Title"] = "BAIC In X";
+
+    var articles = new (string ImagePath, string TitleKey, string TitleEn)[]
+    {
+        ("file/common/image/2026/02/27/3_20260227163005A298.jpg", "baicInX.290", "BAIC Lights Up the Entire GCC Market with Official Entry into Oman"),
+        ("file/common/image/2026/03/26/a1c67d24eo8535201b3c76fcf0fae851_20260326150737A247.jpg", "baicInX.295", "Discover China Cultural Tour: Diplomats Visit BAIC Smart Factory"),
+        ("file/common/image/2026/03/25/2_20260325103255A190.jpg", "baicInX.294", "BAIC Makes Its Hungarian Debut as BAIC International Accelerates Expansion Across Central and Eastern Europe"),
+        ("file/common/image/2026/03/03/8_20260303171142A356.jpg", "baicInX.292", "BAIC Makes Official Entry into New Zealand: B30 and X55 Launch Together, Marking a New Chapter in Quality Mobility"),
+        ("file/common/image/2026/02/15/4_20260215232743A193.jpg", "baicInX.289", "BAIC Showcases at Indonesia International Motor Show, Strengthening Regional Development Through Multi-Dimensional Strategy"),
+        ("file/common/image/2026/02/14/2(1)_20260214111747A053.jpg", "baicInX.283", "BAIC Mexico Brand Upgrade and Launch of Complete Product Lineup"),
+        ("file/common/image/2026/02/14/3_20260214122403A079.png", "baicInX.285", "BAIC × G20 | BAIC South Africa Successfully Completes G20 Summit Service Support Mission"),
+        ("file/common/image/2026/02/15/DTSA1748(2)_20260215002531A157.jpg", "baicInX.288", "“Together We Inspire” – BAIC South Africa Dealer Conference Successfully Held"),
+        ("file/common/image/2026/02/15/301_20260215010027A172.JPG", "baicInX.284", "BAIC International Writes New Chapter in Chilean Market: Brand Launch Kicks Off 2026 Journey"),
+        ("file/common/image/2026/02/18/webwxgetmsgimg_20260218001513A212.jpg", "baicInX.286", "BAIC International Launches B30 in South Africa, Marking New Chapter in Right-Hand Drive Markets"),
+        ("file/common/image/2026/02/15/2_20260215234220A196.jpg", "baicInX.287", "BAIC Indonesia Expands Sales Network with New West Jakarta Dealership Opening!"),
+        ("file/common/image/2025/07/31/微信图片_2025-07-31_134336_131_20250731134407A008.jpg", "baicInX.271", "BAIC BJ30 Right-Hand Drive Model Makes Stunning Debut in Indonesia, Accelerating Southeast Asian Expansion Through Localization Strategy"),
+        ("file/common/image/2025/07/24/12320250722101655_20250722153644A088.png", "baicInX.270", "Challenging Guinness World Records™: BAIC Provides Full Support for Qatar’s 180 km Extreme Trail Run"),
+        ("file/common/image/2025/07/01/1(1)_20250627111539A118.jpg", "baicInX.267", "BAIC South Africa Delivers Official Y20 Summit Vehicles to NYDA"),
+        ("file/common/image/2025/06/11/ke-3_20250529114641A136.jpg", "baicInX.264", "BAIC BJ40 PRO Advances Middle East Strategic Expansion, Defining a New Paradigm of Smart Mobility"),
+        ("file/common/image/2025/06/09/YON03366_20250609175943A294.jpg", "baicInX.263", "BAIC BJ40 PLUS: First Vehicle Rolls Off Production Line in Indonesia, Enabling Technological Innovation and Localized Manufacturing"),
+        ("file/common/image/2024/12/19/5d3413f070603431ead880f115fd542_20241219162514A755.jpg", "baicInX.232", "BAIC BJ30 Makes Its Multi-Country Launch Debut Across the Middle East"),
+        ("file/common/image/2024/12/06/3e996bf3c2190c7ed9b330c22f31098_20241206134446A510.jpg", "baicInX.228", "BAIC Triumphs at Arab Car of the Year 2024 Awards, Winning Best Hybrid SUV and Best Seven-Seater SUV"),
+        ("file/common/image/2024/11/25/cropper_20241119172011A353_20241125111504A402.jpg", "baicInX.227", "BAIC Unveils BJ30 Hybrid SUV in Egypt"),
+        ("file/common/image/2024/10/31/画板 1-2_20241031103050A273.jpg", "baicInX.225", "BAIC Debuts BJ30 and BJ60 at Jeddah Motor Show in Saudi Arabia, Marking a New Era in Light Off-Road Vehicles"),
+        ("file/common/image/2024/09/24/画板 1-2_20240924101351A072.jpg", "baicInX.222", "BAIC’s First Store in Uzbekistan: a New Milestone in Cooperation"),
+        ("file/common/image/2024/08/14/d4821555ca6b3cfc670f32e5325e8a1_20240814161111A387.jpg", "baicInX.221", "BAIC Sponsor for Dewa United"),
+        ("file/common/image/2024/07/30/0b0f69224aa60796e049c1ffb4745f0_20240730150831A266.jpg", "baicInX.218", "BAIC Indonesia Unveils Two New Models at GIIAS 2024"),
+        ("file/common/image/2024/06/19/画板 1_20240619162651A168.jpg", "baicInX.211", "BAIC Makes a Dazzling Debut in Mexico, Launching Both U5plus and EU5 Models Simultaneously"),
+        ("file/common/image/2024/06/04/活动1.png_20240604160155A257.jpg", "baicInX.207", "BAIC Grand Entry into Indonesia Market"),
+    };
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/baic-in-x.css" asp-append-version="true" />
+}
+
+<div class="bix-hero">
+  <img src="~/images/baicglobal/file/common/image/2025/09/30/blob_20250930164420A033.avif" alt="BAIC In X">
+  <div class="bix-hero-overlay"></div>
+</div>
+
+<div class="bix-head">
+  <div class="bix-bread">
+    <a href="/" data-i18n="news.breadcrumbHome">Home</a> /
+    <a href="#" data-i18n="news.breadcrumbNewsroom">Newsroom</a> /
+    <span data-i18n="baicInX.title">BAIC In X</span>
+  </div>
+  <h1 data-i18n="baicInX.title">BAIC In X</h1>
+</div>
+
+<div class="bix-grid">
+@foreach (var a in articles)
+{
+    <a href="#" class="bix-card">
+      <div class="bix-card-img">
+        <img src="@Url.Content("~/images/baicglobal/" + a.ImagePath)" alt="@a.TitleEn">
+      </div>
+      <div class="bix-card-overlay">
+        <h3 data-i18n="@a.TitleKey">@a.TitleEn</h3>
+      </div>
+    </a>
+}
+</div>

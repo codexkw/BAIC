@@ -1,0 +1,33 @@
+/* ========== BAIC IN X — News listing grid ========== */
+body{background:#000;color:#fff}
+
+.bix-hero{position:relative;width:100%;height:50vh;min-height:380px;overflow:hidden}
+.bix-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.bix-hero-overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.2) 0%,rgba(0,0,0,.7) 100%)}
+
+.bix-head{max-width:1280px;margin:0 auto;padding:32px 40px 8px}
+.bix-bread{font-size:12px;letter-spacing:.05em;color:rgba(255,255,255,.55);margin-bottom:18px}
+.bix-bread a{color:rgba(255,255,255,.55);text-decoration:none;transition:color .2s}
+.bix-bread a:hover{color:#fff}
+.bix-head h1{font-size:42px;font-weight:800;letter-spacing:.04em;margin:0 0 32px;color:#fff;text-transform:uppercase}
+
+.bix-grid{max-width:1280px;margin:0 auto;padding:0 40px 80px;display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+
+.bix-card{position:relative;display:block;aspect-ratio:16/10;overflow:hidden;border-radius:4px;text-decoration:none;color:inherit;background:#111}
+.bix-card-img{position:absolute;inset:0}
+.bix-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+.bix-card:hover .bix-card-img img{transform:scale(1.06)}
+.bix-card-overlay{position:absolute;inset:0;display:flex;align-items:flex-end;padding:18px 18px 16px;background:linear-gradient(180deg,rgba(0,0,0,0) 30%,rgba(0,0,0,.85) 100%);transition:background .3s}
+.bix-card:hover .bix-card-overlay{background:linear-gradient(180deg,rgba(0,0,0,.1) 0%,rgba(0,0,0,.9) 100%)}
+.bix-card-overlay h3{font-size:14px;font-weight:600;line-height:1.4;margin:0;color:#fff;letter-spacing:.01em;text-shadow:0 1px 4px rgba(0,0,0,.6)}
+
+@media(max-width:1024px){
+  .bix-grid{grid-template-columns:repeat(2,1fr)}
+  .bix-head h1{font-size:32px}
+}
+@media(max-width:640px){
+  .bix-grid{grid-template-columns:1fr;padding:0 20px 60px}
+  .bix-head{padding:24px 20px 8px}
+  .bix-head h1{font-size:24px}
+  .bix-hero{height:40vh;min-height:240px}
+}
