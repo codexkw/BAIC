@@ -9,7 +9,7 @@ body{background:#000;color:#fff}
 
 /* CANVAS — layered absolute composition mirroring original Nuxt page */
 .or-canvas{position:relative;width:100%;height:295vw;overflow:hidden}
-.or-canvas>div,.or-canvas>img{position:absolute}
+.or-canvas>*{position:absolute}
 .or-canvas img{max-width:none;display:block}
 
 /* Image positions (in vw to scale with viewport) */
@@ -50,11 +50,11 @@ body{background:#000;color:#fff}
 .or-canvas .text_7{left:7vw;max-width:60vw;top:197vw}
 .or-canvas .text_8{position:absolute;color:#fff;left:7vw;top:10vw;width:80vw;z-index:2}
 
-/* Section titles */
-.or-canvas .title{color:#000;font-size:4.5vw;font-weight:900;padding-left:7vw;text-align:left;width:100%;margin:0}
-.or-canvas .title_1{top:81vw;color:#000}
-.or-canvas .title_2{top:180vw;width:68%;color:#000}
-.or-canvas .title_3{position:absolute;color:#fff;left:7vw;top:0;padding:0}
+/* Section titles — white with shadow for legibility on the dark composition */
+.or-canvas .title{color:#fff;font-size:4.5vw;font-weight:900;padding-left:7vw;text-align:left;width:100%;margin:0;text-shadow:0 2px 12px rgba(0,0,0,.7),0 0 2px rgba(0,0,0,.9);letter-spacing:.02em}
+.or-canvas .title_1{top:81vw}
+.or-canvas .title_2{top:180vw;width:68%}
+.or-canvas .title_3{position:absolute;left:7vw;top:0;padding:0;text-shadow:none}
 
 /* TIMELINE */
 .or-timeline{padding:80px 0 60px;background:#0a0a0a;overflow:hidden}
