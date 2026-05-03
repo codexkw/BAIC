@@ -25,15 +25,15 @@
   <!-- 3 bullet rows over the comp -->
   <div class="text_1 content_text">
     <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
-    Comprehensive application of computer-aided development methods;
+    <span data-i18n="offroad.bullet1">Comprehensive application of computer-aided development methods;</span>
   </div>
   <div class="text_2 content_text">
     <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
-    In-depth integration of simulation analysis with design and experimental verification;
+    <span data-i18n="offroad.bullet2">In-depth integration of simulation analysis with design and experimental verification;</span>
   </div>
   <div class="text_3 content_text">
     <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
-    The integration of the system such as component level, system level, and vehicle level is a comprehensive integration of virtual and reality.
+    <span data-i18n="offroad.bullet3">The integration of the system such as component level, system level, and vehicle level is a comprehensive integration of virtual and reality.</span>
   </div>
 
   <!-- Engineering hero (right) -->
@@ -47,13 +47,13 @@
   <img class="img_09" src="~/images/baicglobal/_nuxt/009.DJTwHOKV.png" alt="">
 
   <!-- Engineering bullet text -->
-  <div class="text_4 content_text">
+  <div class="text_4 content_text" data-i18n="offroad.engText1">
     Able to test and verify the functions, performance, reliability, durability and environmental adaptability of components, systems and complete vehicles, and have obtained CNAS certification.
   </div>
-  <div class="text_5 content_text">
+  <div class="text_5 content_text" data-i18n="offroad.engText2">
     Professional trial production workshop, with complete trial production verification process, can produce 500 trial production, special production and modified prototype cars per year, and the trial production capacity is leading in China.
   </div>
-  <div class="text_6 content_text">
+  <div class="text_6 content_text" data-i18n="offroad.engText3">
     The big data intelligent analysis platform has realized the rapid and accurate extraction of valuable information from massive data, and successfully applied it to various processes of vehicle research and development.
   </div>
 
@@ -70,7 +70,7 @@
   <h3 class="title title_2" data-i18n="offroad.vehicleProduction">Vehicle Production Ability</h3>
 
   <!-- Vehicle Production text -->
-  <div class="text_7 content_text">
+  <div class="text_7 content_text" data-i18n="offroad.vehicleProductionDesc">
     The off-road vehicle factory has an overall construction area of 240,000 square meters and an annual production capacity of 100,000 vehicles, and won the &quot;National Green Factory&quot;, &quot;China&apos;s Best Factory Digital Competition Excellence Award&quot;.
   </div>
 
@@ -80,7 +80,7 @@
   <!-- Black panel: title_3 + text_8 + 014 mirror + 013 jpg -->
   <div class="img_013">
     <h3 class="title title_3" data-i18n="offroad.highReliability">High Designed Reliability</h3>
-    <div class="text_8 content_text">
+    <div class="text_8 content_text" data-i18n="offroad.highReliabilityDesc">
       It has also created 28 limit and typical working condition load spectrum analysis and extraction methods combining dynamic and static loads, invented 35 high-reliability structures such as opening and closing parts structure, whole vehicle locking system, established virtual and physical tests combined with the multi-level test platform and method, realized the positive design of high reliability of off-road vehicles. The average mileage between failures of BAIC off-road vehicle base test has been increased from 1,200 km to 7,536 km, well above the international level of similar products.
     </div>
     <img class="img_014" src="~/images/baicglobal/_nuxt/011.LXOGrKhQ.png" alt="">
@@ -101,7 +101,7 @@
       <button class="tl-year-btn" data-idx="6">2009</button>
       <button class="tl-year-btn" data-idx="7">2013</button>
       <button class="tl-year-btn" data-idx="8">2015</button>
-      <button class="tl-year-btn" data-idx="9">Today</button>
+      <button class="tl-year-btn" data-idx="9" data-i18n="offroad.today">Today</button>
     </div>
 
     <div class="tl-cards" id="tlCards">
@@ -114,7 +114,7 @@
       <div class="tl-card" data-idx="6"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/07.jpg" alt="2009"></div><div class="tl-card-year">2009</div></div>
       <div class="tl-card" data-idx="7"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/08.jpg" alt="2013"></div><div class="tl-card-year">2013</div></div>
       <div class="tl-card" data-idx="8"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/09.jpg" alt="2015"></div><div class="tl-card-year">2015</div></div>
-      <div class="tl-card" data-idx="9"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/010.jpg" alt="Today"></div><div class="tl-card-year">Today</div></div>
+      <div class="tl-card" data-idx="9"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/010.jpg" alt="Today"></div><div class="tl-card-year" data-i18n="offroad.today">Today</div></div>
     </div>
 
     <div class="tl-desc" id="tlDesc">
@@ -125,7 +125,9 @@
 
 @section Scripts {
 <script>
-const tlTexts = [
+const tlKeys = ['1960','1966','1974','1999','2002','2008','2009','2013','2015','today'];
+
+const tlTextsEn = [
   `In December 1960, the Headquarters of the General Staff reported to the State Council, proposing the production of the off-road vehicle (ORV) at the BAW. From 1961, BAW successively developed off-road vehicle models such as BJ210, BJ211, and BJ212. In March 1963, the BJ210C light off-road vehicle passed the technical appraisal organized by the First Ministry of Machine Industry of the PRC and was named the "Beijing" brand.`,
   `In 1966, Chairman Mao inspected the masses at Tian'anmen Square riding in a BJ212. The BJ212 light off-road vehicle officially entered production and service in the same year. The globally renowned BJ212 series, spanning half a century, achieved an industry myth with an accumulated production of over 1.2 million vehicles (including BJ2020).`,
   `The BJ212 produced in 1974 became the first donated collection at the Beijing Auto Museum. The Beijing Jeep BJ212 also carries memories of the 1980s.`,
@@ -138,14 +140,26 @@ const tlTexts = [
   `Originating from the battlefield, and reaching into daily life, Beijing Off-Road maintains the original intention and glory passed down from BJ212, adhering to the ultimate ORV quality. With high-reliability standards designed for challenging conditions on the test field, the average failure interval mileage is 4500 kilometers. The high-reliability indicators help users improve efficiency and reduce costs.`
 ];
 
+function getTlText(idx) {
+  const lang = (window.baicTranslations && window.baicTranslations.getCurrentLang()) || 'en';
+  if (lang === 'ar' && window.baicTranslations) {
+    const arKey = 'offroad.timeline.' + tlKeys[idx];
+    const ar = window.baicTranslations.translations[arKey];
+    if (ar) return ar;
+  }
+  return tlTextsEn[idx];
+}
+
+let currentTlIdx = 0;
 function setActiveTimeline(idx) {
+  currentTlIdx = idx;
   document.querySelectorAll('.tl-year-btn').forEach(b => {
     b.classList.toggle('active', parseInt(b.dataset.idx) === idx);
   });
   document.querySelectorAll('.tl-card').forEach(c => {
     c.classList.toggle('active', parseInt(c.dataset.idx) === idx);
   });
-  document.getElementById('tlDesc').innerHTML = `<p>${tlTexts[idx]}</p>`;
+  document.getElementById('tlDesc').innerHTML = `<p>${getTlText(idx)}</p>`;
   const card = document.querySelector(`.tl-card[data-idx="${idx}"]`);
   if (card) card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 }
@@ -156,5 +170,14 @@ document.querySelectorAll('.tl-year-btn').forEach(btn => {
 document.querySelectorAll('.tl-card').forEach(card => {
   card.addEventListener('click', () => setActiveTimeline(parseInt(card.dataset.idx)));
 });
+
+// Re-render description whenever the page language changes — observe <html lang>
+new MutationObserver(() => setActiveTimeline(currentTlIdx))
+  .observe(document.documentElement, { attributes: true, attributeFilter: ['lang','dir'] });
+
+// Initial load: if Arabic is the stored language, render Arabic description now
+if (window.baicTranslations && window.baicTranslations.getCurrentLang() === 'ar') {
+  setActiveTimeline(0);
+}
 </script>
 }
