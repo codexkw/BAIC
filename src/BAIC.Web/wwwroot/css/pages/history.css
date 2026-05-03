@@ -84,3 +84,18 @@ body{background:#ccc9c4;color:#333}
 
 /* ========== FOOTER OVERRIDE (dark footer on light page) ========== */
 .footer{background:#222;color:#fff}
+
+/* ========== MOBILE — stack cards, hide centered road ========== */
+@media(max-width:900px){
+  .hi-road,.hi-car,.hi-tl-dot,.hi-tl-dash,.hi-tl-redline-h,.hi-tl-redline-v,.hi-road-section,.hi-tunnel{display:none !important}
+  .hi-tl-items{padding:0 16px}
+  .hi-tl-item{min-height:auto !important;margin-bottom:24px;padding-left:0}
+  .hi-tl-card{position:relative !important;left:auto !important;right:auto !important;top:auto !important;width:100% !important;max-width:100%;margin:0 auto;padding:12px}
+  .hi-tl-card img{height:auto}
+  .hi-tl-card-text{font-size:14px;line-height:1.6;padding:8px 4px 4px}
+  .hi-tl-year{position:relative !important;left:auto !important;right:auto !important;top:auto !important;text-align:left !important;font-size:36px;letter-spacing:2px;color:rgba(0,0,0,.18);margin-bottom:8px;padding:0 4px}
+  .hi-intro{padding:30px 20px}
+  .hi-intro-content h2{font-size:22px;letter-spacing:2px}
+  .hi-closing{padding:40px 20px 60px}
+  .hi-closing h2{font-size:14px;letter-spacing:4px;line-height:1.8}
+}
