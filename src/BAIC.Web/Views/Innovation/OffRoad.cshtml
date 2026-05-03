@@ -6,105 +6,91 @@
     <link rel="stylesheet" href="~/css/pages/offroad.css" asp-append-version="true" />
 }
 
-<!-- 1. HERO: kv.jpg -->
+<!-- HERO -->
 <section class="or-hero">
-  <img src="https://www.baicglobal.com/_nuxt/kv.Baz1PMoz.jpg" alt="BAIC Off Road">
+  <img src="~/images/baicglobal/_nuxt/kv.BYRZBGpE.jpg" alt="BAIC Off Road">
   <div class="or-hero-overlay"></div>
   <h1 data-i18n="offroad.heroHeading">OFF ROAD</h1>
 </section>
 
-<!-- 2. Full-width images: 001, 002, 003 stacked -->
-<section class="or-full fade-in">
-  <img src="~/images/baicglobal/_nuxt/001.CRNebkBa.png" alt="Off Road">
-</section>
-<section class="or-full fade-in">
-  <img src="~/images/baicglobal/_nuxt/002.UedxcHu2.png" alt="Off Road">
-</section>
-<section class="or-full fade-in">
-  <img src="~/images/baicglobal/_nuxt/003.Cc2PLlew.png" alt="Off Road">
-</section>
+<!-- LAYERED COMPOSITION (mirrors original Nuxt center_box) -->
+<section class="or-canvas">
 
-<!-- 3. Dual image: 004 + 006 side by side -->
-<section class="or-duo fade-in">
-  <img src="~/images/baicglobal/_nuxt/004.BbmKtSCA.png" alt="Off Road">
-  <img src="https://www.baicglobal.com/_nuxt/006.DyN-EBSd.png" alt="Off Road">
-</section>
+  <!-- Brushstroke + car comp -->
+  <div class="img_02"><img src="~/images/baicglobal/_nuxt/002.UedxcHu2.png" alt=""></div>
+  <div class="img_03"><img src="~/images/baicglobal/_nuxt/003.Cc2PLlew.png" alt=""></div>
+  <div class="img_04"><img src="~/images/baicglobal/_nuxt/004.BbmKtSCA.png" alt=""></div>
+  <img class="img_06" src="~/images/baicglobal/_nuxt/006.DFcxStcK.png" alt="">
 
-<!-- 4. Bullet points: text then 005.png icon after each (matching original) -->
-<section class="or-bullet-section fade-in">
-  <div class="or-bullet-wrap">
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:12px">Comprehensive application of computer-aided development methods;</p>
-    <div style="margin-bottom:20px"><img src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="" style="max-width:24px"></div>
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:12px">ln-depth integration of simulation analysis with design and experimental verification;</p>
-    <div style="margin-bottom:20px"><img src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="" style="max-width:24px"></div>
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.45);margin-bottom:12px">The integration of the system such as component level, system level, and vehiclelevel is a comprehensive integration of virtual and reality.</p>
-    <div style="margin-bottom:20px"><img src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="" style="max-width:24px"></div>
+  <!-- 3 bullet rows over the comp -->
+  <div class="text_1 content_text">
+    <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
+    Comprehensive application of computer-aided development methods;
+  </div>
+  <div class="text_2 content_text">
+    <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
+    In-depth integration of simulation analysis with design and experimental verification;
+  </div>
+  <div class="text_3 content_text">
+    <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
+    The integration of the system such as component level, system level, and vehicle level is a comprehensive integration of virtual and reality.
+  </div>
+
+  <!-- Engineering hero (right) -->
+  <div class="img_07"><img src="~/images/baicglobal/_nuxt/007.BCpIdD6u.png" alt=""></div>
+
+  <!-- Section title 1 -->
+  <h3 class="title title_1" data-i18n="offroad.engVerification">Engineering Verification Ability</h3>
+
+  <!-- Engineering composition -->
+  <div class="img_08"><img src="~/images/baicglobal/_nuxt/008.Bwps3Tud.png" alt=""></div>
+  <img class="img_09" src="~/images/baicglobal/_nuxt/009.DJTwHOKV.png" alt="">
+
+  <!-- Engineering bullet text -->
+  <div class="text_4 content_text">
+    Able to test and verify the functions, performance, reliability, durability and environmental adaptability of components, systems and complete vehicles, and have obtained CNAS certification.
+  </div>
+  <div class="text_5 content_text">
+    Professional trial production workshop, with complete trial production verification process, can produce 500 trial production, special production and modified prototype cars per year, and the trial production capacity is leading in China.
+  </div>
+  <div class="text_6 content_text">
+    The big data intelligent analysis platform has realized the rapid and accurate extraction of valuable information from massive data, and successfully applied it to various processes of vehicle research and development.
+  </div>
+
+  <!-- Vehicle Production composition -->
+  <div class="img_010">
+    <img class="img_10_1" src="~/images/baicglobal/_nuxt/010.Xg6qSDDC.png" alt="">
+    <img class="img_012" src="~/images/baicglobal/_nuxt/012.tk4018y-.png" alt="">
+  </div>
+
+  <!-- Quote badge -->
+  <div class="img_015"><img src="~/images/baicglobal/_nuxt/015.DYTMujap.png" alt=""></div>
+
+  <!-- Section title 2 -->
+  <h3 class="title title_2" data-i18n="offroad.vehicleProduction">Vehicle Production Ability</h3>
+
+  <!-- Vehicle Production text -->
+  <div class="text_7 content_text">
+    The off-road vehicle factory has an overall construction area of 240,000 square meters and an annual production capacity of 100,000 vehicles, and won the &quot;National Green Factory&quot;, &quot;China&apos;s Best Factory Digital Competition Excellence Award&quot;.
+  </div>
+
+  <!-- Factory full-width -->
+  <div class="img_011"><img src="~/images/baicglobal/_nuxt/011.LXOGrKhQ.png" alt=""></div>
+
+  <!-- Black panel: title_3 + text_8 + 014 mirror + 013 jpg -->
+  <div class="img_013">
+    <h3 class="title title_3" data-i18n="offroad.highReliability">High Designed Reliability</h3>
+    <div class="text_8 content_text">
+      It has also created 28 limit and typical working condition load spectrum analysis and extraction methods combining dynamic and static loads, invented 35 high-reliability structures such as opening and closing parts structure, whole vehicle locking system, established virtual and physical tests combined with the multi-level test platform and method, realized the positive design of high reliability of off-road vehicles. The average mileage between failures of BAIC off-road vehicle base test has been increased from 1,200 km to 7,536 km, well above the international level of similar products.
+    </div>
+    <img class="img_014" src="~/images/baicglobal/_nuxt/011.LXOGrKhQ.png" alt="">
+    <img class="img_013_1" src="~/images/baicglobal/_nuxt/013.ByrQoel1.jpg" alt="">
   </div>
 </section>
 
-<!-- 5. Engineering Verification Hero (007.png) with title -->
-<section class="or-eng-hero fade-in">
-  <img src="~/images/baicglobal/_nuxt/007.BCpIdD6u.png" alt="Engineering Verification">
-  <h3 data-i18n="offroad.engVerification">Engineering Verification Ability</h3>
-</section>
-
-<!-- 6. Quote badge image (015.png) -->
-<section class="or-full fade-in">
-  <img src="~/images/baicglobal/_nuxt/015.DYTMujap.png" alt="Quote">
-</section>
-
-<!-- 7. Dual image: 008 + 009 -->
-<section class="or-dual fade-in">
-  <img src="~/images/baicglobal/_nuxt/008.Bwps3Tud.png" alt="Off Road">
-  <img src="https://www.baicglobal.com/_nuxt/009.CPZTIOHp.png" alt="Off Road">
-</section>
-
-<!-- 8. Engineering text description -->
-<section class="or-bullet-section fade-in">
-  <div class="or-bullet-wrap">
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4);margin-bottom:16px">Able to test and verify the functions, performance, reliability, durability and environmental adaptability of components, systems and complete vehicles, and have obtained CNAS certification.</p>
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4);margin-bottom:16px">Professional trial production workshop, with complete trial production verification process, can produce 500 trial production, special production and modified prototypecars per vear, and the trial production capacity is leading in China.</p>
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4)">The big data intelligent analysis platform has realized the rapid and accurate extraction of valuable information from massive data, and successfully applied it to various processes of vehicle reearch and development.</p>
-  </div>
-</section>
-
-<!-- 9. Dual image: 010 + 012 -->
-<section class="or-dual fade-in">
-  <img src="~/images/baicglobal/_nuxt/010.Xg6qSDDC.png" alt="Vehicle Production">
-  <img src="https://www.baicglobal.com/_nuxt/012.DKA-UU0q.png" alt="Vehicle Production">
-</section>
-
-<!-- 10. Vehicle Production text (standalone) -->
-<section class="or-bullet-section fade-in">
-  <div class="or-bullet-wrap">
-    <h3 style="font-size:20px;font-weight:600;letter-spacing:2px;margin-bottom:18px;color:rgba(255,255,255,.85)" data-i18n="offroad.vehicleProduction">Vehicle Production Ability</h3>
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4)">The off-road vehicle factory has an overall construction area of 240,000 square meters and an annual production capacity of 100,000 vehicles, and won the"National Green Factory", "China's Best Factory Diqita Competition Excellence Award"</p>
-  </div>
-</section>
-
-<!-- 10b. Full-width 011.png -->
-<section class="or-full fade-in">
-  <img src="~/images/baicglobal/_nuxt/011.LXOGrKhQ.png" alt="Factory">
-</section>
-
-<!-- 11. High Designed Reliability text (standalone) -->
-<section class="or-bullet-section fade-in">
-  <div class="or-bullet-wrap">
-    <h3 style="font-size:20px;font-weight:600;letter-spacing:2px;margin-bottom:18px;color:rgba(255,255,255,.85)" data-i18n="offroad.highReliability">High Designed Reliability</h3>
-    <p style="font-size:13px;line-height:2;color:rgba(255,255,255,.4);margin-bottom:12px">It has also created 28 limit and typical working condition load spectrum analysis and extraction methods combining dvnamic and static loads, invented 35 high-reliability structures such as opening and closing parts structure, whole vehicle locking system, established virtual and physical tests combined with the multi-level test platform and method, realized the positive design of high reliability of off-road vehicles. The average mileage between failures of BAlC of-road vehicle base test has been increasd from 1,200km to 7,536km, well above the international level of similar products.</p>
-  </div>
-</section>
-
-<!-- 12. Dual image: 011 + 013 -->
-<section class="or-dual fade-in">
-  <img src="~/images/baicglobal/_nuxt/011.LXOGrKhQ.png" alt="">
-  <img src="https://www.baicglobal.com/_nuxt/013.BWUKvLjX.jpg" alt="">
-</section>
-
-<!-- 13. HISTORY TIMELINE -->
-<section class="or-timeline fade-in">
+<!-- HISTORY TIMELINE -->
+<section class="or-timeline">
   <div class="tl-wrap">
-    <!-- Year tabs -->
     <div class="tl-years">
       <button class="tl-year-btn active" data-idx="0">1960-1963</button>
       <button class="tl-year-btn" data-idx="1">1966</button>
@@ -118,21 +104,6 @@
       <button class="tl-year-btn" data-idx="9">Today</button>
     </div>
 
-    <!-- Duplicate year row (matching original structure) -->
-    <div class="tl-years" style="border:none;margin-bottom:10px">
-      <button class="tl-year-btn active" data-idx="0">1960-1963</button>
-      <button class="tl-year-btn" data-idx="1">1966</button>
-      <button class="tl-year-btn" data-idx="2">1974</button>
-      <button class="tl-year-btn" data-idx="3">1999</button>
-      <button class="tl-year-btn" data-idx="4">2002</button>
-      <button class="tl-year-btn" data-idx="5">2008</button>
-      <button class="tl-year-btn" data-idx="6">2009</button>
-      <button class="tl-year-btn" data-idx="7">2013</button>
-      <button class="tl-year-btn" data-idx="8">2015</button>
-      <button class="tl-year-btn" data-idx="9">Today</button>
-    </div>
-
-    <!-- Cards row with images -->
     <div class="tl-cards" id="tlCards">
       <div class="tl-card active" data-idx="0"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/01.jpg" alt="1960"></div><div class="tl-card-year">1960-1963</div></div>
       <div class="tl-card" data-idx="1"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/02.jpg" alt="1966"></div><div class="tl-card-year">1966</div></div>
@@ -146,7 +117,6 @@
       <div class="tl-card" data-idx="9"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/010.jpg" alt="Today"></div><div class="tl-card-year">Today</div></div>
     </div>
 
-    <!-- Description -->
     <div class="tl-desc" id="tlDesc">
       <p>In December 1960, the Headquarters of the General Staff reported to the State Council, proposing the production of the off-road vehicle (ORV) at the BAW. From 1961, BAW successively developed off-road vehicle models such as BJ210, BJ211, and BJ212. In March 1963, the BJ210C light off-road vehicle passed the technical appraisal organized by the First Ministry of Machine Industry of the PRC and was named the "Beijing" brand.</p>
     </div>
@@ -155,7 +125,6 @@
 
 @section Scripts {
 <script>
-// Timeline data
 const tlTexts = [
   `In December 1960, the Headquarters of the General Staff reported to the State Council, proposing the production of the off-road vehicle (ORV) at the BAW. From 1961, BAW successively developed off-road vehicle models such as BJ210, BJ211, and BJ212. In March 1963, the BJ210C light off-road vehicle passed the technical appraisal organized by the First Ministry of Machine Industry of the PRC and was named the "Beijing" brand.`,
   `In 1966, Chairman Mao inspected the masses at Tian'anmen Square riding in a BJ212. The BJ212 light off-road vehicle officially entered production and service in the same year. The globally renowned BJ212 series, spanning half a century, achieved an industry myth with an accumulated production of over 1.2 million vehicles (including BJ2020).`,
@@ -170,17 +139,13 @@ const tlTexts = [
 ];
 
 function setActiveTimeline(idx) {
-  // Update year buttons (both rows)
   document.querySelectorAll('.tl-year-btn').forEach(b => {
     b.classList.toggle('active', parseInt(b.dataset.idx) === idx);
   });
-  // Update cards
   document.querySelectorAll('.tl-card').forEach(c => {
     c.classList.toggle('active', parseInt(c.dataset.idx) === idx);
   });
-  // Update text
   document.getElementById('tlDesc').innerHTML = `<p>${tlTexts[idx]}</p>`;
-  // Scroll card into view
   const card = document.querySelector(`.tl-card[data-idx="${idx}"]`);
   if (card) card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
 }
