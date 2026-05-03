@@ -1,3 +1,5 @@
+using Microsoft.AspNetCore.StaticFiles;
+
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
@@ -9,8 +11,16 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
+// Register modern image MIME types not in the default static-files content-type map.
+var contentTypeProvider = new FileExtensionContentTypeProvider();
+contentTypeProvider.Mappings[".avif"] = "image/avif";
+contentTypeProvider.Mappings[".webp"] = "image/webp";
+
 app.UseHttpsRedirection();
-app.UseStaticFiles();
+app.UseStaticFiles(new StaticFileOptions
+{
+    ContentTypeProvider = contentTypeProvider
+});
 app.UseRouting();
 app.UseAuthorization();
 
