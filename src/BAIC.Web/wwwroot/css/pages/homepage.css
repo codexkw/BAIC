@@ -115,12 +115,17 @@
 }
 @media(max-width:768px){
   .cgrid-2,.cgrid-3{grid-template-columns:1fr}
-  .hero-model-text{font-size:28px;letter-spacing:2px}
+  .hero{height:auto;aspect-ratio:16/9}
+  .hero-slide-content{padding-bottom:60px}
+  .hero-model-text{font-size:28px;letter-spacing:2px;margin-bottom:18px}
   .hero-btns{flex-direction:column;gap:10px;align-items:center}
   .hero-btn{padding:10px 28px;font-size:12px}
   .hero-arrow{width:36px;height:36px;font-size:20px}
   .hero-arrow.left{left:10px}
   .hero-arrow.right{right:10px}
+  .hero-dots{bottom:14px}
+  .hero-dot{width:24px;height:2px}
+  .hero-dot.active{width:34px}
   .car-thumbs{gap:2px;padding:0 10px}
   .car-thumb{width:80px;padding:6px}
   .car-thumb span{font-size:9px}
