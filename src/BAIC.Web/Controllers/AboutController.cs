@@ -8,4 +8,5 @@ public class AboutController : Controller
     public IActionResult History() => View();
     public IActionResult ESG() => View();
     public IActionResult AfterSale() => View();
+    public IActionResult ResearchDevelopment() => View();
 }

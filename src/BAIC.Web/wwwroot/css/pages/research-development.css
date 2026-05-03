@@ -1,0 +1,5 @@
+/* ========== RESEARCH & DEVELOPMENT — stacked image story ========== */
+body{background:#000;color:#fff}
+
+.rd-page{display:block;width:100%}
+.rd-page .rd-img{display:block;width:100%;height:auto;margin:0;padding:0}

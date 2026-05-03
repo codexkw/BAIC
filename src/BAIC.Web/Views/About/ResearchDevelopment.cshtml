@@ -1,0 +1,35 @@
+@{
+    ViewData["Title"] = "Research & Development";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/research-development.css" asp-append-version="true" />
+}
+
+<section class="rd-page">
+@for (var i = 1; i <= 17; i++)
+{
+    var n = i.ToString("D2");
+    <img class="rd-img"
+         src="@Url.Content($"~/images/baicglobal/file/public/static/research-development/en/research_{n}.jpg")"
+         data-rd-src="research_@(n).jpg"
+         alt="Research and Development">
+}
+</section>
+
+@section Scripts {
+<script>
+(function () {
+  function applyLang() {
+    var lang = (window.baicTranslations && window.baicTranslations.getCurrentLang()) || 'en';
+    var dir = lang === 'ar' ? 'ar' : 'en';
+    document.querySelectorAll('.rd-img[data-rd-src]').forEach(function (img) {
+      var newSrc = '/images/baicglobal/file/public/static/research-development/' + dir + '/' + img.dataset.rdSrc;
+      if (!img.src.endsWith(newSrc)) img.src = newSrc;
+    });
+  }
+  applyLang();
+  new MutationObserver(applyLang).observe(document.documentElement, { attributes: true, attributeFilter: ['lang','dir'] });
+})();
+</script>
+}
