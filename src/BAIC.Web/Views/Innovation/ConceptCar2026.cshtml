@@ -1,0 +1,97 @@
+@{
+    ViewData["Title"] = "Concept Car";
+    var imgBase = "~/images/baicglobal/file/public/static/2026-concept-car";
+}
+
+@section Styles {
+    <link rel="stylesheet" href="~/css/pages/concept-car-2026.css" asp-append-version="true" />
+}
+
+<div class="cc26">
+
+  <!-- KV / Hero -->
+  <div class="cc26-kv">
+    <img class="cc26-kv-img" src="@Url.Content(imgBase + "/kv1.webp")" alt="ELMT Max">
+    <img class="cc26-mouse" src="@Url.Content(imgBase + "/mouse@2x.webp")" alt="">
+  </div>
+
+  <!-- Page 2 — Design Drives the Future -->
+  <section class="cc26-p2">
+    <h2 class="cc26-title" data-i18n="cc26.p2Title">Design Drives the Future</h2>
+    <p class="cc26-intro" data-i18n="cc26.p2Intro">As a bold endeavor by BAIC, ELMT Max is built on our unique "ELEMENTAL" design philosophy, which encompasses four core design pillars. ELMT Max interprets engineering aesthetics through its exoskeleton design, perfectly integrating off-road performance with safety and practicality. Its modular system makes functions intuitively visible. It not only demonstrates BAIC's solid technical expertise but also embodies the brand's consistent pursuit for joyous adventure.</p>
+    <img class="cc26-p2-img" src="@Url.Content(imgBase + "/image17.webp")" alt="">
+  </section>
+
+  <!-- Page 3 — Core Design Philosophy -->
+  <section class="cc26-p3">
+    <h2 class="cc26-title cc26-center" data-i18n="cc26.p3Title">Core Design Philosophy</h2>
+    <p class="cc26-intro cc26-center" data-i18n="cc26.p3Intro">The new design philosophy of BAIC is based on four core pillars: Earth, Sturdy, Joyously Active, and Phygital.</p>
+
+    <div class="cc26-pillars">
+      @{
+          var pillars = new (string Icon, string Cover, string TitleKey, string TitleEn, string MemoKey, string MemoEn)[]
+          {
+              ("Rectangle1.webp","Rectangle1_img.webp","cc26.earthTitle","Earth","cc26.earthMemo","Earth means drawing inspiration from nature. The product is grounded. Based on rich and deep user experience, we create practical functions to provide strong support for users in off-road activities;"),
+              ("Rectangle2.webp","Rectangle2_img.webp","cc26.sturdyTitle","Sturdy","cc26.sturdyMemo","Sturdy represents strength and reliability. While inheriting the classic off-road genes, it shapes a unique style for the future;"),
+              ("Rectangle3.webp","Rectangle3_img.webp","cc26.joyTitle","Joyously Active","cc26.joyMemo","Joyously Active expresses the attitude of bringing pleasure to users. It conveys the brand's vitality and fun by color, material and function design;"),
+              ("Rectangle4.webp","Rectangle4_img.webp","cc26.phygitalTitle","Phygital","cc26.phygitalMemo","Phygital combines physical operation and digital interaction. It not only presents the futuristic technology feeling, but also retains the vivid tactile experience, committed to providing users with intuitive and seamless interaction.")
+          };
+      }
+      @foreach (var p in pillars)
+      {
+          <div class="cc26-pillar">
+              <img class="cc26-pillar-icon" src="@Url.Content(imgBase + "/" + p.Icon)" alt="@p.TitleEn">
+              <div class="cc26-pillar-content">
+                <img class="cc26-pillar-cover" src="@Url.Content(imgBase + "/" + p.Cover)" alt="@p.TitleEn">
+                <div class="cc26-pillar-txt" data-i18n="@p.TitleKey">@p.TitleEn</div>
+                <div class="cc26-pillar-memo" data-i18n="@p.MemoKey">@p.MemoEn</div>
+              </div>
+          </div>
+      }
+    </div>
+
+    <p class="cc26-bottom-txt cc26-center" data-i18n="cc26.p3Bottom">These four aspects collectively form the design philosophy of the BAIC brand, which is named "ELEMENTAL". This philosophy will continue to be applied to all models of BAIC in the future, helping to create a rich and highly attractive product lineup.</p>
+  </section>
+
+  <!-- Page 4 — Start a New Journey -->
+  <section class="cc26-p4">
+    <div class="cc26-p4-inner">
+      <img class="cc26-line-cars" src="@Url.Content(imgBase + "/line-cars.webp")" alt="">
+      <h2 class="cc26-title cc26-light cc26-center" data-i18n="cc26.p4Title">Start a New Journey While Inheriting Classics</h2>
+      <p class="cc26-intro cc26-light cc26-center cc26-narrow" data-i18n="cc26.p4Intro">Mr. Luo reflected on the storied history of BAIC. As a pioneer in China's off-road sector, BAIC has produced numerous iconic models since the legendary BJ212, serving as trusted companions for countless users exploring the great outdoors and pushing their limits. Now, in the "Three-Year Leap Forward Initiative" of BAIC Group, design has become a core strategy. Drawing on the credibility in off-road field, the released concept car is precisely an important outcome of driving innovation by a new design philosophy.</p>
+      <img class="cc26-cars" src="@Url.Content(imgBase + "/cars.webp")" alt="">
+    </div>
+  </section>
+
+  <!-- Page 5 — Extreme Off-road Trendsetter -->
+  <section class="cc26-p5">
+    <div class="cc26-p5-row">
+      <img class="cc26-p5-cover" src="@Url.Content(imgBase + "/kv1.webp")" alt="">
+      <div class="cc26-p5-content">
+        <h2 class="cc26-title" data-i18n="cc26.p5Title">Extreme Off-road Trendsetter</h2>
+        <p class="cc26-intro" data-i18n="cc26.p5Intro">ELMT Max is a design vision appealing to anticipating user needs and contemporary lifestyles. The functional design centering around off-road scenarios: The car adopts "modular system" design.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Page 6 — ELEMENTAL -->
+  <section class="cc26-p6">
+    <img class="cc26-p6-bg" src="@Url.Content(imgBase + "/image18-1.webp")" alt="">
+    <div class="cc26-p6-content">
+      <img class="cc26-p6-title" src="@Url.Content(imgBase + "/image18-title.webp")" alt="ELEMENTAL">
+      <p class="cc26-intro cc26-light" data-i18n="cc26.p6Intro">Every design of ELMT Max has a real purity and clarity of purpose, aiming for the unity of practicality and aesthetics. Importantly, it will provide a direction for the development of future production models.</p>
+    </div>
+  </section>
+
+  <!-- Page 7 — Honorary Award -->
+  <section class="cc26-p7">
+    <div class="cc26-p7-row">
+      <img class="cc26-p7-cover" src="@Url.Content(imgBase + "/award.webp")" alt="">
+      <div class="cc26-p7-content">
+        <h2 class="cc26-title" data-i18n="cc26.p7Title">Honorary Award</h2>
+        <p class="cc26-intro" data-i18n="cc26.p7Intro">ELMT Max wins the Best Chinese Brand Premiere Concept Car Award at the Guangzhou Auto Show.</p>
+      </div>
+    </div>
+  </section>
+
+</div>

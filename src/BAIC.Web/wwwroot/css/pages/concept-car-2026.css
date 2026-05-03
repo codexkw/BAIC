@@ -1,0 +1,95 @@
+/* ========== 2026 CONCEPT CAR — ELMT Max story page ========== */
+.cc26{--big:clamp(28px,3.5vw,52px);--normal:clamp(15px,1.4vw,20px);--small:clamp(13px,1.1vw,16px);background:#fff;color:#000;display:block;width:100%}
+
+.cc26 .cc26-title{font-size:var(--big);font-weight:700;line-height:1.15;text-transform:uppercase;padding:4em 7vw 1em;margin:0;box-sizing:border-box;width:100%}
+.cc26 .cc26-intro{font-size:var(--normal);font-weight:400;line-height:1.6;padding:0 7vw 2em;margin:0;box-sizing:border-box;width:100%}
+.cc26 .cc26-center{text-align:center}
+.cc26 .cc26-light{color:#fff}
+.cc26 .cc26-narrow{max-width:50vw;margin:0 auto}
+
+/* HERO */
+.cc26-kv{position:relative;width:100%;min-height:100vh;overflow:hidden}
+.cc26-kv .cc26-kv-img{display:block;width:100%;height:auto;max-height:100vh;object-fit:cover}
+.cc26-kv .cc26-mouse{position:absolute;bottom:3.75%;left:50%;transform:translateX(-50%);width:26px;height:auto;animation:cc26-bounce 2s ease-in-out infinite}
+@keyframes cc26-bounce{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,8px)}}
+
+/* PAGE 2 — Design Drives the Future */
+.cc26-p2{background:#fff;color:#000;width:100%}
+.cc26-p2 .cc26-p2-img{display:block;width:100%;height:auto}
+
+/* PAGE 3 — Core Design Philosophy + 4 pillars */
+.cc26-p3{background:#fff;color:#000;width:100%;position:relative;padding-bottom:6vw}
+.cc26-p3 .cc26-intro{max-width:65vw;margin:0 auto}
+.cc26-pillars{display:flex;gap:0;justify-content:center;align-items:stretch;margin-top:6vw;width:100%;overflow:hidden}
+.cc26-pillar{flex:1 1 0;max-width:25%;position:relative;padding-top:3vh}
+.cc26-pillar:not(:last-child)::after{content:"";position:absolute;right:0;top:50%;transform:translateY(-50%);width:1px;height:120%;background:linear-gradient(transparent 0,rgba(0,0,0,.6) 40%,rgba(0,0,0,.4) 60%,transparent 78%);opacity:.5}
+.cc26-pillar-icon{display:block;width:13.59vw;height:auto;margin:0 auto 4vw;transform:translateX(65%)}
+.cc26-pillar-content{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%;height:35.44vw;overflow:hidden}
+.cc26-pillar-cover{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:1}
+.cc26-pillar-txt{position:relative;z-index:2;color:#fff;font-size:var(--big);font-weight:700;text-align:center;padding:1.5em 0 0;width:100%}
+.cc26-pillar-memo{position:relative;z-index:2;color:#fff;font-size:var(--small);line-height:1.6;text-align:center;padding:.5em 1em;width:100%;height:0;clip-path:inset(0 0 100% 0);transition:clip-path .6s linear,height .3s linear;box-sizing:border-box}
+.cc26-pillar-content:hover .cc26-pillar-memo{height:auto;clip-path:inset(0)}
+.cc26 .cc26-bottom-txt{font-size:var(--small);padding:3em 7vw 1em;text-align:center}
+
+/* PAGE 4 — Start a New Journey (dark) */
+.cc26-p4{background:#0a0a0a;width:100%;display:flex;align-items:center;justify-content:center;padding:6vw 0;overflow:hidden}
+.cc26-p4-inner{display:flex;flex-direction:column;align-items:center;justify-content:center;width:100%}
+.cc26-p4 .cc26-line-cars{display:block;max-width:60vw;width:100%;height:auto;mix-blend-mode:lighten}
+.cc26-p4 .cc26-cars{display:block;max-width:70vw;width:100%;height:auto;margin-top:2vw}
+.cc26-p4 .cc26-title{padding:2vw 7vw 1em}
+
+/* PAGE 5 — Extreme Off-road Trendsetter */
+.cc26-p5{background:#fff;color:#000;width:100%;position:relative;padding:8vw 0}
+.cc26-p5-row{display:flex;align-items:center;justify-content:center;padding:0 7vw;gap:2.72vw}
+.cc26-p5-cover{flex:0 0 50%;width:50%;height:25.68vw;object-fit:cover}
+.cc26-p5-content{flex:1}
+.cc26-p5-content .cc26-title{padding:0 0 .5em;text-align:left}
+.cc26-p5-content .cc26-intro{padding:0;text-align:left}
+
+/* PAGE 6 — ELEMENTAL */
+.cc26-p6{position:relative;width:100%;height:100vh;overflow:hidden}
+.cc26-p6-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.cc26-p6-content{position:absolute;left:0;top:50%;transform:translateY(-50%);width:46%;padding-left:5.8vw;box-sizing:border-box;z-index:2}
+.cc26-p6-title{display:block;width:100%;height:auto}
+.cc26-p6 .cc26-intro{padding:2em 1em 0 0;text-align:left;color:#fff}
+
+/* PAGE 7 — Honorary Award */
+.cc26-p7{background:#fff;color:#000;width:100%;padding:0}
+.cc26-p7-row{display:flex;align-items:center;justify-content:center;padding:18vw 9vw 12vw;gap:2.72vw}
+.cc26-p7-cover{flex:0 0 calc(50% - 2.72vw);width:calc(50% - 2.72vw);height:25.68vw;object-fit:cover}
+.cc26-p7-content{flex:1}
+.cc26-p7-content .cc26-title{padding:0 0 .5em;text-align:left}
+.cc26-p7-content .cc26-intro{padding:0;text-align:left}
+
+/* RTL adjustments */
+[dir="rtl"] .cc26 .cc26-pillar:not(:last-child)::after{right:auto;left:0}
+[dir="rtl"] .cc26 .cc26-pillar-icon{transform:translateX(-65%)}
+[dir="rtl"] .cc26 .cc26-pillar-memo,
+[dir="rtl"] .cc26 .cc26-bottom-txt{text-align:right}
+[dir="rtl"] .cc26-p5-row,[dir="rtl"] .cc26-p7-row{flex-direction:row-reverse}
+[dir="rtl"] .cc26-p5-content .cc26-title,[dir="rtl"] .cc26-p5-content .cc26-intro,
+[dir="rtl"] .cc26-p7-content .cc26-title,[dir="rtl"] .cc26-p7-content .cc26-intro,
+[dir="rtl"] .cc26-p6 .cc26-intro{text-align:right}
+[dir="rtl"] .cc26-p6-content{left:auto;right:0;padding-left:0;padding-right:5.8vw}
+[dir="rtl"] .cc26-p4 .cc26-title,[dir="rtl"] .cc26-p4 .cc26-intro{text-align:right}
+
+/* RESPONSIVE */
+@media(max-width:991px){
+  .cc26{--big:clamp(22px,5vw,32px);--normal:clamp(14px,2.6vw,16px);--small:clamp(12px,2.4vw,14px)}
+  .cc26 .cc26-narrow{max-width:90vw}
+  .cc26-pillars{flex-direction:column}
+  .cc26-pillar{max-width:100%;padding:6vw 5vw}
+  .cc26-pillar:not(:last-child)::after{display:none}
+  .cc26-pillar-icon{width:80px;transform:none;margin:0 auto 4vw}
+  .cc26-pillar-content{height:60vw}
+  .cc26-pillar-memo{height:auto;clip-path:inset(0)}
+  .cc26-p5-row,.cc26-p7-row{flex-direction:column;gap:6vw;padding:6vw}
+  .cc26-p5-cover,.cc26-p7-cover{flex:none;width:100%;height:auto}
+  .cc26-p5-content,.cc26-p7-content{width:100%}
+  .cc26-p6{height:auto;min-height:60vh;padding:10vw 5vw}
+  .cc26-p6-bg{position:relative;height:auto;min-height:300px}
+  .cc26-p6-content{position:relative;width:100%;padding:6vw 0;transform:none;top:auto}
+  [dir="rtl"] .cc26-p6-content{padding-right:0}
+  .cc26 .cc26-intro{max-width:none;padding:0 6vw 2em}
+  .cc26 .cc26-bottom-txt{padding:2em 6vw 1em}
+}
