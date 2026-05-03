@@ -62,20 +62,21 @@
 // Timeline data
 const BASE='/images/baicglobal/file/public/static/aboutUs/history/';
 const items=[
-  {year:'1958',img:'1958.webp',desc:'BAIC independently develops China\'s first sedan "Jinggangshan"',side:'right'},
-  {year:'1966',img:'1966.webp',desc:'The BJ212 China\'s first off-road vehicle is officially placed into production',side:'left'},
-  {year:'1966',img:'1966_2.webp',desc:'The BJ130 successfully passes the trial production',side:'right'},
-  {year:'1983',img:'1983.webp',desc:'Beijing Jeep Corporation is established, China\'s first automotive JV',side:'left'},
-  {year:'1996',img:'1996.webp',desc:'Foton Motor Co., Ltd. is established',side:'right'},
-  {year:'2002',img:'2002.webp',desc:'Beijing Hyundai Motor Co., Ltd. is officially established With Hyundai Motor',side:'left'},
-  {year:'2003',img:'2005.webp',desc:'Beijing Benz AutomotiveCo., Ltd. is officially established with DaimlerChrysler',side:'right'},
-  {year:'2009',img:'2009.webp',desc:'Acquires Saab intellectual property rights and the annual sales revenue exceeds 100 billion yuan',side:'left'},
-  {year:'2013',img:'2013.webp',desc:'<span class="icon_dian"></span>BAIC INTL is officially established<br><span class="icon_dian"></span>BAIC GROUP is listed on the Fortune Global 500',side:'right'},
-  {year:'2016',img:'2016.webp',desc:'BAIC Motor officially acquires 35% shares of Fujian Benz',side:'left'},
-  {year:'2017',img:'2017.webp',desc:'BJ80 off-road vehicle serves as the parade inspection car for the Chinese president',side:'right'},
-  {year:'2018',img:'2018.webp',desc:'<span class="icon_dian"></span>Establish a joint venture with MAGNA and build up<br> a high-end BEV R&D and manufacturing base<br><span class="icon_dian"></span>Ranked 124th in the Fortune Global 500',side:'left'},
-  {year:'2019',img:'2019.webp',desc:'The high-end new energy brand ARCFOX of BAIC makes a stunning debut at the Geneva Motor Show',side:'right'},
-  {year:'2024',img:'2024.webp',desc:'Listed in Fortune Global 500 for twelve years consecutively',side:'left'}
+  {year:'1958',img:'1958.webp',i18n:'history.1958',desc:'BAIC independently develops China\'s first sedan "Jinggangshan"',side:'right'},
+  {year:'1966',img:'1966.webp',i18n:'history.1966',desc:'The BJ212 China\'s first off-road vehicle is officially placed into production',side:'left'},
+  {year:'1966',img:'1966_2.webp',i18n:'history.1966b',desc:'The BJ130 successfully passes the trial production',side:'right'},
+  {year:'1983',img:'1983.webp',i18n:'history.1983',desc:'Beijing Jeep Corporation is established, China\'s first automotive JV',side:'left'},
+  {year:'1996',img:'1996.webp',i18n:'history.1996',desc:'Foton Motor Co., Ltd. is established',side:'right'},
+  {year:'2002',img:'2002.webp',i18n:'history.2002',desc:'Beijing Hyundai Motor Co., Ltd. is officially established With Hyundai Motor',side:'left'},
+  {year:'2003',img:'2005.webp',i18n:'history.2003',desc:'Beijing Benz AutomotiveCo., Ltd. is officially established with DaimlerChrysler',side:'right'},
+  {year:'2009',img:'2009.webp',i18n:'history.2009',desc:'Acquires Saab intellectual property rights and the annual sales revenue exceeds 100 billion yuan',side:'left'},
+  {year:'2013',img:'2013.webp',i18n:'history.2013',desc:'<span class="icon_dian"></span>BAIC INTL is officially established<br><span class="icon_dian"></span>BAIC GROUP is listed on the Fortune Global 500',side:'right'},
+  {year:'2016',img:'2016.webp',i18n:'history.2016',desc:'BAIC Motor officially acquires 35% shares of Fujian Benz',side:'left'},
+  {year:'2018',img:'2018.webp',i18n:'history.2018',desc:'<span class="icon_dian"></span>Establish a joint venture with MAGNA and build up<br> a high-end BEV R&D and manufacturing base<br><span class="icon_dian"></span>Ranked 124th in the Fortune Global 500',side:'right'},
+  {year:'2019',img:'2019.webp',i18n:'history.2019',desc:'The high-end new energy brand ARCFOX of BAIC makes a stunning debut at the Geneva Motor Show',side:'left'},
+  {year:'2021',img:'2021.webp',i18n:'history.2021',desc:'In the J.D. Power China Vehicle Value Retention Ranking, BJ40 ranked first among self-owned compact SUVs, and BAIC ranked second among Chinese domestic brands',side:'right'},
+  {year:'2023',img:'2023.webp',i18n:'history.2023',desc:'<strong>Dakar Rally</strong><br>From 2021 to 2023, BAIC competed in the Dakar Rally for three consecutive years, becoming the only Chinese brand to achieve this milestone. In 2021, making its debut on the grueling course, BAIC claimed first and second place in the rookie category and finished 13th overall. In 2023, BAIC broke through to finish 10th overall, earning the first FIA GT Championship points ever scored.',side:'left'},
+  {year:'2025',img:'2025.webp',i18n:'history.2025',desc:'Listed in Fortune Global 500 for thirteen years consecutively',side:'right'}
 ];
 
 const container=document.getElementById('tlItems');
@@ -115,7 +116,7 @@ items.forEach((item,i)=>{
   el.innerHTML=`
     <div class="hi-tl-card" style="${cardStyle}">
       <img src="${BASE}${item.img}" alt="${item.year}">
-      <div class="hi-tl-card-text">${item.desc}</div>
+      <div class="hi-tl-card-text" data-i18n="${item.i18n}">${item.desc}</div>
     </div>
     <div class="hi-tl-dot" style="${dotStyle}"></div>
     <div class="hi-tl-year" style="${yearStyle}">${item.year}</div>
@@ -125,6 +126,11 @@ items.forEach((item,i)=>{
 
   container.appendChild(el);
 });
+
+// Re-apply translations on the dynamically-inserted timeline cards
+if (window.baicTranslations) {
+  window.baicTranslations.setLang(window.baicTranslations.getCurrentLang());
+}
 
 // Car + reveal
 const car=document.getElementById('hiCar');
