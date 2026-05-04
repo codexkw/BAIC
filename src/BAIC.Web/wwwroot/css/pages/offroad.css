@@ -121,57 +121,68 @@
 .tl-desc{max-width:840px;margin:0 auto;text-align:justify;min-height:120px;transition:opacity .3s}
 .tl-desc p{font-size:18px;line-height:1.7;color:#333;letter-spacing:0;margin:0}
 
-/* RESPONSIVE — under 992px stack everything vertically */
+/* RESPONSIVE — under 992px: preserve visual identity (banner, ink circle, brushstrokes)
+   while stacking content cleanly. Bullets overlap onto the circle via negative margins,
+   matching the original baicglobal.com mobile layout. */
 @media(max-width:991px){
   /* HERO */
   .or-hero h1{font-size:13vw;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5);bottom:auto;top:8vw;right:auto;left:0;width:100%;text-align:center}
 
-  /* CANVAS — drop absolute positioning, stack content vertically with consistent gap */
-  .or-canvas{height:auto;display:flex;flex-direction:column;gap:6vw;padding:8vw 0 0;background:#f3f3f3;mix-blend-mode:normal;overflow:visible}
-  .or-canvas>*{position:relative;left:auto !important;right:auto !important;top:auto !important;width:100% !important;max-width:100% !important;height:auto !important;margin:0;transform:none !important}
+  /* CANVAS — flex column, no auto gap (sections handle their own spacing) */
+  .or-canvas{height:auto;display:flex;flex-direction:column;gap:0;padding:0 0 6vw;background:#fff;mix-blend-mode:normal;overflow:hidden}
+  .or-canvas>*{position:relative !important;left:auto !important;right:auto !important;top:auto !important;width:100% !important;max-width:100% !important;height:auto !important;margin:0;transform:none !important}
   .or-canvas img{max-width:100%;height:auto}
 
-  /* Hide pure decorative elements (top concrete band, narrow vertical brush, mid brushstroke band) */
+  /* Hide pure decorative elements that don't translate to mobile */
   .or-canvas .img_01,
   .or-canvas .img_03,
+  .or-canvas .img_07,
   .or-canvas .img_015{display:none !important}
 
-  /* Vehicle Integration heading — replace decorative brushstroke with clean section heading */
-  .or-canvas .img_02{display:block;background:transparent;padding:0 6vw;mix-blend-mode:normal;overflow:visible}
-  .or-canvas .img_02 > img{display:none}
-  .or-canvas .img_02 .title_1_p{position:static;font-size:7vw;font-weight:900;color:#000;text-shadow:none;text-align:left;margin:0;padding:0;line-height:1.2;width:100%;mix-blend-mode:normal;letter-spacing:normal}
+  /* SECTION 1 — Vehicle Integration: dark banner with brushstroke + white title */
+  .or-canvas .img_02{display:flex;align-items:center;background:#1a1a1a;padding:10vw 6vw 12vw;overflow:hidden;mix-blend-mode:normal}
+  .or-canvas .img_02 > img{display:block;position:absolute !important;bottom:-3vw;left:-5vw;width:120% !important;height:auto !important;filter:brightness(2.5);opacity:.3;pointer-events:none}
+  .or-canvas .img_02 .title_1_p{position:relative;z-index:2;color:#fff;font-size:7vw;font-weight:900;text-align:left;margin:0;padding:0;line-height:1.2;text-shadow:0 2px 8px rgba(0,0,0,.5);mix-blend-mode:normal;letter-spacing:normal}
+
+  /* SECTION 1 — Ink circle backdrop with car peeking from bottom */
+  .or-canvas .img_04{position:relative;padding:6vw 8vw 0;z-index:0}
+  .or-canvas .img_04 > img:first-child{display:block !important;width:100% !important;height:auto !important;opacity:.55}
+  .or-canvas .img_04 .img_06{position:absolute !important;top:auto !important;bottom:-10vw !important;left:50% !important;transform:translateX(-50%) !important;width:38% !important;height:auto !important;z-index:1}
 
   /* Bullet/body paragraphs */
-  .or-canvas .content_text{font-size:14px;line-height:1.7;padding:0 6vw;color:#000;margin:0}
+  .or-canvas .content_text{font-size:14px;line-height:1.7;color:#000}
   .or-canvas .content_text .img_05{display:none}
 
+  /* SECTION 1 — Bullets overlap onto the circle backdrop */
+  .or-canvas .text_1{margin:-90vw 0 0 !important;padding:0 12vw;z-index:2}
+  .or-canvas .text_2{margin:4vw 0 0 !important;padding:0 12vw;z-index:2}
+  .or-canvas .text_3{margin:4vw 0 25vw !important;padding:0 12vw;z-index:2}
+
   /* Section titles (Engineering Verification, Vehicle Production) */
-  .or-canvas .title{font-size:7vw;padding:0 6vw;line-height:1.2;height:auto;color:#000;font-weight:900;text-align:left;margin:0;width:100%;letter-spacing:normal}
+  .or-canvas .title{font-size:7vw;padding:8vw 6vw 4vw;line-height:1.2;height:auto;color:#000;font-weight:900;text-align:left;margin:0;width:100%;letter-spacing:normal}
 
-  /* img_04 — show only the BJ40 SE car (hide decorative ink circle) */
-  .or-canvas .img_04{padding:0 6vw}
-  .or-canvas .img_04 > img:first-child{display:none}
-  .or-canvas .img_04 .img_06{position:relative !important;width:100% !important;left:auto !important;top:auto !important;height:auto !important;margin:0;max-width:100% !important}
+  /* SECTION 2 — Engineering: title → text → composition image (reorder via flex order) */
+  .or-canvas .text_4{padding:0 6vw;margin:2vw 0}
+  .or-canvas .text_5{padding:0 6vw;margin:2vw 0}
+  .or-canvas .text_6{padding:0 6vw;margin:2vw 0 4vw}
 
-  /* Engineering hero photo */
-  .or-canvas .img_07 img{width:100%;height:auto}
-
-  /* Engineering composition — main photo + overlay stacked */
-  .or-canvas .img_08{padding:0}
+  .or-canvas .img_08{order:1;padding:4vw 0;margin:0}
   .or-canvas .img_08 > img{width:100%;height:auto;display:block}
   .or-canvas .img_08 .img_09{position:relative !important;width:100% !important;left:auto !important;top:auto !important;height:auto !important;margin:2vw 0 0;max-width:100% !important}
 
-  /* Cross-section red BJ40 — main photo + overlay stacked */
-  .or-canvas .img_010{padding:0 6vw}
+  /* Cross-section red BJ40 — after engineering composition */
+  .or-canvas .img_010{order:2;padding:4vw 6vw}
   .or-canvas .img_010 .img_10_1{width:100%;height:auto;display:block}
-  .or-canvas .img_010 .img_012{position:relative !important;width:100% !important;left:auto !important;top:auto !important;height:auto !important;margin:0;max-width:100% !important}
+  .or-canvas .img_010 .img_012{position:relative !important;width:100% !important;left:auto !important;top:auto !important;height:auto !important;margin:2vw 0 0;max-width:100% !important}
 
-  /* Factory image */
-  .or-canvas .img_011{padding:0}
+  /* SECTION 3 — Vehicle Production */
+  .or-canvas .title_2{order:3;margin:4vw 0 0}
+  .or-canvas .text_7{order:4;padding:0 6vw;margin:2vw 0 4vw}
+  .or-canvas .img_011{order:5;padding:0;margin:0}
   .or-canvas .img_011 img{width:100%;height:auto}
 
-  /* Black panel — High Designed Reliability: title, body, then background image stacked */
-  .or-canvas .img_013{height:auto;padding:10vw 0;color:#fff;background:#000;display:flex;flex-direction:column;gap:4vw;margin-top:6vw !important}
+  /* SECTION 4 — High Designed Reliability black panel */
+  .or-canvas .img_013{height:auto;padding:10vw 0;color:#fff;background:#000;display:flex;flex-direction:column;gap:4vw;margin-top:6vw;order:6}
   .or-canvas .img_013 .title_3{position:relative;left:auto;top:auto;width:100%;padding:0 6vw;font-size:7vw;color:#fff;font-weight:900;line-height:1.2;margin:0;height:auto;order:1;text-shadow:none}
   .or-canvas .img_013 .text_8{position:relative;left:auto;top:auto;width:100%;padding:0 6vw;font-size:14px;line-height:1.7;color:#fff;margin:0;order:2}
   .or-canvas .img_013 .img_013_1{position:relative;height:auto;width:100%;object-fit:initial;margin:4vw 0 0;transform:none;order:3}
