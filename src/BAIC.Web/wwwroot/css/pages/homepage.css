@@ -24,31 +24,33 @@
 .cat-tabs{display:flex;justify-content:center;gap:0;margin-bottom:36px;border-bottom:1px solid rgba(0,0,0,.08)}
 .cat-tab{padding:12px 28px;font-size:14px;color:#ababab;cursor:pointer;transition:all .3s;border-bottom:2px solid transparent;background:none;border-top:none;border-left:none;border-right:none;font-family:inherit}
 .cat-tab:hover,.cat-tab.active{color:#505051;border-bottom-color:#d1291a}
-.car-thumbs{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;max-width:1200px;margin:0 auto 30px;padding:0 20px}
-.car-thumb{width:140px;text-align:center;cursor:pointer;padding:10px;transition:all .35s ease;opacity:.4;position:relative;color:#4a4a4a}
+.car-thumbs{display:flex;justify-content:center;align-items:flex-end;gap:8px;flex-wrap:wrap;max-width:1680px;margin:0 auto 30px;padding:0 20px}
+.car-thumb{flex:1 1 0;min-width:0;max-width:280px;text-align:center;cursor:pointer;padding:10px;transition:all .35s ease;opacity:.35;position:relative;color:#4a4a4a;display:flex;flex-direction:column;align-items:center}
 .car-thumb:hover,.car-thumb.active{opacity:1}
-.car-thumb img{width:100%;margin-bottom:6px}
-.car-thumb span{font-size:11px;letter-spacing:1px;font-weight:500;white-space:nowrap;color:#4a4a4a}
+.car-thumb img{width:100%;height:auto;margin-top:8px;object-fit:contain;transition:filter .35s ease}
+.car-thumb:not(.active) img{filter:grayscale(.6)}
+.car-thumb span{font-family:Georgia,'Times New Roman',serif;font-style:italic;font-size:26px;font-weight:400;letter-spacing:0;white-space:nowrap;color:#bcbcbc;display:block;transition:color .3s}
+.car-thumb.active span,.car-thumb:hover span{color:#1f1f1f}
 .car-thumb::after{content:'';position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:0;height:2px;background:#d1291a;transition:width .3s ease}
 .car-thumb.active::after{width:60%}
 
 /* Enhanced 360 car view */
-.car-360-wrapper{position:relative;max-width:900px;margin:0 auto;text-align:center;padding:0 20px}
-.car-360-stage{position:relative;cursor:grab;user-select:none;-webkit-user-select:none;overflow:hidden;min-height:300px;display:flex;align-items:center;justify-content:center}
+.car-360-wrapper{position:relative;width:100%;max-width:none;margin:0 auto;text-align:center;padding:0;background-image:url('/images/baicglobal/_nuxt/car-bg.avif');background-size:100% auto;background-position:center;background-repeat:no-repeat}
+.car-360-stage{position:relative;cursor:grab;user-select:none;-webkit-user-select:none;overflow:visible;min-height:420px;display:flex;align-items:center;justify-content:center;max-width:1400px;margin:0 auto;padding:0 20px}
 .car-360-stage:active{cursor:grabbing}
-.car-360-stage img{width:100%;max-width:800px;margin:0 auto;transition:opacity .4s ease,transform .3s ease;pointer-events:none}
+.car-360-stage img{width:100%;max-width:1100px;margin:0 auto;transition:opacity .4s ease,transform .3s ease;pointer-events:none;position:relative;z-index:2}
 .car-360-stage img.loading{opacity:.3;transform:scale(.96)}
 .car-360-stage img.loaded{opacity:1;transform:scale(1)}
-.car-360-icon{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:.6;transition:opacity .3s}
-.car-360-stage:hover .car-360-icon{opacity:0}
+.car-360-icon{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);pointer-events:none;opacity:0;transition:opacity .25s,left .05s linear,top .05s linear;z-index:4;will-change:left,top}
 .car-360-loader{position:absolute;top:0;left:0;right:0;bottom:0;display:flex;align-items:center;justify-content:center;z-index:5;pointer-events:none;opacity:0;transition:opacity .3s}
 .car-360-loader.visible{opacity:1}
 .loader-spinner{width:36px;height:36px;border:3px solid rgba(0,0,0,.1);border-top-color:#d1291a;border-radius:50%;animation:spin .8s linear infinite}
 @keyframes spin{to{transform:rotate(360deg)}}
-.car-360-colors{display:flex;justify-content:center;gap:10px;margin:12px 0 4px}
-.color-swatch{width:24px;height:24px;border-radius:50%;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1);padding:0;outline:none}
-.color-swatch:hover{transform:scale(1.15)}
-.color-swatch.active{border-color:#d1291a;box-shadow:inset 0 0 0 1px rgba(0,0,0,.1),0 0 0 1px #d1291a}
+.car-360-colors{display:flex;align-items:center;justify-content:center;gap:14px;margin:8px auto 12px;max-width:900px;padding:0 20px;position:relative}
+.car-360-colors::before,.car-360-colors::after{content:'';flex:1;height:1px;background:rgba(0,0,0,.12)}
+.color-swatch{width:42px;height:42px;border-radius:0;border:2px solid transparent;cursor:pointer;transition:all .25s;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08);padding:0;outline:none;flex-shrink:0}
+.color-swatch:hover{transform:scale(1.1)}
+.color-swatch.active{border-color:#d1291a;box-shadow:inset 0 0 0 1px rgba(0,0,0,.08),0 0 0 1px #d1291a}
 .color-swatch.light{box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
 .color-swatch.light.active{box-shadow:inset 0 0 0 1px rgba(0,0,0,.15),0 0 0 1px #d1291a}
 .color-swatch.two-tone{box-shadow:inset 0 0 0 1px rgba(0,0,0,.15)}
@@ -57,28 +59,47 @@
 .car-360-btn{display:inline-block;padding:10px 32px;font-size:12px;font-weight:600;letter-spacing:1.5px;border:1px solid #000;color:#000;transition:all .3s;border-radius:50px}
 .car-360-btn:hover{background:#d1291a;border-color:#d1291a;color:#fff}
 
-/* CONTENT GRID */
-.content-grid{max-width:1400px;margin:0 auto;padding:0 16px 80px}
-.cgrid{display:grid;gap:8px;margin-bottom:8px}
-.cgrid-2{grid-template-columns:1fr 1fr}
-.cgrid-3{grid-template-columns:1fr 1fr 1fr}
-.cgrid-full{grid-template-columns:1fr}
-.cg-item{position:relative;overflow:hidden;cursor:pointer;display:block}
-.cg-item.tall{min-height:480px}
-.cg-item.med{min-height:280px}
-.cg-item img.cg-bg{width:100%;height:100%;object-fit:cover;position:absolute;inset:0;transition:transform .7s ease}
+/* CONTENT GRID — main 2-column layout (baicglobal.com) */
+.content-grid{margin:30px 0 0;padding:0 25px 80px}
+.cgrid-main{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:stretch}
+.cgrid-col{display:flex;flex-direction:column;gap:20px}
+.cg-item{position:relative;overflow:hidden;cursor:pointer;display:block;background:#000}
+.cgrid-col-left .cg-item{aspect-ratio:914/915}
+.cgrid-col-right .cg-item{flex:1;min-height:0}
+.cg-item img.cg-bg{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
 .cg-item:hover img.cg-bg{transform:scale(1.04)}
-.cg-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.75) 0%,rgba(0,0,0,.05) 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:28px 32px}
-.cg-overlay h3{font-size:17px;font-weight:600;letter-spacing:.8px;line-height:1.4;color:#fff}
-.cg-overlay p{font-size:12px;color:rgba(255,255,255,.55);line-height:1.7;margin-top:6px}
-.cg-overlay .vm{display:inline-block;margin-top:10px;font-size:11px;letter-spacing:1.5px;color:rgba(255,255,255,.7);border-bottom:1px solid rgba(255,255,255,.3);padding-bottom:2px}
+.cg-title{position:absolute;left:5%;top:6%;margin:0;color:#fff;font-size:clamp(14px,1.6vw,22px);font-weight:600;letter-spacing:1.2px;text-shadow:0 2px 12px rgba(0,0,0,.45);pointer-events:none}
+[dir="rtl"] .cg-title{left:auto;right:5%}
+.cg-item-cta .cg-bg{filter:brightness(.55)}
+.cg-cta{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:18px;padding:0 6%;color:#fff;pointer-events:none}
+.cg-cta h3{font-size:clamp(16px,1.8vw,28px);font-weight:600;letter-spacing:2px;line-height:1.4;margin:0}
+.cg-view-more{display:inline-block;padding:10px 28px;border:1px solid rgba(255,255,255,.7);font-size:11px;letter-spacing:2px;color:#fff;transition:background .25s,color .25s}
+.cg-item-cta:hover .cg-view-more{background:#fff;color:#1a1a1a}
 
-/* WORLD SECTION */
-.world{padding:80px 0;background:#222833;text-align:center;color:#fff}
-.world h3{font-size:18px;font-weight:600;letter-spacing:2px;margin-bottom:6px;color:#fff}
-.world p{font-size:14px;color:rgba(255,255,255,.45);margin-bottom:30px}
-.world-map{max-width:1000px;margin:0 auto;padding:0 20px}
-.world-map canvas{width:100%;height:auto;display:block}
+/* WORLD SECTION — image map with positioned dealer pins (baicglobal.com) */
+.world{padding:60px 0;background:#1a1f2e;text-align:center;color:#fff}
+.world h3{font-size:clamp(18px,1.6vw,28px);font-weight:600;letter-spacing:2px;margin-bottom:8px;color:#fff}
+.world p{font-size:clamp(13px,1vw,16px);color:rgba(255,255,255,.55);margin-bottom:30px}
+.world-map{position:relative;max-width:1680px;margin:0 auto;padding:0 25px}
+.world-map .map-bg{display:block;width:100%;height:auto}
+.world-map .dealer-list{position:absolute;inset:0 25px;pointer-events:none}
+.dealer-item{position:absolute;width:18px;height:22px;margin:-22px 0 0 -9px;background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 28'><path fill='white' d='M12 0C5.4 0 0 5.4 0 12c0 8.4 12 16 12 16s12-7.6 12-16C24 5.4 18.6 0 12 0zm0 16.5a4.5 4.5 0 1 1 0-9 4.5 4.5 0 0 1 0 9z'/></svg>") center/contain no-repeat;filter:drop-shadow(0 1px 2px rgba(0,0,0,.4));pointer-events:auto;cursor:pointer;transition:transform .2s}
+.dealer-item:hover{transform:scale(1.18)}
+.dealer-item.highlight{filter:drop-shadow(0 0 8px rgba(255,255,255,.7));z-index:2}
+
+/* Dealer popup card */
+.dealer-popup{position:absolute;width:240px;background:#fff;border-radius:6px;box-shadow:0 12px 36px rgba(0,0,0,.35);transform:translate(-50%,calc(-100% - 14px)) scale(.96);transform-origin:bottom center;opacity:0;transition:opacity .18s ease,transform .18s ease;z-index:20;pointer-events:auto;color:#222;text-align:left;font-family:Arial,Helvetica,sans-serif}
+.dealer-popup.active{opacity:1;transform:translate(-50%,calc(-100% - 14px)) scale(1)}
+.dealer-popup::after{content:'';position:absolute;left:50%;bottom:-8px;transform:translateX(-50%);border:8px solid transparent;border-top-color:#fff;border-bottom:0}
+.dealer-popup-close{position:absolute;top:10px;left:10px;width:28px;height:28px;border-radius:50%;border:1px solid #ddd;background:#fff;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:18px;color:#888;padding:0;line-height:1;z-index:2;transition:color .2s,border-color .2s}
+.dealer-popup-close:hover{color:#222;border-color:#aaa}
+.dealer-popup-flag{width:100%;aspect-ratio:3/2;background-color:#f5f5f5;background-size:contain;background-position:center;background-repeat:no-repeat;margin-top:46px;border-bottom:1px solid #f0f0f0}
+.dealer-popup-info{padding:14px 16px}
+.dealer-popup-name{margin:0 0 10px;font-size:16px;font-weight:700;color:#222}
+.dealer-popup-links{display:flex;gap:8px}
+.dealer-popup-link{display:flex;align-items:center;justify-content:center;width:30px;height:30px;border-radius:4px;background:#1c1f2e;color:#fff;transition:background .2s}
+.dealer-popup-link:hover{background:#d1291a}
+.dealer-popup-link svg{width:14px;height:14px;fill:#fff}
 
 /* NEWS */
 .news{padding:80px 0;background:#fff}
@@ -99,22 +120,45 @@
 .news-arrow.left{left:10px}
 .news-arrow.right{right:10px}
 
-/* SIDEBAR */
-.sidebar{position:fixed;right:0;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;background:#fff;border-radius:4px 0 0 4px;overflow:hidden;box-shadow:-2px 0 8px rgba(0,0,0,.08);border:1px solid #e5e7eb;border-right:none}
-.sidebar a,.sidebar button{display:flex;align-items:center;justify-content:center;width:44px;height:44px;color:#666;transition:background .3s;background:none;border:none;cursor:pointer}
-.sidebar a:hover,.sidebar button:hover{background:rgba(0,0,0,.04);color:#d1291a}
-.sidebar svg{width:18px;height:18px;fill:#666}
-.sidebar a:hover svg,.sidebar button:hover svg{fill:#d1291a}
-.sidebar .sep{width:100%;height:1px;background:rgba(0,0,0,.08)}
+/* INDEX CAPITAL (BAIC About teaser) — full-bleed */
+.index-capital-section{margin:30px 0 0;width:100%;padding:0}
+.index-capital-section .capital-link{display:block;position:relative;overflow:hidden}
+.index-capital-section .capital-img{display:block;width:100%;height:auto;object-fit:cover;transition:transform .8s ease}
+.index-capital-section .capital-link:hover .capital-img{transform:scale(1.04)}
+.index-capital-section .capital-text{position:absolute;top:50%;left:8%;transform:translateY(-50%);display:flex;flex-direction:column;align-items:flex-start;gap:10px;pointer-events:none}
+.index-capital-section .capital-logo{display:block;width:clamp(140px,16vw,280px);height:auto;filter:drop-shadow(0 2px 12px rgba(0,0,0,.25))}
+.index-capital-section .capital-tagline{font-family:Arial,Helvetica,sans-serif;font-size:clamp(11px,1vw,16px);letter-spacing:3px;color:#fff;text-shadow:0 2px 12px rgba(0,0,0,.35);font-weight:400}
+[dir="rtl"] .index-capital-section .capital-text{left:auto;right:8%;align-items:flex-end}
+
+/* SIDEBAR — floating dark circular icons (baicglobal.com style) */
+.sidebar{position:fixed;right:16px;top:50%;transform:translateY(-50%);z-index:90;display:flex;flex-direction:column;gap:14px;background:none;border:none;box-shadow:none}
+.sidebar a,.sidebar button{display:flex;align-items:center;justify-content:center;width:46px;height:46px;border-radius:50%;background:#1c1f2e;color:#fff;border:none;cursor:pointer;transition:background .25s,transform .2s;box-shadow:0 2px 8px rgba(0,0,0,.22)}
+.sidebar a:hover,.sidebar button:hover{background:#d1291a;transform:scale(1.06)}
+.sidebar svg{width:18px;height:18px;fill:#fff}
+.sidebar a:hover svg,.sidebar button:hover svg{fill:#fff}
+.sidebar .sep{display:none}
+.sidebar.collapsed > *:not(.sidebar-fold){display:none}
+.sidebar.collapsed .sidebar-fold svg{transform:rotate(45deg);transition:transform .25s}
 
 /* ========== RESPONSIVE ========== */
 @media(max-width:1024px){
-  .cgrid-2,.cgrid-3{grid-template-columns:1fr 1fr}
+  .cgrid-main{gap:14px}
+  .cgrid-col{gap:14px}
+  .cg-cta h3{font-size:18px;letter-spacing:1.5px}
   .car-thumbs{gap:4px}
-  .car-thumb{width:110px}
+  .car-thumb{padding:6px}
+  .car-thumb span{font-size:18px}
+  .car-360-stage{min-height:320px}
+  .car-360-stage img{max-width:780px}
+  .color-swatch{width:34px;height:34px}
 }
 @media(max-width:768px){
-  .cgrid-2,.cgrid-3{grid-template-columns:1fr}
+  .cgrid-main{grid-template-columns:1fr;gap:12px}
+  .cgrid-col{gap:12px}
+  .cgrid-col-right .cg-item{aspect-ratio:914/915;flex:none}
+  .cg-title{font-size:14px;letter-spacing:1px}
+  .cg-cta h3{font-size:16px}
+  .cg-view-more{padding:8px 22px;font-size:10px}
   .hero{height:auto;aspect-ratio:16/9}
   .hero-slide-content{padding-bottom:60px}
   .hero-model-text{font-size:28px;letter-spacing:2px;margin-bottom:18px}
@@ -127,15 +171,16 @@
   .hero-dot{width:24px;height:2px}
   .hero-dot.active{width:34px}
   .car-thumbs{gap:2px;padding:0 10px}
-  .car-thumb{width:80px;padding:6px}
-  .car-thumb span{font-size:9px}
+  .car-thumb{padding:4px;flex:1 1 calc(33.333% - 4px);max-width:none}
+  .car-thumb span{font-size:14px}
+  .car-360-stage{min-height:240px}
+  .car-360-stage img{max-width:100%}
+  .car-360-colors{gap:8px;padding:0 10px}
+  .color-swatch{width:28px;height:28px}
+  .car-360-icon svg{width:36px;height:36px}
   .car-360-btn{padding:8px 20px;font-size:11px}
   .section-title{font-size:16px;letter-spacing:1px}
-  .content-grid{padding:0 10px 40px}
-  .cg-item.tall{min-height:320px}
-  .cg-item.med{min-height:200px}
-  .cg-overlay{padding:20px}
-  .cg-overlay h3{font-size:14px}
+  .content-grid{padding:0 12px 40px}
   .world{padding:50px 0}
   .world h3{font-size:16px}
   .world-map{padding:0 10px}
@@ -143,7 +188,10 @@
   .news-scroll-wrap{padding:0 20px}
   .news-card{flex:0 0 240px;min-width:220px}
   .news-arrow{width:30px;height:30px;font-size:14px}
-  .sidebar{display:none}
+  .sidebar{right:8px;gap:8px}
+  .sidebar a,.sidebar button{width:36px;height:36px}
+  .sidebar svg{width:14px;height:14px}
+  [dir="rtl"] .sidebar{right:auto;left:8px}
   .explore{padding:50px 0}
   .cat-tab{padding:10px 16px;font-size:13px}
 }
