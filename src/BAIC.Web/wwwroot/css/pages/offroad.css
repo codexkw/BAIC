@@ -123,21 +123,61 @@
 
 /* RESPONSIVE — under 992px stack everything vertically */
 @media(max-width:991px){
+  /* HERO */
   .or-hero h1{font-size:13vw;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5);bottom:auto;top:8vw;right:auto;left:0;width:100%;text-align:center}
-  .or-canvas{height:auto;display:flex;flex-direction:column;padding:6vw 0;mix-blend-mode:normal}
-  .or-canvas>*{position:relative;left:auto !important;right:auto !important;top:auto !important;width:100% !important;max-width:100% !important;height:auto !important;margin:0 0 4vw;transform:none !important}
-  .or-canvas img{width:100% !important;height:auto;max-width:100%}
-  .or-canvas .img_02{mix-blend-mode:normal}
-  .or-canvas .img_02 .title_1_p{position:relative;font-size:7vw;color:#0a0a0a;text-shadow:none}
-  .or-canvas .content_text{font-size:14px;padding:0 6vw;line-height:1.7}
+
+  /* CANVAS — drop absolute positioning, stack content vertically with consistent gap */
+  .or-canvas{height:auto;display:flex;flex-direction:column;gap:6vw;padding:8vw 0 0;background:#f3f3f3;mix-blend-mode:normal;overflow:visible}
+  .or-canvas>*{position:relative;left:auto !important;right:auto !important;top:auto !important;width:100% !important;max-width:100% !important;height:auto !important;margin:0;transform:none !important}
+  .or-canvas img{max-width:100%;height:auto}
+
+  /* Hide pure decorative elements (top concrete band, narrow vertical brush, mid brushstroke band) */
+  .or-canvas .img_01,
+  .or-canvas .img_03,
+  .or-canvas .img_015{display:none !important}
+
+  /* Vehicle Integration heading — replace decorative brushstroke with clean section heading */
+  .or-canvas .img_02{display:block;background:transparent;padding:0 6vw;mix-blend-mode:normal;overflow:visible}
+  .or-canvas .img_02 > img{display:none}
+  .or-canvas .img_02 .title_1_p{position:static;font-size:7vw;font-weight:900;color:#000;text-shadow:none;text-align:left;margin:0;padding:0;line-height:1.2;width:100%;mix-blend-mode:normal;letter-spacing:normal}
+
+  /* Bullet/body paragraphs */
+  .or-canvas .content_text{font-size:14px;line-height:1.7;padding:0 6vw;color:#000;margin:0}
   .or-canvas .content_text .img_05{display:none}
-  .or-canvas .title{font-size:7vw;padding:6vw;line-height:1.2;height:auto}
-  .or-canvas .img_013{height:auto;padding:8vw 6vw 30vw;color:#fff;background:#000}
-  .or-canvas .img_013 .img_013_1{position:relative;height:auto;width:100%;margin-top:8vw}
+
+  /* Section titles (Engineering Verification, Vehicle Production) */
+  .or-canvas .title{font-size:7vw;padding:0 6vw;line-height:1.2;height:auto;color:#000;font-weight:900;text-align:left;margin:0;width:100%;letter-spacing:normal}
+
+  /* img_04 — show only the BJ40 SE car (hide decorative ink circle) */
+  .or-canvas .img_04{padding:0 6vw}
+  .or-canvas .img_04 > img:first-child{display:none}
+  .or-canvas .img_04 .img_06{position:relative !important;width:100% !important;left:auto !important;top:auto !important;height:auto !important;margin:0;max-width:100% !important}
+
+  /* Engineering hero photo */
+  .or-canvas .img_07 img{width:100%;height:auto}
+
+  /* Engineering composition — main photo + overlay stacked */
+  .or-canvas .img_08{padding:0}
+  .or-canvas .img_08 > img{width:100%;height:auto;display:block}
+  .or-canvas .img_08 .img_09{position:relative !important;width:100% !important;left:auto !important;top:auto !important;height:auto !important;margin:2vw 0 0;max-width:100% !important}
+
+  /* Cross-section red BJ40 — main photo + overlay stacked */
+  .or-canvas .img_010{padding:0 6vw}
+  .or-canvas .img_010 .img_10_1{width:100%;height:auto;display:block}
+  .or-canvas .img_010 .img_012{position:relative !important;width:100% !important;left:auto !important;top:auto !important;height:auto !important;margin:0;max-width:100% !important}
+
+  /* Factory image */
+  .or-canvas .img_011{padding:0}
+  .or-canvas .img_011 img{width:100%;height:auto}
+
+  /* Black panel — High Designed Reliability: title, body, then background image stacked */
+  .or-canvas .img_013{height:auto;padding:10vw 0;color:#fff;background:#000;display:flex;flex-direction:column;gap:4vw;margin-top:6vw !important}
+  .or-canvas .img_013 .title_3{position:relative;left:auto;top:auto;width:100%;padding:0 6vw;font-size:7vw;color:#fff;font-weight:900;line-height:1.2;margin:0;height:auto;order:1;text-shadow:none}
+  .or-canvas .img_013 .text_8{position:relative;left:auto;top:auto;width:100%;padding:0 6vw;font-size:14px;line-height:1.7;color:#fff;margin:0;order:2}
+  .or-canvas .img_013 .img_013_1{position:relative;height:auto;width:100%;object-fit:initial;margin:4vw 0 0;transform:none;order:3}
   .or-canvas .img_013 .img_014{display:none}
-  .or-canvas .img_013 .title_3,.or-canvas .img_013 .text_8{position:relative;left:auto;top:auto;width:100%;padding:0 6vw;font-size:6vw}
-  .or-canvas .img_013 .text_8{font-size:14px}
-  .or-canvas .img_04 .img_06,.or-canvas .img_08 .img_09,.or-canvas .img_010 .img_012{position:relative;width:100% !important;left:auto !important;top:auto !important}
+
+  /* TIMELINE */
   .tl-container{padding:0 20px}
   .tl-arrow{display:none}
   .tl-image-wrap{aspect-ratio:16/10}
