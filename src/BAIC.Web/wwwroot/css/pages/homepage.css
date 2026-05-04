@@ -101,24 +101,17 @@
 .dealer-popup-link:hover{background:#d1291a}
 .dealer-popup-link svg{width:14px;height:14px;fill:#fff}
 
-/* NEWS */
-.news{padding:80px 0;background:#fff}
-.news-scroll-wrap{max-width:1400px;margin:0 auto;position:relative;padding:0 40px}
-.news-scroll{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px}
-.news-scroll::-webkit-scrollbar{display:none}
-.news-card{flex:0 0 calc(25% - 12px);min-width:260px;scroll-snap-align:start;background:#fff;overflow:hidden;transition:transform .3s;display:block;border:1px solid #e5e7eb;border-radius:4px}
-.news-card:hover{transform:translateY(-3px);box-shadow:0 4px 12px rgba(0,0,0,.08)}
-.news-card-img{width:100%;aspect-ratio:16/10;overflow:hidden}
-.news-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
-.news-card:hover .news-card-img img{transform:scale(1.04)}
-.news-card-body{padding:16px 14px}
-.news-card-body h4{font-size:12px;font-weight:500;line-height:1.7;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;color:#000}
-.show-more{display:block;text-align:center;margin-top:28px;font-size:12px;letter-spacing:2px;color:#929292;cursor:pointer;text-transform:uppercase}
-.show-more:hover{color:#d1291a}
-.news-arrow{position:absolute;top:50%;transform:translateY(-80%);width:36px;height:36px;background:#fff;border:1px solid #e5e7eb;display:flex;align-items:center;justify-content:center;cursor:pointer;color:#000;font-size:18px;z-index:5;transition:all .3s;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,.08)}
-.news-arrow:hover{background:#f5f5f5;border-color:#ccc}
-.news-arrow.left{left:10px}
-.news-arrow.right{right:10px}
+/* NEWS FEEDS — 3x3 static grid */
+.news{padding:60px 0 40px;background:#fff}
+.news .section-title{text-align:center;font-size:clamp(18px,1.8vw,28px);font-weight:700;letter-spacing:2px;margin-bottom:30px;color:#222}
+.news-grid{max-width:1680px;margin:0 auto;padding:0 25px;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.news-card{position:relative;display:block;overflow:hidden;background:#000;aspect-ratio:610/531}
+.news-card-img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s ease}
+.news-card:hover .news-card-img{transform:scale(1.05)}
+.news-card-title{position:absolute;left:0;right:0;bottom:0;padding:60px 24px 22px;color:#fff;font-size:clamp(13px,1vw,16px);font-weight:600;line-height:1.4;letter-spacing:.5px;text-transform:uppercase;background:linear-gradient(to top,rgba(0,0,0,.85) 0%,rgba(0,0,0,.45) 60%,transparent 100%);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.news-show-more-wrap{display:flex;justify-content:center;margin-top:36px}
+.news-show-more{display:inline-block;padding:12px 36px;border:1px solid #d8d8d8;font-size:12px;letter-spacing:2px;color:#666;text-transform:uppercase;transition:background .2s,color .2s,border-color .2s}
+.news-show-more:hover{background:#d1291a;color:#fff;border-color:#d1291a}
 
 /* INDEX CAPITAL (BAIC About teaser) — full-bleed */
 .index-capital-section{margin:30px 0 0;width:100%;padding:0}
@@ -185,9 +178,9 @@
   .world h3{font-size:16px}
   .world-map{padding:0 10px}
   .news{padding:50px 0}
-  .news-scroll-wrap{padding:0 20px}
-  .news-card{flex:0 0 240px;min-width:220px}
-  .news-arrow{width:30px;height:30px;font-size:14px}
+  .news-grid{grid-template-columns:1fr;gap:14px;padding:0 14px}
+  .news-card-title{padding:40px 16px 16px;font-size:13px;letter-spacing:.3px}
+  .news-show-more{padding:10px 28px;font-size:11px}
   .sidebar{right:8px;gap:8px}
   .sidebar a,.sidebar button{width:36px;height:36px}
   .sidebar svg{width:14px;height:14px}
