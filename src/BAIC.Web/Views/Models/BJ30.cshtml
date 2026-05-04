@@ -19,14 +19,30 @@
 
 <!-- VIDEO SECTION -->
 <section class="video-section">
-  <img src="~/images/baicglobal/file/public/static/bj30/images/视频.jpg" alt="BJ30 Video">
-  <div class="play-btn"></div>
+  <video src="~/images/baicglobal/file/public/static/bj30/BJ30.mp4"
+         poster="~/images/baicglobal/file/public/static/bj30/images/视频.jpg"
+         preload="metadata" controls playsinline loop>
+  </video>
 </section>
 
 <!-- COLOR PICKER -->
 <section class="color-section">
-  <div class="color-car">
-    <img id="colorCarImg" src="~/images/baicglobal/file/public/static/bj30/images/color/绿.png" alt="BJ30 Colors">
+  <div class="color-bg">
+    <img src="~/images/baicglobal/file/public/static/bj30/images/color-bg.jpg" alt="">
+  </div>
+  <button class="palette-toggle" id="paletteToggle" aria-label="Toggle color picker" type="button">
+    <img src="~/images/baicglobal/nuxt/open.png" alt="">
+  </button>
+  <div class="color-stage">
+    <div class="color-track" id="colorTrack">
+      <div class="color-slide active" data-color="绿"><img src="~/images/baicglobal/file/public/static/bj30/images/color/绿.png" alt="BJ30 Green"></div>
+      <div class="color-slide" data-color="白"><img src="~/images/baicglobal/file/public/static/bj30/images/color/白.png" alt="BJ30 White"></div>
+      <div class="color-slide" data-color="灰"><img src="~/images/baicglobal/file/public/static/bj30/images/color/灰.png" alt="BJ30 Grey"></div>
+      <div class="color-slide" data-color="天青蓝"><img src="~/images/baicglobal/file/public/static/bj30/images/color/天青蓝.png" alt="BJ30 Sky Blue"></div>
+      <div class="color-slide" data-color="黑"><img src="~/images/baicglobal/file/public/static/bj30/images/color/黑.png" alt="BJ30 Black"></div>
+      <div class="color-slide" data-color="泡泡灰"><img src="~/images/baicglobal/file/public/static/bj30/images/color/泡泡灰.png" alt="BJ30 Bubble Grey"></div>
+      <div class="color-slide" data-color="铂金灰"><img src="~/images/baicglobal/file/public/static/bj30/images/color/铂金灰.png" alt="BJ30 Platinum Grey"></div>
+    </div>
   </div>
   <div class="color-dots" id="colorDots">
     <div class="color-dot active" style="background:#5a7a4a" data-color="绿" title="Green"></div>
@@ -36,6 +52,26 @@
     <div class="color-dot" style="background:#1a1a1a" data-color="黑" title="Black"></div>
     <div class="color-dot" style="background:#b8b0a8" data-color="泡泡灰" title="Bubble Grey"></div>
     <div class="color-dot" style="background:#8a8580" data-color="铂金灰" title="Platinum Grey"></div>
+  </div>
+</section>
+
+<!-- EXQUISITE PICTURE CAROUSEL -->
+<section class="exquisite-picture">
+  <div class="exq-track" id="exqTrack">
+    <div class="exq-slide"><img src="~/images/baicglobal/file/common/image/2024/10/29/1_20241029181932A206.jpg" alt="BAIC BJ30"></div>
+    <div class="exq-slide"><img src="~/images/baicglobal/file/common/image/2024/10/29/2_20241029181938A207.jpg" alt="BAIC BJ30"></div>
+    <div class="exq-slide"><img src="~/images/baicglobal/file/common/image/2024/10/29/3_20241029181944A208.jpg" alt="BAIC BJ30"></div>
+    <div class="exq-slide"><img src="~/images/baicglobal/file/common/image/2024/10/29/4_20241029181950A209.jpg" alt="BAIC BJ30"></div>
+    <div class="exq-slide"><img src="~/images/baicglobal/file/common/image/2024/10/29/5_20241029181955A210.jpg" alt="BAIC BJ30"></div>
+    <div class="exq-slide"><img src="~/images/baicglobal/file/common/image/2024/10/29/6_20241029182001A211.jpg" alt="BAIC BJ30"></div>
+  </div>
+  <div class="exq-dots" id="exqDots">
+    <button class="exq-dot active" data-i="0" aria-label="Slide 1"></button>
+    <button class="exq-dot" data-i="1" aria-label="Slide 2"></button>
+    <button class="exq-dot" data-i="2" aria-label="Slide 3"></button>
+    <button class="exq-dot" data-i="3" aria-label="Slide 4"></button>
+    <button class="exq-dot" data-i="4" aria-label="Slide 5"></button>
+    <button class="exq-dot" data-i="5" aria-label="Slide 6"></button>
   </div>
 </section>
 
@@ -156,15 +192,15 @@
     </div>
     <div class="safety-stats">
       <div class="safety-stat">
-        <div class="val">78.4 <span>%</span></div>
+        <div class="val">63.4 <span>%</span></div>
         <div class="lbl" data-i18n="bj30.highStrengthSteel">HIGH-STRENGTH STEEL</div>
       </div>
       <div class="safety-stat">
-        <div class="val">30000 <span>N·M</span></div>
+        <div class="val">25420 <span>N·M</span></div>
         <div class="lbl" data-i18n="bj30.maxTorsionalStiffness">MAXIMUM TORSIONAL STIFFNESS</div>
       </div>
       <div class="safety-stat">
-        <div class="val">8 <span>POSITIONS</span></div>
+        <div class="val">20 <span>POSITIONS</span></div>
         <div class="lbl" data-i18n="bj30.thermalFormedSteel">THERMAL FORMED STEEL</div>
       </div>
     </div>
@@ -178,7 +214,7 @@
 <!-- ATS -->
 <section class="feature">
   <div class="feature-full" style="min-height:80vh">
-    <img src="~/images/baicglobal/file/public/static/bj30/images/pc/kv.jpg" alt="ATS">
+    <img src="~/images/baicglobal/file/public/static/bj30/images/pc/ATS.jpg" alt="ATS">
     <div class="feature-overlay">
       <h3 data-i18n="bj30.feat6Title">All-terrain control system (ATS)</h3>
       <p data-i18n="bj30.feat6Desc">The all-terrain control system can automatically optimize various control systems of the vehicle so that the vehicle can adapt to different terrains.</p>
@@ -195,30 +231,6 @@
     <div class="hl-dot" style="top:35%;left:75%"><span data-i18n="bj30.hlPersonalityMark">Personality mark Reserved place</span></div>
     <div class="hl-dot" style="top:50%;left:20%"><span data-i18n="bj30.hlEyebrowLamp">Personality ritual feeling round eyebrow lamp</span></div>
     <div class="hl-dot" style="top:65%;left:60%"><span data-i18n="bj30.hlScratchProof">Scratch-proof design</span></div>
-  </div>
-</section>
-
-<!-- APPROACH / DEPARTURE ANGLES -->
-<section class="angles">
-  <div class="angle-item">
-    <div class="angle-img">
-      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-        <line x1="10" y1="70" x2="70" y2="70" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
-        <line x1="10" y1="70" x2="40" y2="30" stroke="#fff" stroke-width="2"/>
-        <text x="20" y="55" fill="#fff" font-size="16" font-weight="700">25°</text>
-      </svg>
-    </div>
-    <div class="angle-label" data-i18n="model.approachAngle">Approach Angle</div>
-  </div>
-  <div class="angle-item">
-    <div class="angle-img">
-      <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg">
-        <line x1="10" y1="70" x2="70" y2="70" stroke="rgba(255,255,255,.3)" stroke-width="1"/>
-        <line x1="70" y1="70" x2="40" y2="30" stroke="#fff" stroke-width="2"/>
-        <text x="30" y="55" fill="#fff" font-size="16" font-weight="700">30°</text>
-      </svg>
-    </div>
-    <div class="angle-label" data-i18n="model.departureAngle">Departure Angle</div>
   </div>
 </section>
 
@@ -272,21 +284,85 @@
 
 @section Scripts {
 <script>
-// Color picker
+// Color picker — palette toggle reveals the dots; clicking a dot cross-fades the slide
+const paletteToggle = document.getElementById('paletteToggle');
+const colorSection = document.querySelector('.color-section');
+if (paletteToggle && colorSection) {
+  paletteToggle.addEventListener('click', () => {
+    colorSection.classList.toggle('palette-open');
+  });
+}
 document.querySelectorAll('.color-dot').forEach(dot=>{
   dot.addEventListener('click',()=>{
+    const colorName = dot.dataset.color;
     document.querySelectorAll('.color-dot').forEach(d=>d.classList.remove('active'));
     dot.classList.add('active');
-    const colorName = dot.dataset.color;
-    const img = document.getElementById('colorCarImg');
-    img.style.opacity='0.3';
-    const newSrc = `https://www.baicglobal.com/file/public/static/bj30/images/color/${encodeURIComponent(colorName)}.png`;
-    const testImg = new Image();
-    testImg.onload = () => { img.src = newSrc; img.style.opacity='1'; };
-    testImg.onerror = () => { img.style.opacity='1'; };
-    testImg.src = newSrc;
+    document.querySelectorAll('.color-slide').forEach(s=>{
+      s.classList.toggle('active', s.dataset.color === colorName);
+    });
   });
 });
+
+// Exquisite-picture carousel — translate track by index*(slide+gap), with drag support
+(function(){
+  const track = document.getElementById('exqTrack');
+  if (!track) return;
+  const slides = track.querySelectorAll('.exq-slide');
+  const dots = document.querySelectorAll('.exq-dot');
+  const total = slides.length;
+  let idx = 0;
+  const setIdx = (i) => {
+    idx = (i + total) % total;
+    const slide = slides[0];
+    const styles = getComputedStyle(slide);
+    const gap = parseFloat(getComputedStyle(track).gap || 0);
+    const slideW = slide.getBoundingClientRect().width;
+    const containerW = track.parentElement.getBoundingClientRect().width;
+    // center the active slide
+    const offset = (containerW / 2) - (slideW / 2) - idx * (slideW + gap);
+    track.style.transform = `translate3d(${offset}px,0,0)`;
+    slides.forEach((s, j) => s.classList.toggle('active', j === idx));
+    dots.forEach((d, j) => d.classList.toggle('active', j === idx));
+  };
+  dots.forEach(d => d.addEventListener('click', () => setIdx(parseInt(d.dataset.i, 10))));
+  slides.forEach((s, j) => s.addEventListener('click', () => { if (j !== idx) setIdx(j); }));
+  // drag / swipe
+  let downX = null, downIdx = 0;
+  const onDown = (e) => { downX = (e.touches ? e.touches[0].clientX : e.clientX); downIdx = idx; track.style.transition = 'none'; };
+  const onMove = (e) => {
+    if (downX == null) return;
+    const x = (e.touches ? e.touches[0].clientX : e.clientX);
+    const dx = x - downX;
+    const slideW = slides[0].getBoundingClientRect().width;
+    const gap = parseFloat(getComputedStyle(track).gap || 0);
+    const containerW = track.parentElement.getBoundingClientRect().width;
+    const baseOffset = (containerW / 2) - (slideW / 2) - downIdx * (slideW + gap);
+    track.style.transform = `translate3d(${baseOffset + dx}px,0,0)`;
+  };
+  const onUp = (e) => {
+    if (downX == null) return;
+    const x = (e.changedTouches ? e.changedTouches[0].clientX : e.clientX);
+    const dx = x - downX;
+    track.style.transition = '';
+    const slideW = slides[0].getBoundingClientRect().width;
+    const threshold = slideW / 4;
+    let next = downIdx;
+    if (dx > threshold) next = downIdx - 1;
+    else if (dx < -threshold) next = downIdx + 1;
+    setIdx(Math.max(0, Math.min(total - 1, next)));
+    downX = null;
+  };
+  track.addEventListener('mousedown', onDown);
+  window.addEventListener('mousemove', onMove);
+  window.addEventListener('mouseup', onUp);
+  track.addEventListener('touchstart', onDown, { passive: true });
+  track.addEventListener('touchmove', onMove, { passive: true });
+  track.addEventListener('touchend', onUp);
+  window.addEventListener('resize', () => setIdx(idx));
+  // initial layout once images report size
+  if (document.readyState === 'complete') setIdx(0);
+  else window.addEventListener('load', () => setIdx(0));
+})();
 
 // Split feature tabs
 document.querySelectorAll('.feature-split-tabs').forEach(tabGroup => {
