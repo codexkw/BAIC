@@ -1,91 +1,146 @@
-/* ========== OFF ROAD ========== */
-body{background:#000;color:#fff}
+/* ========== OFF ROAD ==========
+   Reference width: 1435px. Positions converted from baicglobal computed styles
+   into vw so the layered comp scales with viewport. */
 
 /* HERO */
-.or-hero{position:relative;width:100%;overflow:hidden}
+.or-hero{position:relative;width:100%;overflow:hidden;background:#000}
 .or-hero>img{display:block;width:100%;height:auto}
 .or-hero-overlay{position:absolute;inset:0;background:rgba(0,0,0,.15)}
 .or-hero h1{position:absolute;bottom:15.5vw;right:10vw;color:#fff;font-size:4.5vw;font-weight:900;letter-spacing:.04em;margin:0;z-index:2}
 
-/* CANVAS — layered absolute composition mirroring original Nuxt page */
-.or-canvas{position:relative;width:100%;height:295vw;overflow:hidden}
+/* CANVAS — transparent (img_01 + img_015 + img_011 provide the textured bg)
+   so the page reads as light grey/white with brushstroke accents. */
+.or-canvas{position:relative;width:100%;height:296vw;overflow:hidden;background:#f3f3f3;color:#000}
 .or-canvas>*{position:absolute}
 .or-canvas img{max-width:none;display:block}
 
-/* Image positions (in vw to scale with viewport) */
-.or-canvas .img_02{left:0;top:0;width:83vw;mix-blend-mode:darken}
-.or-canvas .img_02 img{width:100%}
-.or-canvas .img_03{left:0;top:25vw;width:50vw}
+/* img_01 — full-width concrete-texture band at the top */
+.or-canvas .img_01{left:0;top:0;width:100vw;height:24.78vw;overflow:hidden}
+.or-canvas .img_01 img{width:100.42vw;height:100%;display:block}
+
+/* img_02 — large brushstroke + title overlay (mix-blend-mode darken so it integrates with bg) */
+.or-canvas .img_02{left:0;top:0;width:83.34vw;height:26.36vw;overflow:hidden;mix-blend-mode:darken}
+.or-canvas .img_02 img{width:100%;display:block}
+.or-canvas .img_02 .title_1_p{position:absolute;left:7vw;top:6vw;width:auto;text-align:left;color:#fff;margin:0;padding:0;z-index:2;font-size:3.4vw;font-weight:700;letter-spacing:.02em;mix-blend-mode:normal}
+
+/* img_03 — narrow vertical brush mark on the left */
+.or-canvas .img_03{left:0;top:20.09vw;width:6.64vw;height:45.85vw}
 .or-canvas .img_03 img{width:100%}
-.or-canvas .img_04{right:0;top:15vw;width:42.84vw}
-.or-canvas .img_04 img{width:100%}
-.or-canvas .img_06{right:0;top:21vw;width:35vw}
-.or-canvas .img_07{right:0;top:74vw;width:60vw}
+
+/* img_04 — circular ink frame on the right (contains img_06 BJ40 SE car) */
+.or-canvas .img_04{left:57vw;top:15.07vw;width:43vw;height:59.45vw}
+.or-canvas .img_04 > img{width:100%;display:block}
+.or-canvas .img_04 .img_06{position:absolute;top:21.10vw;left:7.87vw;width:35.15vw;height:auto}
+
+/* Bullet rows — text in pure black, line-height 1.5 */
+.or-canvas .content_text{font-size:1.41vw;color:#000;line-height:1.5;font-weight:400}
+.or-canvas .content_text .img_05{position:absolute;width:9.76vw;height:auto;top:3.51vw;right:-9.76vw;transform:translate(9.76vw,-4.98vw);pointer-events:none}
+.or-canvas .text_1{top:28.12vw;left:7.03vw;width:40.18vw;height:7.03vw}
+.or-canvas .text_2{top:41.18vw;left:7.03vw;width:30.13vw;height:7.03vw}
+.or-canvas .text_3{top:56.25vw;left:7.03vw;width:36.16vw;height:9.14vw}
+
+/* img_07 — engineering hero photo on the right */
+.or-canvas .img_07{left:49.33vw;top:74.33vw;width:50.69vw;height:21.04vw}
 .or-canvas .img_07 img{width:100%}
-.or-canvas .img_08{left:0;top:85vw;width:44.68vw}
-.or-canvas .img_08 img{width:100%}
-.or-canvas .img_09{right:0;top:88vw;width:50.8vw}
-.or-canvas .img_010{right:0;top:121vw;width:55vw}
-.or-canvas .img_010 img.img_10_1{width:100%}
-.or-canvas .img_012{position:absolute;left:0;top:10%;width:50.468vw}
-.or-canvas .img_015{left:0;top:130vw;width:101vw}
-.or-canvas .img_015 img{width:100%}
-.or-canvas .img_011{left:0;top:212vw;width:100vw}
-.or-canvas .img_011 img{width:100%}
 
-/* Black panel containing 013 jpg + title_3 + text_8 + 014 mirror */
-.or-canvas .img_013{background:#000;height:62vw;left:0;top:221vw;width:100%}
-.or-canvas .img_013 .img_013_1{position:absolute;top:0;left:0;width:100vw;height:51.5625vw;object-fit:cover}
-.or-canvas .img_013 .img_014{position:absolute;bottom:-7vw;left:0;width:50vw;transform:scaleX(-1)}
+/* Title 1 */
+.or-canvas .title_1{position:absolute;left:0;top:81.36vw;width:100%;height:6.78vw;line-height:6.78vw}
 
-/* Bullet text + icon rows */
-.or-canvas .content_text{font-size:1.4vw;left:7vw;color:rgba(255,255,255,.65);line-height:1.7}
-.or-canvas .content_text .bullet-icon{display:inline-block;width:1.6vw;margin-right:.6vw;vertical-align:middle}
-.or-canvas .text_1{top:28vw;width:40vw}
-.or-canvas .text_2{top:41vw;width:30vw}
-.or-canvas .text_3{top:56vw;width:36vw}
-.or-canvas .text_4{left:42vw;max-width:50vw;top:98vw}
-.or-canvas .text_5{left:42vw;max-width:50vw;top:108vw}
-.or-canvas .text_6{left:47vw;max-width:50vw;top:122vw}
-.or-canvas .text_7{left:7vw;max-width:60vw;top:197vw}
-.or-canvas .text_8{position:absolute;color:#fff;left:7vw;top:10vw;width:80vw;z-index:2}
+/* img_08 — engineering composition on left, with img_09 overlay */
+.or-canvas .img_08{left:0;top:85.37vw;width:44.88vw;height:67.86vw}
+.or-canvas .img_08 > img{width:100%;display:block}
+.or-canvas .img_08 .img_09{position:absolute;top:23.10vw;left:0;width:51.02vw;height:auto;max-width:none}
 
-/* Section titles — white with shadow for legibility on the dark composition */
-.or-canvas .title{color:#fff;font-size:4.5vw;font-weight:900;padding-left:7vw;text-align:left;width:100%;margin:0;text-shadow:0 2px 12px rgba(0,0,0,.7),0 0 2px rgba(0,0,0,.9);letter-spacing:.02em}
-.or-canvas .title_1{top:81vw}
-.or-canvas .title_2{top:180vw;width:68%}
-.or-canvas .title_3{position:absolute;left:7vw;top:0;padding:0;text-shadow:none}
+/* Engineering text — staircase pattern */
+.or-canvas .text_4{top:95.42vw;left:37.16vw;width:50.22vw;height:9.14vw}
+.or-canvas .text_5{top:107.47vw;left:42.18vw;width:50.22vw;height:9.14vw}
+.or-canvas .text_6{top:119.53vw;left:47.21vw;width:50.22vw;height:9.14vw}
 
-/* TIMELINE */
-.or-timeline{padding:80px 0 60px;background:#0a0a0a;overflow:hidden}
-.tl-wrap{max-width:1200px;margin:0 auto;padding:0 40px}
-.tl-years{display:flex;justify-content:center;gap:0;margin-bottom:40px;border-bottom:1px solid rgba(255,255,255,.08);overflow-x:auto;scrollbar-width:none}
+/* img_010 — cross-section red BJ40 (img_012 overlaid) */
+.or-canvas .img_010{left:58.44vw;top:121.55vw;width:41.58vw;height:89.18vw}
+.or-canvas .img_010 .img_10_1{width:100%;display:block}
+.or-canvas .img_010 .img_012{position:absolute;top:17.84vw;left:-9.11vw;width:50.69vw;max-width:none}
+
+/* img_015 — wide brushstroke band */
+.or-canvas .img_015{left:0;top:130.58vw;width:101.45vw;height:46.16vw}
+.or-canvas .img_015 img{width:100%;height:100%;object-fit:cover}
+
+/* Title 2 */
+.or-canvas .title_2{position:absolute;left:0;top:184.81vw;width:100%;height:6.78vw;line-height:6.78vw}
+
+/* Production text */
+.or-canvas .text_7{top:197.87vw;left:7.03vw;width:60.26vw;height:9.14vw}
+
+/* img_011 — full-width factory image */
+.or-canvas .img_011{left:0;top:212.93vw;width:101.45vw;height:21.85vw}
+.or-canvas .img_011 img{width:100%;height:100%;object-fit:cover}
+
+/* Section titles — pure black, 4.52vw, font-weight 900, padding-left 7vw */
+.or-canvas .title{color:#000;font-size:4.52vw;font-weight:900;padding:0 0 0 7.03vw;text-align:left;width:100%;margin:0;letter-spacing:normal}
+
+/* Black panel — img_013 has no bg color; the dark mood comes from img_013_1 + img_014 */
+.or-canvas .img_013{left:0;top:221.97vw;width:100%;height:62.27vw;color:#fff}
+.or-canvas .img_013 .img_013_1{position:absolute;top:0;left:0;width:100.42vw;height:51.79vw;object-fit:cover;z-index:0}
+.or-canvas .img_013 .img_014{position:absolute;top:37.71vw;left:0;width:100%;height:21.55vw;transform:scaleX(-1);object-fit:cover;z-index:1}
+.or-canvas .img_013 .title_3{position:absolute;left:7.03vw;top:6vw;padding:0;color:#fff;width:auto;height:auto;line-height:1;font-size:4.52vw;font-weight:900;text-shadow:none;z-index:3}
+.or-canvas .img_013 .text_8{position:absolute;left:7.03vw;top:18vw;width:80vw;color:#fff;font-size:1.41vw;line-height:1.6;z-index:3}
+
+/* SCROLL REVEAL — direct children of .or-canvas only */
+.or-canvas > .img_01,.or-canvas > .img_02,.or-canvas > .img_03,
+.or-canvas > .img_07,.or-canvas > .img_08,.or-canvas > .img_010,
+.or-canvas > .img_011,.or-canvas > .img_015{
+  opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease;will-change:opacity,transform;
+}
+.or-canvas > .img_04{opacity:0;transform:translateX(60px);transition:opacity .9s ease,transform .9s ease}
+.or-canvas > .img_03,.or-canvas > .img_08{transform:translateX(-60px)}
+.or-canvas > .content_text,.or-canvas > .title{
+  opacity:0;transform:translateY(20px);transition:opacity .8s ease .15s,transform .8s ease .15s;
+}
+.or-canvas > .text_1,.or-canvas > .text_2,.or-canvas > .text_3{transform:translateX(-30px)}
+.or-canvas > .text_4,.or-canvas > .text_5,.or-canvas > .text_6{transform:translateX(30px)}
+.or-canvas > .is-visible{opacity:1 !important;transform:translate(0,0) !important}
+.or-canvas > .img_013{opacity:1;transform:none}
+
+/* TIMELINE — light section, large image, prominent tabs, side arrows */
+.or-timeline{padding:60px 0 80px;background:#fff;color:#000;overflow:hidden}
+.tl-container{position:relative;max-width:1200px;margin:0 auto;padding:0 80px}
+.tl-arrow{position:absolute;top:30%;transform:translateY(-50%);width:36px;height:36px;display:flex;align-items:center;justify-content:center;background:none;border:none;cursor:pointer;color:#9a9a9a;font-size:32px;font-weight:300;transition:color .3s;z-index:5;line-height:1}
+.tl-arrow:hover{color:#000}
+.tl-prev{left:20px}
+.tl-next{right:20px}
+.tl-image-wrap{width:100%;max-width:840px;margin:0 auto;aspect-ratio:840/520;overflow:hidden;background:#f0f0f0}
+.tl-image-wrap img{width:100%;height:100%;object-fit:cover;transition:opacity .4s ease}
+.tl-years{display:flex;justify-content:flex-start;gap:0;margin:32px auto 28px;max-width:840px;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
 .tl-years::-webkit-scrollbar{display:none}
-.tl-year-btn{padding:12px 18px;font-size:12px;letter-spacing:1px;color:rgba(255,255,255,.3);cursor:pointer;border:none;border-bottom:2px solid transparent;background:none;font-family:inherit;transition:all .3s;white-space:nowrap}
-.tl-year-btn:hover,.tl-year-btn.active{color:#fff;border-bottom-color:#fff}
-.tl-cards{display:flex;gap:0;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-.tl-cards::-webkit-scrollbar{display:none}
-.tl-card{flex:0 0 280px;scroll-snap-align:start;padding:0 8px;display:flex;flex-direction:column;align-items:center;opacity:.5;transition:opacity .4s;cursor:pointer}
-.tl-card.active{opacity:1}
-.tl-card-img{width:260px;height:170px;overflow:hidden;border-radius:4px;margin-bottom:16px;background:#111}
-.tl-card-img img{width:100%;height:100%;object-fit:cover}
-.tl-card-year{font-size:14px;font-weight:600;letter-spacing:1px;margin-bottom:10px;color:rgba(255,255,255,.6)}
-.tl-card.active .tl-card-year{color:#fff}
-.tl-desc{max-width:800px;margin:0 auto;text-align:center;min-height:120px;transition:opacity .3s}
-.tl-desc p{font-size:13px;line-height:2;color:rgba(255,255,255,.4);letter-spacing:.3px}
+.tl-year-btn{padding:6px 14px;font-size:18px;font-weight:600;letter-spacing:.5px;color:#a0a0a0;cursor:pointer;border:none;background:none;font-family:inherit;transition:color .25s;white-space:nowrap;position:relative}
+.tl-year-btn:first-child{padding-left:0}
+.tl-year-btn:hover{color:#000}
+.tl-year-btn.active{color:#d1291a}
+.tl-year-btn.active::after{content:'';position:absolute;left:0;right:14px;bottom:-2px;height:2px;background:#d1291a}
+.tl-year-btn:first-child.active::after{left:0}
+.tl-desc{max-width:840px;margin:0 auto;text-align:justify;min-height:120px;transition:opacity .3s}
+.tl-desc p{font-size:18px;line-height:1.7;color:#333;letter-spacing:0;margin:0}
 
 /* RESPONSIVE — under 992px stack everything vertically */
 @media(max-width:991px){
   .or-hero h1{font-size:13vw;font-weight:900;color:#fff;text-shadow:0 2px 8px rgba(0,0,0,.5);bottom:auto;top:8vw;right:auto;left:0;width:100%;text-align:center}
-  .or-canvas{height:auto;display:flex;flex-direction:column}
-  .or-canvas>div,.or-canvas>img{position:relative;left:auto !important;right:auto !important;top:auto !important;width:100% !important;max-width:100% !important;margin:0 0 4vw}
-  .or-canvas img{width:100% !important;height:auto}
-  .or-canvas .content_text{font-size:14px;padding:0 6vw}
-  .or-canvas .title{font-size:7vw;padding:6vw}
-  .or-canvas .img_013{height:auto;padding:8vw 6vw 30vw;background:#000}
+  .or-canvas{height:auto;display:flex;flex-direction:column;padding:6vw 0;mix-blend-mode:normal}
+  .or-canvas>*{position:relative;left:auto !important;right:auto !important;top:auto !important;width:100% !important;max-width:100% !important;height:auto !important;margin:0 0 4vw;transform:none !important}
+  .or-canvas img{width:100% !important;height:auto;max-width:100%}
+  .or-canvas .img_02{mix-blend-mode:normal}
+  .or-canvas .img_02 .title_1_p{position:relative;font-size:7vw;color:#0a0a0a;text-shadow:none}
+  .or-canvas .content_text{font-size:14px;padding:0 6vw;line-height:1.7}
+  .or-canvas .content_text .img_05{display:none}
+  .or-canvas .title{font-size:7vw;padding:6vw;line-height:1.2;height:auto}
+  .or-canvas .img_013{height:auto;padding:8vw 6vw 30vw;color:#fff;background:#000}
   .or-canvas .img_013 .img_013_1{position:relative;height:auto;width:100%;margin-top:8vw}
   .or-canvas .img_013 .img_014{display:none}
-  .or-canvas .img_012{position:relative;width:100% !important}
-  .or-canvas .text_8{position:relative;top:auto;left:auto;width:100%;padding:0 6vw}
-  .tl-card{flex:0 0 240px}
+  .or-canvas .img_013 .title_3,.or-canvas .img_013 .text_8{position:relative;left:auto;top:auto;width:100%;padding:0 6vw;font-size:6vw}
+  .or-canvas .img_013 .text_8{font-size:14px}
+  .or-canvas .img_04 .img_06,.or-canvas .img_08 .img_09,.or-canvas .img_010 .img_012{position:relative;width:100% !important;left:auto !important;top:auto !important}
+  .tl-container{padding:0 20px}
+  .tl-arrow{display:none}
+  .tl-image-wrap{aspect-ratio:16/10}
+  .tl-year-btn{font-size:14px;padding:6px 10px}
+  .tl-desc p{font-size:14px;line-height:1.7}
 }

@@ -81,7 +81,12 @@
       "Bash(curl -sk -o /dev/null -w \"%{http_code}\" https://localhost:7136/)",
       "Bash(curl -sk \"https://www.baicglobal.com/news/baicInX?id=89\" -o /c/temp/baicInX_en.html)",
       "Bash(curl -sk \"https://www.baicglobal.com/ar/news/baicInX?id=89\" -o /c/temp/baicInX_ar.html)",
-      "PowerShell($p = Get-Process | Where-Object { $_.ProcessName -eq 'BAIC.Web' }; if \\($p\\) { Stop-Process -Id $p.Id -Force; Start-Sleep -Seconds 1; \"stopped\" } else { \"no proc\" })"
+      "PowerShell($p = Get-Process | Where-Object { $_.ProcessName -eq 'BAIC.Web' }; if \\($p\\) { Stop-Process -Id $p.Id -Force; Start-Sleep -Seconds 1; \"stopped\" } else { \"no proc\" })",
+      "Bash(curl -sk -o /dev/null -w \"%{http_code}\" https://localhost:7136/About/ResearchDevelopment)",
+      "Bash(curl -sk -o /dev/null -w \"%{http_code}\" https://localhost:7136/Innovation/ConceptCar2026)",
+      "Bash(curl -sk -f -o __TRACKED_VAR__.webp https://www.baicglobal.com/file/public/static/aboutUs/history/__TRACKED_VAR__.webp)",
+      "Bash(curl -sk -o /dev/null -w \"%{http_code}\" https://localhost:7136/About/History)",
+      "Bash(curl -L -A \"Mozilla/5.0 \\(Windows NT 10.0; Win64; x64\\) AppleWebKit/537.36\" -o \"wwwroot/images/baicglobal/_nuxt/car-bg.avif\" \"https://www.baicglobal.com/_nuxt/car-bg.CZIlNmpC.avif\")"
     ]
   }
 }

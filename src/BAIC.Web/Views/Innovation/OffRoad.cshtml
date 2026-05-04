@@ -16,23 +16,35 @@
 <!-- LAYERED COMPOSITION (mirrors original Nuxt center_box) -->
 <section class="or-canvas">
 
-  <!-- Brushstroke + car comp -->
-  <div class="img_02"><img src="~/images/baicglobal/_nuxt/002.UedxcHu2.png" alt=""></div>
-  <div class="img_03"><img src="~/images/baicglobal/_nuxt/003.Cc2PLlew.png" alt=""></div>
-  <div class="img_04"><img src="~/images/baicglobal/_nuxt/004.BbmKtSCA.png" alt=""></div>
-  <img class="img_06" src="~/images/baicglobal/_nuxt/006.DFcxStcK.png" alt="">
+  <!-- Background row -->
+  <div class="img_01"><img src="~/images/baicglobal/_nuxt/001.CRNebkBa.png" alt=""></div>
 
-  <!-- 3 bullet rows over the comp -->
+  <!-- Top brushstroke band with overlaid section heading -->
+  <div class="img_02">
+    <img src="~/images/baicglobal/_nuxt/002.UedxcHu2.png" alt="">
+    <p class="title title_1_p" data-i18n="offroad.vehicleIntegration">Vehicle Integration Capability</p>
+  </div>
+
+  <!-- Narrow vertical decoration on left -->
+  <div class="img_03"><img src="~/images/baicglobal/_nuxt/003.Cc2PLlew.png" alt=""></div>
+
+  <!-- Circular ink frame containing the BJ40 SE car (img_06 nested inside) -->
+  <div class="img_04">
+    <img src="~/images/baicglobal/_nuxt/004.BbmKtSCA.png" alt="">
+    <img class="img_06" src="~/images/baicglobal/_nuxt/006.DFcxStcK.png" alt="">
+  </div>
+
+  <!-- 3 bullet rows -->
   <div class="text_1 content_text">
-    <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
+    <img class="img_05" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
     <span data-i18n="offroad.bullet1">Comprehensive application of computer-aided development methods;</span>
   </div>
   <div class="text_2 content_text">
-    <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
+    <img class="img_05" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
     <span data-i18n="offroad.bullet2">In-depth integration of simulation analysis with design and experimental verification;</span>
   </div>
   <div class="text_3 content_text">
-    <img class="bullet-icon" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
+    <img class="img_05" src="~/images/baicglobal/_nuxt/005.KsEu9dks.png" alt="">
     <span data-i18n="offroad.bullet3">The integration of the system such as component level, system level, and vehicle level is a comprehensive integration of virtual and reality.</span>
   </div>
 
@@ -42,9 +54,11 @@
   <!-- Section title 1 -->
   <h3 class="title title_1" data-i18n="offroad.engVerification">Engineering Verification Ability</h3>
 
-  <!-- Engineering composition -->
-  <div class="img_08"><img src="~/images/baicglobal/_nuxt/008.Bwps3Tud.png" alt=""></div>
-  <img class="img_09" src="~/images/baicglobal/_nuxt/009.DJTwHOKV.png" alt="">
+  <!-- Engineering composition (img_09 nested inside img_08) -->
+  <div class="img_08">
+    <img src="~/images/baicglobal/_nuxt/008.Bwps3Tud.png" alt="">
+    <img class="img_09" src="~/images/baicglobal/_nuxt/009.DJTwHOKV.png" alt="">
+  </div>
 
   <!-- Engineering bullet text -->
   <div class="text_4 content_text" data-i18n="offroad.engText1">
@@ -90,8 +104,15 @@
 
 <!-- HISTORY TIMELINE -->
 <section class="or-timeline">
-  <div class="tl-wrap">
-    <div class="tl-years">
+  <div class="tl-container">
+    <button class="tl-arrow tl-prev" aria-label="Previous" onclick="tlNav(-1)">&#10094;</button>
+    <button class="tl-arrow tl-next" aria-label="Next" onclick="tlNav(1)">&#10095;</button>
+
+    <div class="tl-image-wrap">
+      <img id="tlImage" src="~/images/baicglobal/file/public/static/offRoad/assets/pc/01.jpg" alt="">
+    </div>
+
+    <div class="tl-years" id="tlYears">
       <button class="tl-year-btn active" data-idx="0">1960-1963</button>
       <button class="tl-year-btn" data-idx="1">1966</button>
       <button class="tl-year-btn" data-idx="2">1974</button>
@@ -101,31 +122,62 @@
       <button class="tl-year-btn" data-idx="6">2009</button>
       <button class="tl-year-btn" data-idx="7">2013</button>
       <button class="tl-year-btn" data-idx="8">2015</button>
-      <button class="tl-year-btn" data-idx="9" data-i18n="offroad.today">Today</button>
+      <button class="tl-year-btn" data-idx="9">2020</button>
+      <button class="tl-year-btn" data-idx="10">2025</button>
+      <button class="tl-year-btn" data-idx="11" data-i18n="offroad.today">Today</button>
     </div>
 
-    <div class="tl-cards" id="tlCards">
-      <div class="tl-card active" data-idx="0"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/01.jpg" alt="1960"></div><div class="tl-card-year">1960-1963</div></div>
-      <div class="tl-card" data-idx="1"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/02.jpg" alt="1966"></div><div class="tl-card-year">1966</div></div>
-      <div class="tl-card" data-idx="2"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/03.jpg" alt="1974"></div><div class="tl-card-year">1974</div></div>
-      <div class="tl-card" data-idx="3"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/04.jpg" alt="1999"></div><div class="tl-card-year">1999</div></div>
-      <div class="tl-card" data-idx="4"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/05.jpg" alt="2002"></div><div class="tl-card-year">2002</div></div>
-      <div class="tl-card" data-idx="5"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/06.jpg" alt="2008"></div><div class="tl-card-year">2008</div></div>
-      <div class="tl-card" data-idx="6"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/07.jpg" alt="2009"></div><div class="tl-card-year">2009</div></div>
-      <div class="tl-card" data-idx="7"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/08.jpg" alt="2013"></div><div class="tl-card-year">2013</div></div>
-      <div class="tl-card" data-idx="8"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/09.jpg" alt="2015"></div><div class="tl-card-year">2015</div></div>
-      <div class="tl-card" data-idx="9"><div class="tl-card-img"><img src="~/images/baicglobal/file/public/static/offRoad/assets/pc/010.jpg" alt="Today"></div><div class="tl-card-year" data-i18n="offroad.today">Today</div></div>
-    </div>
-
-    <div class="tl-desc" id="tlDesc">
-      <p>In December 1960, the Headquarters of the General Staff reported to the State Council, proposing the production of the off-road vehicle (ORV) at the BAW. From 1961, BAW successively developed off-road vehicle models such as BJ210, BJ211, and BJ212. In March 1963, the BJ210C light off-road vehicle passed the technical appraisal organized by the First Ministry of Machine Industry of the PRC and was named the "Beijing" brand.</p>
-    </div>
+    <div class="tl-desc" id="tlDesc"></div>
   </div>
 </section>
 
 @section Scripts {
 <script>
-const tlKeys = ['1960','1966','1974','1999','2002','2008','2009','2013','2015','today'];
+// Scroll-triggered reveal — fade/slide elements as they enter viewport
+(function(){
+  const targets = document.querySelectorAll('.or-canvas > *');
+  if (targets.length === 0) return;
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(el => el.classList.add('is-visible'));
+    return;
+  }
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('is-visible');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(el => io.observe(el));
+  // Fallback: reveal anything still hidden once the user has scrolled past it
+  // (covers the case where rapid scroll outpaces the observer or print/screenshot tools)
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      targets.forEach(el => {
+        const r = el.getBoundingClientRect();
+        if (r.top < window.innerHeight) el.classList.add('is-visible');
+      });
+    }, 60);
+  });
+})();
+
+const tlKeys = ['1960','1966','1974','1999','2002','2008','2009','2013','2015','2020','2025','today'];
+
+const tlImages = [
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/01.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/02.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/03.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/04.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/05.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/06.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/07.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/08.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/09.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/010.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/010.jpg',
+  '/images/baicglobal/file/public/static/offRoad/assets/pc/010.jpg'
+];
 
 const tlTextsEn = [
   `In December 1960, the Headquarters of the General Staff reported to the State Council, proposing the production of the off-road vehicle (ORV) at the BAW. From 1961, BAW successively developed off-road vehicle models such as BJ210, BJ211, and BJ212. In March 1963, the BJ210C light off-road vehicle passed the technical appraisal organized by the First Ministry of Machine Industry of the PRC and was named the "Beijing" brand.`,
@@ -137,6 +189,8 @@ const tlTextsEn = [
   `On October 1, 2009, during the 60th National Day Parade, "Beijing Warrior" served as the leading and cannon-towing vehicle, undergoing inspection. In the same year, "Warrior" won the first prize in the Chinese automotive industry's technological progress; the development of the Beijing Warrior Improved Model BJ80 began.`,
   `In 2013, the modern BAIC off-road vehicle production base was established, and the professional BAIC off-road vehicle R&D team was officially formed. The first civilian off-road vehicle, "BJ40," was launched at the Water Cube.`,
   `In September 2015, during the "Parade in Commemoration of the 70th Anniversary of the Victory of the Chinese People's War of Resistance Against Japanese Aggression and World Anti-Fascist War," BJ40 was selected as the exclusive designated vehicle for the parade's cannon towing. At the end of the year, after completing 581 cumulative reliability tests covering the entire region (with a total mileage of 2.77 million kilometers), all weather conditions, and all road conditions, the improved Warrior BJ80 was officially put into production and successfully deployed.`,
+  `In 2020, BAIC continued to expand its off-road vehicle line-up and global presence, strengthening export markets across the Middle East, Africa, and Latin America.`,
+  `In 2025, BAIC unveiled new off-road platforms with advanced electrification options, building on five decades of off-road heritage.`,
   `Originating from the battlefield, and reaching into daily life, Beijing Off-Road maintains the original intention and glory passed down from BJ212, adhering to the ultimate ORV quality. With high-reliability standards designed for challenging conditions on the test field, the average failure interval mileage is 4500 kilometers. The high-reliability indicators help users improve efficiency and reduce costs.`
 ];
 
@@ -152,16 +206,21 @@ function getTlText(idx) {
 
 let currentTlIdx = 0;
 function setActiveTimeline(idx) {
+  if (idx < 0) idx = tlKeys.length - 1;
+  if (idx >= tlKeys.length) idx = 0;
   currentTlIdx = idx;
   document.querySelectorAll('.tl-year-btn').forEach(b => {
     b.classList.toggle('active', parseInt(b.dataset.idx) === idx);
   });
-  document.querySelectorAll('.tl-card').forEach(c => {
-    c.classList.toggle('active', parseInt(c.dataset.idx) === idx);
-  });
+  const tlImage = document.getElementById('tlImage');
+  if (tlImage && tlImages[idx]) tlImage.src = tlImages[idx];
   document.getElementById('tlDesc').innerHTML = `<p>${getTlText(idx)}</p>`;
-  const card = document.querySelector(`.tl-card[data-idx="${idx}"]`);
-  if (card) card.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+  const activeBtn = document.querySelector(`.tl-year-btn[data-idx="${idx}"]`);
+  if (activeBtn) activeBtn.scrollIntoView({ behavior: 'smooth', inline: 'center', block: 'nearest' });
+}
+
+function tlNav(delta) {
+  setActiveTimeline(currentTlIdx + delta);
 }
 
 document.querySelectorAll('.tl-year-btn').forEach(btn => {
